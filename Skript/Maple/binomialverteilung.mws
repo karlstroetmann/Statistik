@@ -1,0 +1,379 @@
+{VERSION 5 0 "IBM INTEL NT" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 1 10 255 0 0 1 0 1 0 
+0 1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 
+0 0 0 1 }{CSTYLE "Hyperlink" -1 17 "" 0 1 0 128 128 1 2 0 1 0 0 0 0 0 
+0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Helvetica" 1 12 0 0 0 1 2 2 
+2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Text Output" 
+-1 2 1 {CSTYLE "" -1 -1 "Courier" 1 10 0 0 255 1 0 0 0 0 0 1 3 0 3 0 }
+1 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Heading 1" -1 3 1 {CSTYLE "
+" -1 -1 "Helvetica" 1 18 0 0 255 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 0 6 6 1 
+0 1 0 2 2 0 1 }{PSTYLE "" 2 6 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 
+0 0 0 2 0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output
+" -1 11 1 {CSTYLE "" -1 -1 "Helvetica" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 
+1 }3 3 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "" 11 12 1 {CSTYLE "" -1 -1 "
+" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }1 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }
+{PSTYLE "Title" -1 18 1 {CSTYLE "" -1 -1 "Helvetica" 1 18 0 0 0 1 2 1 
+1 2 2 2 1 1 1 1 }3 1 0 0 12 12 1 0 1 0 2 2 19 1 }{PSTYLE "Author" -1 
+19 1 {CSTYLE "" -1 -1 "Helvetica" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 
+1 0 0 8 8 1 0 1 0 2 2 0 1 }{PSTYLE "R3 Font 0" -1 256 1 {CSTYLE "" -1 
+-1 "Courier" 1 12 0 0 0 1 2 1 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 
+2 0 1 }{PSTYLE "R3 Font 2" -1 257 1 {CSTYLE "" -1 -1 "Courier" 1 12 0 
+0 0 1 2 2 2 2 2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Norma
+l" -1 258 1 {CSTYLE "" -1 -1 "Helvetica" 1 12 0 0 0 1 2 1 2 2 2 2 1 1 
+1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "" 0 259 1 {CSTYLE "" -1 -1 
+"" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }
+{PSTYLE "" 0 260 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 
+0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "" 0 261 1 {CSTYLE "" -1 
+-1 "" 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 
+0 }}
+{SECT 0 {EXCHG {PARA 0 "" 0 "" {HYPERLNK 17 "Zur\374ck zum Inhaltsverz
+eichnis" 1 "inhalt.mws" "" }{TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 
+0 "" }}{PARA 3 "" 0 "" {TEXT -1 10 "Kapitel 35" }{MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 18 "" 0 "" {TEXT -1 0 "" }}{PARA 18 "" 0 "" {TEXT -1 18 "
+Binomialverteilung" }}{PARA 19 "" 0 "" {TEXT -1 23 "Gerhard Bitsch, 27
+.4.02" }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 260 "" 0 "" {TEXT -1 
+273 "Mit der derzeitigen Version von Maple 8 (Build ID 110847) laufen \+
+Maplets, die viele Elemente enthalten, nur mit hoher Bildschirmaufl
+\366sung (ab 1024x768) und maximiertem Fenster. Bei zu kleiner Aufl
+\366sung oder verkleinertem Fenster verschwinden unter Umst\344nden di
+e Textfelder." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" 
+{TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 8 "restart:" }}}{SECT 0 {PARA 3 "" 0 "" {TEXT -1 15 
+"Hilfsfunktionen" }}{PARA 0 "" 0 "" {TEXT -1 116 "Die folgende Sektion
+ stellt einige Hilfsfunktionen zur Behandlung binomialverteilter Zufal
+lsvariablen zur Verf\374gung." }}{PARA 0 "" 0 "" {TEXT -1 110 "Dies di
+ent zum einen einer gr\366\337eren Bequemlichkeit bei der Konstruktion
+ der folgenden Maplets, zum anderen hat" }}{PARA 0 "" 0 "" {TEXT -1 
+113 "das Package statsevalf bei den diskreten Wahrscheinlichkeitsverte
+ilungen einige Schw\344chen, die seinen Einsatz f\374r" }}{PARA 0 "" 
+0 "" {TEXT -1 123 "unsere Zwecke nicht ohne weiteres m\366glich machen
+. Insbesondere die Inversen der kumulativen diskreten Verteilungsfunkt
+ionen" }}{PARA 0 "" 0 "" {TEXT -1 31 "werden nicht korrekt berechnet.
+" }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 130 "Alle
+ neu definierten Funktionen werden in einem Modul zusammengefasst (die
+ser k\366nnte nat\374rlich in der Library gespeichert werden)." }}
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+180 "binvert:= module()\n   #local licbin,ricbin;\n   export bin,cbin,
+intbin,icbin,mubin,varbin,sigmabin,lkonfbin,rkonfbin,konfbin,histbin,h
+istkonf2,histpart,w2sigbin,licbin,ricbin,guete;" }}{PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 116 "\n# Einzelwerte einer B(n,p)-verteilten Variable\nbi
+n:=proc(n,p,k)\n   stats[statevalf,pf,binomiald[n,p]](k);\nend proc:" 
+}}{PARA 0 "> " 0 "" {MPLTEXT 1 0 268 "\n# kumulative Verteilungsfunkti
+on\ncbin:=proc(n,p,k)\n   # stats[statevalf,dcdf,binomiald[n,p]](k);\n
+   #funktioniert nicht f\374r gro\337es n (Digits mu\337 sonst je nach
+ n vergr\366\337ert werden)\n   local i;\n   sum(bin(n,p,i),i=0..k);\n
+end proc:\n\n# Wahrscheinlichkeit eines Intervalls" }}{PARA 0 "> " 0 "
+" {MPLTEXT 1 0 601 "intbin:=proc(n,p,ug,og)\n   sum(bin(n,p,x),x=ug..o
+g)\nend proc:\n\n# die inverse kumulative Verteilungsfunktion (mit idc
+df) funktioniert nur f\374r kleines n, also:\n# Inverse der kumulative
+n Funktion (von links summiert)\nlicbin:=proc(n,p,prozent)\n local i,e
+rg;\n erg:=0;\n i:=0;\n while erg<=prozent do\n  erg:=erg+stats[statev
+alf,pf,binomiald[n,p]](i);\n  i:=i+1;\n end do;\n i-2;\n end proc:\n\n
+# Inverse der kumulativen Funktion (von rechts summiert)\n\nricbin:=pr
+oc(n,p,prozent)\n local i,erg;\n erg:=0;\n i:=n;\n while erg<=prozent \+
+do\n  erg:=erg+stats[statevalf,pf,binomiald[n,p]](i);\n  i:=i-1;\n end
+ do;\n i;\n end proc:\n" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 2359 "# Inve
+rse der kumulativen Funktion (allgemein, mit etwas Heuristik)\n\nicbin
+:=proc(n,p,prozent)\n # stats[statevalf,idcdf,binomiald[n,p]](prozent)
+;\n # funktioniert nicht f\374r gro\337e n\n if (p>0.8) then\n   ricbi
+n(n,p,1-prozent);\n elif (p<0.2) then\n   licbin(n,p,prozent);\n elif \+
+(prozent<0.5) then\n   licbin(n,p,prozent);\n else\n   ricbin(n,p,1-pr
+ozent);\n end if;\nend proc:\n\n# Erwartungswert\nmubin:=(n,p)->n*p;\n
+\n# Varianz\nvarbin:=(n,p)->n*p*(1-p);\n\n# Standardabweichung\nsigmab
+in:=(n,p)->sqrt(n*p*(1-p));\n\n# Konfidenzintervalle f\374r rechtsseit
+ige Tests\nrkonfbin:=proc(n,p,niveau)\n  local og;\n  og:=icbin(n,p,ni
+veau)+1;\n  [og,n,cbin(n,p,og-1)];\nend proc:\n\n# Konfidenzintervalle
+ f\374r linksseitige Tests\nlkonfbin:=proc(n,p,niveau)\n  local ug;\n \+
+ ug:=icbin(n,p,1-niveau)+1;\n  [0,ug,1-cbin(n,p,ug)];\nend proc:\n\n# \+
+Konfidenzintervalle f\374r beidseitige Tests\nkonfbin:=proc(n,p,niveau
+)\n   local ug,og;\n   ug:=icbin(n,p,niveau/2)+1;\n   og:=icbin(n,p,1-
+niveau/2)+1;\n   [ug,og,1-intbin(n,p,ug,og)];\nend proc:\n\n# partiell
+es Histogramm\nhistpart:=proc(n,p,ug,og)\n  local opt,j,i;\n  opt:=seq
+(args[j],j=5..nargs);\n  stats[statplots,histogram]([seq(Weight(i-0.5.
+.i+0.5,bin(n,p,i)),i=ug..og)],opt):\nend:\n\n# vollst\344ndiges Histog
+ramm f\374r Konfidenzintervalle\nhistkonf2:=proc(n,p,ug,og)\n  local o
+pt,h1,h2,h3;\n  opt:=seq(args[j],j=5..nargs);\n  if (ug>0) and (og<n) \+
+then\n    h1:=histpart(n,p,0,ug-1,color=red);\n    h2:=histpart(n,p,ug
+,og,color=green);\n    h3:=histpart(n,p,og+1,n,color=red);\n    plots[
+display]([h1,h2,h3],opt);\n  elif ug=0 then\n    h2:=histpart(n,p,ug,o
+g,color=green);\n    h3:=histpart(n,p,og+1,n,color=red);\n    plots[di
+splay]([h2,h3],opt);\n  else\n    h1:=histpart(n,p,0,ug-1,color=red);
+\n    h2:=histpart(n,p,ug,og,color=green);\n    plots[display]([h1,h2]
+,opt);\n  end if;\nend proc:\n    \n# vollst\344ndiges Histogramm\nhis
+tbin:=proc(n,p)\n  local opt;\n  opt:=seq(args[j],j=3..nargs);\n  hist
+part(n,p,0,n,opt);\nend proc:\n\n# Wahrscheinlichkeit eines 2-sigma-In
+tervalls\nw2sigbin:=proc(n,p)\n  local li,re,mu1,zsig;\n  mu1:=mubin(n
+,p);\n  zsig:=2*sigmabin(n,p);\n  re:=max(0,floor(mu1-zsig));\n  li:=m
+in(n,ceil(mu1+zsig));\n  [re..li,intbin(n,p,re,li)];\nend proc:\n\n# g
+\374tefunktion f\374r ein Konfidenzintervall\n# (eine Funktion, die f
+\374r jedes p bei vorgegebenem n \n# die Wahrscheinlichkeit f\374r ein
+ Ergebnis im\n# gegebenen Intervall berechnet)\nguete:=proc(n,ug,og)\n
+ p->1-intbin(n,p,ug,og);\nend proc:\n  " }}{PARA 0 "> " 0 "" {MPLTEXT 
+1 0 11 "end module;" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>%(binvertG`63%
+$binG%%cbinG%'intbinG%&icbinG%&mubinG%'varbinG%)sigmabinG%)lkonfbinG%)
+rkonfbinG%(konfbinG%(histbinG%*histkonf2G%)histpartG%)w2sigbinG%'licbi
+nG%'ricbinG%&gueteGb6#%+thismoduleG6\"F;63%$binG%%cbinG%'intbinG%&icbi
+nG%&mubinG%'varbinG%)sigmabinG%)lkonfbinG%)rkonfbinG%(konfbinG%(histbi
+nG%*histkonf2G%)histpartG%)w2sigbinG%'licbinG%'ricbinG%&gueteGF;F;F;F;
+%+_m19611732G6\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "with(bi
+nvert);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#73%$binG%%cbinG%&gueteG%(hi
+stbinG%*histkonf2G%)histpartG%&icbinG%'intbinG%(konfbinG%'licbinG%)lko
+nfbinG%&mubinG%'ricbinG%)rkonfbinG%)sigmabinG%'varbinG%)w2sigbinG" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{SECT 0 {PARA 3 "" 0 "
+" {TEXT -1 59 "Ein Maplet f\374r animierte Histogramme der Binomialver
+teilung" }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 24 "with(Maplets[Elements]):" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 127 "Bedingt durch einige seltsame Effekte bei der Benutzerf
+\374hrung und der Ansteuerung von Elementen sind hier einige Tricks n
+\366tig, " }}{PARA 0 "" 0 "" {TEXT -1 212 "um ein vern\374nftiges Funk
+tionieren des Maplets zu gew\344hrleisten.\nInsbesondere ist es l\344s
+tig, dass Textfelder das onchange-Ereignis nur ausl\366sen, wenn sie d
+en Focus verlieren. Dr\374ckt man nach \304nderung eines solchen" }}
+{PARA 0 "" 0 "" {TEXT -1 121 "Feldes die Eingabetaste, so wird das onc
+lick-Ereignis des zuletzt benutzten Buttons (bzw des Default-Buttons) \+
+ausgel\366st. " }}{PARA 0 "" 0 "" {TEXT -1 147 "Das folgende Maplet um
+geht dieses Problem durch einen unsichtbaren Default-Button 'DUMMY', d
+essen onclick-Ereignis ein Update des Fensters ausl\366st." }}{PARA 0 
+"" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 125 "Das folgende Map
+let stellt die Histogramme der Verteilungsfunktion einer B(n,p)-vertei
+lten Zufallsvariablen dar. dabei k\366nnen" }}{PARA 0 "" 0 "" {TEXT 
+-1 114 "interaktiv n und p (p auch mit einem Schieberegler) verstellt \+
+werden. Auch die Dimensionierung des Zeichenbereichs" }}{PARA 0 "" 0 "
+" {TEXT -1 33 "kann interaktiv ver\344ndert werden." }}{PARA 0 "" 0 "
+" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 112 "Das Maplet ist in eine
+r es startenden Funktion gekapselt. Durch diese Kapselung ist es m\366
+glich, lokale Variablen" }}{PARA 0 "" 0 "" {TEXT -1 56 "und Funktionen
+ zur Steuerung des Maplets zu definieren. " }}{PARA 0 "" 0 "" {TEXT 
+-1 97 "n und p k\366nnen zum Star der Funktion als Parameter eingegebe
+n werden. Unterbleibt dies, so werden" }}{PARA 0 "" 0 "" {TEXT -1 99 "
+als Standard n=50 und p=0.5 gew\344hlt. Der Zerichenbereich kann ebenf
+alls als Parameter (diese m\374ssen" }}{PARA 0 "" 0 "" {TEXT -1 65 "Be
+reiche sein) eingegeben werden. Fehler werden nicht abgefangen." }}
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 122 "schieber
+1update verwendet die Funktionen  Maplets:-Tools:-Set und Maplets:-Too
+ls:-Get, mit denen die Inhalte von Elementen" }}{PARA 0 "" 0 "" {TEXT 
+-1 100 "eines laufenden Maplets ver\344ndert bzw. gelesen werden k\366
+nnen. Dazu muss diese Funktion im Maplet mit" }}{PARA 0 "" 0 "" {TEXT 
+-1 109 "Evaluate aufgerufen werden. schieber1update hat die Aufgabe, b
+ei einer direkten \304nderung des p-Feldes auf den" }}{PARA 0 "" 0 "" 
+{TEXT -1 110 "Schieberegler zu \374bertragen. Dies scheint mit einem A
+ction-Element nicht m\366glich zu sein, da der dezimale Wert" }}{PARA 
+0 "" 0 "" {TEXT -1 113 "des p-Feldes nicht direkt (im Action-Element) \+
+in einen ganzzahligen Wert umgerechnet werden kann. (Seltsamerweise" }
+}{PARA 0 "" 0 "" {TEXT -1 107 "k\366nnen Textfelder problemlos \374ber
+ ein Action -Element eingestellt werden. Daher ist auch f\374r das Upd
+ate des" }}{PARA 0 "" 0 "" {TEXT -1 57 "p-Feldes \374ber den Schieber \+
+keine externe Funktion n\366tig.)" }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}
+{PARA 0 "" 0 "" {TEXT -1 119 "Die Funktion bildset ist \344hnlich geba
+ut. Da in unterschiedlichen Action-Elementen ein Update des Maplets be
+n\366tigt wird," }}{PARA 0 "" 0 "" {TEXT -1 120 "ist es sinnvoll, dies
+es Update in eine Funktion auszulagern, die \374ber Evaluate aufgerufe
+n wird. Die Werte der ben\366tigten" }}{PARA 0 "" 0 "" {TEXT -1 114 "F
+elder k\366nnten auch mit  Maplets:-Tools:-Get (und parse) gelesen wer
+den, hier werden sie mit der Funktion Argument" }}{PARA 0 "" 0 "" 
+{TEXT -1 48 "innerhalb von Evaluate ausgelesen und \374bergeben." }}
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 116 "Der unsi
+chtbare Button \"Dummy\" wird als erster Knopf definiert und wird somi
+t zum Default-Knopf, der alle Bet\344tigung" }}{PARA 0 "" 0 "" {TEXT 
+-1 104 "der Eingabe-Taste abf\344ngt. Ohne diesen Knopf w\374rde jede \+
+Bet\344tigung der Eingabetaste zum Ende des Maplets" }}{PARA 0 "" 0 "
+" {TEXT -1 32 "(durch den Knopf \"Ende\") f\374hren." }}{PARA 0 "" 0 "
+" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 123 "Die Oberfl\344che des \+
+Maplets wird durch eine Kombination von Layout-Elementen gegliedert (B
+oxColumn, BoxRow, GridLayout ...)." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 3087 "anihisto:= proc()\n  loca
+l sb1,schieber1update,bildset,n,p,xb,yb;\n  if nargs>0 then\n     n:=a
+rgs[1];\n  else\n     n:=50;\n  end if;\n  if nargs>1 then\n     p:=ar
+gs[2];\n  else\n     p:=0.5;\n  end if;\n  if nargs>2 then\n     xb:=a
+rgs[3];\n  else\n     xb:=0..50;\n  end if;\n  if nargs>3 then\n     y
+b:=args[4];\n  else\n     yb:=0..0.4;\n  end if;\n\n  schieber1update:
+=proc()\n    Maplets:-Tools:-Set('psl'=trunc(parse(Maplets:-Tools:-Get
+('tp'))*1000));\n  end proc:\n  bildset:=proc(n,p,xb,yb)\n    Maplets:
+-Tools:-Set('E'=evalf(binvert:-mubin(n,p),5));\n    Maplets:-Tools:-Se
+t('V'=evalf(binvert:-varbin(n,p),5));\n    Maplets:-Tools:-Set('Sig'=e
+valf(binvert:-sigmabin(n,p),5));\n    Maplets:-Tools:-Set('PL1' = binv
+ert:-histbin(n,p,view=[xb,yb]));\n  end proc;   \n  sb1:=Maplet(Window
+('title'=\"Binomialverteilung\",\n     BoxColumn(\n        BoxRow('bor
+der'=true,'halign'=left,\n          GridLayout(GridRow(GridCell(\"Vers
+uchszahl n: \",'right'),\n                           GridCell(TextFiel
+d['tn'](convert(n,string),6,'onchange'='BILD','tooltip'=\"L\344nge der
+ Bernoulli-Kette eingeben\"),'left')),\n                   GridRow(Gri
+dCell(\"Trefferwahrscheinlichkeit p: \",'left'), \n                   \+
+        GridCell(TextField['tp'](convert(p,string),10,'onchange'='pcha
+nge'),'right'),\n                                                     \+
+ GridCell(Slider[psl](0..1000,trunc(1000*p),filled=true,majorticks=100
+,snapticks=true,minorticks=1,showticks=true,showlabels=false,'onchange
+'='SLM'))),\n                   GridRow(GridCell(\"Erwartungswert:\",'
+right'),\n                           GridCell(TextField['E'](convert(m
+ubin(n,p),string),10,editable=false),halign='right'),\n               \+
+            GridCell(\"Varianz:\",'left'),\n                          \+
+ GridCell(TextField['V'](convert(varbin(n,p),string),10,editable=false
+),halign='right'),\n                           GridCell(\"Standardabwe
+ichung:\",'left'),\n                           GridCell(TextField['Sig
+'](convert(evalf(sigmabin(n,p),5),string),10,editable=false),halign='r
+ight')\n                          ),\n                   GridRow(GridC
+ell(\"X-Bereich\",'left'),\n                           GridCell(TextFi
+eld['XB'](convert(xb,string),6,'onchange'='BILD'),'left'),\n          \+
+                 GridCell(\"Y-Bereich\",'right'),\n                   \+
+        GridCell(TextField['YB'](convert(yb,string),5,'onchange'='BILD
+'),'left')),\n                   GridRow(GridCell(Button(\"Dummy\",onc
+lick='pchange',visible=false)),\n                           GridCell(B
+utton(\"ENDE\",Shutdown())))\n                           \n\n         \+
+     )),\n       BoxRow('border'=true,Plotter[PL1](binvert:-histbin(n,
+p,view=[xb,yb]),'height'=500,'width'=500)))),\n   Action['pchange'](Ev
+aluate(function='schieber1update'),Evaluate(function='bildset',Argumen
+t('tn'),Argument('tp'),Argument('XB'),Argument('YB'))), \n   Action['S
+LM'](Evaluate('tp'='psl/1000.'),Evaluate(function='bildset',Argument('
+tn'),Argument('tp'),Argument('XB'),Argument('YB'))),  \n   Action['BIL
+D'](Evaluate(function='bildset',Argument('tn'),Argument('tp'),Argument
+('XB'),Argument('YB')))  \n    \n):\nMaplets:-Display(sb1);\nend proc:
+" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 6 "Aufruf" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 11 "anihi
+sto();" }}{PARA 6 "" 1 "" {TEXT -1 38 "Initializing Java runtime envir
+onment." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{SECT 0 {PARA 3 "" 0 "" {TEXT 
+-1 47 "Ein Maplet f\374r Tests mit der Binomialverteilung" }}{PARA 0 "
+" 0 "" {TEXT -1 0 "" }}{PARA 259 "" 0 "" {TEXT -1 273 "Mit der derzeit
+igen Version von Maple 8 (Build ID 110847) laufen Maplets, die viele E
+lemente enthalten, nur mit hoher Bildschirmaufl\366sung (ab 1024x768) \+
+und maximiertem Fenster. Bei zu kleiner Aufl\366sung oder verkleinerte
+m Fenster verschwinden unter Umst\344nden die Textfelder." }}{PARA 0 "
+" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "
+" {TEXT -1 116 "In diesem Maplet werden die Intervallgrenzen des Konfi
+denzintervalls f\374r Tests mit der Binomialverteilung berechnet." }}
+{PARA 0 "" 0 "" {TEXT -1 134 "In den entsprechenden Feldern kann die V
+ersuchsanzahl einer Bernoulli-Kette, die Trefferwahrscheinlichkeit (au
+ch \374ber einen Schieber) " }}{PARA 0 "" 0 "" {TEXT -1 112 "und das g
+ew\374nschte Signifikanzniveau eingegeben werden. F\374r die Darstellu
+ng kann wieder der x- und der y-Bereich" }}{PARA 0 "" 0 "" {TEXT -1 
+17 "angegeben werden." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 
+"" {TEXT -1 125 "Ob ein links-, rechts- oder beidseitioger Test durchg
+ef\374hrt werden soll, wird mit einer Gruppe von Radio-Buttons eingest
+ellt." }}{PARA 0 "" 0 "" {TEXT -1 103 "Dazu werden 3 Buttons in einer \+
+Gruppe zusammengefasst. Die Gruppendefinition muss am Anfang des Maple
+ts" }}{PARA 0 "" 0 "" {TEXT -1 69 "erfolgen. Die onchange-Einstellung \+
+ruft jeweils die Action  BILD auf." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}
+{PARA 0 "" 0 "" {TEXT -1 111 "Das Maplet berechnet aus den Angaben die
+ Grenzen des Konfidenzintervalls f\374r den gew\374nschten Test und ze
+igt die" }}{PARA 0 "" 0 "" {TEXT -1 110 "Ergebnisse (in blau unterlegt
+en Feldern) an. In einem Grafikfeld wird ein Histogramm der Verteilung
+ angezeigt." }}{PARA 0 "" 0 "" {TEXT -1 108 "Die zum Konfidenzinterval
+l geh\366rigen Balken werden gr\374n, die zum Ablehnungsbereich geh
+\366renden rot angezeigt." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "
+" 0 "" {TEXT -1 111 "Das zu diesem Konfidenzintervall geh\366rende wir
+kliche Signifikanzniveau wird ebenfalls berechnet und ausgegeben." }}
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 112 "\334ber \+
+eine Check-Box kann man bei der Darstellung vom Histogramm zur G\374te
+funktion des zugeh\366rigen Tests wechseln." }}{PARA 0 "" 0 "" {TEXT 
+-1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 116 "Wie beim vorigen Maplet sind d
+ie Eingabefelder standardm\344\337ig vorbelegt, k\366nnen aber auch du
+rch Angabe entsprechender" }}{PARA 0 "" 0 "" {TEXT -1 53 "Parameter be
+im Aufruf der Funktion festgelegt werden." }}{PARA 0 "" 0 "" {TEXT -1 
+0 "" }}{PARA 0 "" 0 "" {TEXT -1 138 "Die Bezeichnungsfelder des Maplet
+s sind (um ein einheitliches Aussehen zu erzielen) als Textfelder real
+isiert, die grau hinterlegt werden." }}{PARA 0 "" 0 "" {TEXT -1 64 "Di
+e Farben grau und Blau werden \374ber den COLOR-Befehl definiert." }}
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}{PARA 0 "" 0 "" {TEXT -1 118 "Die eige
+ntliche Arbeit ist in die Funktion bildset ausgelagert, die wieder reg
+en Gebrauch der  Tools-Funktionen macht," }}{PARA 0 "" 0 "" {TEXT -1 
+108 "um die Felder des Maplets zu belegen und zu lesen. Zu beachten is
+t, dass die Radiobutton-Group keine Methode" }}{PARA 0 "" 0 "" {TEXT 
+-1 129 "zur Verf\374gung stellt, um festzustellen, welcher Radiobutton
+ gew\344hlt ist. Deshalb werden alle Radiobuttons nacheinander abgefra
+gt." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 24 "with(Maplets[Elements]):" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 5488 "binomitest:= proc()\n  local sb1,schieber1update,
+bildset,n,p,xb,yb,alpha,konf,grau,blau,labelopt,textopt1;\n  if nargs>
+0 then\n     n:=args[1];\n  else\n     n:=50;\n  end if;\n  if nargs>1
+ then\n     p:=args[2];\n  else\n     p:=0.5;\n  end if;\n  if nargs>2
+ then\n     xb:=args[3];\n  else\n     xb:=0..50;\n  end if;\n  if nar
+gs>3 then\n     yb:=args[4];\n  else\n     yb:=0..0.4;\n  end if;\n  i
+f nargs>4 then\n     alpha:=args[5];\n  else\n     alpha:=0.05;\n  end
+ if;\n\n  konf:=binvert:-konfbin(n,p,alpha);\n  grau:=COLOR(RGB,212/25
+5,208/255,40/51);\n  blau:=COLOR(RGB,0,4/5,1);\n  labelopt:= editable=
+false,background=grau,halign='right';\n  textopt1:= editable=false,bac
+kground=blau,halign='right';\n\n  schieber1update:=proc()\n    Maplets
+:-Tools:-Set('psl'=trunc(parse(Maplets:-Tools:-Get('tp'))*1000));\n  e
+nd proc:\n\n  bildset:=proc(n,p,xb,yb,alpha)\n    local li,re,be,gu;\n
+    li:=Maplets:-Tools:-Get('LT');\n    re:=Maplets:-Tools:-Get('RT');
+\n    be:=Maplets:-Tools:-Get('BT');   \n    gu:=Maplets:-Tools:-Get('
+Guete'); \n    Maplets:-Tools:-Set('E'=evalf(binvert:-mubin(n,p),5));
+\n    Maplets:-Tools:-Set('V'=evalf(binvert:-varbin(n,p),5));\n    Map
+lets:-Tools:-Set('Sig'=evalf(binvert:-sigmabin(n,p),5));\n    if be th
+en\n      konf:=binvert:-konfbin(n,p,alpha);\n    elif re then\n      \+
+konf:=binvert:-rkonfbin(n,p,alpha);\n    else\n      konf:=binvert:-lk
+onfbin(n,p,alpha);\n    end if;\n    Maplets:-Tools:-Set('KI' = sprint
+f(\"%d..%d\",konf[1],konf[2]));\n    Maplets:-Tools:-Set('NIV' = sprin
+tf(\"%06.4f\",konf[3]));\n    if gu then\n       Maplets:-Tools:-Set('
+PL1'=plot(binvert:-guete(n,konf[1],konf[2]),0..1,0..1));\n    else\n  \+
+     Maplets:-Tools:-Set('PL1' = binvert:-histkonf2(n,p,konf[1],konf[2
+],view=[xb,yb]));\n    end if;\n  end proc;\n  \n# Hier beginnt das Ma
+plet \n \n  sb1:=Maplet(ButtonGroup['Testart']('onchange'='BILD'),\n  \+
+           \n    Window('title'=\"Binomialverteilung - Tests\",\n     \+
+ BoxColumn(\n        BoxRow('border'=true,'halign'=left,\n          Gr
+idLayout(GridRow(GridCell(TextField(\"Versuchszahl n: \",10,labelopt),
+'left'),\n                           GridCell(TextField['tn'](convert(
+n,string),6,'onchange'='BILD','tooltip'=\"L\344nge der Bernoulli-Kette
+ eingeben\"),'left'),\n                   GridCell(TextField(\"Treffer
+wahrscheinlichkeit p: \",14,labelopt),'left'), \n                     \+
+      GridCell(TextField['tp'](convert(p,string),10,'onchange'='pchang
+e'),'left'),\n                                                      Gr
+idCell(Slider[psl](0..1000,trunc(1000*p),filled=true,majorticks=100,sn
+apticks=true,minorticks=1,showticks=true,showlabels=false,'onchange'='
+SLM'))),\n                   GridRow(GridCell(TextField(\"Signifikanzn
+iveau: \",10,labelopt),'left'),\n                           GridCell(T
+extField['talpha'](sprintf(\"%06.4f\",alpha),10,'onchange'='pchange'),
+'left'),\n                           GridCell(TextField(\"Konfidenzint
+ervall: \",14,labelopt),'left'),\n                           GridCell(
+TextField['KI'](sprintf(\"%d..%d\",konf[1],konf[2]),10,textopt1),'left
+'),\n                           GridCell(TextField(\"Reales Niveau: \"
+,12,labelopt),'left'),\n                           GridCell(TextField[
+'NIV'](sprintf(\"%06.4f\",konf[3]),10,textopt1),'left')\n             \+
+                ),\n                   GridRow(GridCell(TextField(\"Er
+wartungswert:\",10,labelopt),'left'),\n                           Grid
+Cell(TextField['E'](convert(mubin(n,p),string),10,textopt1),halign='le
+ft'),\n                           GridCell(TextField(\"Varianz:\",14,l
+abelopt),'left'),\n                           GridCell(TextField['V'](
+convert(varbin(n,p),string),10,textopt1),halign='left'),\n            \+
+               GridCell(TextField(\"Standardabweichung:\",12,labelopt)
+,'left'),\n                           GridCell(TextField['Sig'](conver
+t(evalf(sigmabin(n,p),5),string),10,textopt1),halign='left')\n        \+
+                  ),\n                   GridRow(GridCell(RadioButton[
+'LT'](\"linksseitig\", 'value'=false, 'group'='Testart',background=yel
+low),'left'),\n                           GridCell(RadioButton['RT'](
+\"rechtsseitig\",'value'=false, 'group'='Testart',background=yellow),'
+left'),\n                           GridCell(RadioButton['BT'](\"beids
+eitig\", 'value'=true, 'group'='Testart',background=yellow),'left'),\n
+                           GridCell(CheckBox['Guete'](\"G\374tefunktio
+n\",'onchange'='BILD',background=cyan),'left'),\n                     \+
+      GridCell(TextField(\"X-Bereich: \",12,labelopt),'left'),\n      \+
+                     GridCell(TextField['XB'](convert(xb,string),7,'on
+change'='BILD'),halign='left'),\n                           GridCell(T
+extField(\"Y-Bereich: \",10,labelopt),'left'),\n                      \+
+     GridCell(TextField['YB'](convert(yb,string),7,'onchange'='BILD'),
+'left')),\n                   GridRow(GridCell(Button(\"Dummy\",onclic
+k='pchange',visible=false)),\n                           GridCell(Butt
+on(\"ENDE\",Shutdown())))\n                           \n\n            \+
+  )),\n       BoxRow('border'=true,Plotter[PL1](binvert:-histkonf2(n,p
+,konf[1],konf[2],view=[xb,yb]),'height'=500,'width'=500)))),\n   Actio
+n['pchange'](Evaluate(function='schieber1update'),Evaluate(function='b
+ildset',Argument('tn'),Argument('tp'),Argument('XB'),Argument('YB'),Ar
+gument('talpha'))), \n   Action['SLM'](Evaluate('tp'='psl/1000.'),Eval
+uate(function='bildset',Argument('tn'),Argument('tp'),Argument('XB'),A
+rgument('YB'),Argument('talpha'))),  \n   Action['BILD'](Evaluate(func
+tion='bildset',Argument('tn'),Argument('tp'),Argument('XB'),Argument('
+YB'),Argument('talpha')))  \n    \n):\nMaplets:-Display(sb1);\nend pro
+c:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 261 
+"" 0 "" {TEXT -1 273 "Mit der derzeitigen Version von Maple 8 (Build I
+D 110847) laufen Maplets, die viele Elemente enthalten, nur mit hoher \+
+Bildschirmaufl\366sung (ab 1024x768) und maximiertem Fenster. Bei zu k
+leiner Aufl\366sung oder verkleinertem Fenster verschwinden unter Umst
+\344nden die Textfelder." }}{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 6 "Aufruf" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 13 "binomitest();" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 0 "" }}}{EXCHG {PARA 0 "" 0 "" {HYPERLNK 17 "Zur\374ck zum Inhalts
+verzeichnis" 1 "inhalt.mws" "" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }
+}}}}{MARK "5 38 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }
+{PAGENUMBERS 0 1 2 33 1 1 }

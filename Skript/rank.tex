@@ -1,0 +1,244 @@
+\chapter{Parameterfreie Tests}
+Angenommen, wir haben zwei Gruppen von Studenten \texttt{A} und \texttt{B},
+die die selbe Klausur geschrieben haben. Jede Gruppe bestehe aus $n$ Studenten.
+In unserem konkreten Anwendungsfall gelet $n=30$.
+Anschließend wird eine Liste der Klausur-Ergebnisse aufgestellt, in der die Studenten
+nach ihrem Klausur-Ergebnis eingeordnet werden.  Diese Liste wird in zwei
+Hälften geteilt, die bessere Hälfte \texttt{H} und die schlechtere Hälfte \texttt{L}.
+Es stellt sich heraus, dass sich nur 6 Studenten aus dem \texttt{A}-Kurs,
+in der besseren Hälfte plazieren können, während die restlichen 24 Plätze der besseren
+Hälfte von Studenten des \texttt{B}-Kurs belegt werden.  Es stellt sich die Frage, ob
+dieses Ergebnis als normal statistische Schwankung interpretiert werden kann oder das
+Ergebnis einen signifikanten Qualitätunterschied der Kurse nahelegt.
+
+Um diese Frage zu untersuchen 
+fragen wir uns, wieviele Möglichkeiten es gibt, die Studenten so anzuordnen, dass
+$k$ Studenten der Gruppe \texttt{A} in der besseren Hälfte \texttt{H} liegen.
+\begin{enumerate}
+\item Die Anzahl der Möglichkeiten, um aus den $n$ Plätzen der besseren Hälfte
+      \texttt{H} $k$ Plätze für die Studenten aus der Gruppe \texttt{A} auszuwählen
+      ist
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $\displaystyle {n \choose k}$
+\item Die Anzahl der Möglichkeiten, um aus den Studenten der Gruppe \texttt{A}
+      insgeamt $k$ Studenten auszuwählen, beträgt 
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $\displaystyle {n \choose k}$
+\item Die Anzahl der Möglichkeiten, die $k$ Studenten aus der Gruppe \texttt{A}
+      auf die $k$ Stellen in der Liste \texttt{H} zu verteilen, beträgt 
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $k!$
+\item Die Anzahl der Möglichkeiten, um aus den Studenten der Gruppe \texttt{B}
+      insgeamt $n-k$ Studenten für die Liste \texttt{H} auszuwählen, beträgt 
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $\displaystyle {n \choose n-k}$
+\item Die Anzahl der Möglichkeiten, die $n-k$ Studenten der Gruppe \texttt{B} auf die $n-k$ Stellen in 
+      der Liste \texttt{H} zu verteilen, beträgt 
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $(n-k)!$
+\item Die Anzahl der Möglichkeiten, um aus den $n$ Plätzen der schlechteren Hälfte
+      \texttt{L} $n-k$ Plätze für die Studenten aus der Gruppe \texttt{A} auszuwählen
+      ist
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $\displaystyle {n \choose n-k}$
+\item Die Anzahl der Möglichkeiten, die $n-k$ Studenten der Gruppe \texttt{A} auf die $n-k$ Stellen in 
+      der Liste \texttt{L} zu verteilen, beträgt 
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $(n-k)!$
+\item Die Anzahl der Möglichkeiten, die $k$ Studenten der Gruppe \texttt{B} auf die $k$ Stellen in 
+      der Liste \texttt{L} zu verteilen, beträgt 
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $k!$
+\end{enumerate}
+Berücksichtigen wir, dass ${n \choose n-k} = {n \choose k}$ gilt, so ergibt sich die Anzahl der Möglichkeiten,
+dass $k$ Studenten aus der Gruppe \texttt{A} in der besseren Hälfte \texttt{H} liegen, zu
+\\[0.3cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{cl}
+ & \displaystyle 
+   {n \choose k} \cdot {n \choose k} \cdot k! \cdot {n \choose k} \cdot (n-k)! \cdot {n \choose k} \cdot 
+   (n-k)! \cdot k!
+   \\[0.5cm]
+=& \displaystyle
+   \frac{\bigl(n!\bigr)^4}{\bigl(k!\bigr)^4 \cdot \bigl((n-k)!\bigr)^4} \cdot \bigl(k!\bigr)^2 
+   \cdot \bigl((n-k)!\bigr)^2
+   \\[0.5cm]
+=& \displaystyle
+   \frac{\bigl(n!\bigr)^4}{\bigl(k!\bigr)^2 \cdot \bigl((n-k)!\bigr)^2} 
+   \\[0.5cm]
+=& \displaystyle
+   {n \choose k}^2 \cdot \bigl(n!\bigr)^2
+\end{array}
+$
+\\[0.3cm]
+Die Anzahl der Möglichkeiten um $2\,n$ Studenten auf $2\,n$ Plätze zu verteilen, ist
+\\[0.3cm]
+\hspace*{1.3cm}
+$(2\,n)!$
+\\[0.3cm]
+Damit hat die Wahrscheinlichkeit $P(X = k)$, dass sich $k$ Studenten aud der Gruppe \texttt{A} in der besseren
+Hälfte plaziert haben, den Wert 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle P(X=k) = {n \choose k}^2 \cdot \frac{\bigl(n!\bigr)^2}{(2\,n)!}$
+\\[0.3cm]
+Abbildung \ref{fig:pGleichK} zeigt die Funktion $k \mapsto P(X=k)$ für den Fall $n=30$.
+Es ist deutlich zu sehen, dass die Funktion für Werte außerhalb des Intervalls
+$[9,21]$ verschwindend klein ist.
+
+\begin{figure}[!ht]
+  \centering
+  \vspace*{-8cm}
+
+   \epsfig{file=pGleichK,scale=0.5}
+   \caption{Die Werte der Funktion $P(X=k)$ für den Fall $n=30$.}
+  \label{fig:pGleichK}
+\end{figure}
+
+Weiter gilt 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle P(X \leq k) = \frac{\bigl(n!\bigr)^2}{(2\,n)!} \cdot \sum\limits_{l=0}^k {n \choose l}^2$.
+\\[0.3cm]
+Tragen wir die Werte für die Funktion $k \mapsto P(X \leq k)$ in einer Tabelle auf,
+so erhalten wir die in Tabelle \ref{tab:pKleinerK} gezeigten Werte.
+Wir sehen hier deutlich, dass die vorliegenden Unterschiede zwischen den beiden Kursen mit
+hoher Wahrscheinlichkeit auf einen tatsächlich vorhandenen Niveau-Unterschied zurück
+schließen lassen.
+\begin{table}[!ht]
+  \centering
+\framebox{
+  \begin{tabular}{|r|l||r|r||r|r|}
+\hline
+$k$ &          $P(X \leq k)$ & $k$ & $P(X \leq k)$     & $k$ & $P(X \leq k)$ \\
+\hline
+\hline
+  0 & \rule{0pt}{11pt}$8.455616946 \cdot 10^{-18}$ &  10 & $0.0096915941$  &  20 & $0.9979413160$ \\
+\hline
+  1 & \rule{0pt}{11pt}$7.618510868 \cdot 10^{-15}$ &  11 & $0.0349243550$  &  21 & $0.9996721347$ \\
+\hline
+  2 & \rule{0pt}{11pt}$1.607632627 \cdot 10^{-12}$ &  12 & $0.0981814847$  &  22 & $0.9999617965$ \\
+\hline
+  3 & \rule{0pt}{11pt}$1.409866401 \cdot 10^{-10}$ &  13 & $0.2194555084$  &  23 & $0.9999968406$ \\
+\hline
+  4 & \rule{0pt}{11pt}$6.491442669 \cdot 10^{- 9}$ &  14 & $0.3982728189$  &  24 & $0.9999998218$ \\
+\hline
+  5 & \rule{0pt}{11pt}$1.782077737 \cdot 10^{- 7}$ &  15 & $0.6017271811$  &  25 & $0.9999999935$ \\
+\hline
+  6 & \rule{0pt}{11pt}$3.159394076 \cdot 10^{- 6}$ &  16 & $0.7805444916$  &  26 & $0.9999999999$ \\
+\hline
+  7 & \rule{0pt}{11pt}$3.820354326 \cdot 10^{- 5}$ &  17 & $0.9018185153$  &  27 & $1.0000000000$  \\
+\hline
+  8 & \rule{0pt}{11pt}$3.278653389 \cdot 10^{- 4}$ &  18 & $0.9650756450$  &  28 & $1.0000000000$  \\
+\hline
+  9 & \rule{0pt}{11pt}$2.058683970 \cdot 10^{- 3}$ &  19 & $0.9903084059$  &  29 & $1.0000000000$  \\
+\hline
+  \end{tabular}}
+  \caption{Die ersten 60 Werte für das Geburtstags-Problem.}
+  \label{tab:pKleinerK}
+\end{table}
+Für große Werte von $n$ ist die Berechnung der Binomial-Koeffizienten nicht mehr praktikabel.
+Dann können wir in der Formel für $P(X=k)$ die Binomial-Koeffizienten durch die Formel von de Moivre annähern
+und die Fakultäten $n!$ und $(2\cdot n)!$ können wir über die Näherungsformel von Stirling approximieren-
+\begin{enumerate}
+\item De Moivre:\quad $\displaystyle
+       {n \choose k} \approx \sqrt{\frac{2}{\pi \cdot n}} \cdot 2^n \cdot 
+       \exp\left(-\frac{\bigl(k - \frac{1}{2}n\bigr)^2}{\frac{1}{2}n}\right)$.
+\item Stirling: \qquad $\displaystyle \;n! \approx \sqrt{2 \cdot \pi \cdot n\;} \cdot 
+       \left(\frac{n}{e}\right)^{n}$.
+\end{enumerate}
+Damit finden wir für die Wahrscheinlichkeit $P(X = k)$ die Näherung
+\\[0.3cm]
+$
+\begin{array}[t]{lcl}
+P(X = k) 
+& = & \displaystyle
+      {n \choose k}^2 \cdot \frac{\bigl(n!\bigr)^2}{(2\,n)!}
+\\[0.5cm]
+& \approx & \displaystyle
+\frac{2}{\pi \cdot n} \cdot 4^n \cdot 
+       \exp\left(-\frac{\bigl(2 \cdot k - n\bigr)^2}{n}\right) 
+       \cdot \frac{2 \cdot \pi \cdot n \cdot 
+       \left(\frac{n}{e}\right)^{2\,n}}{
+       \sqrt{4 \cdot \pi \cdot n\;} \cdot 
+       \left(\frac{2\cdot n}{e}\right)^{2\cdot n}}
+\\[0.5cm]
+& = & \displaystyle
+\frac{2}{\sqrt{\pi \cdot n}} \cdot \exp\left(-\frac{\bigl(2 \cdot k - n\bigr)^2}{n}\right) 
+\\[0.5cm]
+& \approx & \displaystyle
+2 \cdot {2\, n \choose 2\, k} \cdot \left(\frac{1}{2}\right)^{2\,n}
+\end{array}
+$
+\\[0.3cm]
+Bei der obigen Ableitung haben wir die Näherungs-Formel von de Moivre im letzten Schritt rüchwärts angewandt.
+Die Wahrscheinlichkeit, die uns eigentlich interessier, ist 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle P(X \leq k) = \sum\limits_{l=0}^k P(X=l) \approx 
+2 \cdot  \sum\limits_{l=0}^k {2\, n \choose 2\, l} \cdot \left(\frac{1}{2}\right)^{2\,n}
+$
+\\[0.3cm]
+Wir hatten im zweiten Kapitel die Funktion $F^n_p(k)$ wie folgt definiert:
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle F^n_p(k) := \sum\limits_{l=0}^k {n \choose l} \cdot p^l \cdot (1 - p)^{n-l}$.
+\\[0.3cm]
+Setzen wir hier für $p$ den Wert $\frac{1}{2}$, für $n$ den Wert $2\,n$ und für $k$ den
+Wert $2\,k$ ein, so erhalten wir
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle 
+ F^{2\,n}_{\frac{1}{2}}(2\cdot k) = \sum\limits_{l=0}^{2\,k} {2\,n \choose l} \cdot 
+ \left(\frac{1}{2}\right)^{2\,n}$.
+\\[0.3cm]
+Für große Werte von $n$ können wir in dieser Formel die Approximation
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle {n \choose 2\,l} + {n \choose 2\,l+1} \approx 2 \cdot {n \choose 2\,l}$
+\\[0.3cm]
+vornehmen, denn die Werte ${n \choose 2\,l}$ und ${n \choose 2\,l+1}$ unterscheiden sich für große $n$ und
+große $l$ kaum.  Für kleine Werte von $l$ unterscheiden sich die Werte
+ ${n \choose 2\,l}$ und ${n \choose 2\,l+1}$ zwar schon, bei der späteren Summation
+$\sum\limits_{l=0}^k$ spielen diese Werte aber praktisch keine Rolle.
+Damit erhalten wir die Näherungs-Formel
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle 
+ F^{2\,n}_{\frac{1}{2}}(2\cdot k) \approx 2 \cdot
+ \sum\limits_{l=0}^k {2\,n \choose 2\,l} \cdot \left(\frac{1}{2}\right)^{2\,n} = P(X \leq k)$.
+\\[0.3cm]
+Damit haben wir die Wahrscheinlichkeit $P(X \leq k)$ auf die Funktion
+$ F^{2\,n}_{\frac{1}{2}}(2\cdot k)$ zurück geführt. Für die Funktion $F^k_p$ hatten wir
+aber im zweiten Kapitel die folgende Näherungs-Formel gefunden:
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle F^n_p(k) \approx \Phi\Biggl(\frac{k- n\,p}{\sqrt{n\,p\,q\,}}\Biggr)$
+\\[0.3cm]
+Damit haben wir jetzt für die Wahrscheinlichkeit $P(X \leq k)$ die Näherungs-Formel 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle P(X \leq k) \approx \Phi\Biggl((2\,k- n)\cdot \sqrt{\frac{2}{n}}\Biggr)$
+\\[0.3cm]
+gefunden.  Drücken wir die $\Phi$-Funktion durch die Gauß'sche Fehlerfunktion aus, so
+erhalten wir
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle 
+  P(X \leq k) \approx \frac{1}{2} + \frac{1}{2} \cdot \textsl{erf}\biggl(\frac{2\,k- n}{\sqrt{n\;}}\biggr)$.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 

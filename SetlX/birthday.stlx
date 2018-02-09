@@ -1,0 +1,17 @@
+probabilities := [];
+for (n in [2..99]) {
+    p := 1.0 - 365!/(365 - n)! / 365**n;
+    probabilities += [[n, p]];
+    print("n = $n$: $p$");
+}
+cnvs := plot_createCanvas("Probabilities of birthday matches.");
+for ([n, p] in probabilities) {
+    plot_addBullets(cnvs, [[n, p]], [0,0,255], 3.0);
+}
+plot_modScale(cnvs, [1, 100], [-0.01, 1.01]);
+print(5);
+plot_modSize(cnvs, [1000, 1000]);
+plot_labelAxis(cnvs, "number of people", "probability" );
+plot_legendVisible(cnvs, false);
+plot_exportCanvas(cnvs, "birthday-problem");
+run("open birthday-problem.png");

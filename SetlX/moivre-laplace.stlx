@@ -1,0 +1,23 @@
+chooseMoivre := procedure(n, k) {
+    pi := mathConst("Pi");
+    return sqrt(2/(pi*n)) * 2**n * exp(-(k-n/2)**2 / (n/2));
+};
+choose := [n,k] |-> n! / (k! * (n-k)!);
+
+approx := chooseMoivre(100, 50);
+exact  := choose(100, 50);
+error  := (approx - exact) / exact;
+print("approximation for (100 choose 50) = ", approx);
+print("exact             (100 choose 50) = ", exact);
+print("relative error: ", error);
+
+laplace := procedure(n, k, p) {
+    pi := mathConst("Pi");
+    return exp(-(k-n*p)**2/(2*n*p*(1-p)))/sqrt(2*pi*n*p*(1-p));
+};
+approx := laplace(100, 50, 0.5);
+exact  := choose(100, 50) * 0.5 ** 100;
+error  := (approx - exact) / exact;
+print("approximation for Bin(100, 50, 0.5) = ", approx);
+print("exact             Bin(100, 50, 0.5) = ", exact);
+print("relative error: ", error);

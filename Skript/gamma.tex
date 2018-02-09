@@ -1,0 +1,55 @@
+\begin{Definition}[Gamma-Funktion]
+  Für alle $z \in \mathbb{R} \backslash \bigl\{ -n \;\big|\; n \in \mathbb{N} \bigr\}$
+  definieren wir die Gamma-Funktion durch
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $\displaystyle \Gamma(z) := \int_0^\infty x^{z-1} e^{-x} dx$.  
+\end{Definition}
+Die Gamma-Funktion ist eine Fortsetzung der Falkultät auf die positiven reellen Zahlen,
+denn es gilt:
+\\[0.1cm]
+\hspace*{1.3cm}
+$\Gamma(n+1) = n!$
+\\[0.1cm]
+\textbf{Beweis:}  Wir führen den Beweis durch Induktion nach der Zahl $n$.
+\begin{enumerate}
+\item[I.A.:] $n=0$.  Es gilt 
+             \\[0.1cm]
+             \hspace*{1.3cm}
+             $
+             \begin{array}[t]{lcl}
+               \Gamma(1) 
+               & = & \displaystyle \int_0^\infty x^{1-1} e^{-x}\, dx \\[0.3cm]
+               & = & \displaystyle \int_0^\infty e^{-x}\, dx \\[0.3cm]
+               & = & \displaystyle -e^{-x} \big|_0^\infty  \\[0.3cm]
+               & = & \displaystyle - e^{-\infty} + e^0  \\
+               & = & 1 \\
+               & = & 0!
+             \end{array}
+             $
+\item[I.S.:] $n \mapsto n+1$.  Es gilt 
+             \\[0.1cm]
+             \hspace*{1.3cm}
+             $
+             \begin{array}[t]{lcl}
+               \Gamma\bigl((n+1)+1\bigr) 
+               & = & \displaystyle \int_0^\infty x^{(n+2)-1} e^{-x}\, dx \\[0.3cm]
+               & = & \displaystyle \int_0^\infty x^{n+1} e^{-x}\, dx \\[0.3cm]
+               &   & \mbox{partielle Integration mit $u(x) = x^{n+1}$, $v'(x) = e^{-x}$,} \\
+               &   & \mbox{also $u'(x) = (n+1)\cdot x^n$, $v(x) = -e^{-x}$ liefert:}      \\[0.3cm]
+               & = & \displaystyle \underbrace{-x^{n+1}\cdot e^{-x}\big|_0^\infty}_0 + \int_0^\infty (n+1)\cdot x^{n} e^{-x}\, dx \\[0.3cm]
+               & = & \displaystyle (n+1)\cdot \int_0^\infty x^{(n+1)-1} e^{-x}\, dx \\[0.3cm]
+               & = & \displaystyle (n+1)\cdot \Gamma(n+1) \\[0.3cm]
+               & \stackrel{IV}{=} & \displaystyle (n+1)\cdot n! \\
+               & = & \displaystyle (n+1)! \hspace*{\fill} \Box
+             \end{array}
+             $
+\end{enumerate}
+Es wäre intuitiver, wenn $\Gamma(z)$ als $\int_0^\infty x^{z} e^{-x}\, dx$ definiert wäre,
+denn dann würde $\Gamma(n) = n!$ gelten.  Ais historischen Gründen ist die Definition aber
+komplizierter.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% End: 

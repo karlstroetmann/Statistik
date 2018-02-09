@@ -1,0 +1,32 @@
+// prop(n, s) is the probability to roll the sum s when throwing n dices.
+prop := cachedProcedure(n, s) {
+    if (s < n || 6 * n < s) {
+        return 0;
+    }
+    if (n == 1) {
+        return 1/6;
+    }
+    return +/ [1/6 * prop(n - 1, s - k) : k in [1..6] ];
+};
+
+plotProbabilities := procedure(n) {
+    Pairs  := [ [double(s), double(prop(n,s))] : s in [n .. 6*n] ];
+    maxVal := max([ p[2] : p in Pairs]);
+    cnvs   := plot_createCanvas("Probabilities when rolling $n$ dice.");
+    plot_addListGraph(cnvs, [[n-1, 0], [6*n+1, 0]], "x-axis", [0,0,0]);
+    plot_legendVisible(cnvs, false);
+    for (pair in Pairs) {
+        plot_addBullets(cnvs, [pair], [0,0,255], 3.0);
+        plot_addListGraph(cnvs, [[pair[1], 0], [pair[1], pair[2]]], ".", [0, 50, 0]);
+    }
+    plot_modScale(cnvs, [n-1, 6*n+1], [-0.1 * maxVal, maxVal * 1.1]);
+    plot_modSize(cnvs, [1000, 1000]);
+    plot_labelAxis(cnvs, "sum to roll", "probability" );
+    plot_exportCanvas(cnvs, "sum-of-dices-$n$");
+};
+
+n := 1;
+while (n != 0) {
+    plotProbabilities(n);
+    n := read("Enter the number of dice: ");
+}

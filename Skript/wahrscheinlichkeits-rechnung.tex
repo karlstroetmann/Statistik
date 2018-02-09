@@ -1,0 +1,1978 @@
+\chapter[Wahrscheinlichkeits-Rechnung]{Einführung in die Wahrscheinlichkeits-Rechnung}
+Das Leben ist voller Unwägbarkeiten und Risiken.  Schon die Kelten wussten, dass Ihnen jederzeit der Himmel auf
+den Kopf fallen konnte.  Glücklicherweise passiert so etwas nicht sehr häufig.  Trotzdem stellt sich die Frage,
+wie \blue{wahrscheinlich} ein solches Ereignis ist.  Zur Beantwortung dieser Frage ist zunächst der Begriff der
+\blue{Wahrscheinlichkeit} präzise festzulegen.  Dazu definieren wir zunächst den Begriff des \blue{Zufalls-Experiments}.
+Unter einem \blue{Zufalls-Experiment} verstehen wir ein Experiment, dessen Ausgang nicht
+eindeutig vorbestimmt ist.  Ein Beispiel für ein solches Experiment wäre der Wurf einer
+Münze, bei dem als \blue{Ergebnis} entweder \textsl{Wappen} oder \textsl{Zahl} auftritt.  Ein
+anderes Zufalls-Experiment wäre der Wurf eines Würfels, dessen Seiten mit den Zahlen $1$ bis $6$ beschriftet
+sind.  Hier können als Ergebnisse die natürlichen Zahlen $1$ bis $6$ auftreten.  Mathematisch werden solche
+Zufalls-Experimente durch den Begriff des \blue{Wahrscheinlichkeits-Raums} erfasst.  Wir betrachten zunächst
+den Fall, dass die Menge der Ergebnisse endlich oder abzählbar unendlich ist.  In diesem Fall wollen wir von 
+einen \blue{diskreten Wahrscheinlichkeits-Raum} sprechen.  Später werden wir noch den allgemeinen Fall
+untersuchen, bei dem die Menge der Ergebnisse überabzählbar ist.  Dieser Fall tritt meistens dann auf, wenn es
+sich bei den Ergebnissen des Zufalls-Experiments um reelle Zahlen handelt.
+
+
+\section{Diskrete Wahrscheinlichkeits-Räume}
+\begin{Definition}[Wahrscheinlichkeits-Raum] \hspace*{\fill} \\
+Ein \href{https://de.wikipedia.org/wiki/Wahrscheinlichkeitsraum}{diskreter Wahrscheinlichkeits-Raum}  ist ein Tripel 
+ $\langle \Omega, 2^\Omega, P \rangle$, für das gilt:
+\begin{enumerate}
+\item $\Omega$ ist eine Menge, die entweder endlich ist, dann gilt also 
+      \\[0.2cm]
+      \hspace*{1.3cm} $\Omega = \{ \omega_1, \omega_2, \cdots, \omega_n \}$, 
+      \\[0.2cm]
+      oder $\Omega$ ist \blue{abzählbar unendlich}, dann gilt 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\Omega = \{ \omega_n \mid n \in \mathbb{N} \}$.
+      \\[0.2cm]
+      Die Elemente von $\Omega$ bezeichnen wir als die \blue{Ergebnisse}
+      eines Zufalls-Experiments und die Menge $\Omega$ nennen wir die \blue{Ergebnis-Menge}.
+\item $2^\Omega$ ist die Potenzmenge von $\Omega$, also die Menge aller Teilmengen der
+      Menge $\Omega$.  Diese Teilmengen bezeichnen wir auch als
+      \blue{Ereignisse} und die Menge $2^\Omega$ nennen wir die \blue{Ereignis-Algebra}.
+      Mengen der Form $\{\omega_i\}$, die genau ein Element aus $\Omega$ enthalten,
+      nennen wir \blue{Elementar-Ereignisse}.
+\item $P: 2^\Omega \rightarrow \mathbb{R}$ ist eine Abbildung, die jedem Ereignis 
+      $A \subseteq \Omega$ eine reelle Zahl $P(A)$ zuordnet.  Die Zahl $P(A)$ bezeichnen wir als 
+      die \blue{Wahrscheinlichkeit}, mit der das Ereignis $A$ eintritt.  
+      Die Wahrscheinlichkeit $P$ muss den folgenden \blue{Kolmogorow-Axiomen}
+      (\href{https://de.wikipedia.org/wiki/Andrei_Nikolajewitsch_Kolmogorow}{Andrei Nikolajewitsch Kolmogorow};
+      1903 -- 1987) genügen:
+      \begin{enumerate}
+      \item $0 \leq P(A) \leq 1$ \quad für alle $A \subseteq \Omega$.
+
+            Da wir die Wahrscheinlichkeit $P(A)$ als den Bruchteil aller Fälle, in denen das Ereignis $A$ im
+            Durchschnitt eintritt, interpretieren wollen, muss $P(A)$ eine nicht-negative Zahl sein, die
+            nicht größer als $1$ sein kann.
+      \item $P(\emptyset) = 0$.
+
+            Die leere Menge $\emptyset$ bezeichnen wir als das \blue{unmögliche Ereignis}.
+      \item $P(\Omega) = 1$.
+
+            Die Menge $\Omega$ bezeichnen wir als das \blue{sichere Ereignis}.
+      \item $A \cap B = \emptyset \rightarrow P(A \cup B) = P(A) + P(B)$ \quad für alle $A, B \subseteq \Omega$.
+
+            Schließen sich zwei Ereignisse $A$ und $B$ gegenseitig aus,
+            gilt also $A \cap B = \emptyset$, so nennen wir diese Ereignisse \blue{unvereinbar}.
+            Sind $A$ und $B$ unvereinbare Ereignisse, so ergibt sich die Wahrscheinlichkeit
+            des Ereignisses $A\cup B$ als die Summe der Wahrscheinlichkeiten
+            der einzelnen Ereignisse.
+      \end{enumerate}
+      Die Funktion $P$ bezeichnen wir als das \blue{Wahrscheinlichkeits-Maß}.
+\end{enumerate}
+\end{Definition}
+
+\noindent
+\textbf{Schreibweise}: Das vierte Kolmogorow-Axiom bezeichnen wir als die 
+\blue{Additivität} des Wahrscheinlichkeits-Maßes.  Um dieses Axiom einfacher
+schreiben zu können, vereinbaren wir folgende Schreibweise:
+ Sind $A$ und $B$ zwei \underline{dis}j\underline{unkte} Mengen, so schreiben wir die
+Vereinigung von $A$ und $B$ als $A \uplus B$.  Der Term $A \uplus B$ steht also für
+zweierlei:
+\begin{enumerate}
+\item Für die Vereinigungs-Menge $A \cup B$.
+\item Für die Aussage $A \cap B = \emptyset$.
+\end{enumerate}
+Mit dieser Schreibweise lautet das Axiom der Additivität 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(A \uplus B) = P(A) + P(B)$.
+\\[0.2cm]
+Diese Gleichung gilt genau dann, wenn $A \uplus B$ definiert ist und das ist genau dann
+der Fall, wenn $A \cap B = \emptyset$ gilt.
+\vspace*{0.3cm}
+
+\noindent
+\textbf{Beispiel}:  Ein möglicher Wahrscheinlichkeits-Raum für das Zufalls-Experiment 
+``Würfeln mit einem kubischen Würfel'' ist $\langle \Omega, 2^\Omega, P \rangle$ wobei $\Omega$ und $P$ wie
+folgt definiert sind:
+\begin{itemize}
+\item $\Omega = \{1,2,3,4,5,6\}$,
+\item $\ds P(A) = \frac{|A|}{|\Omega|} = \frac{1}{6} \cdot |A|$.
+
+      Hier bezeichnet $|A|$ die Anzahl der Elemente der Menge $A$.  Beachten Sie, dass wir im ersten Semester
+      für die Anzahl der Elemente die Schreibweise $\textsl{card}(A)$ verwendet haben.  Diese Schreibweise ist
+      mir jetzt zu aufwendig.
+\end{itemize}
+Das Ereignis ``es wurde eine gerade Zahl gewürfelt'' wird dann durch die Menge
+$G = \{2, 4, 6\}$ beschrieben.  Für die Wahrscheinlichkeit von $G$ gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(G) = \frac{1}{6} \cdot |G| = \frac{1}{6} \cdot 3 = \frac{1}{2}$.
+\\[0.2cm]
+Bei dem oben angegebenen Wahrscheinlichkeits-Raum sind wir davon ausgegangen, dass alle
+Elementar-Ereignisse die selbe Wahrscheinlichkeit haben.  Diese Annahme ist  aus
+Symmetrie-Gründen naheliegend.  In diesem Fall nennen wir das
+Wahrscheinlichkeits-Maß $P$ auch \blue{gleich\-mäßig},  das zugehörige
+Zufalls-Experiment heißt dann ein \blue{Laplace-Experiment}
+(\href{https://de.wikipedia.org/wiki/Pierre-Simon_Laplace}{Pierre Simon Laplace}; 1749 -- 1827).
+Falls die Wahrscheinlichkeit für alle Seiten eines Würfels den selben Wert hat, so
+sprechen wir von einem Laplace-Würfel. \eox
+
+\begin{Definition}[Laplace-Experiment]
+Ein Zufalls-Experiment ist ein \blue{Laplace-Experiment} falls der \\
+Wahrscheinlichkeits-Raum die Form 
+$\langle \Omega, 2^\Omega, P \rangle$ hat, wobei $\Omega$ eine \red{endliche} Menge ist und  und das
+Wahrscheinlichkeits-Maß $P$ für eine Ereignis $A \subseteq \Omega$ nach der Formel
+\\[0.2cm]
+\hspace*{1.3cm}
+ $\ds P(A) = \frac{|A|}{|\Omega|}$
+\\[0.2cm]
+berechnet wird.  Die Gültigkeit der Kolmogorow-Axiome kann in diesem Fall sofort nachgerechnet werden.
+\eoxs
+\end{Definition}
+
+\exercise
+Es sei $\Omega$ eine endliche Menge.  Für alle $A \subseteq \Omega$ definieren wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A) := \frac{|A|}{|\Omega|}$.
+\\[0.2cm]
+Beweisen Sie, dass das Tripel $\langle \Omega, 2^\Omega, P \rangle$ dann ein diskreter Wahrscheinlichkeits-Raum ist.  
+\eox
+
+
+Die Annahme der Gleichmäßigkeit des Wahrscheinlichkeits-Maßes ist logisch nicht
+zwingend.  Wenn der Würfel beispielsweise auf einer Seite mit Blei beschwert ist,
+so könnte das Wahrscheinlichkeits-Maß auch wie folgt gegeben sein: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P\bigl(\{1\}\bigr) = 0.5,\quad P\bigl(\{2\}\bigr) = P\bigl(\{3\}\bigr) = P\bigl(\{4\}\bigr) = P\bigl(\{5\}\bigr) = P\bigl(\{6\}\bigr) = 0.1$.
+\\[0.2cm]
+Dann würden wir für das Ereignis ``es wurde eine gerade Zahl gewürfelt'' gelten: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(G) = P\bigl(\{2\}\bigr) + P\bigl(\{4\}\bigr) + P\bigl(\{6\}\bigr) = 0.1 + 0.1 + 0.1 =
+0.3$.
+
+
+\section{Additionssätze}
+Die Kolmogorow-Axiome geben an, wie sich die Wahrscheinlichkeit eines Ereignisses 
+$A \cup B$ dann aus den Wahrscheinlichkeiten der Ereignisse $A$ und $B$ berechnen läßt, wenn die
+Ereignisse $A$ und $B$ unvereinbar sind.  Wir wollen jetzt den Fall untersuchen, in dem
+$A \cap B \not= \emptyset$ ist, in dem also die Ereignisse $A$ und $B$ gleichzeitig auftreten können.  In diesem
+Fall zerlegen wir die Menge $A \cup B$ in drei 
+Teilmengen: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$A \cup B = (A \backslash B) \uplus (B \backslash A) \uplus (A \cap B)$
+\\[0.2cm]
+Da die drei Mengen $A \backslash B$, $B \backslash A$ und $A \cap B$ paarweise
+disjunkt sind, gilt 
+\begin{equation}
+  \label{eq:u1}
+  P(A \cup B) = P(A \backslash B) + P(B \backslash A) + P(A \cap B)
+\end{equation}
+Außerdem gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$A = (A \backslash B) \uplus (A \cap B)$ \quad und \quad
+$B = (B \backslash A) \uplus (A \cap B)$.
+\\[0.2cm]
+Daraus folgt sofort 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(A) = P(A \backslash B) + P(A \cap B)$ \qquad und \qquad
+$P(B) = P(B \backslash A) + P(A \cap B)$.
+\\[0.2cm]
+Subtrahieren wir auf beiden Seiten dieser Gleichungen den Term $P(A \cap B)$, so erhalten wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(A) - P(A \cap B) = P(A \backslash B)$ \qquad und \qquad
+$P(B) - P(A \cap B) = P(B \backslash A)$.
+\\[0.2cm]
+Aus Gleichung (\ref{eq:u1}) folgt nun 
+\begin{equation}
+  \label{eq:u3}
+\begin{array}[b]{lcll}
+  P(A \cup B) & = & P(A \backslash B) + P(B \backslash A) + P(A \cap B) \\[0.2cm]
+              & = & \bigl(P(A) - P(A\cap B)\bigr) + \bigl(P(B) - P(A\cap B)\bigr) + P(A \cap B) \\[0.2cm]
+              & = & P(A) + P(B) - P(A \cap B). 
+\end{array}  
+\end{equation}
+Es gibt eine ganz analoge Formel zur Berechnung der Anzahl der Elemente einer Menge.
+Bezeichen wir für eine Menge $M$ die Anzahl ihrer Elemente mit $|M|$, so gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$|A \cup B| = |A| + |B| - | A \cap B|$
+\\[0.2cm]
+Diese Formel läßt sich wie folgt interpretieren:
+Wenn wir zuerst die Elemente von $A$ zählen und anschließend die Elemente von $B$ zählen, so
+zählen wir die Elemente der Schnittmenge $A \cap B$ doppelt und müssen daher die Anzahl
+dieser Elemente abziehen.
+
+Die Gleichung (\ref{eq:u3}) läßt sich verallgemeinern.  Betrachten wir die Vereinigung
+dreier Mengen $A$, $B$ und $C$ so finden wir 
+\\[0.2cm]
+$
+\begin{array}[t]{cl}
+ & P(A \cup B \cup C) \\[0.2cm]
+=& P\bigl((A \cup B) \cup C\bigr) \\[0.2cm]
+=& P(A \cup B) + P(C) - P\bigl((A \cup B) \cap C\bigr) \\[0.2cm] 
+ & \mbox{Gleichung (\ref{eq:u3}) auf $A \cup B$ anwenden}\\[0.2cm]
+=& P(A) + P(B) - P(A \cap B) + P(C) - P\bigl((A \cup B) \cap C\bigr) \\[0.2cm]
+ & \mbox{ Distributiv-Gesetz $(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$ berücksichtigen} \\[0.2cm]
+=& P(A) + P(B) - P(A \cap B) + P(C) - P\bigl((A \cap C) \cup (B \cap C)) \\[0.2cm]
+ & \mbox{Gleichung (\ref{eq:u3}) auf $(A \cap C) \cup (B \cap C)$ anwenden}\\[0.2cm]
+=& P(A) + P(B) - P(A \cap B) + P(C) - \bigl(P(A \cap C) + P(B \cap C) - P((A \cap C) \cap (B \cap C))\bigr) \\[0.2cm]
+ & \mbox{$(A \cap C) \cap (B \cap C) = A \cap B \cap C$ berücksichtigen} \\[0.2cm]
+=& P(A) + P(B) - P(A \cap B) + P(C) - \bigl(P(A \cap C) + P(B \cap C) - P(A \cap B \cap C)\bigr) \\[0.2cm]
+ & \mbox{Klammer auflösen und umsortieren} \\[0.2cm]
+=& P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C) \\[0.2cm]
+\end{array}
+$
+\\[0.2cm]
+In ähnlicher Weise läßt sich eine Formel herleiten, die die Wahrscheinlichkeit einer
+Vereinigung von $n$ Ereignissen angeben.  
+
+\begin{Satz}[Siebformel von Poincaré und Sylvester]
+Ist $\bigl[A_1, A_2, \cdots, A_n\bigr]$ eine Liste von Ereignissen, so gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\left(\bigcup\limits_{i=1}^n A_i\right) = 
+\sum\limits_{k=1}^n (-1)^{k+1} \cdot \sum\limits_{I \subseteq \{1,\cdots,n\} \atop |I|=k} P\left(\bigcap\limits_{i \in I}A_i\right)$.
+\end{Satz}
+
+\exercise
+Beweisen Sie die Siebformel von Poincaré und Sylvester durch vollständige Induktion.
+\eox
+
+Ist ein Wahrscheinlichkeits-Raum $\langle \Omega, 2^\Omega, P \rangle$ gegeben, so
+definieren wir für ein Ereignis $A \in 2^\Omega$ das \blue{Komplement} von $A$ als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$A^\mathrm{c} = \Omega \backslash A$.
+\\[0.2cm]
+Wegen $A \uplus A^\mathrm{c} = \Omega$ und $P(\Omega) = 1$ gilt dann 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(A) + P(A^\mathrm{c}) = 1$ \quad und daraus folgt \quad  $P(A^\mathrm{c}) = 1 - P(A)$.
+\\[0.2cm]
+Für das Komplement von Mengen gelten die beiden folgenden
+\href{https://de.wikipedia.org/wiki/De_Morgansche_Gesetze}{De Morganschen Gesetze}:
+\\[0.2cm]
+\hspace*{1.3cm}
+$(A \cup B)^\mathrm{c} = A^\mathrm{c} \cap B^\mathrm{c}$ \quad und \quad
+$(A \cap B)^\mathrm{c} = A^\mathrm{c} \cup B^\mathrm{c}$.
+\\[0.2cm] 
+Diese Gesetze lassen sich wie folgt verallgemeinern:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \biggl(\bigcup\limits_{i=1}^n A_i \biggr)^\mathrm{c} = \bigcap\limits_{i=1}^n A_i^\mathrm{c}$ \quad und \quad
+$\ds \biggl(\bigcap\limits_{i=1}^n A_i \biggr)^\mathrm{c} = \bigcup\limits_{i=1}^n A_i^\mathrm{c}$
+\\[0.2cm]
+Gelegentlich ist es so, dass es schwer fällt, die Wahrscheinlichkeit für ein gegebenes Ereignis $A$ unmittelbar
+zu berechnen.  Manchmal ist es in solchen Fällen möglich, statt dessen die Wahrscheinlichkeit für das Ereignis
+$A^\mathrm{c}$ zu berechnen.  Die gesuchte Wahrscheinlichkeit $P(A)$ ergibt sich dann nach der Formel $P(A) = 1 - P(A^\mathrm{c})$.
+Die nächste Aufgabe liefert ein Beispiel für eine solche Situation.
+
+
+\exercise
+An einer Schule können  die Schüler Spanisch, Englisch und
+Französisch lernen.
+\begin{enumerate}[(a)]
+\item $40\%$ der Schüler lernen Spanisch.
+\item $60\%$ der Schüler lernen Englisch.
+\item $55\%$ der Schüler lernen Französisch.
+\item $30\%$ der Schüler lernen Spanisch und Englisch.
+\item $20\%$ der Schüler lernen Spanisch und Französisch.
+\item $35\%$ der Schüler lernen Französisch und Englisch.
+\item $10\%$ der Schüler lernen Spanisch, Französisch und Englisch.
+\end{enumerate}
+Wie groß ist der Prozentsatz der Schüler, die überhaupt keine Fremdsprache lernen?
+
+\solution
+Wir führen folgende Bezeichnungen ein.
+\begin{enumerate}
+\item $S$: Menge der Schüler, die Spanisch lernt.
+\item $F$: Menge der Schüler, die Französisch lernt.
+\item $E$: Menge der Schüler, die Englisch lernt.
+\item $K$: Menge der Schüler, die keine Fremdsprache lernt.
+\end{enumerate}
+Dann gilt 
+\\[0.2cm]
+\hspace*{0.5cm}
+$
+\begin{array}{lcl}
+  P(K) & = & P\bigl((S \cup F \cup E)^\mathrm{c}\bigr) \\[0.2cm]
+       & = & 1 - P(S \cup F \cup E) \\[0.2cm]
+       & = & 1 - P(S) - P(F) - P(E) + P(S \cap F) + P(S \cap E) + P(F \cap E) - P(S \cap E \cap F) \\[0.2cm]
+       & = & 1 - 0.4 - 0.55 - 0.6 + 0.2 + 0.3 + 0.35 - 0.1 \\[0.2cm]
+       & = & 0.2 \\[0.2cm]
+\end{array}
+$
+\\[0.2cm]
+Also lernen $20\%$ der Schüler überhaupt keine Fremdsprache.
+\hspace*{\fill} $\Box$
+
+\exercise
+Zur Ermittelung der Noten würfelt ein Lehrer mit zwei Laplace-Würfeln.  Die Note ergibt
+sich dann als das Minimum der gewürfelten Augenzahlen.  
+\begin{enumerate}
+\item Geben Sie den Wahrscheinlichkeits-Raum für dieses Zufalls-Experiment an.
+\item Geben Sie die für die Notenvergabe relevanten Ereignisse an.
+\end{enumerate}
+
+\solution
+Wir definieren
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Omega = \bigl\{ \langle i, j \rangle \mid i\in\{1,2,3,4,5,6\},\; j\in\{1,2,3,4,5,6\} \bigr\}$
+\\[0.2cm]
+Da es sich um zwei Laplace-Würfel handelt, sind alle Ereignisse gleich wahrscheinlich.
+Da $|\Omega| = 36$ ist, hat das Wahrscheinlichkeits-Maß für eine beliebige Menge $A\in 2^\Omega$ den Wert
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A) = \frac{1}{36}\cdot |A|$.
+\\[0.2cm]
+Die für die Notenvergabe interessanten Ereignisse sind:
+\begin{enumerate}
+\item Vergabe einer 1: 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $A_1 = \bigl\{ \langle 1, n \rangle \mid n \in \{1,\cdots,6\} \bigr\} \cup \bigl\{ \langle n, 1 \rangle \mid n \in \{1,\cdots,6\} \bigr\}$
+      \\[0.2cm]
+      Die Menge $A_1$ besteht aus $6 + 6 - 1$ Elementen, denn 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\bigl\{ \langle 1, n \rangle \mid n \in \{1,\cdots,6\} \bigr\} \cap \bigl\{ \langle n, 1 \rangle \mid n \in \{1,\cdots,6\} \bigr\} = \bigl\{\langle 1, 1 \rangle\}$.
+      \\[0.2cm]
+      Also hat die Wahrscheinlichkeit für die Note 1 den Wert $\frac{11}{36} = 0.30\overline{5}$.
+\item Vergabe einer 2: 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $A_2 = \bigl\{ \langle 2, n \rangle \mid n \in \{2,\cdots,6\} \bigr\} \cup \bigl\{ \langle n, 2 \rangle \mid n \in \{2,\cdots,6\} \bigr\}$
+      \\[0.2cm]
+      Die Menge $A_2$ besteht aus $5 + 5 - 1$ Elementen.
+      Also hat die Wahrscheinlichkeit für die Note 2 den Wert $\frac{9}{36} = 0.25$.
+\item Vergabe einer 3: 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $A_3 = \bigl\{ \langle 3, n \rangle \mid n \in \{3,4,5,6\} \bigr\} \cup \bigl\{ \langle n, 3 \rangle \mid n \in \{3,4,5,6\} \bigr\}$
+      \\[0.2cm]
+      Die Menge $A_3$ besteht aus $4 + 4 - 1$ Elementen.
+      Also hat die Wahrscheinlichkeit für die Note 3 den Wert $\frac{7}{36} = 0.19\overline{4}$.
+\item Vergabe einer 4: 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $A_4 = \bigl\{ \langle 4, n \rangle \mid n \in \{4,5,6\} \bigr\} \cup \bigl\{ \langle n, 4 \rangle \mid n \in \{4,5,6\} \bigr\}$
+      \\[0.2cm]
+      Die Menge $A_4$ besteht aus $3 + 3 - 1$ Elementen.
+      Also hat die Wahrscheinlichkeit für die Note 4 den Wert $\frac{5}{36} = 0.13\overline{8}$.
+\item Vergabe einer 5: 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $A_5 = \bigl\{ \langle 5, n \rangle \mid n \in \{5,6\} \bigr\} \cup \bigl\{ \langle n, 5 \rangle \mid n \in \{5,6\} \bigr\}$
+      \\[0.2cm]
+      Die Menge $A_5$ besteht aus $2 + 2 - 1$ Elementen.
+      Also hat die Wahrscheinlichkeit für die Note 5 den Wert $\frac{3}{36} = 0.08\overline{3}$.
+\item Vergabe einer 6: 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $A_6 = \bigl\{ \langle 6, 6 \rangle \bigr\}$
+      \\[0.2cm]
+      Die Menge $A_6$ enthält nur ein Element.
+      Also hat die Wahrscheinlichkeit für die Note 6 den Wert $\frac{1}{36} =
+      0.02\overline{7}$.
+      \hspace*{\fill} $\Box$
+\end{enumerate}
+
+\exercise
+Der Lehrer aus der letzten Aufgabe stellt fest, dass sich bei seinem
+Verfahren  ein zu guter Notendurchschnitt ergibt.  Daher ändert er das Verfahren 
+ab: Zur Ermittelung der Note wird jetzt die Summe der Augenzahlen durch zwei geteilt.  Falls
+das Ergebnis keine ganze Zahl ist, wird aufgerundet.
+Geben Sie die für die Notenvergabe relevanten Ereignisse an und berechnen Sie die
+Wahrscheinlichkeiten für das Auftreten dieser Ereignisse.
+\hspace*{\fill} $\Box$
+\vspace*{0.3cm}
+
+\section{Kombinatorik}
+Die letzten beiden Aufgaben zeigen, dass die Berechnung von Wahrscheinlichkeiten oft auf
+die Berechnung der Anzahl der Elemente einer Menge zurück geführt werden kann.  Dies liegt daran, dass es sich
+bei den zu Grunde liegenden Zufalls-Experimenten jeweils um ein Laplace-Experiment handelt.  Bei allen
+Laplace-Experimenten läuft die Berechnung der Wahrscheinlichkeiten auf die Bestimmung der Anzahl der Elemente
+einer Menge heraus.  Diese Anzahl nennen wir auch die \blue{Kardinalitäten} der Menge.  Wir werden jetzt
+die Kardinalitäten für diejenigen Mengen, die in der Praxis häufig vorkommen, berechnen.  
+
+Wir nehmen als erstes an, dass wir $n$ Mengen $A_1$, $A_2$, $\cdots$, $A_n$ gegeben haben.
+Wir untersuchen die Menge $M$ aller Listen der Länge $n$, für die das $i$-te Element ein
+Element der Menge $M_i$ ist.  Die Menge $M$ ist nichts anderes als das kartesische Produkt
+der Mengen  $A_1$, $A_2$, $\cdots$, $A_n$, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$M = A_1 \times A_2 \times \cdots \times A_n = \bigl\{ [x_1, \cdots, x_n ] \;\big|\; \forall i\in\{ 1,\cdots,n\}: x_i \in A_i \bigr\}$.
+\\[0.2cm]
+Für die Mächtigkeit dieser Menge gilt 
+\begin{equation}
+  \label{eq:produkt-regel}
+  |M| = |A_1| \cdot |A_2| \cdot \dots \cdot |A_n| = \prod\limits_{i=1}^n |A_i|,
+\end{equation}
+denn für das erste Element einer Liste gibt es $|A_1|$ Möglichkeiten,
+für das zweite Element gibt es $|A_2|$ Möglichkeiten und für das letzte
+Element gibt es $|A_n|$ Möglichkeiten. Da die einzelnen Möglichkeiten beliebig kombiniert
+werden können, ist die Gesamtzahl aller Möglichkeiten durch das Produkt gegeben.
+Die Gleichung (\ref{eq:produkt-regel}) bezeichnen wir daher als \blue{Produkt-Regel}.
+
+
+\paragraph{Anzahl der $k$-Tupel mit Wiederholung}
+Ist $M$ eine Menge der Mächtigkeit $n$, so gibt es nach der Produkt-Regel insgesamt
+$n^k$ Möglichkeiten, ein Tupel der Länge $k$ mit Elementen aus $M$ zu bilden, denn es gilt
+\begin{equation}
+  \label{eq:tupel-wiederholung}
+  \bigl|M^k\bigr| = |M|^k = n^k.
+\end{equation}
+
+\paragraph{Anzahl der $k$-Tupel ohne Wiederholung}
+Oft sind nur solche $k$-Tupel interessant, die kein Element mehrfach enthalten.
+Solche $k$-Tupel bezeichnen wir als \blue{Permutationen}.  Ist $M$ eine Menge und
+$k\in\mathbb{N}$, so definieren wir die \blue{Menge der $k$-Permutationen aus $M$} als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(M,k) = \bigl\{ [ x_1, \cdots, x_k] \in M^k \;\big|\; i\not=j\rightarrow x_i \not= x_j \bigr\}$.
+\\[0.2cm]
+Gilt $|M| = n$, so haben wir
+für das Element $x_1$ insgesamt $n$ Möglichkeiten.  Für das zweite Element $x_2$ einer
+Permutation haben wir eine Möglichkeit weniger, also nur noch $n-1$ Möglichkeiten der
+Auswahl.  Allgemein haben wir für das $i$-te Element $x_i$ nur noch $n-(i-1)$
+Möglichkeiten, denn wir haben ja schon $i-1$ Elemente vorher ausgewählt.   Damit ergibt sich 
+\begin{equation}
+  \label{eq:permutation}
+ \bigr|P(M,k)\bigr| = n \cdot (n-1) \cdot \dots \cdot \bigr(n-(k-1)\bigr) = \frac{n!}{(n-k)!}.  
+\end{equation}
+Wenn wir für $k$ den Wert $n$ einsetzen, ergibt sich als Spezialfall die Formel
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \bigr|P(M,n)\bigr| = n!$.
+\\[0.2cm]
+Damit gibt es insgesamt $n!$ Möglichkeiten um die Elemente einer Menge  der Mächtigkeit
+$n$ so in einer Liste anzuordnen, dass jedes Element der Menge genau einmal in der Liste auftritt.
+
+
+
+\paragraph{Anzahl der $k$-Kombinationen ohne Wiederholung}
+Wir bestimmen jetzt die Anzahl der $k$-elementigen Teilmengen einer $n$-elementigen Menge.
+Dazu definieren wir $C(M,k)$ als die Menge aller $k$-elementigen Teilmengen von $M$:
+\\[0.2cm]
+\hspace*{1.3cm}
+$C(M,k) = \bigl\{ N \in 2^M \;\big|\; |N| = k \bigr\}$.
+\\[0.2cm]
+Diese Teilmengen bezeichnen wir auch als die $k$-elementigen \blue{Kombinationen} der
+Menge $M$.
+Um die Mächtigkeit von $C(M,k)$ zu bestimmen überlegen wir uns, wie die Mengen $P(M,k)$
+und $C(M,k)$ zusammenhängen.  Ist eine Kombination 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\{x_1,x_2, \cdots, x_k\} \in C(M,k)$
+\\[0.2cm]
+gegeben, so gibt es $k!$ Möglichkeiten, um diese $k$ Elemente in einem Tupel anzuordnen.
+Daher erhalten wir die Anzahl der $k$-Permutationen aus der Anzahl der $k$-Kombinationen
+durch Multiplikation mit der Zahl $k!$ und sehen, dass
+\\[0.2cm]
+\hspace*{1.3cm}
+$|P(M,k)| = |C(M,k)| \cdot k!$
+\\[0.2cm]
+gilt.  Setzen wir hier den Wert ein, den wir in Gleichung (\ref{eq:permutation}) für die Anzahl
+der $k$-Permutationen gefunden haben, so erhalten wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \frac{n!}{(n-k)!} = |C(M,k)| \cdot k!$. 
+\\[0.2cm]
+Division dieser Gleichung durch $k!$ liefert 
+\begin{equation}
+  \label{eq:kombination}
+  |C(M,k)| = \frac{n!}{k!\cdot (n-k)!}.
+\end{equation}
+Der Ausdruck, den wir hier auf der rechten Seite der Gleichung erhalten haben, tritt in der Mathematik an
+vielen Stellen auf.  Wir definieren daher für $n \in \mathbb{N}$ und $k \in \{0, \cdots, n\}$
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} := \frac{n!}{k!\cdot (n-k)!}.$
+\\[0.2cm]
+Der Ausdruck $\ds {n \choose k}$ wird als \blue{$n$ über $k$} gelesen und als 
+\href{https://de.wikipedia.org/wiki/Binomialkoeffizient}{Binomial-Koeffizient}
+bezeichnet.  Falls $k > n$ ist, wollen wir zusätzlich definieren
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} := 0$ \quad falls $k > n$,
+\\[0.2cm]
+denn es ist nicht möglich, aus einer $n$-elementigen Menge eine Teilmenge mit $k$ Elementen auszuwählen, falls
+$k > n$ ist.
+Der Ausdruck ${n \choose k}$ genügt der folgenden Rekursions-Gleichung:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} + {n \choose k + 1} = {n+1 \choose k+1}$.
+
+\proof
+Wir wollen uns anschaulich überlegen, warum diese Gleichung wahr ist.  Die Zahl auf der rechten Seite der
+obigen Gleichung gibt an, auf wieviel verschiedene Möglichkeiten wir aus einer Menge von $n+1$ Personen ein
+Team von $k+1$ Personen auswählen können.  Wir nehmen nun an, dass sich unter den $n+1$ Personen genau eine
+Frau befindet.  Dann gibt es zwei Möglichkeiten: 
+\begin{enumerate}
+\item Die Frau wird für das Team ausgewählt.  Dann müssen wir dann aus den
+      verbleibenden $n$ Personen noch $k$ Personen auswählen.  Dafür gibt es $\ds {n \choose k}$ Möglichkeiten.
+\item Die Frau wird nicht für das Team ausgewählt.  In diesem Fall müssen wir aus den $n$ Männern genau $k+1$
+      Männer auswählen.  Dafür gibt es $\ds {n \choose k+1}$ Möglichkeiten.
+\end{enumerate}
+Damit gibt es insgesamt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} + {n \choose k + 1}$
+\\[0.2cm]
+Möglichkeiten, um aus $n+1$ Personen ein Team von $k+1$ Personen auszuwählen.  Diese Zahl muss folglich gleich
+$\ds {n+1 \choose k+1}$ sein.  
+
+\exercise
+Beweisen Sie die Gleichung 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} + {n \choose k + 1} = {n+1 \choose k+1}$
+\\[0.2cm]
+auf algebraischem Wege indem Sie für $\ds {n \choose k}$ den Wert $\ds \frac{n!}{k! \cdot (n-k)!}$ einsetzen. 
+\eox
+
+Der Name ``Binomial-Koeffizient'' für den Ausdruck ${n \choose k}$ rührt daher, dass dieser Ausdruck in dem 
+\href{https://de.wikipedia.org/wiki/binomischer_Lehrsatz}{Binomischen Lehrsatz} auftritt.
+
+\begin{Satz}[Binomischer Lehrsatz, Alessandro Binomi]
+Ist $n \in \mathbb{N}$ und sind $x,y \in \mathbb{R}$, so gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds (x + y)^n = \sum\limits_{i=0}^n  {n \choose k} \cdot x^k \cdot y^{n-k}$.
+\end{Satz}
+
+\proof
+Falls wir die Rekursions-Gleichung ${n \choose k} + {n \choose k + 1} = {n +1 \choose k + 1}$ verwenden,  kann
+der binomische Lehrsatz ohne große Mühe durch vollständige Induktion nach $n$ bewiesen werden.    
+Ein solcher Beweis liefert aber keine Erklärung dafür, warum in dem binomischen Lehrsatz der Ausdruck ${n \choose k}$ auftritt.
+Wir geben daher einen anderen Beweis.  Dazu betrachten wir das Produkt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds (x_1 + y_1) \cdot (x_2 + y_2) \cdot \dots \cdot (x_n + y_n) = \prod\limits_{k=1}^n (x_k + y_k)$.
+\\[0.2cm]
+Beachten Sie, dass dieses Produkt mit dem Ausdruck $(x+y)^n$ übereinstimmt, wenn
+\\[0.2cm]
+\hspace*{1.3cm}
+$x_1 = x_2 = \cdots = x_n = x$ \quad und \quad $y_1 = y_2 = \cdots = y_n = y$ 
+\\[0.2cm]
+gilt.  Um das obige Produkt auszumultiplizieren, müssen wir alle Produkte aus der Menge
+\\[0.2cm]
+\hspace*{1.3cm}
+$\bigl\{ z_1 \cdot z_2 \cdot \dots \cdot z_n \bigm| \forall i \in \{1,\cdots,n\}: z_i \in \{x_i,y_i\}\bigr\}$ 
+\\[0.2cm]
+bilden, wobei wir für $z_i$ jeweils einen der Werte $x_i$ oder $y_i$ einsetzen.  Betrachten wir nun alle
+Möglichkeiten ein Produkt auszuwählen, bei 
+denen $k$ der $z_i$ den Wert $x_i$ haben.  Dies sind ${n \choose k}$ Möglichkeiten, denn wir müssen aus der
+Menge der $n$ Indizes $\{1,\cdots,n\}$ insgesamt $k$ Indizes auswählen.  Nehmen wir jetzt an, dass
+$x_1 = x_2 = \cdots = x_n = x$ und $y_1 = y_2 = \cdots = y_n = y$ ist, so hat das entsprechende
+Produkt die Form $x^k \cdot y^{n-k}$, denn alle $n-k$ der $z_i$, die nicht gleich $x_i$ sind, müssen gleich
+$y_i$ sein.  Zusammen liefern diese Produkte den Term
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} \cdot x^k \cdot y^{n-k}$.
+\\[0.2cm]
+Wenn wir diese Terme aufsummieren, erhalten wir den binomischen Lehrsatz.  \qed
+
+
+\begin{Satz}[Vandermonde-Gleichung \label{satz:vandermonde}]
+Sind $m$, $n$ und $k$ natürliche Zahlen, so gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {m + n \choose k} = \sum\limits_{i=0}^k {m \choose i} \cdot {n \choose k-i}$.
+\end{Satz}
+
+\proof
+Zwar kann auch diese Gleichung algebraisch bewiesen werden, aber es ist instruktiver, wenn wir versuchen zu
+verstehen, was die beiden Seiten der Gleichung eigentlich aussagen.  Die linke Seite der Gleichung gibt an, wie
+viele Möglichkeiten es gibt, aus einer Menge mit $m + n$ Personen ein Team von $k$ Personen auszuwählen.  
+Wir nehmen nun an, dass die ersten $m$ Personen männlich sind, während es sich bei den restlichen $n$ Personen
+um Frauen handelt.  Zur Vereinfachung betrachten wir zunächst nur den Fall, dass sowohl $m$ als auch $n$
+mindestens so groß wie $k$ ist.  Das Team aus $k$ Personen, das wir auswählen, enthält $i$ Männer, wobei $i$
+eine Zahl von $0$ bis maximal $k$ ist.  Nehmen wir an das Team besteht aus $i$ Männern und folglich $k - i$ 
+Frauen.  Dann gibt es ${m \choose i}$ Möglichkeiten, die $i$ Männer aus der Menge von insgesamt $m$ Männern
+auswählen und außerdem ${n \choose k-i}$ Möglichkeiten, um die $k-i$ Frauen aus den insgesamt $n$ Frauen auszuwählen.
+Das Produkt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {m \choose i} \cdot {n \choose k-i}$
+\\[0.2cm]
+gibt also an, wie viele Möglichkeiten es gibt, aus einer Gruppe, die aus $m$ Männern und $n$ Frauen besteht,
+ein Team zusammen zu stellen, dass aus $i$ Männern und $k - i$ Frauen besteht.  Summieren wir diese
+Möglichkeiten für alle in Betracht kommenden Werte von $i$ auf, so haben wir insgesamt die Anzahl der
+Möglichkeiten, aus $m + n$ Personen ein Team von $k$ Personen zu bilden.
+
+Beachten Sie, dass die obige Argumentation auch dann noch richtig ist, wenn  $m$ oder $n$ kleiner als $k$ ist.
+Das liegt daran, dass beispielsweise ${m \choose k} = 0$ ist wenn $m < k$ gilt.
+\qed
+
+\exercise
+Zeigen Sie die folgenden Gleichungen indem Sie darlegen, wie die beiden Seiten der jeweiligen Gleichungen als 
+Auswahl von Mengen interpretiert werden können.
+\begin{enumerate}
+\item $\ds {n \choose k} = {n \choose n - k}$
+
+      \textbf{Bemerkung}: Diese Gleichung wird als Symmetrie-Eigenschaft der Binomial-Koeffizienten bezeichnet.
+\item $\ds (n+1) \cdot {n \choose k} = (k+1) \cdot {n+1 \choose k+1}$
+
+      \textbf{Hinweis}:  Nehmen Sie an, dass Sie aus einer Gruppe von $n+1$ Personen ein Projektteam von $k+1$
+      Personen zusammen stellen sollen.  Zusätzlich müssen Sie eines der Teammitglieder zum Projekleiter
+      ernennen.
+\item $\ds \sum\limits_{i=1}^n i = {n + 1 \choose 2}$
+
+      \textbf{Hinweis}:  Stellen Sie sich vor, Sie veranstalten eine Party mit $n+1$ Gästen, bei der jeder Gast
+      jedem anderen Gast die Hand gibt und stellen Sie sich die Frage, wie viele Hände insgesamt geschüttelt
+      werden. \eox
+\end{enumerate}
+
+\exercise
+In einem Swinger-Club besuchen $n$ Paare eine Veranstaltung.  Die $n$ Herren werden nummeriert und für jeden
+Herren wird ein Chip mit der Nummer dieses Herren in einen Hut gelegt.  Anschließend ziehen die Damen eine
+Nummer aus dem Hut.  Diese Nummer legt fest, mit welchem der Herren die Damen den Rest des Abends verbringen.
+Die Damen wären sehr enttäuscht, wenn Sie die Nummer Ihres Gemahls ziehen würden, denn dann hätten Sie ja auch
+gleich zu Hause bleiben können.  Wie groß ist die Wahrscheinlichkeit, dass keine der Damen die Nummer Ihres
+Gemahls zieht?  Untersuchen Sie außerdem, ob diese Zahl für große $n$ gegen einen Grenzwert strebt.
+\vspace*{0.2cm}
+
+\noindent
+\textbf{Hinweis}: Benutzen Sie die Siebformel von Poincaré und Sylvester.
+
+\solution
+Wir überlegen uns zunächst, wie die Ergebnis-Menge $\Omega$ für unser Zufalls-Experiment aussieht.  Wir wollen
+die Ziehung aller Chips durch die Damen als ein Ergebnis des Zufalls-Experiments auffassen.  Nummerieren wir
+die Damen analog zu den Herren, so können wir ein solches Ergebnis als eine Liste der Zahlen von 1 bis $n$
+darstellen.  Beispielsweise würde die Liste
+\\[0.2cm]
+\hspace*{1.3cm}
+$[2,3,1]$
+\\[0.2cm]
+festlegen, dass die erste Dame den Abend mit dem Herren Nummer 2 verbringt, die zweite Dame verbringt den Abend
+mit dem Herren Nummer 3 und die dritte Dame verbringt den Abend mit dem Herren Nummer 1.  Wir definieren also
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \Omega = \bigl\{ [x_1,\cdots,x_n] \,\bigm|\, \forall i \in \{1,\cdots,n\} : x_i \in \{1,\cdots,n\} \bigr\}$.
+\\[0.2cm]
+Wir haben oben gesehen, dass es insgesamt $n!$ Listen gibt, in denen die Zahlen von $1$ bis $n$ jeweils einmal
+auftreten, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$|\Omega| = n!$.
+\\[0.2cm]
+Weiter definieren wir für $k=1, \cdots, n$ das Ereignis $A_k$ als das Ereignis, bei dem die $k$-te Dame Glück
+hat und nicht die Nummer des $k$-ten Herren aus dem Hut zieht.  Es gilt dann
+\\[0.2cm]
+\hspace*{1.3cm}
+$A_k := \{ L \in \Omega \,|\, L[k] \not= k \}$.
+\\[0.2cm]
+Das Ereignis $E$, für das wir uns interessieren, ist das Ereignis, bei der alle Damen Glück haben, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E = \bigl\{ L \in \Omega \,\bigm|\, \forall k \in \{1,\cdots,n\}: L[k] \not= k \bigr\} = \bigcap\limits_{k=1}^n A_k$.
+\\[0.2cm]
+Da nicht zu sehen ist, wie $P(E)$ unmittelbar berechnet werden kann, betrachten wir zunächst das
+Komplementär-Ereignis 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E^\mathrm{c} = \Omega \backslash E$
+\\[0.2cm]
+und berechnen $P(E)$ dann nach der Formel
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(E) = 1 - P(E^\mathrm{c})$.
+\\[0.2cm]
+Nach De Morgan gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E^\mathtt{c} = \Omega \backslash \bigcap\limits_{k=1}^n A_k = \bigcup\limits_{k=1}^n A_k^\mathrm{c}$.
+\\[0.2cm]
+Hier ist $A_k^\mathrm{c}$ das Ereignis, bei dem die $k$-te Dame Pech hat, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$A_k^\mathrm{c} = \{ L \in \Omega \,|\, L[k] = k \}$.
+\\[0.2cm]
+Da wir $E^\mathrm{c}$ als Vereinigung von Mengen dargestellt haben, erfolgt die Berechnung von $P\bigl(E^\mathrm{c}\bigr)$
+über die Formel von Poincaré und Sylvester.  Also gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl(E^\mathrm{c}\bigr) = 
+\sum\limits_{j=1}^n (-1)^{j+1} \cdot \sum\limits_{I \subseteq \{1,\cdots,n\} \atop |I|=j} P\left(\bigcap\limits_{k \in I}A_k^\mathrm{c}\right)$.
+\\[0.2cm]
+Ist $I$ eine Teilmenge der Menge $\{1,\cdots,n\}$, so ist die Menge
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds\bigcap\limits_{k \in I}A_k^\mathrm{c}$
+\\[0.2cm]
+gerade das Ereignis, bei dem alle Damen aus der Menge $I$ die Nummer Ihres Gemahls aus dem Hut ziehen, es gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds\bigcap\limits_{k \in I}A_k^\mathrm{c} = \bigl\{ L \in \Omega \,\bigm|\, \forall k \in I: L[k] = k \bigr\} =: B_I$.
+\\[0.2cm]
+Wenn wir die Kardinalität der Menge $B_I$ bestimmen wollen, dann müssen wir uns überlegen, wie viele
+Möglichkeiten wir haben, um die Elemente der Listen $L$ festzulegen.  Falls die Menge $I$ aus $j:= |I|$ Elementen
+besteht, haben wir also noch $n-j$ Elemente, die wir auf die restlichen $n-j$ Listen-Positionen verteilen
+können.  Da jedes Element genau einmal vorkommen darf,  gibt es dafür $(n-j)!$ verschiedene Möglichkeiten.
+Also haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$|B_I| = (n - j)!$ \quad mit $j = |I|$.
+\\[0.2cm]
+Als nächstes müssen wir uns überlegen, wie viele Möglichkeiten es gibt, um ein Menge
+$I \subseteq \{1,\cdots,n\}$ mit $j$ zu bilden:  Dies ist die Anzahl der Teilmengen der Menge $\{1,\cdots,n\}$,
+die aus $j$ verschiedenen Elementen besteht.  Nach dem, was wir in dieser Vorlesung bisher gezeigt haben, gibt
+es dafür ${n \choose j}$ Möglichkeiten.  Da $|\Omega| = n!$ ist, haben wir damit insgesamt:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+\ds P(E^\mathrm{c}) & = & \ds
+\sum\limits_{j=1}^n (-1)^{j+1} \cdot \sum\limits_{I \subseteq \{1,\cdots,n\} \atop |I|=j} P\left(\bigcap\limits_{k \in I}A_k^\mathrm{c}\right) \\[0.7cm]
+& = & \ds
+\sum\limits_{j=1}^n (-1)^{j+1} \cdot {n \choose j} \cdot \frac{(n-j)!}{n!} \\[0.5cm]
+& = & \ds
+\sum\limits_{j=1}^n (-1)^{j+1} \cdot \frac{n!}{j! \cdot (n-j)!} \cdot \frac{(n-j)!}{n!} \\[0.5cm]
+& = & \ds
+\sum\limits_{j=1}^n (-1)^{j+1} \cdot \frac{1}{j!} 
+\end{array}
+$
+\\[0.2cm]
+Damit finden wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(E) = 1 - P(E^\mathrm{c}) = 1 - \sum\limits_{j=1}^n (-1)^{j+1} \cdot \frac{1}{j!} = 
+\frac{(-1)^0}{0!} + \sum\limits_{j=1}^n \frac{(-1)^j}{j!} = \sum\limits_{j=0}^n \frac{(-1)^j}{j!}
+$.
+\\[0.2cm]
+Interessant ist, wie sich $P(E)$ verhält, wenn $n$ groß wird.  Aus der Analysis kennen wir die Exponential-Funktion
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \exp(x) = \sum\limits_{j=0}^\infty \frac{x^n}{n!}$
+\\[0.2cm]
+und wissen, dass $\exp(x) = \mathrm{e}^x$ ist.  Damit sehen wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n \rightarrow \infty} P(E) = \sum\limits_{j=0}^\infty \frac{(-1)^j}{j!} = \exp(-1)
+= \mathrm{e}^{-1} = \frac{1}{\,\mathrm{e}\,}$.  
+\\[0.2cm]
+Wir stellen fest, dass die \href{https://de.wikipedia.org/wiki/Eulersche_Zahl}{Eulersche Zahl} $\mathrm{e}$ in der Natur allgegenwärtig ist.
+\eox
+
+
+
+\paragraph{Anzahl der $k$-Kombinationen mit Wiederholung}
+Als letztes stellen wir uns die Frage, wie viele Möglichkeiten es gibt, aus einer Menge $M$, die aus
+$n$ Elementen besteht, eine \blue{Multimenge} auszuwählen, die aus insgesamt $k$ Elementen besteht.  Den Begriff
+der \href{https://de.wikipedia.org/wiki/Multimenge}{Multimenge} müssen wir zunächst formal definieren.
+
+\begin{Definition}[Multimenge]
+  Eine \blue{Multimenge} ist eine Zusammenfassung von Objekten, für die folgendes gilt:
+  \begin{enumerate}
+  \item Die Reihenfolge der Elemente in einer Multimenge spielt keine Rolle.
+
+        \emph{In dieser Hinsicht unterscheiden sich Multimengen also nicht von Mengen.}
+  \item In einer Multimenge können Objekte auch mehrfach auftreten.
+
+        \emph{Dieser Aspekt ist der wesentliche Unterschied zwischen Mengen und Multimengen, den eine Menge
+        enthält jedes Objekt höchstens einmal.} \eox
+  \end{enumerate}
+\end{Definition}
+
+Multimengen werden ähnlich wir Mengen mit Hilfe von geschweiften Klammern notiert.  Zur Unterscheidung
+zwischen Mengen und Multimengen setzen wir den Index $_\textrm{\scriptsize m}$ an die schließende Klammer, wir
+schreiben also beispielsweise 
+\\[0.2cm]
+\hspace*{1.3cm}
+$A = \{ 1, 2, 2, 2, 2, 3 \}_\textrm{\scriptsize m}$
+\\[0.2cm]
+um auszudrücken, dass $A$ eine Multimenge ist, die die Elemente $1$, $2$ und $3$ enthält und bei der
+außerdem das Element $2$ mit der \blue{Vielfachheit}
+$4$ auftritt.  Die \blue{Mächtigkeit}
+von $A$ ist dann $6$.  Analog benutzen wir für die Vereinigung von Multimengen den
+Operator $\cup_\textrm{\scriptsize m}$, es gilt also beispielsweise 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\{1,2,2,3\}_\textrm{\scriptsize m} \cup_\textrm{\scriptsize m} \{1,2,3,4,4\}_\textrm{\scriptsize m} = \{1,1,2,2,2,3,3,4,4\}_\textrm{\scriptsize m}$
+\\[0.2cm]
+Mit dieser Definition der Vereinigung von Multimengen gilt offenbar 
+\\[0.2cm]
+\hspace*{1.3cm}
+$|A \cup_\textrm{\scriptsize m} B| = |A| + |B|$ \quad für beliebige Multimengen $A$ und $B$,
+\\[0.2cm]
+denn wenn ein Element sowohl in $A$ als auch in $B$ vorkommt, dann kommt es in der Multimenge
+$A \cup_\textrm{\scriptsize m} B$ mehrfach vor.  Die Menge aller Multimengen der Mächtigkeit $k$ mit Elementen
+aus der Menge $M$ bezeichnen wir mit 
+\\[0.2cm]
+\hspace*{1.3cm}
+$C_\textrm{\scriptsize m}(M,k)$.
+\\[0.2cm]
+Da wir nur an der Anzahl der Elemente der Menge $C_\textrm{\scriptsize m}(M,k)$ interessiert sind, können wir
+O.B.d.A. annehmen, dass die Menge $M$ aus den ersten $n$ natürlichen Zahlen besteht, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$M = \{1,2,3, \cdots, n\}$.  
+\\[0.2cm]
+Wir müssen uns überlegen, wie viele Multimengen mit $k$ Elementen wir aus den
+Elementen der Menge $M$ bilden können.  Am einfachsten wird dieses Problem, wenn wir diese Multimengen als
+geordnete Listen aufschreiben, wobei wir die verschiedenen Zahlen durch 
+senkrechte Striche trennen.  Mit dieser Vereinbarung schreibt sich die Multimenge 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\{1, 2, 2, 4, 4\}_\textrm{\scriptsize m}$ 
+\\[0.2cm]
+als die Liste
+\\[0.2cm]
+\hspace*{1.3cm}
+$[\,1\, |\, 2\, 2\, | \,|\, 4\, 4\, 4\,]$.
+\\[0.2cm]
+Beachten Sie, dass wir auch die (nicht vorhandenen) Dreien durch senkrechte Striche von den Zweien und den
+Vieren getrennt haben und deswegen zwischen den Zweien und Vieren zwei senkrechte Striche sind.  Aufgrund der
+Tatsache, dass die obige Liste geordnet ist, liefern die Zahlen in der Liste keine Information mehr.  Wir
+können daher die Darstellung weiter vereinfachen, wenn wir die Zahlen durch das Symbol $\star$ ersetzen.
+Zusätzlich lassen wir noch die eckigen Klammern weg.  Damit wird die Multimenge 
+$\{1, 2, 2, 4, 4\}_\textrm{\scriptsize m}$  also in den String
+\\[0.2cm]
+\hspace*{1.3cm}
+${\star}|{\star}{\star}||{\star}{\star}{\star}$
+\\[0.2cm]
+überführt.  Wir sehen, dass die senkrechten Striche die Sternchen so in Gruppen einteilen, dass wir daraus die
+ursprüngliche Liste wiederherstellen können, denn die Sternchen der ersten Gruppe entsprechen den Einsen, die
+Sternchen der zweiten Gruppe entsprechen den Zweien und so weiter.  Insgesamt besteht die Liste nun aus 
+$k + n - 1$ Zeichen: Zunächst haben wir jedes der $k$ Elemente der Multimenge durch einen Stern ersetzt und dann
+haben wir zwischen den $n$ Gruppen von Elementen noch jeweils einen senkrechten Strich eingefügt.  Wir überlegen uns
+jetzt, wie viele Strings es gibt, die insgesamt die Länge $k + n -1$ haben und die nur aus den beiden Zeichen
+$\star$ und $|$ bestehen.  Um einen String dieser Art zu spezifizieren reicht es aus, wenn wir wissen, an
+welchen Positionen sich die $n-1$ senkrechten Striche befinden, welche die Gruppen aus Sternchen trennen, 
+denn an den anderen $k$ Positionen müssen dann ja Sternchen stehen.  Die Positionen der senkrechten Striche
+sind Zahlen aus der Menge $\{1, \cdots, k + n - 1\}$, denn der String hat ja insgesamt die Länge $k+n-1$.  Der
+String ist also dann eindeutig festgelegt, wenn wir eine Teilmenge der Menge $\{1, \cdots, k + n - 1\}$ mit genau
+$n-1$ Elementen festlegen, welche die Positionen der senkrechten Striche spezifiziert.  Eine Menge mit $k+n-1$
+Elementen hat aber genau  
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {k+n-1 \choose n-1}$
+\\[0.2cm]
+Teilmengen, die aus $n-1$ Elementen bestehen.  Aufgrund der Symmetrie der Binomial-Koeffizienten gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {k+n-1 \choose n-1} =  {k+n-1 \choose (k+n-1) - (n-1)} = {n + k - 1 \choose k}$.
+\\[0.2cm]
+Damit gibt es für eine Menge $M$ mit $n$ Elementen genau 
+\begin{equation}
+  \label{eq:kombination-wiederholung}
+\ds |C_\textrm{\scriptsize m}(M,k)| = {n+k-1 \choose k}
+\end{equation}
+Multimengen, die Teilmengen von $M$ sind und aus insgesamt $k$ Elementen bestehen.
+In der Wahr\-schein\-lich\-keits-Theorie werden solche Multimengen auch
+als \blue{Kombinationen mit Wiederholung} bezeichnet.
+
+\exercise
+\begin{enumerate}[(a)]
+\item Wie viele Möglichkeiten gibt es, ein Tripel natürliche Zahlen $\langle x, y,z \rangle$ zu wählen,
+      so dass
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $x + y + z = 5$
+      \\[0.2cm]
+      gilt?  Schreiben Sie ein \textsc{SetlX}-Programm, dass die Menge dieser Tripel explizit berechnet.
+\item Es sei $s\in \mathbb{N}$.  Wie viele Möglichkeiten gibt es, $n$ natürliche Zahlen $x_1,x_2,\cdots,x_n$ so
+      zu wählen, dass 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds \sum\limits_{k=1}^n x_i = s$
+      \\[0.2cm] 
+      gilt?
+
+      \textbf{Hinweis}: Stellen Sie die Summe durch einen String dar, der aus $s$ Sternchen und 
+      $n-1$ senkrechten Strichen besteht.  Beispielsweise können 
+      Sie die Summe $3 + 2 + 0 + 1$ durch den String $\star\star\star|\star\star||\star$ darstellen.
+      % Lösung: ${s + n - 1 \choose s}$
+\item Wieder sei $t\in \mathbb{N}$.  Wie viele Möglichkeiten gibt es, $n$ \blue{positive} 
+      natürliche Zahlen $y_1,y_2,\cdots,y_n$ so
+      zu wählen, dass 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds \sum\limits_{k=1}^n y_i = t$
+      \\[0.2cm] 
+      gilt?
+
+      \textbf{Hinweis}:  Führen Sie diese Teilaufgabe durch eine geeignete Transformation auf 
+      Teil (b) dieser Aufgabe zurück.  \eoxs
+\end{enumerate}
+
+\exercise
+Wie viele Möglichkeiten gibt es, mit drei nummerierten Würfeln in der Summe die Zahl 8 zu würfeln?  
+Die Würfel sind nummeriert, damit wir beispielsweise die beiden folgenden Ergebnisse unterscheiden
+können: 
+\begin{enumerate}
+\item Der erste Würfel zeigt eine 3, der zweite Würfel zeigt eine 4 und der dritte Würfel zeigt eine 1.
+\item Der erste Würfel zeigt eine 1, der zweite Würfel zeigt eine 3 und der dritte Würfel zeigt eine 4.
+\end{enumerate}
+
+\noindent
+\textbf{Hinweis}:  Sie können ein \textsc{SetlX}-Programm schreiben, dass die Menge aller Tripel
+der Form $\langle x, y, z\rangle$ berechnet, für die einerseits $x,y,z \in \{1,\cdots,6\}$ und
+andererseits $x+y+z = 8$ gilt.  \eox
+
+Wenn die Anzahl der Würfel wesentlich größer wird als in der letzten Aufgabe, dann kann es schnell sehr aufwendig werden,
+die Anzahl der Fälle zu berechnen, mit denen eine vorgegebene Zahl als Summe gewürfelt werden kann.  Der
+folgende Satz liefert daher eine explizite Formel, mit der diese Anzahl berechnet werden kann.
+
+\begin{Satz}[Würfel-Summen-Satz] \label{satz:wuerfel_anzahl}
+  Es seien $n$ und $s$ positive natürliche Zahlen.  Wir definieren
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $W(s) := \bigl\{\langle x_1, \cdots, x_n \rangle \in \{1,\cdots,6\}^n \bigm| x_1+\cdots+x_n=s\bigr\}$.
+  \\[0.2cm]
+  Die Menge $W(s)$ beschreibt gerade die Menge der Möglichkeiten, die es gibt, um mit $n$ Würfeln in der Summe
+  die Zahl $s$ zu würfeln.   Dann gilt
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds |W(s)| =\sum\limits_{k=0}^n (-1)^k \cdot {n \choose k} \cdot {s - 6 \cdot k - 1 \choose s - 6 \cdot k - n}$.
+\end{Satz}
+
+\proof
+Wir betrachten zunächst ein etwas einfacheres Problem:  Wir nehmen an, dass die Würfel anstatt mit den Zahlen
+von Eins bis Sechs mit den Zahlen von Null bis Fünf beschriftet sind und in der Summe die Zahl $t$ ergeben.
+Wir definieren dazu die Menge 
+\\[0.2cm]
+\hspace*{1.3cm}
+$V(t) := \bigl\{\langle x_1, \cdots, x_n \rangle \in \{0,\cdots,5\}^n \bigm| x_1+\cdots+x_n = t \bigr\}$
+\\[0.2cm]
+und berechnen zunächst $|V(t)|$.  Das ursprüngliche Problem kann auf dieses Problem zurück geführt werden, denn
+zwischen den Mengen $V(s-n)$ und $W(s)$ besteht der Zusammenhang
+\\[0.2cm]
+\hspace*{1.3cm}
+$\langle x_1, \cdots, x_n \rangle \in W(s) \;\Leftrightarrow\; \langle x_1-1, \cdots, x_n-n \rangle \in V(s-n)$,
+\\[0.2cm]
+denn wenn wir in dem ursprünglichen Problem von jedem der $n$ Würfel die Zahl 1 abziehen, sind einerseits die Würfel mit den
+Zahlen von $0$ bis $5$ beschriftet und andererseits zeigen die Würfel dann in der Summe die
+Zahl $s - n$.  Diese Gleichung zeigt, dass
+\\[0.2cm]
+\hspace*{1.3cm}
+$|W(s)| = |V(s-n)|$
+\\[0.2cm]
+gilt.  Wir müssen also in der Lösung des modifizierten Problems später nur für $t$ die Zahl $s-n$
+einsetzen und haben dann das ursprüngliche Problem gelöst.  Wir definieren 
+\\[0.2cm]
+\hspace*{1.3cm}
+$B(t) := \bigl\{ \langle x_1, \cdots, x_n \rangle \in \mathbb{N}^n \bigm| x_1+\cdots+x_n = t \bigr\}$.
+\\[0.2cm]
+Aus der letzten Aufgabe wissen wir, dass es ${t + n - 1 \choose t}$
+Möglichkeiten gibt, $n$ Variablen $x_1$, $x_2$, $\cdots$, $x_n$ so mit natürlichen Zahlen zu belegen,
+dass die Summe $x_1 + x_2 + \cdots + x_n = t$ ist, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds |B(t)| = {t + n - 1 \choose t}$.
+\\[0.2cm]
+Setzen wir hier für $t$ den Wert $s-n$ ein, so sehen wir, dass die Anzahl $|B(t)|$ gerade dem Summand mit dem
+Index $k=0$ in der zu beweisenden Summen-Formel entspricht.
+Die Menge $B(t)$ kann im Allgemeinen auch solche Tupel $\langle x_1,\cdots,x_n \rangle$ enthalten, bei denen ein $x_i$ größer als $5$ ist.
+Wir müssen nun die Anzahl der Möglichkeiten berechnen, bei denen die Summe $x_1 + \cdots + x_n = t$ ist,
+aber wenigstens eine der Variablen $x_i$ echt größer als $5$ ist, denn diese Anzahl müssen wir von $|B(t)|$ wieder
+abziehen.  Wir definieren daher für $i=1,\cdots,n$ die
+Mengen $A_i(t)$ wie folgt: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$A_i(t) := \bigl\{ \langle x_1, \cdots, x_n \rangle \in B(t) \bigm| x_i \geq 6 \bigr\}$.
+\\[0.2cm]
+Die Menge $A_i$ fasst also die Fälle zusammen, bei denen die $i$-te Variable mindestens $6$ ist.
+Zwischen der gesuchten Menge $V(t)$ und den Mengen $B(t)$ und $A_i(t)$ besteht der folgende Zusammenhang
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds V(t) = B(t) \backslash \bigcup_{i=1}^n A_i(t)$.
+\\[0.2cm]
+Da die Mengen $A_i(t)$ Teilemengen der Menge $B(t)$ sind, folgt daraus für die Kardinalität von $V(t)$ die Formel  
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds|V(t)| = |B(t)| - \biggl|\bigcup_{i=1}^n A_i(t)\biggr|$
+\\[0.2cm]
+Da die verschiedenen Mengen $A_i(t)$ nicht paarweise disjunkt sind, müssen wir die Siebformel von Poincaré und
+Sylvester verwenden um die Kardinalität der Vereinigungs-Menge zur berechnen.  Es gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds\biggl|\bigcup_{i=1}^n A_i(t)\biggr| = 
+\sum\limits_{k=1}^n (-1)^{k+1} \cdot\sum\limits_{I\subseteq \{1,\cdots,n\} \atop |I| = k} \biggl|\bigcap\limits_{i\in I} A_i(t)\biggr|$.
+\\[0.2cm]
+Um für eine gegebene Teilmenge $I \subseteq \{1,\cdots,n\}$ die Kardinalität der Schnitt-Menge
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds A_I(t) := \bigcap\limits_{i\in I} A_i(t)$
+\\[0.2cm]
+berechnen zu können, überlegen wir uns, dass $A_I(t)$ gerade die Tupel $\langle x_1, \cdots, x_n \rangle \in
+B(t)$ enthält, für die für alle $i \in I$
+die Ungleichung $x_i \geq 6$ gilt, wir haben also
+\\[0.2cm]
+\hspace*{1.3cm}
+$A_I(t) := \bigl\{ \langle x_1, \cdots, x_n \rangle \in B(t) \bigm| \forall i \in I: x_i \geq 6 \bigr\}$.
+\\[0.2cm]
+Diese Menge transformieren wir in die Menge $A_I'(t)$ bei der wir von den Tupel aus $A_I(t)$ in den Komponenten
+$x_i$ mit $i \in I$ jeweils 6 abziehen.  Diese Menge können wir am einfachsten formal definieren, wenn
+wir vorher die Hilfsfunktion 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathrm{ite}:\mathbb{B} \times \mathbb{Z} \times \mathbb{Z}$
+\\[0.2cm]
+wie folgt definieren:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathrm{ite}(c,x,y) := \left\{
+\begin{array}{ll}
+  x & \mbox{falls $c = \mathtt{true}$;} \\
+  y & \mbox{falls $c = \mathtt{false}$.} \\
+\end{array}
+\right.
+$
+\\[0.2cm]
+Der Name $\mathrm{ite}$ steht hier als Abkürzung für \textsl{if-then-else}.
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+A_I'(t) := 
+\bigl\{ \langle \mathrm{ite}(i\in I,x_1-6, x_1), \cdots, \mathrm{ite}(n\in I,x_n-6,x_n\rangle 
+ \bigm| 
+        \langle x_1,\cdots,x_n\rangle \in A_I(t) \bigr\}
+$.
+\\[0.2cm]
+Ist $k := |I|$, so gilt offenbar
+\\[0.2cm]
+\hspace*{1.3cm}
+$A_I'(t) = B(t - k \cdot 6)$
+\\[0.2cm]
+und damit ist klar, dass 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds |A_I(t)| = |B(t - k \cdot 6)| = {t - k \cdot 6 + n - 1 \choose t - k \cdot 6}$
+\\[0.2cm]
+gilt.  Wir sehen, dass die Kardinalität der Menge $|A_I(t)|$ nicht wirklich von der Index-Menge $I$ sondern nur
+von der Mächtigkeit $k$ dieser Menge abhängt.  Da es insgesamt ${n \choose k}$ Möglichkeiten gibt, eine Menge
+$I$ der Mächtigkeit $k$ als Teilmenge der Menge $\{1,\cdots,n\}$ auszuwählen, haben wir jetzt insgesamt
+folgende Formel gefunden:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{rcl}
+ |V(t)| & = & 
+ \ds |B(t)| - \biggl|\bigcup_{i=1}^n A_i(t)\biggr| 
+ \\[0.6cm] 
+ & = & \ds
+ {t + n - 1 \choose t} - \sum\limits_{k=1}^n (-1)^{k+1} \cdot\sum\limits_{I\subseteq \{1,\cdots,n\} \atop |I| \leq k} |A_I(t)|
+ \\[0.6cm] 
+ & = & \ds
+ {t + n - 1 \choose t} - \sum\limits_{k=1}^n (-1)^{k+1} \cdot {n \choose k} \cdot {t - k \cdot 6 + n - 1 \choose t - k \cdot 6}
+ \\[0.6cm] 
+ & = & \ds 
+ \sum\limits_{k=0}^n (-1)^{k} \cdot {n \choose k} \cdot {t - k \cdot 6 + n - 1 \choose t - k \cdot 6}
+\end{array}
+$
+\\[0.2cm]
+Beachten Sie, dass die Zahl $t - k \cdot 6$ negativ werden kann.  Für diesen Fall legen wir fest, dass
+der Binomial-Koeffizient
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {t - k \cdot 6 + n - 1 \choose t - k \cdot 6}$
+\\[0.2cm]
+den Wert $0$ hat.  Setzen wir in der Formel für $|V(t)|$ für $t$ den Wert $s-n$ ein, so ergibt sich 
+wegen $|W(s)| = |V(s-n)|$ die Behauptung.   
+\qed
+
+
+
+\exercise
+Es sei eine Gruppe von $n$ Personen gegeben. Berechnen Sie die Wahrscheinlichkeit dafür,
+dass von diesen $n$ Personen wenigstens zwei Personen am selben Tag Geburtstag haben.
+Zur Vereinfachung dürfen Sie folgendes annehmen:
+\begin{enumerate}
+\item Keine der Personen hat an einem Schalttag Geburtstag.
+\item Für alle anderen Tage ist das Wahrscheinlichkeits-Maß gleichmäßig.
+\item Die Geburtstage der verschiedenen Personen sind voneinander unabhängig.  Insbesondere gibt es unter den 
+      Personen kein Zwillings-Paar.
+\end{enumerate}
+Wie groß muss die Zahl $n$ sein, damit es sich lohnt darauf zu wetten, dass wenigstens
+zwei Personen am selben Tag Geburtstag haben.
+
+\solution
+Wir definieren $T := \{1,\cdots, 365\}$.  Unser Zufalls-Experiment besteht
+darin, dass wir eine Liste der Länge $n$ mit Elementen aus $T$ auswählen.  Die Menge
+$\Omega$ ist also durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Omega = \bigl\{ [x_1,\cdots,x_n] \;\big|\; \forall i\in\{1,\cdots,n\}: x_i \in T \bigr\} = T^n$
+\\[0.2cm]
+gegeben. Nach dem oben gezeigten gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$|\Omega| = |T|^n = 365^n$.
+\\[0.2cm]
+Das uns interessierende Ereignis $A_n$, dass wenigstens zwei Personen am selben Tag
+Geburtstag haben, läßt sich nicht unmittelbar angeben.  Wir betrachten daher zunächst das
+komplementäre Ereignis $A_n^\mathrm{c}$, das ausdrückt, dass alle $n$ Personen an verschiedenen Tagen
+Geburtstag haben.  Es gilt 
+\\[0.2cm]
+\hspace*{0.3cm}
+$A_n^\mathrm{c} = \bigl\{ [x_1,\cdots,x_n] \;\big|\; \forall i\in\{1,\cdots,n\}: x_i \in T\bigr) \;\wedge\; 
+                                          \forall i,j\in\{1,\cdots,n\}: \bigl(i\not=j \rightarrow x_i \not=x_j \bigr) \bigr\}$
+\\[0.2cm]
+Bei der Menge $A_n^\mathrm{c}$ handelt es sich gerade um die Menge aller $n$-Permutationen der Menge
+$T = \{1,\cdots,365\}$.  Daher gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \bigl|A_n^\mathrm{c}\bigr| = \frac{365!}{(365-n)!}$.
+\\[0.2cm] 
+Da wir von einem gleichmäßigen Wahrscheinlichkeits-Maß ausgehen, gilt für die
+Wahrscheinlichkeit des gesuchten Ereignisses $A_n$ 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A_n) = 1 - P(A_n^\mathrm{c}) = 1 - \frac{|A_n^\mathrm{c}|}{|\Omega|} = 1 - \frac{365!}{(365-n)!\cdot 365^n}$.
+\\[0.2cm]
+
+Tragen wir für $n=1,\cdots,60$ die Wahrscheinlichkeiten $P(A_n)$ in eine Tabelle ein, so erhalten 
+wir die in Tabelle \ref{tab:birthday} gezeigten Werte.  Abbildung \ref{fig:birthday} zeigt
+diese Werte graphisch.  Wir erkennen, dass bereits bei einer Gruppe von 23 Personen die
+Wahrscheinlichkeit dafür, dass zwei Personen am selben Tag Geburtstag haben, größer als
+$0.5$ ist. Die Wette lohnt sich also ab einer Gruppengröße von 23 Personen. 
+\qed
+
+\remark
+In der Realität gibt es Jahreszeiten, an denen die Wahrscheinlichkeit einer Geburt höher ist als in anderen
+Jahreszeiten.  Das führt dazu, dass die Wahrscheinlichkeit dafür, dass zwei Personen am selben Tag Geburtstag
+haben, in der Praxis etwas höher als in Tabelle \ref{tab:birthday} angegeben ist. 
+
+
+
+
+
+\begin{table}[!ht]
+  \centering
+\framebox{
+  \begin{tabular}{|r|r|r|r|r|r|}
+\hline
+   $n$ & $P(A_n)$ & $n$ & $P(A_n)$ & $n$ & $P(A_n)$ \\
+\hline
+\hline
+ 1 &          0.0 &  2 & 0.0027397260 &  3 & 0.0082041659 \\
+\hline
+ 4 & 0.0163559124 &  5 & 0.0271355737 &  6 & 0.0404624837 \\
+\hline
+ 7 & 0.0562357031 &  8 & 0.0743352924 &  9 & 0.0946238339 \\
+\hline
+10 & 0.1169481777 & 11 & 0.1411413783 & 12 & 0.1670247888 \\
+\hline
+13 & 0.1944102752 & 14 & 0.2231025120 & 15 & 0.2529013198 \\
+\hline
+16 & 0.2836040053 & 17 & 0.3150076653 & 18 & 0.3469114179 \\
+\hline
+19 & 0.3791185260 & 20 & 0.4114383836 & 21 & 0.4436883352 \\
+\hline
+22 & 0.4756953077 & 23 & 0.5072972343 & 24 & 0.5383442579 \\
+\hline
+25 & 0.5686997040 & 26 & 0.5982408201 & 27 & 0.6268592823 \\
+\hline
+28 & 0.6544614723 & 29 & 0.6809685375 & 30 & 0.7063162427 \\
+\hline
+31 & 0.7304546337 & 32 & 0.7533475278 & 33 & 0.7749718542 \\
+\hline
+34 & 0.7953168646 & 35 & 0.8143832389 & 36 & 0.8321821064 \\
+\hline
+37 & 0.8487340082 & 38 & 0.8640678211 & 39 & 0.8782196644 \\
+\hline
+40 & 0.8912318098 & 41 & 0.9031516115 & 42 & 0.9140304716 \\
+\hline
+43 & 0.9239228557 & 44 & 0.9328853686 & 45 & 0.9409758995 \\
+\hline
+46 & 0.9482528434 & 47 & 0.9547744028 & 48 & 0.9605979729 \\
+\hline
+49 & 0.9657796093 & 50 & 0.9703735796 & 51 & 0.9744319933 \\
+\hline
+52 & 0.9780045093 & 53 & 0.9811381135 & 54 & 0.9838769628 \\
+\hline
+55 & 0.9862622888 & 56 & 0.9883323549 & 57 & 0.9901224593 \\
+\hline
+58 & 0.9916649794 & 59 & 0.9929894484 & 60 & 0.9941226609 \\
+\hline
+  \end{tabular}}
+  \caption{Die ersten 60 Werte für das Geburtstags-Problem.}
+  \label{tab:birthday}
+\end{table}
+
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/birthday,scale=0.5}
+   \caption{Das Geburtstags-Problem.}
+  \label{fig:birthday}
+\end{figure}
+\section{Die hypergeometrische Verteilung}
+\exercise In einer Ameisen-Kolonie, in der $40\,000$ Ameisen leben, sind $1\,000$ Ameisen
+mit Farbe markiert worden.  Ein Forscher fängt nun zufällig $200$ dieser Ameisen.
+Berechnen Sie die Wahrscheinlichkeit, dass er genau $k$ markierte Tiere fängt.  Gehen Sie
+dabei von einem gleichmäßigen Wahrscheinlichkeits-Maß aus, nehmen Sie also an, dass
+die Wahrscheinlichkeit dafür, dass eine Ameise gefangen wird, unabhängig von der
+farblichen Markierung ist.  Tabellieren Sie die Werte für $k=0,\cdots,20$ und tragen Sie
+die gefundenen Werte in einem Diagramm auf.
+
+\solution Wir modellieren die Ameisen-Kolonie durch die Menge $M := \{1,\cdots,40\,000\}$.
+Die Menge der farblich markierten Ameisen bezeichnen wir mit $F$. Wir legen willkürlich
+fest, dass die ersten Tausend Ameisen diejenigen Ameisen sind, die markiert sind. Also
+gilt
+\\[0.2cm]
+\hspace*{1.3cm} $F := \{1,\cdots,1\,000\}$
+\\[0.2cm]
+Das der Aufgabe zugrunde liegende Zufalls-Experiment besteht darin, dass wir aus der Menge
+$M$ eine Teilmenge der Größe $200$ auswählen.  Damit läßt sich die Ergebnis-Menge als
+\\[0.2cm]
+\hspace*{1.3cm} $\Omega := \bigl\{ A \in 2^M \;\big|\; |A| = 200 \}$
+\\[0.2cm]
+definieren.  $\Omega$ ist also die Menge aller der Teilmengen von $M$, die genau $200$
+Elemente enthalten.  Nach Gleichung (\ref{eq:kombination}) gilt für die Mächtigkeit dieser
+Menge
+\\[0.2cm]
+\hspace*{1.3cm} $\ds |\Omega| = |C(M,200)| = {|M| \choose 200} = {40\,000 \choose 200}$
+\\[0.2cm]
+Das uns interessierende Ereignis $\Lambda_k$ ist das Ereignis, bei dem genau $k$ farblich markierte Ameisen
+gefangen werden.  Wir können daher $\Lambda_k$ als
+\\[0.2cm]
+\hspace*{1.3cm} $\Lambda_k := \bigl\{ B \in 2^M \;\big|\; |B| = 200 \wedge |B \cap F| = k
+\bigr\}$
+\\[0.2cm]
+definieren: $\Lambda_k$ besteht aus genau den Teilmengen von $M$, die einerseits 200 Elemente
+enthalten und die andererseits genau $k$ Elemente aus der Menge $\{1,\cdots,1\,000\}$
+enthalten.  Die Berechnung der Wahrscheinlichkeit des Ereignisses $\Lambda_k$ läuft auf die
+Berechnung von $|\Lambda_k|$ hinaus.  
+Dazu formen wir die Definition von $\Lambda_k$ etwas um.  Eine Menge $B$ liegt genau dann
+in $\Lambda_k$, wenn $B$ insgesamt $k$ Elemente aus der Menge $F$ und 
+$200 - k$ Elemente aus der Menge $M \backslash F$ enthält.  Folglich gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}{lcl}
+|\Lambda_k| & = & 
+\bigl|\bigl\{ C \cup D \bigm| C \subseteq F \wedge D \subseteq M \backslash F \wedge |C| = k \wedge |D| = 200 - k \bigr\}\bigr| \\[0.2cm]
+ & = & 
+\Bigl|\Bigl\{ C \cup D \Bigm| 
+     C \in \bigl\{ C' \in 2^F \bigm| |C'| = k \bigr\}\; \wedge\; D \in \bigl\{ D' \in 2^{M \backslash F} \bigm| |D'| = 200 - k\bigr\} \Bigr\}\Bigr| \\[0.2cm]
+ & = & 
+\bigl|\{ C' \in 2^F \bigm| |C'| = k \}\bigr| \cdot \bigl|\{ D' \in 2^{M \backslash F} \bigm| |D'| = 200 - k\} \bigr| \\[0.2cm]
+ & = & \ds
+{|F| \choose k} \cdot {|M \backslash F| \choose 200 - k} \qquad \mbox{nach Gleichung   (\ref{eq:kombination})} \\[0.4cm] 
+ & = & \ds
+{1000 \choose k} \cdot {39\,000 \choose 200 - k}.  
+\end{array}
+$
+\\[0.2cm]
+Damit haben wir für die Wahrscheinlichkeit des Ereignisses $\Lambda_k$ die Formel 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(\Lambda_k) = \frac{|\Lambda_k|}{|\Omega|} =\frac{{1000 \choose k} \cdot {39\,000 \choose 200 - k}}{{40\,000 \choose 200}}$
+\\[0.2cm]
+gefunden.  In Tabelle \ref{tab:ameisen} sind die Wahrscheinlichkeiten aufgelistet.
+Für $k\geq 17$ sinkt die Wahrscheinlichkeit unter $10^{-5}$ und ist damit vernachlässigbar.
+
+
+\begin{table}[!ht]
+  \centering
+\framebox{
+  \begin{tabular}{|r|r|r|r|r|r|}
+\hline
+   $k$ & $P(\Lambda_k)$ & $n$ & $P(\Lambda_k)$ & $k$ & $P(\Lambda_k)$ \\
+\hline
+\hline
+  0 & 0.0062425837 &  1 & 0.0321774371 &  2 & 0.0824301154 \\
+\hline
+  3 & 0.1399249245 &  4 & 0.1770598037 &  5 & 0.1781466648 \\
+\hline
+  6 & 0.1484517284 &  7 & 0.1053817150 &  8 & 0.0650519877 \\
+\hline
+  9 & 0.0354730483 & 10 & 0.0173006288 & 11 & 0.0076226006 \\
+\hline
+ 12 & 0.0030592431 & 13 & 0.0011261811 & 14 & 0.0003825168 \\
+\hline
+ 15 & 0.0001204896 & 16 & 0.0000353530 & 17 & 0.0000096999 \\
+\hline
+  \end{tabular}}
+  \caption{Wie viele bunte Ameisen werden gefangen?}
+  \label{tab:ameisen}
+\end{table}
+
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/ameisen,scale=0.5}
+   \caption{Wahrscheinlichkeits-Maß für die Anzahl der markierten Ameisen}
+  \label{fig:ameisen}
+\end{figure}
+
+
+Die in der letzten Aufgabe behandelte Situation kommt in der Praxis häufig vor.
+Ein Beispiel liefert die Überwachung der Qualität der Produktion von elektronischen
+Bauteilen.  Eine Fertigungsanlage produziert am Tag eine bestimmte Zahl $N$ solcher 
+Bauteile.  Davon sind $K$ Bauteile defekt, während die restlichen $N-K$
+Bauteile funktionieren.  Zur Überprüfung der Produktions-Qualität wird eine \blue{Stichprobe} vom
+Umfang $n$ genommen.  In dieser Stichprobe findet man dann $k$ defekte Bauteile, während
+die restlichen $n-k$ Bauteile einwandfrei sind.  Falls die Zahlen $N$, $K$ und $n$ gegeben sind, können
+wir uns fragen, wie wahrscheinlich es ist, dass unter den $n$ Bauteilen der Stichprobe
+insgesamt $k$ Bauteile defekt sind.  Die Situation ist dann die selbe wie in der letzten
+Aufgabe:  
+\begin{enumerate}
+\item Die Gesamtzahl $N$ entspricht der Anzahl aller Ameisen.
+\item Die Anzahl $K$ der defekten Bauteile entspricht der Zahl der markierten Ameisen.
+\item Die Umfang $n$ der Stichprobe entspricht der Zahl der gefangenen  Ameisen.
+\item Die Anzahl $k$ der defekten Bauteile in der Stichprobe entspricht der Anzahl
+      der gefangenen Ameisen, die markiert sind.
+\end{enumerate}
+Zur Berechnung des Wahrscheinlichkeits-Maßes gehen wir daher wie bei der Lösung der
+letzten Aufgabe vor und definieren  die Menge $\mathcal{M} := \{1,\cdots,N\}$, wobei wir die Bauteile
+durchnummerieren und also jedes Bauteil durch eine Zahl der Menge $\mathcal{M}$ darstellen.
+Die Menge der defekten Bauteile bezeichnen wir mit $\mathcal{F}$. 
+Wir gehen ohne Beschränkung der Allgemeinheit davon aus, dass die defekten Bauteile in der
+Aufzählung aller Bauteile am Anfang stehen, die Bauteile mit den Nummern
+$1,\cdots,K$ sind also defekt.  Folglich gilt
+\\[0.2cm]
+\hspace*{1.3cm} $\mathcal{F} = \{1,\cdots,K\}$.
+\\[0.2cm]
+Das der Aufgabe zugrunde liegende Zufalls-Experiment besteht darin, dass wir aus der Menge
+$\mathcal{M}$ eine Teilmenge der Größe $n$ auswählen.  Damit läßt sich die Ergebnis-Menge als
+\\[0.2cm]
+\hspace*{1.3cm} $\Omega = \bigl\{ A \in 2^\mathcal{M} \;\big|\; |A| = n \}$
+\\[0.2cm]
+Nach Gleichung (\ref{eq:kombination}) gilt für die Mächtigkeit dieser Menge
+\\[0.2cm]
+\hspace*{1.3cm} $\ds |\Omega| = |C(\mathcal{M},n)| = {|\mathcal{M}| \choose n} = {N \choose n}$
+\\[0.2cm]
+Das uns interessierende Ereignis $\Lambda_k$ ist dann durch die Menge
+\\[0.2cm]
+\hspace*{1.3cm} 
+$\Lambda_k := \bigl\{ B \in 2^\mathcal{M} \;\big|\; |B| = n \wedge |B \cap \mathcal{F}| = k\bigr\}$
+\\[0.2cm]
+definiert: $\Lambda_k$ besteht aus genau den Teilmengen von $\mathcal{M}$, die  $n$ Elemente
+enthalten von denen $k$ defekt sind.  Die Berechnung der Wahrscheinlichkeit des Ereignisses $\Lambda_k$ läuft
+auf die Berechnung von $|\Lambda_k|$ hinaus.  
+Dazu formen wir die Definition von $\Lambda_k$ etwas um.  Eine Menge $B$ liegt genau dann
+in $\Lambda_k$, wenn $B$ insgesamt $k$ Elemente aus der Menge $\mathcal{F}$ und 
+$n - k$ Elemente aus der Menge $\mathcal{M} \backslash \mathcal{F}$ enthält.  Folglich gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}{lcl}
+|\Lambda_k| & = & 
+\bigl|\bigl\{ C \cup D \bigm| C \subseteq \mathcal{F} \wedge D \subseteq \mathcal{M} \backslash \mathcal{F} \wedge |C| = k \wedge |D| = n - k \bigr\}\bigr| \\[0.2cm]
+ & = & 
+\bigl|\bigl\{ C \cup D \bigm| C \in \{ C' \in 2^\mathcal{F} \bigm| |C'| = k \}\; \wedge\; D \in \{ D' \in 2^{\mathcal{M} \backslash \mathcal{F}} \bigm| |D'| = n - k\} \bigr\}\bigr| \\[0.2cm]
+ & = & 
+\bigl|\{ C' \in 2^\mathcal{F} \bigm| |C'| = k \}\bigr| \cdot \bigl|\{ D' \in 2^{\mathcal{M} \backslash \mathcal{F}} \bigm| |D'| = n - k\} \bigr| \\[0.2cm]
+ & = & \ds
+{|\mathcal{F}| \choose k} \cdot {|\mathcal{M} \backslash \mathcal{F}| \choose n - k} \qquad \mbox{nach Gleichung   (\ref{eq:kombination})} \\[0.4cm] 
+ & = & \ds
+{n \choose k} \cdot {N - K \choose n - k}.  
+\end{array}
+$
+\\[0.2cm]
+Damit haben wir für das Wahrscheinlichkeits-Maß die Formel 
+\begin{equation}
+  \label{eq:hypergeometrisch}  
+ P(\Lambda_k) = \frac{|\Lambda_k|}{|\Omega|} =\frac{{K \choose k} \cdot {N - K \choose n - k}}{{N \choose n}}
+\end{equation}
+gefunden.  In der Statistik wird das obige Beispiel abstrahiert.  Statt von Bauteilen
+sprechen wir hier von Kugeln in einer Urne.  Von diesen Kugeln sind dann $K$ Kugeln
+schwarz, was den defekten Bauteilen entspricht, die restlichen Kugeln sind weiß.
+Dann gibt die obige Formel die Wahrscheinlichkeit dafür an, dass bei einer Entnahme von
+$n$ Kugeln $k$ Kugeln schwarz sind.  Das in Gleichung \ref{eq:hypergeometrisch} angegebene
+Wahrscheinlichkeits-Maß wird in der Literatur als 
+\href{https://de.wikipedia.org/wiki/Hypergeometrische_Verteilung}{hypergeometrische Verteilung}
+bezeichnet. 
+
+\exercise
+Eine Firma erhält eine Lieferung von 100 Geräten.  Der zuständige Prüfer wählt zufällig 10
+Geräte aus.  Die Lieferung wird genau dann akzeptiert, wenn dabei kein defektes Gerät
+gefunden wird.  Nehmen Sie an, dass von den gelieferten 100 Geräten 10 Geräte defekt sind.
+Wie hoch ist die Wahrscheinlichkeit dafür, dass die Lieferung trotzdem akzeptiert wird?
+
+\section{Die Binomial-Verteilung}
+Wir greifen das Beispiel aus der Einleitung zur Ameisen-Zählung wieder auf und
+modifizieren es mit dem Ziel, die Durchführung zu vereinfachen:
+\begin{enumerate}
+\item Am ersten Tag markieren wir wie vorher insgesamt $1\,000$ Ameisen farblich.
+\item Der zweite Tag ist schwieriger, denn hier müssten wir tatsächlich erst  $200$
+      Ameisen einsammeln bevor wir mit dem Zählen der markierten Ameisen beginnen.
+      Also ändern wir das Experiment so ab, dass wir nacheinander $200$ Ameisen
+      untersuchen und jedesmal überprüfen, ob die Ameise markiert ist.  
+\end{enumerate}
+Am zweiten Tag kann es jetzt durchaus passieren, dass wir die selbe Ameise mehrmal zählen.
+Dadurch ändert sich natürlich auch das Wahrscheinlichkeits-Maß.  Wenn wir berechnen
+wollen, mit welcher Wahrscheinlichkeit wir nun $k$ markierte Ameisen finden, 
+werden die Dinge erfreulicherweise einfacher.  Wir behandeln gleich den allgemeinen Fall
+und nehmen folgendes an:
+\begin{enumerate}
+\item Für jede einzelne Ameise hat die Wahrscheinlichkeit, dass die Ameise markiert ist,
+      den Wert \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds p = \frac{K}{N}$.
+      \\[0.2cm]
+      Hier bezeichnet $N$ die Gesamtzahl der Ameisen und $K$ ist die Anzahl der insgesamt
+      markierten Ameisen.  Die Menge $\mathcal{M}$  der Ameisen hat also die Form 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\{ a_1,a_2,\cdots,a_N\}$
+      \\[0.2cm]
+      Ohne Beschränkung der Allgemeinheit gehen wir davon aus, dass die Ameisen
+      $a_1$ bis $a_K$ markiert sind.
+\item Das Zufalls-Experiment besteht darin, dass wir $n$ Ameisen auf ihre Färbung
+      untersuchen.  Dabei erhalten wir als Ergebnis eine Liste $[x_1,x_2,\cdots,x_n]$
+      von Ameisen.   Stellen wir die Ameisen durch natürliche Zahlen von $1$ bis $N$ dar,
+      so gilt also $x_i \in \{a_1,\cdots,a_N\}$.
+\end{enumerate}
+Da Listen der Länge $n$ nichts anderes als $n$-Tupel sind, ist  die Ergebnis-Menge unseres
+Zufalls-Experiments also das $n$-fache kartesische Produkt der Menge $\mathcal{M}$:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Omega = \mathcal{M}^n$.
+\\[0.2cm]
+Nach Gleichung (\ref{eq:tupel-wiederholung}) folgt daraus 
+\\[0.2cm]
+\hspace*{1.3cm}
+$|\Omega| = |\mathcal{M}|^n = N^n$.
+\\[0.2cm]
+Wir definieren nun $\Lambda_k$ als die Menge aller $n$-Tupel, die aus $k$ markierten
+Ameisen bestehen.  Wir denken uns ein solches $n$-Tupel aus zwei Teilen bestehend:
+ einem $k$-Tupel von markierten Ameisen und einem $(n-k)$-Tupel von unmarkierten Ameisen.  Es gibt insgesamt
+$K^k$ solcher $k$-Tupel und $(N-K)^{n-k}$ solcher $(n-k)$-Tupel.
+Als nächstes überlegen wir uns, wieviele Möglichkeiten es gibt, aus einem 
+$k$-Tupel und einem $(n-k)$-Tupel ein $n$-Tupel zu erzeugen.  
+Betrachten wir zunächst ein konkretes Beispiel: Um aus dem $3$-Tupel $[x_1,x_2,x_3]$ und 
+dem $2$-Tupel $[y_1,y_2]$  ein $5$-Tupel zu erstellen müssen wir die Menge $I$ der Indizes
+festlegen, an denen wir die Elemente $x_i$ einfügen.  Setzen wir beispielsweise $I:=
+\{1,2,3\}$, so würden die Elemente $x_i$ am Anfang stehen und wir hätten 
+\\[0.2cm]
+\hspace*{1.3cm}
+$I = \{1,2,3\}$: \qquad $[x_1,x_2,x_3,y_1,y_2]$.
+\\[0.2cm]
+Für $I = \{1,3, 4\}$ würde sich 
+\\[0.2cm]
+\hspace*{1.3cm}
+$I = \{1,3,4\}$: \qquad $[x_1,y_1,x_2,x_3,y_2]$.
+\\[0.2cm]
+ergeben.  Jede solche Index-Menge $I \subseteq \{1,\cdots,5\}$ legt also eindeutig fest,
+wie wir aus den beiden Tupeln ein $5$-Tupel bilden können.
+
+Im allgemeinen Fall gilt einerseits $I \subseteq \{1,\cdots,n\}$ und andererseits $|I| =
+k$.  Damit ist $I$ dann eine $k$-elementige Teilmenge einer $n$-elementigen Menge.   Nach
+Gleichung (\ref{eq:kombination}) gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds |I| = {n \choose k}$.
+\\[0.2cm]
+Damit ergibt sich für die Mächtigkeit des Ereignisses $\Lambda_k$ der folgende Ausdruck 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds |\Lambda_k| = |I| \cdot K^k \cdot (N-K)^{n-k} = {n \choose k} \cdot K^k \cdot (N-K)^{n-k}$.
+\\[0.2cm]
+Die Wahrscheinlichkeit, dass wir $k$ markierte Ameisen zählen, ergibt sich jetzt zu 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcll}
+ P(k) := P(\Lambda_k) & = & \ds \frac{|\Lambda_k|}{|\Omega|} \\[0.4cm]
+ & = & \ds \frac{{n \choose k} \cdot K^k \cdot (N-K)^{n-k}}{N^n} \\[0.4cm]
+ & = & \ds {n \choose k} \cdot \frac{K^k}{N^k} \cdot \frac{(N-K)^{n-k}}{N^{n-k}} \\[0.4cm]
+ & = & \ds {n \choose k} \cdot \left(\frac{K}{N}\right)^k \cdot \left(1 - \frac{K}{N}\right)^{n-k} \\[0.4cm]
+ & = & \ds {n \choose k} \cdot p^k \cdot \left(1 - p\right)^{n-k} & \ds \mbox{mit} \quad p := \frac{K}{N}
+\end{array}
+$
+\\[0.2cm]
+Wir abstrahieren nun von den Ameisen und fassen unsere Ergebnisse wie folgt zusammen.  Ist
+ein Zufalls-Experiment dadurch gekennzeichnet, dass $n$ mal ein Experiment durchgeführt
+wird, bei dem es nur zwei mögliche Ergebnisse gibt, die wir jetzt mit $a$ und $b$
+bezeichnen und hat die Wahrscheinlichkeit für das Auftreten von $a$ bei jedem solchen
+Experiment den selben Wert 
+$p$, dann ist die Wahrscheinlichkeit dafür, dass bei einer $n$-fachen Durchführung dieses
+Experiments $k$ mal das Ergebnis $a$ auftritt, durch 
+\begin{equation}
+  \label{eq:binomial}
+  P(k) = {n \choose k} \cdot p^k \cdot (1-p)^{n-k}
+\end{equation}
+gegeben.  Diese Wahrscheinlichkeits-Funktion bezeichnen wir als \blue{Binomial-Verteilung}
+und definieren 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \mathrm{Bin}(n,k;p) := {n \choose k} \cdot p^k \cdot (1-p)^{n-k}$.
+
+\section{Zufalls-Variablen}
+Es wird Zeit, dass wir einen Begriff formal definieren, der uns in verschiedenen
+Beispielen schon mehrfach begegnet ist.  Dies ist der Begriff der Zufalls-Variable.
+
+\begin{Definition}[Zufalls-Variable]
+Es sei ein Wahrscheinlichkeits-Raum $\langle \Omega, 2^\Omega, P \rangle$ gegeben. 
+Eine Funktion 
+\\[0.0cm]
+\hspace*{1.3cm}
+$X:\Omega \rightarrow \mathbb{R}$
+\\[0.2cm]
+bezeichnen wir als \href{https://de.wikipedia.org/wiki/Zufallsvariable}{Zufalls-Variable}. \qed
+\end{Definition}
+
+\example
+Ein einfaches Beispiel für eine Zufalls-Variable wäre die Summe $S$ der Augenzahlen, wenn mit zwei
+Würfeln gewürfelt wird.  Der Ergebnis-Raum $\Omega$ ist in diesem Fall
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Omega = \bigl\{ \langle i, j \rangle \bigm| i,j \in \{1,\cdots,6\}\bigr\}$.
+\\[0.2cm]
+Wenn wir davon ausgehen, dass es sich bei den Würfeln um Laplace-Würfel handelt, dann
+ist die Wahrscheinlichkeits-Verteilung $P: 2^\Omega \rightarrow \mathbb{R}$ durch die Formel 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A) = \frac{|A|}{|\Omega|} = \frac{1}{36} \cdot |A|$
+\\[0.2cm]
+gegeben.  Die Zufalls-Variable $S: \Omega \rightarrow \mathbb{R}$ definieren wir durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$S\bigl(\langle i,j \rangle\bigr) := i + j$.
+\\[0.2cm]
+Wenn uns die Wahrscheinlichkeit für das Auftreten einer bestimmten Augensumme
+interessiert, dann müssen wir zunächst die diesbezüglichen Ereignisse definieren.
+Bei diesen Ereignissen handelt es sich um die Mengen 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\bigl\{ \langle i,j \rangle \in \Omega \;\big|\; i + j = s \}$ \quad für $s=2,\cdots,12$.
+\\[0.2cm]
+Ist $X$ eine Zufalls-Variable, die auf einem Ergebnis-Raum $\Omega$ definiert ist, so
+vereinbaren wir zur Abkürzung die folgende Schreibweise:  
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(X = x) := P\bigl(\{ \omega \in \Omega \;|\; X(\omega) = x\}\bigr)$.
+\\[0.2cm]
+In unserem konkreten Beispiel schreiben wir also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(S = s) = P\bigl(\{ \langle i,j \rangle \in \Omega \;|\; i+j = s \}\bigr)$.
+\\[0.2cm]
+Für $s \leq 7$ gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\bigl\{ \langle i,j \rangle \in \Omega \;\big|\; i + j = s \} = 
+ \bigl\{ \langle k, s - k \rangle \;|\; k \in \{1,\cdots,s-1\}\bigr\}$.
+\\[0.2cm]
+Die Bedingung $k \leq s-1$ folgt aus der Ungleichung $1 \leq s - k$.
+Für $s > 7$ finden wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$\bigl\{ \langle i,j \rangle \in \Omega \;\big|\; i + j = s \} = 
+ \bigl\{ \langle 7 - k, s - 7 + k \rangle \;|\; k \in \{1,\cdots,13 -s\}\bigr\}$.
+\\[0.2cm]
+Die Bedingung $k \leq 13-s$ folgt dabei aus der Forderung $s - 7 + k \leq 6$.
+Daraus ergibt sich 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\bigl|\bigl\{ \langle i,j \rangle \in \Omega \;\big|\; i + j = s \}\bigr| \,=\,  \left\{
+\begin{array}{ll}
+  s-1  & \mbox{falls $s \leq 7$}; \\
+  13-s & \mbox{sonst}.
+\end{array}
+\right.
+$
+\\[0.2cm]
+Also haben wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(S = s) = \left\{
+\begin{array}{ll}
+\ds  \frac{s-1}{36}  & \mbox{falls $s \leq 7$}; \\[0.5cm]
+\ds  \frac{13-s}{36} & \mbox{sonst}.
+\end{array}
+\right.
+$
+\\[0.2cm]
+Die Funktion $s \mapsto P(S = s)$ bezeichnen wir als \blue{Wahrscheinlichkeits-Funktion}
+der Zufalls-Variablen $S$. 
+Wir sehen hier, dass die Wahrscheinlichkeit für die verschiedenen möglichen Werte der
+Summe $S$ nicht mehr gleichmäßig verteilt sind, obwohl die Wahrscheinlichkeits-Verteilung
+$P$ auf dem zugrunde liegenden Wahrscheinlichkeits-Raum sehr wohl gleichmäßig ist.
+Die Ursache hierfür ist einfach einzusehen: Es gibt beispielsweise 6 Möglichkeiten, in der
+Summe eine 6 zu würfeln, aber es gibt nur eine einzige Möglichkeit um in der Summe eine 12
+zu würfeln.
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/dice-2, scale=1.0}
+   \caption{Wahrscheinlichkeits-Funktion der Zufalls-Variablen $S$}
+  \label{fig:dice-2}
+\end{figure}
+
+\begin{Definition}[Wahrscheinlichkeits-Funktion]
+  Ist $\langle \Omega, 2^\Omega, P \rangle$ ein diskreter Wahrscheinlichkeits-Raum und ist $X:\Omega \rightarrow \mathbb{R}$ 
+  eine Zufalls-Variablen, so bezeichnen wir die Funktion
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $f_X:\mathrm{range}(X) \rightarrow [0,1]$,
+  \\[0.2cm]
+  die durch die Gleichung
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $f_X(x) := P(X = x)$
+  \\[0.2cm]
+  definiert ist, als die der Zufalls-Variablen $X$ zugeordnete \blue{Wahrscheinlichkeits-Funktion}.  \eoxs
+\end{Definition}
+
+\example
+Bei dem letzten Beispiel haben wir die Summe $S$ der Augenzahlen beim Würfeln mit zwei Würfeln als
+Zufalls-Variable betrachtet.  Für die Zufalls-Variable $S$ gilt in diesem Fall
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathrm{range}(S) = \{2, \cdots, 12\}$,
+\\[0.2cm]
+denn die Summe der Augenzahl beim Würfeln mit zwei Würfeln ist mindestens 2 und höchstens 12.  Für die
+Wahrscheinlichkeits-Funktion $f_S$ gilt nach dem, was wir oben ausgerechnet haben:
+\\[0.2cm]
+\hspace*{1.3cm}
+$f_S(k) = \left\{
+\begin{array}{ll}
+\ds  \frac{k-1}{36}  & \mbox{falls $k \leq 7$}; \\[0.5cm]
+\ds  \frac{13-k}{36} & \mbox{sonst}. 
+\end{array}
+\right.
+$ 
+\\[0.2cm]
+Die Wahrscheinlichkeits-Funktion $f_s$ ist in Abbildung \ref{fig:dice-2} gezeigt.  \eoxs
+
+\remark
+Ist $\langle \Omega, 2^\Omega, P \rangle$ ein diskreter Wahrscheinlichkeits-Raum, ist $X:\Omega \rightarrow \mathbb{R}$ 
+eine Zufalls-Variable mit $\mathrm{range}(X) = \{x_1, \cdots, x_n\}$ und hat $X$ die Wahrscheinlichkeits-Funktion $f_X$, so muss
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{i=1}^n f_X(x_i) = 1$
+\\[0.2cm]
+gelten, denn aus der Gleichung $\mathrm{range}(X) = \{x_1, \cdots, x_n\}$ folgt, dass das Ereignis
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \bigcup\limits_{i=1}^n \bigl\{ \omega \in \Omega \bigm| X(\omega) = x_i \bigr\}$ 
+\\[0.2cm]
+mit dem Ergebnis-Raum $\Omega$ identisch ist und folglich die Wahrscheinlichkeit $1$ hat.
+Da wir andererseits
+\\[0.2cm]
+\hspace*{1.3cm}
+$f_X(x_i) = P\bigl(\bigl\{ \omega \in \Omega \bigm| X(\omega) = x_i \bigr\}\bigr)$
+\\[0.2cm]
+haben, muss die Summe dieser Wahrscheinlichkeiten den Wert $1$ ergeben.  \eox
+
+\exercise Betrachten Sie allgemein den Fall, dass mit $n$ Würfeln gewürfelt wird.  Der
+Ergebnis-Raum $\Omega$ ist dann das $n$-fache kartesische Produkt der Menge
+$\{1,\cdots,6\}$:
+\\[0.2cm]
+\hspace*{1.3cm} $\ds \Omega = \{ 1,\cdots,6 \}^n$
+\\[0.2cm]
+Berechnen Sie mit Hilfe eines geeigneten Programms (in einer Programmiersprache ihrer
+Wahl) die Wahrscheinlichkeit dafür, dass die Augensumme aller Würfel den Wert $s$ hat und
+erstellen Sie den Graphen der Funktion
+\\[0.2cm]
+\hspace*{1.3cm}
+$P_n: \{n, \cdots, 6 \cdot n\} \rightarrow \mathbb{R}$
+\\[0.2cm]
+die durch
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P_n(s) = P\Bigl(\bigl\{\langle x_1,\cdots,x_n\rangle \in \Omega \;\big|\;s =
+  \sum\limits_{i=1}^n x_i \bigr\}\Bigl)$.
+\\[0.2cm]
+gegeben ist.  Zeichnen Sie diesen Graphen für die Werte $n=2$, $n=3$, $n=5$, $n=10$, sowie $n=100$.
+\vspace*{0.2cm}
+
+\noindent
+\textbf{Hinweis}:  Sie können den Wert $P_n(s)$ natürlich mit dem Würfel-Summen-Satz berechnen.  Allerdings
+muss dann die von Ihnen verwendete Programmiersprache in der Lage sein, Ausdrücke der Form ${n \choose k}$ auch
+für sehr große Werte von $n$ exakt berechnen zu können.  Wenn diese Voraussetzung nicht erfüllt ist, dann
+können Sie $P_n(s)$ am besten rekursiv berechnen, indem Sie $P_n$ auf $P_{n-1}$ zurück führen.  Allerdings
+sollten Sie sich darüber im Klaren sein, dass eine naive rekursive Implementierung nur für kleine Werte von $n$
+in endlicher Zeit ein Ergebnis berechnet.
+\eoxs
+
+\begin{Definition}[Bernoulli-Verteilung]
+Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und ist $X$ eine Zufalls-Variable, die
+nur die beiden Werte $0$ und $1$ annimmt, wobei der Wert $1$ mit der Wahrscheinlichkeit $p$ angenommen wird, gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$X: \Omega \rightarrow \{0,1\}$ \quad und \quad $P(X=1) = p$,
+\\[0.2cm]
+dann sagen wir, dass $X$ eine \href{https://de.wikipedia.org/wiki/Bernoulli-Verteilung}{Bernoulli-Verteilung}
+(\href{https://de.wikipedia.org/wiki/Jakob_I._Bernoulli}{Jacob I. Bernoulli}, 1655 --- 1705)
+mit Parameter $p$ hat und schreiben
+\\[0.2cm]
+\hspace*{1.3cm}
+$X \sim \mathrm{Bern}(p)$ (lese: $X$ ist Bernoulli-verteilt mit Parameter $p$).  \eox
+\end{Definition}
+
+Hat ein Zufalls-Experiment nur zwei mögliche Ausgänge, von denen wir einen als \blue{Erfolg} und den anderen
+als \blue{Misserfolg} bezeichnen, so können wir die Menge $\Omega$ als
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Omega := \{ \mathrm{E}, \mathrm{M} \}$
+\\[0.2cm]
+darstellen, wobei das Ergebnis $\mathrm{E}$ für ``Erfolg'' und das Ergebnis $\mathrm{M}$ für ``Misserfolg''
+steht.  Definieren wir die Zufalls-Variable $X: \Omega \rightarrow \{0,1\}$  durch
+\\[0.2cm]
+\hspace*{1.3cm}
+$X(\mathrm{E}) = 1)$ \quad und \quad $X(\mathrm{M}) = 0$
+\\[0.2cm]
+und definieren wir weiter
+\\[0.2cm]
+\hspace*{1.3cm}
+$p := P(\{\mathrm{E}\})$,
+\\[0.2cm]
+so gilt $X \sim \mathrm{Bern}(p)$.  Ein solches Zufalls-Experiment heißt \blue{Bernoulli-Experiment} mit
+Parameter $p$.  Ein einfaches Beispiel für ein solches Bernoulli-Experiment wäre der Wurf
+einer Münze, wenn wir beispielsweise ``Wappen'' als Erfolg und ``Zahl'' als Misserfolg interpretieren.
+Wiederholen wir ein solches Bernoulli-Experiment mehrmals,  wobei die einzelnen Wiederholungen voneinander
+unabhängig sind, und summieren wir dann die Anzahl der Erfolge,  so ist diese Summe eine Zufalls-Variable, die
+einer \blue{Binomial-Verteilung} genügt.  Diesen Begriff definieren wir nun formal.
+
+\begin{Definition}[Binomial-Verteilung]
+  Wird ein Bernoulli-Experiment mit Parameter $p$ insgesamt $n$ mal so wiederholt, dass die einzelnen Ausführungen des Experiments
+  voneinander unabhängig sind, und beschreibt die Zufalls-Variable $S$ die Anzahl der Erfolge, die sich bei der
+  $n$-maligen Durchführung des Bernoulli-Experiments ergeben, so sagen wir, dass die Zufalls-Variable $S$
+  \blue{binomial mit den Parameter $n$ und $p$ verteilt} ist und schreiben
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $S \sim \mathrm{Bin}(n, p)$.  \qed
+\end{Definition}
+
+Wir wollen nun die Wahrscheinlichkeits-Funktion einer binomial-verteilten Zufalls-Variable berechnen.  Dazu
+definieren wir zunächst den Ereignis-Raum $\Omega$ als die Menge aller $n$-Tupel, die nur die beiden Elemente
+$\mathrm{E}$ (für ``Erfolg'') und $\mathrm{M}$ (für ``Misserfolg'') enthalten, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Omega = \{ \mathrm{E}, \mathrm{M}\}^n$.
+\\[0.2cm]
+Ist $p$ die Wahrscheinlichkeit dafür, dass bei einem einzelnen der $n$ Bernoulli-Experimente ein Erfolg
+eintritt, so hängt die Wahrscheinlichkeit $P(\omega)$ für $\omega \in \Omega$ davon ab, wie oft in der Liste
+ein Erfolg bzw.~ein Misserfolg vorliegt.  Ist beispielsweise $n=5$ und betrachten wir das Elementar-Ereignis
+\\[0.2cm]
+\hspace*{1.3cm}
+$A := \bigl\{[\mathrm{E}, \mathrm{M}, \mathrm{E}, \mathrm{E}, \mathrm{M}]\bigr\}$,
+\\[0.2cm]
+so gilt $P(A) = p^3 \cdot (1 - p)^2$, denn bei dem Ereignis $A$ sind $3$ der Bernoulli-Experimente erfolgreich,
+während zwei der Bernoulli-Experimente nicht erfolgreich waren.  Ist allgemein $B$ ein Elementar-Ereignis, bei
+dem $k$ der zugehörigen Bernoulli-Experimente erfolgreich und die restlichen $n-k$ Bernoulli-Experimente nicht
+erfolgreich sind, so gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(B) = p^k \cdot (1 - p)^{n-k}$.
+\\[0.2cm]
+Wir müssen uns nun fragen, wie viele Elementar-Ereignisse es in der Menge $\Omega$ gibt, bei denen genau $k$ der
+insgesamt $n$ Bernoulli-Experimente erfolgreich sind.  Diese Zahl ist aber gleich der Anzahl der Möglichkeiten,
+die wir haben, um aus einer $n$-elementigen Menge $k$ Elemente auszuwählen und diese Zahl ist gerade 
+${n \choose k}$.  Damit haben wir die Wahrscheinlichkeits-Funktion einer binomial verteilten Zufalls-Variable
+gefunden: Falls $S \sim \mathrm{Bin}(n,p)$ ist, so gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds f_S(k) = P(S = k) = {n \choose k} \cdot p^k \cdot (1 - p)^{n-k}$.
+\\[0.2cm]
+Die Abbildungen \ref{fig:bin10.png} und \ref{fig:bin100.png} auf Seite \pageref{fig:bin10.png} zeigen
+verschiedene Binomial-Verteilungen.
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/bin10half.png, scale=0.45}
+   \epsfig{file=Abbildungen/bin10third.png, scale=0.45}
+   \caption{Die Binomial-Verteilungen $\mathrm{Bin}(10,1/2)$ und $\mathrm{Bin}(10,1/3)$.}
+  \label{fig:bin10.png}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/bin100half.png, scale=0.45}
+   \epsfig{file=Abbildungen/bin100third.png, scale=0.45}
+   \caption{Die Binomial-Verteilungen $\mathrm{Bin}(100,1/2)$ und $\mathrm{Bin}(100,1/3)$.}
+  \label{fig:bin100.png}
+\end{figure}
+
+
+
+\section{Erwartungswert und Varianz}
+\begin{Definition}[Erwartungswert]
+  Ist $\langle \Omega, 2^\Omega, P \rangle$ ein diskreter Wahrscheinlichkeits-Raum und ist 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $X: \Omega \rightarrow \mathbb{R}$
+  \\[0.2cm]
+  eine Zufalls-Variable, so definieren wir den \blue{Erwartungswert} $E[X]$ als 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds E[X] := \sum\limits_{\omega\in\Omega} P(\{\omega\}) \cdot X(\omega)$.
+  \\[0.2cm]
+  Hat der  Wertebereich von $X$ die Form 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $X(\Omega) = \{ X(\omega) \;|\; \omega\in \Omega \} = \{ x_n \;|\; n\in\mathbb{N} \}$, 
+  \\[0.2cm]
+  so können wir den Erwartungswert auch durch die Formel 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds E[X] = \sum\limits_{n=0}^\infty P(X = x_n) \cdot x_n$
+  \\[0.2cm]
+  berechnen.  Eine analoge Formel gilt, wenn die Menge $X(\Omega)$ endlich ist. \qed
+\end{Definition}
+
+Der Erwartungswert einer Zufalls-Variable gibt den durchschnittlichen Wert an, der sich bei
+einer großen Zahl von Versuchen ergeben würde.  Diese Aussage werden wir später noch näher
+präzisieren und dann auch beweisen können.
+
+\example
+Wir berechnen den Erwartungswert der Augenzahl beim Würfeln mit einem Würfel. 
+Es gilt \\
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ E[S] & = & \ds \sum\limits_{s=1}^6 P(S=s) \cdot s \\[0.5cm]
+      & = & \ds \sum\limits_{s=1}^6 \frac{1}{6} \cdot s \;=\; \frac{1}{6} \cdot \sum\limits_{s=1}^6 s \\[0.5cm]
+      & = & \ds \frac{1}{6} \cdot \frac{1}{2} \cdot 6 \cdot (6+1) \;=\; \frac{7}{2} \\[0.3cm]
+\end{array}
+$
+\\[0.2cm]
+Als nächstes berechnen wir den Erwartungswert der Augensumme für das
+Würfeln mit zwei Laplace-Würfeln.  Hier gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  
+ E[S] & = & \ds \sum\limits_{s=2}^{12} P(S=s)\cdot s \\[0.5cm]
+      & = & \ds \frac{1}{36} \sum\limits_{s=2}^7 (s-1)\cdot s +
+                          \frac{1}{36} \sum\limits_{s=8}^{12} (13-s)\cdot s \\[0.5cm]
+      & = & \ds \frac{252}{36} \;=\; 7 
+\end{array}
+$
+\\[0.2cm]
+Dieses Ergebnis war auch zu erwarten, denn beim Würfeln mit einem Würfel ist der Erwartungswert
+$\frac{7}{2}$ und der Erwartungswert der Augensumme beim Würfeln mit zwei
+Würfeln sollte doppelt so groß sein. \qed
+
+\exercise 
+Beim \blue{Mensch-ärger-dich-nicht} müssen Sie am Anfang eine 6 würfeln um das Spiel
+beginnen zu können.  Berechnen Sie den Erwartungswert für die Anzahl der Würfe, die
+benötigt werden um eine 6 zu würfeln.
+
+\solution Die Wahrscheinlichkeit, dass die 6 sofort beim ersten Wurf kommt, beträgt
+$\frac{1}{6}$, während die Wahrscheinlichkeit, dass beim ersten Wurf keine 6 gewürfelt
+wird, offenbar den Wert $\frac{5}{6}$ hat.  Die Wahrscheinlichkeit dafür, dass im zweiten
+Wurf die 6 fällt, ist das Produkt aus der Wahrscheinlichkeit, dass im ersten Wurf keine 6
+fällt und der Wahrscheinlichkeit, dass im zweiten Wurf eine sechs fällt und hat daher den
+Wert $\frac{5}{6} \cdot \frac{1}{6}$.  Allgemein hat die Wahrscheinlichkeit dafür, dass im
+$n+1$-ten Wurf eine 6 fällt, den Wert
+\\[0.2cm]
+\hspace*{1.3cm} $\ds \left(\frac{5}{6}\right)^n \cdot \frac{1}{6}$.
+\\[0.2cm]
+Bezeichen wir die Zufalls-Variable, die die Anzahl der benötigten Würfe angibt, mit $N$, so
+erhalten wir für den Erwartungswert von $N$ die Formel 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[N] = \sum\limits_{n=0}^\infty \left(\frac{5}{6}\right)^n \cdot\frac{1}{6} \cdot (n+1) = 
+\frac{1}{6} \cdot \sum\limits_{n=0}^\infty \left(\frac{5}{6}\right)^n \cdot (n+1)$.
+\\[0.2cm]
+Diese Summe können wir mit einem Trick auf die geometrische Reihe zurück führen.
+Wir haben im letzten Semester gesehen, dass für alle $q \in ]-1,1[$ 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{n=0}^\infty q^n = \frac{1}{1-q}$
+\\[0.2cm]
+gilt.  Differenzieren wir diese Formel nach $q$, so erhalten wir die Gleichung
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{n=1}^\infty n\cdot q^{n-1} = \frac{1}{(1-q)^2}$.
+\\[0.2cm]
+Die Summe auf der linken Seite geht erst bei $n=1$ los, denn das konstante Glied fällt
+beim Differenzieren weg.  Ersetzen wir in dieser Summe $n$ durch $n+1$, so haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{n=0}^\infty (n+1)\cdot q^{n} = \frac{1}{(1-q)^2}$.
+\\[0.2cm]
+Diese Summe hat aber  genau die Form, die oben bei der Berechnung des Erwartungswerts
+auftritt.  Damit gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[N] 
+ = \frac{1}{6} \cdot \sum\limits_{n=0}^\infty \left(\frac{5}{6}\right)^n \cdot (n+1)
+ = \frac{1}{6} \cdot \frac{1}{\bigl(1-\frac{5}{6}\bigr)^2} 
+ = \frac{1}{6} \cdot \frac{1}{\bigl(\frac{1}{6}\bigr)^2} = 6$.
+\\[0.2cm]
+Das Ergebnis ist intuitiv einleuchtend. \qed
+
+Der Erwartungswert gibt den mittleren Wert einer Zufalls-Variable wieder. 
+Damit wissen wir aber noch nichts darüber, wie weit die einzelnen Werte der Zufalls-Variable
+um diesen Mittelwert streuen.  Darüber gibt die \blue{Varianz} Aufschluss.
+
+\begin{Definition}[Varianz, Standard-Abweichung] \hspace*{\fill} \\
+  Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und ist 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $X: \Omega \rightarrow \mathbb{R}$
+  \\[0.2cm]
+  eine Zufalls-Variable, so definieren wir die \blue{Varianz} $\mathrm{Var}[X]$ als 
+  den Erwartungswert der Zufalls-Variable $\omega \mapsto \bigr(X(\omega) - E[X]\bigr)^2$, also gilt
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds \mathrm{Var}[X] := E\bigl[(X - E[X])^2\bigr]$.
+  \\[0.2cm]
+  Hat der  Wertebereich von $X$ die Form 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $X(\Omega) = \{ X(\omega) \;|\; \omega\in \Omega \} = \{ x_n \;|\; n\in\mathbb{N} \}$
+  \\[0.2cm]
+  und setzen wir zur Abkürzung $\mu = E[X]$,
+  so können wir die Varianz auch durch die Formel 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds \mathrm{Var}[X] = \sum\limits_{n=0}^\infty P(X = x_n) \cdot (x_n - \mu)^2$
+  \\[0.2cm]
+  berechnen.  Eine analoge Formel gilt, wenn die Menge $X(\Omega)$ endlich ist. 
+
+  Die \blue{Standard-Abweichung} ist als die Quadrat-Wurzel aus der Varianz definiert
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\sigma(X) := \sqrt{\mathrm{Var}[X]\,}$.
+  \\[0.2cm]
+  Im Gegensatz zur Varianz hat die Standard-Abweichung die selbe Einheit wie die Zufalls-Variable $X$.
+  \qed
+\end{Definition}
+
+\example
+Wir berechnen die Varianz der Zufalls-Variable $S$, die die {Augenzahl} beim
+Würfeln mit einem Würfel wiedergibt.  Wegen $E[S] = \frac{7}{2}$  gilt \\
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ \mathrm{Var}[S] & = & \ds \sum\limits_{s=1}^6 P(S=s) \cdot \left(s - \frac{7}{2}\right)^2 \\[0.5cm]
+      & = & \ds \sum\limits_{s=1}^6 \frac{1}{6} \cdot \left(s - \frac{7}{2}\right)^2 
+      \;=\; \ds \frac{1}{6} \cdot \sum\limits_{s=1}^6 \left(s - \frac{7}{2}\right)^2 \\[0.5cm]
+      & = & \ds \frac{35}{12}.
+\end{array}
+$
+\\[0.2cm]
+Damit gilt für die Standard-Abweichung 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sigma(X) = \sqrt{\frac{35}{12}\,} \approx 1.707825129$. 
+\\[0.2cm]
+Führen wir die selbe Rechnung für das Experiment ``Würfeln mit  zwei Würfeln'' durch, so
+erhalten wir für die Varianz
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  
+ \textsl{Var}[S] & = & \ds \sum\limits_{s=2}^{12} P(S=s)\cdot (s - 7)^2 \\[0.5cm]
+      & = & \ds \frac{1}{36} \sum\limits_{s=2}^7 (s-1)\cdot (s - 7)^2 +
+                          \frac{1}{36} \sum\limits_{s=8}^{12} (13-s)\cdot (s-7)^2 \\[0.5cm]
+      & = & \ds \frac{35}{6}
+\end{array}
+$
+\\[0.2cm]
+Wir sehen, dass die Varianz jetzt genau doppelt so groß ist wie beim Würfeln mit einem Würfel.
+Diese Beobachtung werden wir später verallgemeinern und beweisen.
+\qed
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 

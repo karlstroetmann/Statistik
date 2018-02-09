@@ -1,0 +1,167 @@
+\chapter{Einführung}
+Die Vorlesung ``\blue{Wahrscheinlichkeits-Theorie und Statistik}'' beschäftigt sich sowohl mit der
+Wahr\-scheinlichkeits-Theorie, als auch mit der Anwendung dieser Theorie in der 
+\href{https://de.wikipedia.org/wiki/Mathematische_Statistik}{induktiven Statistik}.  Die induktive Statistik
+hat im wesentlichen zwei Aufgaben:
+\begin{enumerate}
+\item Das Schätzen von Parameter.
+
+      Nehmen Sie an, Sie möchten die Lebensdauer einer LED-Lampe herausfinden.  Eine Möglichkeit, diese
+      Lebensdauer zu bestimmen, besteht darin, eine Menge verschiedene Lampen solange brennen zu lassen, bis
+      sie defekt sind.  Aus der Lebensdauer der einzelnen Lampen versuchen wir dann die
+      durchschnittliche Lebensdauer von LED-Lampen abzuleiten.  Hier stellt sich die Frage, wieviele Lampen zu
+      testen sind, damit wir eine ausreichende Sicherheit bei der Schätzung der Lebensdauer haben.
+\item Das Testen von Hypothesen.
+
+      Wird ein neues Medikament entwickelt, so muss unter anderem untersucht werden, ob das Medikament
+      einen Beitrag zur Heilung liefert oder ob der Patient ohne das Medikament genauso schnell gesund geworden
+      wäre. 
+\end{enumerate}
+Statistik und Wahrscheinlichkeits-Theorie sind eine der  
+Grundlagen des \href{https://en.wikipedia.org/wiki/Machine_learning}{maschinellen Lernens}, das in den letzten
+Jahren das Gebiet der \href{https://en.wikipedia.org/wiki/Artificial_intelligence}{künstlichen Intelligenz}
+revolutioniert hat.  Neben der induktiven Statistik gibt es noch die
+\href{https://de.wikipedia.org/wiki/Mathematische_Statistik}{deskriptive Statistik}, deren Aufgabe es ist,
+umfangreiche Daten in Kennzahlen zusammenzufassen und diese Daten in Grafiken übersichtlich anzuordnen.  Aus
+Zeitgründen werden wir uns mit diesem Teilgebiet der Statistik nur am Rande beschäftigen können.
+
+Wir verdeutlichen das grundsätzliche Vorgehen der induktiven Statistik an einem einfachen Beispiel.
+Ein Biologe hat im Wald einen Ameisenhaufen entdeckt und möchte wissen, wieviele Ameisen
+in dieser Kolonie wohnen.  Da es zu aufwendig ist, alle Ameisen zu zählen, wählt er ein
+statistisches Verfahren:  Er fängt $1\,000$ Ameisen und markiert diese Ameisen mit einem
+Farbtupfer.   Anschließend entlässt er die markierten Ameisen in die Freiheit.
+Am nächsten Tag kommt er wieder und fängt  $200$ Ameisen.  Er stellt fest, dass
+sich unter diesen Ameisen $5$ Tiere befinden, die einen Farbtuper haben.  Unter der
+Annahme, dass sich die Ameisen in der Nacht gut durchmischt haben und dass folglich die
+Wahrscheinlichkeit für eine Ameise, bei der zweiten Zählung gefangen zu werden, unabhängig
+davon ist, ob die Ameise farblich markiert ist, kann der Biologe nun die Anzahl aller
+Ameisen schätzen:
+\begin{enumerate}
+\item Bezeichnet $n$ die Gesamtzahl der Ameisen, so ist der Prozentsatz $p$ der markierten
+      Ameisen durch die Formel 
+      \begin{equation}
+        \label{eq:a0}
+        p = \frac{1000}{n}
+      \end{equation}
+      gegeben.
+\item Aus der Voraussetzung, dass die Wahrscheinlichkeit dafür, dass eine Ameise
+      bei der zweiten Zählung gefangen wird, unabhängig von der Markierung ist,
+      folgt, dass für die Zahl der gefangenen Tiere, die farblich markiert sind, in 
+      etwa 
+      \begin{equation}
+        \label{eq:a1}
+        5 = p \cdot 200
+      \end{equation}
+      gilt.
+\end{enumerate}
+Setzen wir den Wert von $p$ aus Gleichung (\ref{eq:a0}) in Gleichung (\ref{eq:a1}) ein, so
+finden wir 
+\begin{equation}
+  \label{eq:a2}
+  5 = \frac{1000}{n} \cdot 200 \quad \Leftrightarrow \quad n = \frac{1000 \cdot 200}{5} = 40\,000.
+\end{equation}
+Der Biologe wird also vermuten, dass die Kolonie von etwa $40\,000$ Ameisen bewohnt wird.
+Die hier abgeleitete Formel für die Anzahl der Ameisen wird in der Literatur als 
+\href{https://en.wikipedia.org/wiki/Mark_and_recapture}{Lincoln-Petersen Schätzer}
+bezeichnet.
+
+Neben dem Schätzwert für die Anzahl der Ameisen beantwortet die Statistik zusätzlich die Frage, wie genau
+der angegebene Schätzwert ist.  Wir werden im Laufe der Vorlesung ein Verfahren entwickeln, mit dessen Hilfe wir ein Intervall
+$[n_1,n_2]$ berechnen können, so dass für die Anzahl $n$ der Ameisen die Aussage 
+\\[0.1cm]
+\hspace*{1.3cm}
+$n \in [n_1, n_2]$
+\\[0.1cm]
+mit einer \blue{Konfidenz} von $95,0\%$ gilt.  Um den Begriff eines solchen
+ \href{https://de.wikipedia.org/wiki/Konfidenzintervall}{Kondidenz-Intervalls}
+exakt fassen zu können, müssen wir uns zunächst mit der Wahrscheinlichkeits-Theorie auseinander setzen.
+
+
+\section{Anwendungen der Theorie der Statistik}
+Eine der wichtigsten Anwendungen von Wahrscheinlichkeits-Theorie und Statistik ist das maschinelle Lernen, das
+im Laufe der letzten Jahre die Grundlage verschiedener spektakulärer Durchbrüche im Bereich der künstlichen
+Intelligenz war.  Stellvertretend für andere Erfolge möchte ich hier zuerst das Programm
+\href{https://en.wikipedia.org/wiki/AlphaGo}{AlphaGo} nennen, das im Jahre 2017 die Nummer 1 der Weltrangliste
+in Go, \href{https://en.wikipedia.org/wiki/Ke_Jie}{Ke Jie} besiegt hat.  Ein anderer Bereich, in dem maschinelles
+Lernen einen Durchbruch gebracht hat, ist die Entwicklung
+\href{https://en.wikipedia.org/wiki/Autonomous_car}{selbstfahrender Kraftfahrzeuge}, die nach den 
+Plänen führender Autohersteller im Laufe der nächsten fünf Jahre Marktreife erlangen werden.
+Neben diesen spektakulären Anwendungen der Statistik der letzten Jahre gibt es eine große Zahl von Bereichen,
+in denen Statistik schon seit langem eingesetzt wird.  An Stelle einer vollständigen Liste solcher Anwendungen,
+die leicht mehrere Seiten füllen würde, möchte einige wenige Anwendungen herausgreifen, bei denen Statistik
+entscheidend ist.
+\begin{enumerate}
+\item Bei der Messung der Wirksamkeit von Medikamenten werden seit langem statistische Tests durchgeführt.
+      Wird ein neues Medikament eingeführt, so reicht es bei der Zulassung nicht aus, jemanden zu kennen, der
+      behauptet, dass das Medikament der Tante seines Nachbarn das Leben gerettet hat.  Statt dessen werden
+      umfangreiche statistische Tests durchgeführt, mit denen die Wirksamkeit eines Medikaments oder einer
+      Behandlungsmethode untersucht werden.  Beispielsweise wurde im Jahre 2012 eine umfangreiche statistische
+      \href{http://www.telegraph.co.uk/news/health/news/9181445/Breast-cancer-screening-resulting-in-unnecessary-treatment.html}{Studie}
+      in Norwegen durchgeführt, bei der festgestellt wurde, dass das Brustkrebs-Screening in der bisher
+      durchgeführten Form sehr fragwürdig ist und häufig zu sinnlosen Behandlungen geführt hat.
+\item Im Versicherungswesen müssen Risiken bewertet werden.  Wahrscheinlichkeits-Theorie und Statistik bilden
+      die Grundlage einer solchen Bewertung.
+\item Die Vorhersage eines Wahlausgangs beruht auf statistischen Erhebungen und
+      wahrscheinlichkeits-theoretischen Berechnungen.  Bei der US-amerikanischen Präsidentschaftswahl 2016 war
+      es entscheidend, das Trump sein Geld genau in den Staaten für Werbung eingesetzt hat, die bei der Wahl das Zünglein
+      an der Waage waren.  Bei einer demokratischen Wahl in einem Land wie den USA kommt es entscheidend
+      darauf an, wer die besseren Statistiker hat.  Einen interessanten Artikel dazu finden Sie unter
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      \href{https://motherboard.vice.com/en_us/article/mg9vvn/how-our-likes-helped-trump-win}{https://motherboard.vice.com/en\_us/article/mg9vvn/how-our-likes-helped-trump-win}
+      \\[0.2cm]
+      Das Interessante ist, das Trump bei der Wahl 2016 nur 957,6 Millionen Dollar ausgegeben hat, während
+      Hillary Clinton über 1,4 Milliarden Dollar verfügen konnte, siehe
+      \href{https://www.washingtonpost.com/graphics/politics/2016-election/campaign-finance/}{hier}.
+      Er konnte die Wahl trotzdem gewinnen, weil sein Team genau ausgerechnet hatte, welche Wahlbezirke mit
+      wieviel Geld zu gewinnen waren.  Das erklärt auch, warum insgesamt deutlich weniger Wähler für Trump
+      gestimmt haben als für Clinton.  Im US-amerikanischen Wahlsystem kommt es nicht auf die Gesamtzahl
+      aller Stimmen an, sondern auf die Gesamtzahl der gewonnenen Wahlbezirke und da lag Donald Trump am Ende
+      der Auszählung dann vorne. 
+\item In vielen Mannschaft-Sportarten wird heute Statistik eingesetzt, um die Teams optimal zusammen zu
+      stellen.  In dem Bestseller \href{https://en.wikipedia.org/wiki/Moneyball}{Moneyball} \cite{lewis:2004}
+      beschreibt Michael Lewis, wie es dem Manger \href{https://en.wikipedia.org/wiki/Billy_Beane}{Billy Beane} 
+      der \href{https://www.mlb.com/athletics}{Oakland Athletics} Baseball-Mannschaft gelang, das Team aus
+      Oakland konkurrenzfähig zu den \href{https://www.mlb.com/yankees}{New York Yankees} zu machen.  
+      Das Buch wurde 2011 verfilmt.
+\item Die Anfänge der Statistik gehen auf Untersuchungen von Glücksspielen zurück.  Da Glücksspiele relative
+      leicht zu verstehen sind, werden wir uns bei der Einführung der Wahrscheinlichkeits-Theorie bei den
+      Anwendungen auf die Untersuchung von Glücksspielen beschränken.
+\end{enumerate}
+
+
+\section{Literatur}
+Es folgt eine subjektive Zusammenstellung von Literatur zur Statistik.  Zusätzlich zu dem vorliegenden Skript
+kann ich Ihnen die folgende Literatur empfehlen.
+\begin{enumerate}
+\item Das meiner Ansicht nach beste Buch zur Wahrscheinlichkeits-Theorie ist das Buch 
+      \blue{Introduction to Probability} von Joseph K.~Blitzstein und Jessica Hwang
+      \cite{blitzstein:2014}.  Professor Blitzstein hat die
+      \href{https://itunes.apple.com/us/course/statistics-110-probability/id502492375}{Vorlesung}, die diesem
+      Buch zu Grunde liegt, auf Video aufgenommen und auf \href{https://www.apple.com/itunes/}{iTunes} zur Verfügung 
+      gestellt.  
+\item Ein weiteres Buch mit dem Titel \blue{Introduction to Probability} stammt von den Autoren
+      Charles M.~Grinstead und Laurie J.~Snell \cite{grinstead:97}. Dieses Buch ist ebenfalls sehr
+      empfehlenswert und kann unter der  Adresse 
+      \\[0.2cm]
+      \hspace*{-1.3cm}
+      \href{https://www.dartmouth.edu/~chance/teaching_aids/books_articles/probability_book/amsbook.mac.pdf}{
+        https://www.dartmouth.edu/\symbol{126}chance/teaching\_aids/books\_articles/probability\_book/amsbook.mac.pdf}
+      \\[0.2cm]
+      kostenlos aus dem Netz geladen werden.
+\item Das Buch \blue{Statistik --- Der Weg zur Datenanalyse} von Ludwig Fahrmeir und anderen \cite{fahrmeir:2016}
+      ist ein gutes
+      deutsches Buch zur Statistik.  Es enthält allerdings wesentlich mehr Stoff als wir im Rahmen der
+      Vorlesung behandeln können.  Dieses Buch ist in unserer Bibliothek verfügbar.
+\item Als Nachschlagewerk zur Statistik eignet sich das Buch 
+      \href{http://www.itl.nist.gov/div898/handbook/index.htm}{Engineering Statistics} \cite{nist:2012}, das vom 
+      US-amerikanischen \href{http://www.nist.gov}{National Institute of Standards} herausgegeben wird.
+\end{enumerate}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 

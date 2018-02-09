@@ -1,0 +1,629 @@
+\documentclass{article}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\usepackage{a4wide}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{fancyvrb}
+\usepackage{alltt}
+\usepackage{fleqn}
+\usepackage{epsfig}
+\usepackage{theorem}
+%% Einbindung von Hyperlinks
+\usepackage{scrpage2}
+\usepackage{booktabs}
+\usepackage[pdftex]{hyperref}
+\automark[section]{chapter}
+
+\newcommand{\next}{\vspace*{0.2cm}
+
+\noindent}
+
+\newcommand{\exercise}{\vspace*{0.1cm}
+\stepcounter{aufgabe}
+
+\noindent
+\textbf{Aufgabe \arabic{aufgabe}}: }
+
+\newcommand{\solution}{\vspace*{0.1cm}
+
+\noindent
+\textbf{Lösung}: }
+
+\newcommand{\example}{\vspace*{0.2cm}
+
+\noindent
+\textbf{Beispiel}: \ }
+
+\newcommand{\dx}{\,\textrm{d}}
+\newcommand{\bruch}[2]{\frac{\displaystyle#1}{\displaystyle #2}}
+\newcommand{\folge}[1]{\bigl(#1\bigr)_{n\in\mathbb{N}}}
+\def\pair(#1,#2){\langle #1, #2 \rangle}
+\newcommand{\qed}{\hspace*{\fill} $\Box$}
+\newcommand{\var}{\mathrm{Var}}
+
+{\theorembodyfont{\rm}
+\newtheorem{Definition}{Definition}
+\newtheorem{Satz}[Definition]{Satz}
+\newtheorem{Lemma}[Definition]{Lemma}
+}
+
+\newcounter{aufgabe}
+
+\title{Wahrscheinlichkeits-Rechnung und Statistik \\
+       {\Large Definitionen und Formeln}}
+\author{Karl Stroetmann}
+
+\begin{document}
+\maketitle
+
+\begin{Definition}[diskreter Wahrscheinlichkeits-Raum]:
+Tripel $\langle \Omega, 2^\Omega, P \rangle$ mit:
+\begin{enumerate}
+\item $\Omega$ Menge,  endlich oder abzählbar unendlich
+
+      Elemente von $\Omega$: \emph{Ergebnisse}
+
+      $\Omega$: \emph{Ergebnis-Raum}
+\item $2^\Omega$: Menge der Ereignisse, \emph{Ereignis-Raum}
+
+      $\omega \in \Omega$, dann $\{\omega\}$ \emph{Elementar-Ereignis}
+\item $P: 2^\Omega \rightarrow \mathbb{R}$ \emph{Wahrscheinlichkeits-Verteilung}
+
+      \emph{Kolmogorow-Axiomen}
+      \begin{enumerate}
+      \item $0 \leq P(A) \leq 1$ \quad für alle $A \subseteq \Omega$.
+      \item $P(\emptyset) = 0$,  $\emptyset$ \emph{unmögliche Ereignis}
+      \item $P(\Omega) = 1$, $\Omega$  \emph{sicheres Ereignis}
+      \item $\forall A, B \in 2^\Omega: A \cap B = \emptyset \rightarrow P(A \cup B) = P(A) + P(B)$
+      \end{enumerate}
+\end{enumerate}
+\end{Definition}
+
+\noindent
+$A \uplus B = A \cup B$ und impliziert $A \cap B = \emptyset$
+
+\next
+ Laplace-Experiment: $\langle \Omega, 2^\Omega, P \rangle$ \quad mit
+\begin{enumerate}
+\item $\Omega$  endlich und
+\item $\displaystyle P(A) = \frac{|A|}{|\Omega|}$.
+\end{enumerate}
+
+\next
+Additionssätze
+\begin{enumerate}
+\item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+\item $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B \cap C) + P(A \cap B \cap C)$
+\end{enumerate}
+
+\next
+\emph{Komplement}: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$A^c = \Omega \backslash A$, $P(A^c) = 1 - P(A)$.
+\pagebreak
+
+\next
+{\bf\large Kombinatorik}
+
+\next
+kartesisches Produkt: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$A_1 \times A_2 \times \cdots \times A_n := \bigl\{ [x_1, \cdots, x_n ] \;\big|\; \forall i\in\{ 1,\cdots,n\}: x_i \in A_i \bigr\}$
+
+\next 
+Produkt-Regel: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$|M| = |A_1| * |A_2| * \cdots * |A_n|$
+
+\next
+Anzahl der $k$-Tupel mit Wiederholung: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\bigl|M^k\bigr| = |M|^k = n^k$
+
+\next
+Anzahl der $k$-Tupel ohne Wiederholung,  \emph{Menge der $k$-Permutationen aus $M$} 
+\\[0.1cm]
+\hspace*{1.3cm}
+$P(M,k) = \bigl\{ [ x_1, \cdots, x_k] \in M^k \;\big|\; \forall i,j\in\{1,\cdots,k\}: i\not=j\rightarrow x_i \not= x_j \bigr\}$
+\\[0.1cm]
+\hspace*{1.3cm}
+$\bigr|P(M,k)\bigr| = n * (n-1) * \cdots * \bigr(n-(k-1)\bigr) = \frac{n!}{(n-k)!}$  
+
+\next
+Speziallfall $|M| = n$: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \bigr|P(M,n)\bigr| = n!$
+
+\next
+Anzahl der $k$-Kombinationen ohne Wiederholung, Menge der Teilmengen mit $k$ Elementen:
+\\[0.1cm]
+\hspace*{1.3cm}
+$C(M,k) = \bigl\{ N \in 2^M \;\big|\; |N| = k \bigr\}$.
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle |C(M,k)| = \frac{n!}{k!\cdot (n-k)!} = {n \choose k}$
+
+\next
+Anzahl der $k$-Kombinationen mit Wiederholung
+
+\next
+Menge aller Multimengen der Mächtigkeit $k$ mit Elementen aus $M$:
+\\[0.1cm]
+\hspace*{1.3cm}
+$C_m(M,k)$
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle |C_m(M,k)| = {n+k-1 \choose k}$
+
+\next
+{\bf \large Hypergeometrische Verteilung} 
+
+\begin{enumerate}
+\item $N$ Bauteile insgesamt
+\item $K$ Bauteile defekt
+\item $n$ Bauteile in Stichprobe entnommen
+\item $k$ Bauteile in Stichprobe defekt
+\end{enumerate}
+\hspace*{1.3cm}
+$\displaystyle P(k) =\frac{{K \choose k} \cdot {N - K \choose n - k}}{{N \choose n}}$
+
+\next
+{\bf\large  Binomial-Verteilung}
+\begin{enumerate}
+\item Wahrscheinlichkeits, dass ein Bauteile defekt ist: $p$
+\item Wahrscheinlichkeits, dass von $n$ Bauteilen $k$ Bauteile defekt sind 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle B(n,p;k) := {n \choose k} \cdot p^k \cdot (1-p)^{n-k}$.
+\end{enumerate}
+\pagebreak
+
+\next
+{\bf\large Praktische Berechnung von $n!$ und ${n \choose k}$}
+
+\next
+ Stirling'sche Näherung:
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle n! \approx \sqrt{2 \cdot \pi \cdot n\,} \cdot \left(\frac{n}{e}\right)^n$.
+
+\next 
+Näherung von Lanzcos:
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle n! \approx \sqrt{2 \cdot \pi\;} \cdot \left(\frac{n+ \frac{1}{2}}{e}\right)^{n+\frac{1}{2}}$.
+
+\next 
+Mathematische Interpretation \\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \lim\limits_{n\rightarrow \infty} \frac{\sqrt{2 \cdot \pi\;} \cdot
+  \left(\frac{n+ \frac{1}{2}}{e}\right)^{n+\frac{1}{2}}}{n!} = 1$.
+
+\next
+Berechnung des Binomial-Koeffizienten 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\displaystyle 
+ {n \choose k} = \exp\Bigl(\ln\bigl(n!\bigr) - \ln\bigl(k!\bigr) - \ln\bigl((n-k)!\bigr)\Bigr) 
+$
+mit 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \ln\bigl(n!\bigr) \approx  \frac{1}{2}\cdot\ln(2\cdot \pi) + \left(n+\frac{1}{2}\right) \cdot \left( \ln\Bigl(n + \frac{1}{2}\Bigr) - 1 \right)$.
+
+\next
+Näherung von de Moivre für $n > 36$: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle
+ {n \choose k} \approx \sqrt{\frac{2}{\pi \cdot n}} \cdot 2^n \cdot \exp\left(-\frac{\bigl(k - \frac{1}{2}n\bigr)^2}{\frac{1}{2}n}\right)$.
+
+\next
+Näherung von Laplace falls $n \cdot p \cdot (1-p) > 9$
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle {n \choose k} \cdot p^k \cdot (1-p)^{n-k} \approx \frac{1}{\sqrt{2\cdot \pi
+    \cdot n \cdot p \cdot (1-p)\;}} \cdot \exp\left(-\frac{(k - n \cdot p)^2}{2 \cdot n
+    \cdot p \cdot (1 - p)}\right)$
+
+\next \emph{Kumulative Verteilungs-Funktion}
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle F^n_p(k) := \sum\limits_{i=0}^k {n \choose i} \cdot p^i \cdot (1 - p)^{n-i}$.
+\\[0.1cm]
+Abkürzung 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\mu := n \cdot p$, \quad $q := 1 - p$ \quad und \quad $\sigma := \sqrt{n\, p\, q\,}$.
+
+
+\next
+Approximation von Summe durch Integral
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \sum\limits_{i=a}^b f(i) \approx \int_{a-\frac{1}{2}}^{b+\frac{1}{2}} f(t)\dx t$
+
+\next
+ Gauß'sche Integralfunktion: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \Phi(x) = \frac{1}{\sqrt{2\,\pi}} \cdot \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right)\dx t$
+
+\next
+Approximation der Verteilungs-Funktion
+\\[0.1cm]
+\hspace*{1.3cm}
+\framebox{$\displaystyle F^n_p(k) \approx \Phi\Biggl(\frac{k+\frac{1}{2}- n\,p}{\sqrt{n\,p\,q\,}}\Biggr)
+ \approx \Phi\Biggl(\frac{k- n\,p}{\sqrt{n\,p\,q\,}}\Biggr)$}
+\pagebreak
+
+\next
+\textsl{Maple}: Gauß'sche \emph{Fehlerfunktion}
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \textsl{erf}(x) := \frac{2}{\sqrt{\pi}} \cdot \int_0^x \exp\bigl(-u^2\bigr)\dx u$.
+
+\next
+Zusammenhang zwischen Integralfunktion und Fehlerfunktion: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \Phi(x) = \frac{1}{2}  \;+\; \frac{1}{2} \cdot \textsl{erf}\left(\frac{x}{\sqrt{2}}\right)$
+
+
+\begin{Definition}[Zufallsgröße] \hspace*{\fill} \\
+Sei $\langle \Omega, 2^\Omega, P \rangle$ Wahrscheinlichkeits-Raum. Dann
+\\[0.1cm]
+\hspace*{1.3cm}
+$X:\Omega \rightarrow \mathbb{R}$ \quad Zufallsgröße
+\end{Definition}
+
+\begin{Definition}[Erwartungswert] Sei
+  \begin{enumerate}
+  \item $\langle \Omega, 2^\Omega, P \rangle$: Wahrscheinlichkeits-Raum
+  \item $X: \Omega \rightarrow \mathbb{R}$: Zufallsgröße
+  \end{enumerate}
+  \emph{Erwartungswert} $E[X]$:
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $\displaystyle E[X] := \sum\limits_{\omega\in\Omega} P(\{\omega\}) \cdot X(\omega) = \sum\limits_{n=0}^\infty P(X = x_n) \cdot x_n$
+  \\[0.1cm]
+  falls
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $X(\Omega) = \{ X(\omega) \;|\; \omega\in \Omega \} = \{ x_n \;|\; n\in\mathbb{N} \}$
+\end{Definition}
+
+
+\begin{Definition}[Varianz, Standard-Abweichung] Sei
+  \begin{enumerate}
+  \item $\langle \Omega, 2^\Omega, P \rangle$ Wahrscheinlichkeits-Raum 
+  \item $X: \Omega \rightarrow \mathbb{R}$ Zufallsgröße
+  \\[0.1cm]
+  \end{enumerate}
+   \emph{Varianz} $\mathrm{Var}[X]$:
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $\displaystyle \mathrm{Var}[X] := E\bigl[(X - E[X])^2\bigr] 
+    = \sum\limits_{n=0}^\infty P(X = x_n) \cdot (x_n - \mu)^2$
+  \\[0.1cm]
+  falls $\mu = E[X]$.
+
+  \next
+  \emph{Standard-Abweichung}:
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $\sigma(X) := \sqrt{\mathrm{Var}[X]\,}$.
+  \\[0.1cm]
+\end{Definition}
+
+\next
+Bedingte Wahrscheinlichkeit 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle P(B|A) = \frac{P(B \cap A)}{P(A)}$
+\\[0.1cm]
+\hspace*{1.3cm}
+$P(B \cap A) = P(B|A) \cdot P(A)$
+\pagebreak
+
+\next
+Totale Wahrscheinlichkeit: Sei
+\begin{enumerate}
+\item $B_1 \cup \cdots \cup B_n = \Omega$
+\item $B_i \cap B_j = \emptyset$ für $i \not= j$
+\end{enumerate}
+\emph{Zerlegung} von $\Omega$. Dann 
+\\[0.1cm]
+\hspace*{1.3cm}
+$P(A) =\displaystyle \sum\limits_{i=1}^n P(A|B_i)\cdot P(B_i)$
+
+\next
+Formel von Bayes 
+\\[0.1cm]
+\hspace*{1.3cm}
+$ \displaystyle P(B_k|A) = \frac{P(A|B_k) \cdot P(B_k)}{\sum\limits_{i=1}^n P(A|B_i) \cdot P(B_i)}$
+
+\begin{Definition}
+  Zwei Ereignisse $E$ und $F$ sind unabhängig, falls 
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $P(F \cap E) = P(E) \cdot P(F)$.
+\end{Definition}
+
+\begin{Definition}[Produkt-Raum] \hspace*{\fill} \\[-0.5cm]
+  \begin{tabbing}
+  \textbf{Gegeben}: \=  $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$, $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$ Wahrscheinlichkeits-Räume \\[0.3cm]
+  \textbf{Setze}:   \> $\mathcal{W}_1 \times \mathcal{W}_2 := \langle \Omega_1 \times
+    \Omega_2, 2^{\Omega_1 \times \Omega_2}, P \rangle$, \quad mit \\[0.1cm]
+                    \> \hspace*{1.3cm}
+                       $P\bigl(\{\langle x, y \rangle\}\bigr) := P_1(\{x\}) \cdot P_2(\{y\})$ \quad für alle $x \in \Omega_1$ und alle $y \in \Omega_2$. \\[0.1cm]
+                    \> Allgemein  \\[0.1cm]
+                    \> \hspace*{1.3cm}
+                       $\displaystyle P(E) = \sum\limits_{\omega \in E} P\bigl(\{\omega\}\bigr)$
+  \end{tabbing}
+\end{Definition}
+
+\begin{Definition}   
+  \begin{description}
+  \item[Gegeben]: \hspace*{\fill} \\[-0.5cm]
+                  \begin{enumerate}
+                  \item $\langle \Omega, 2^\Omega, P \rangle = \mathcal{W}_1 \times \mathcal{W}_2 =
+                         \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle \times \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$
+                         Produkt-Raum
+                  \item $E \in 2^\Omega$
+                  \end{enumerate}
+  \item[Dann:]
+    \begin{enumerate}
+    \item $E$ \emph{durch erste Komponente bestimmt} g.d.w.
+          \\[0.1cm]
+          \hspace*{1.3cm}
+          $\exists \widehat{E} \in 2^{\Omega_1}: E = \bigl\{ \langle x, y \rangle \;\big|\; x \in \widehat{E} \wedge y \in \Omega_2 \bigr\}$
+    \item $E$ \emph{durch zweite  Komponente bestimmt} g.d.w.
+          \\[0.1cm]
+          \hspace*{1.3cm}
+          $\exists \widehat{E} \in 2^{\Omega_2}: E = \bigl\{ \langle x, y \rangle \;\big|\; x \in \Omega_1  \wedge y \in \widehat{E} \bigr\}$
+    \end{enumerate}
+  \end{description}
+\end{Definition}
+
+\begin{Satz} 
+  \begin{description}
+  \item[Gegeben:] \hspace*{\fill} \\[-0.5cm]
+    \begin{enumerate}
+    \item $\mathcal{W} = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle \times \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$ Produkt-Raum 
+    \item $E$ und $F$ Ereignisse \\
+          $E$ durch erste \ Komponente bestimmt \\
+          $F$ durch zweite Komponente bestimmt 
+    \end{enumerate}              
+   \item[Behauptung:] $E$ und $F$ sind unabhängig.
+  \end{description}
+\end{Satz}
+\pagebreak
+
+\begin{Definition}[Unabhängige Zufallsgrößen]
+  Es sei
+  \begin{enumerate}
+  \item $\langle \Omega, 2^\Omega, P \rangle$ Wahrscheinlichkeits-Raum,
+  \item $X:\Omega \rightarrow \mathbb{R}$ und $Y:\Omega \rightarrow \mathbb{R}$ Zufallsgrößen.
+  \end{enumerate}
+  \textbf{Dann}: $X$ und $Y$ \emph{unabhängig} gdw.
+  \\[0.1cm]
+  \hspace*{1.3cm} $\forall x,y \in \mathbb{R}$ gilt 
+  $\bigl\{ \omega \in \Omega \;\big|\; X(\omega) = x \bigr\}$ \quad und \quad $\bigl\{
+  \omega \in \Omega \;\big|\; Y(\omega) = y \bigr\}$ unabhängig.
+  \\[0.1cm]
+  Äquivalente Formulierung:  Für alle $x,y \in \mathbb{R}$ gilt
+  \\[0.1cm]
+  \hspace*{-0.8cm}
+  $P\Bigl( \bigl\{ \omega \in \Omega \big| X(\omega) = x \bigr\} \cap \bigl\{ \omega \in \Omega \big| Y(\omega) = y \bigr\} \Bigr) 
+   = P\Bigl( \bigl\{ \omega \in \Omega \big| X(\omega) = x \bigr\}\Bigr) \cdot P\Bigl(\bigl\{ \omega \in \Omega \big| Y(\omega) = y \bigr\} \Bigr)$
+  \\[0.1cm]
+  Kürzere Schreibweise: 
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $P( X = x \wedge Y = y) = P(X = x) \cdot P(Y = y)$.
+\end{Definition}
+
+\begin{Definition} \textbf{Gegeben:}
+\begin{enumerate}
+\item $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$,
+      $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$ Wahrscheinlichkeits-Räume.
+\item $\mathcal{W} = \mathcal{W}_1 \times \mathcal{W}_2 = \langle \Omega, 2^\Omega, P\rangle$  Produkt-Raum.
+\item $X: \Omega \rightarrow \mathbb{R}$ Zufallsgröße.
+\end{enumerate}
+\textbf{Behauptung:}
+\begin{enumerate}
+\item  \emph{$X$ durch erste Komponente bestimmt} g.d.w.
+       \\[0.1cm]
+       \hspace*{1.3cm}
+       $\forall \omega_1 \in \Omega_1: \forall \omega_2,\omega_3 \in \Omega_2: X\bigl(\pair(\omega_1,\omega_2)\bigr) = X\bigl(\pair(\omega_1,\omega_3)\bigr)$
+\item \emph{$X$ durch  zweite Komponente bestimmt} g.d.w.
+      \\[0.1cm]
+      \hspace*{1.3cm}
+      $\forall \omega_2 \in \Omega_2: \forall \omega_1,\omega_3 \in \Omega_1: X\bigl(\pair(\omega_1,\omega_2)\bigr) = X\bigl(\pair(\omega_3,\omega_2)\bigr)$. 
+\end{enumerate}
+\end{Definition}
+
+\begin{Satz} \textbf{Gegeben:}
+\begin{enumerate}
+\item $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$,
+      $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$ Wahrscheinlichkeits-Räume.
+\item $\mathcal{W} = \mathcal{W}_1 \times \mathcal{W}_2 = \langle \Omega, 2^\Omega, P\rangle$ Produkt-Raum.
+\item $X_1: \Omega \rightarrow \mathbb{R}$, 
+      $X_2: \Omega \rightarrow \mathbb{R}$ Zufallsgrößen,
+\item $X_1$ durch erste \ Komponente bestimmt,
+\item $X_2$ durch zweite Komponente bestimmt.
+\end{enumerate}
+\textbf{Behauptung:} $X_1$ und $X_2$ unabhängig.
+\end{Satz}
+
+\begin{Satz}
+  \textbf{Gegeben:}
+  \begin{enumerate}
+  \item $\langle \Omega, 2^\Omega, P \rangle$ Wahrscheinlichkeits-Raum,
+  \item $X:\Omega \rightarrow \mathbb{R}$ und $Y:\Omega \rightarrow \mathbb{R}$ unabhängige Zufallsgrößen,
+  \item $A,B \subseteq \mathbb{R}$.
+  \end{enumerate}
+  \textbf{Behauptung}:  \\[0.1cm]
+  \hspace*{1.3cm}
+  $\bigl\{ \omega \in \Omega \;\big|\; X(\omega) \in A \bigr\}$ \quad und \quad
+  $\bigl\{ \omega \in \Omega \;\big|\; Y(\omega) \in B \bigr\}$ 
+  \\[0.1cm]
+  unabhängig, also
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $P( X \in A \wedge Y \in B) = P(X \in A) \cdot P(Y \in B)$.
+\end{Satz}
+\pagebreak
+
+\begin{Satz} \textbf{Gegeben:}
+\begin{enumerate}
+\item $\langle \Omega, 2^\Omega, P \rangle$ Wahrscheinlichkeits-Raum
+\item $X: \Omega \rightarrow \mathbb{R}$,  $Y: \Omega \rightarrow \mathbb{R}$ Zufallsgrößen,
+\item $\alpha,\beta \in \mathbb{R}$
+\item $Z:\Omega \rightarrow \mathbb{R}$ definiert durch \\[0.1cm]
+      \hspace*{1.3cm}
+      $Z(\omega) = \alpha \cdot X(\omega) + \beta \cdot Y(\omega)$
+\end{enumerate}
+\textbf{Behauptung}: \\[0.1cm]
+\hspace*{1.3cm}
+$E\bigl[Z\bigr] = \alpha \cdot E\bigl[X\bigr] + \beta \cdot E\bigl[Y\bigr]$.
+\end{Satz}
+
+\begin{Satz}[Verschiebungs-Satz]
+\textbf{Gegeben:}
+\begin{enumerate}
+\item  $\langle \Omega, 2^\Omega, P \rangle$ Wahrscheinlichkeits-Raum,
+\item  $X: \Omega \rightarrow \mathbb{R}$   Zufallsgröße,
+\item  $\alpha,\beta \in \mathbb{R}$,
+\item  $Z:\Omega \rightarrow \mathbb{R}$ definiert durch
+       \\[0.1cm]
+       \hspace*{1.3cm}
+       $Z(\omega) = \alpha \cdot X(\omega) + \beta$
+\end{enumerate}
+\textbf{Behauptung:}\\[0.1cm]
+\hspace*{1.3cm}
+$\var\bigl[Z\bigr] = \alpha^2 \cdot \var\bigl[X\bigr]$.
+\end{Satz}
+
+\begin{Lemma} \textbf{Gegeben}:
+\begin{enumerate}
+\item $\langle \Omega, 2^\Omega, P \rangle$  Wahrscheinlichkeits-Raum
+\item $X: \Omega \rightarrow \mathbb{R}$, $Y: \Omega \rightarrow \mathbb{R}$ \textbf{unabhängige} Zufallsgrößen.
+\end{enumerate}
+\textbf{Behauptung:} \\[0.1cm]
+\hspace*{1.3cm}
+$E[X \cdot Y\bigr] = E\bigl[X\bigr] \cdot E\bigl[Y\bigr]$.  
+\end{Lemma}
+
+\begin{Satz} \textbf{Gegeben:} 
+\begin{enumerate}
+\item $\langle \Omega, 2^\Omega, P \rangle$  Wahrscheinlichkeits-Raum
+\item  $X: \Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ \textbf{unabhängige} Zufallsgrößen.
+\end{enumerate}
+\textbf{Behauptung:} \\[0.1cm]
+\hspace*{1.3cm}
+$\var\bigl[X + Y\bigr] = \var\bigl[X\bigr] + \var\bigl[Y\bigr]$.
+\end{Satz}
+\pagebreak
+
+\begin{Satz}[$\sqrt{n}$-Gesetz] \textbf{Gegeben:} 
+\begin{enumerate}
+\item $\mathcal{W} = \langle \Omega, 2^\Omega, P \rangle$  Wahrscheinlichkeits-Raum
+\item $X: \Omega \rightarrow \mathbb{R}$ Zufallsgröße
+\item $\mathcal{W}^n = \underbrace{\mathcal{W} \times \cdots \times \mathcal{W}}_n$
+      $n$-faches kartesisches Produkt von $\mathcal{W}$
+\item $X_i: \Omega^n \rightarrow \mathbb{R}$ definiert durch 
+      \\[0.1cm]
+      \hspace*{1.3cm} $X_i\bigl(\langle\omega_1, \cdots, \omega_n\rangle\bigr): X(\omega_i)$
+\item $\overline{X}: \Omega^n \rightarrow \mathbb{R}$ definiert durch 
+      \\[0.1cm]
+      \hspace*{1.3cm} $\displaystyle \overline{X}(\omega):= \frac{1}{n} \cdot \sum\limits_{k=1}^n X_i(\omega)$
+\end{enumerate}
+\textbf{Behauptung:} 
+\begin{enumerate}
+\item $E\Bigl[\overline{X}\Bigr] = E[X]$
+\item $\displaystyle \var\Bigl[\overline{X}\Bigr] = \frac{1}{n} \cdot \var[X]$
+\item $\displaystyle \sigma\Bigl[\overline{X}\Bigr] = \frac{1}{\sqrt{n}} \cdot \sigma[X]$
+\end{enumerate}
+\end{Satz}
+
+\begin{Satz}[Ungleichung von Tschebyschow] Es sei
+  \begin{enumerate}
+  \item $\langle \Omega, 2^\Omega, P \rangle$ Wahrscheinlichkeits-Raum,
+  \item $X: \Omega \rightarrow \mathbb{R}$ Zufallsgröße mit  $\mu = E[X]$ und $\sigma^2 = \var[X]$. 
+  \end{enumerate}
+  \textbf{Beh}.: \quad $\forall r \in \mathbb{R}: r > 0 \rightarrow \displaystyle P\bigl(|X - \mu| \geq r \cdot \sigma\bigr) \leq \frac{1}{r^2}$.
+\end{Satz}
+
+
+\begin{Satz}[Schwaches Gesetz der großen Zahlen] Es sei 
+\begin{enumerate}
+\item $\mathcal{W} = \langle \Omega, 2^\Omega, P \rangle$  Wahrscheinlichkeits-Raum,
+\item $X: \Omega \rightarrow \mathbb{R}$ Zufallsgröße auf $\mathcal{W}$ mit  $\mu = E[X]$ und $\sigma := \sqrt{\var[X]\,}$,
+\item $\mathcal{W}^n = \underbrace{\mathcal{W} \times \cdots \times \mathcal{W}}_n$  $n$-faches kartesisches Produkt,
+\item $X_i: \Omega^n \rightarrow \mathbb{R}$ für $i=1,\cdots,n$ definiert durch 
+      \\[0.1cm]
+      \hspace*{1.3cm} $X_i\bigl(\langle\omega_1, \cdots, \omega_n\rangle\bigr):= X(\omega_i)$
+\item $\overline{X}: \Omega^n \rightarrow \mathbb{R}$ definiert durch 
+      \\[0.1cm]
+      \hspace*{1.3cm} $\displaystyle \overline{X}(\omega):= \frac{1}{n} \cdot \sum\limits_{i=1}^n X_i(\omega)$
+\end{enumerate}
+\textbf{Beh}.: 
+$\displaystyle \forall \varepsilon \in \mathbb{R}: \varepsilon > 0 \rightarrow \lim\limits_{n\rightarrow\infty} P\bigl( |\overline{X} - \mu| \geq \varepsilon) = 0$.
+\end{Satz}
+
+\pagebreak
+\begin{Lemma}[Pascal'sche Regel] Sei 
+$\displaystyle {n \choose k} := \frac{n!}{k! \cdot (n-k)!}$
+\\[0.1cm]
+\textbf{Beh}.: \quad $\displaystyle {n + 1 \choose k} = {n \choose k - 1} + {n \choose k}$.  
+\end{Lemma}
+
+\noindent
+$s(n,k)$: Zahl der Wege von $\pair(0,0)$ nach $\pair(k, n-k)$. 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle s(n,k) = {n \choose k}$
+
+\begin{Definition}[Bernoulli-Experiment]  \hspace*{\fill}
+  \begin{enumerate}
+  \item $\mathcal{W}_B = \bigl\langle \{0, 1\}, 2^{\{0,1\}}, P\bigr\rangle$
+  \item $p:= P\bigl(\{1\}\bigr)$ \quad \emph{Parameter} des Bernoulli-Experiments. 
+  \item \emph{Bernoulli-Kette}: $\mathcal{W} = \mathcal{W}_B^n$
+  \item $X_i: \{0,1\} \rightarrow \mathbb{R}$ \quad definiert als \quad $X_i(\omega) := \omega$,
+  \item $E[X_i] = p$
+  \item $\var[X_i] = p\cdot q$
+  \item $X: \{0,1\}^n \rightarrow \mathbb{R}$ \quad definiert als \quad
+        $\displaystyle X\bigl([\omega_1,\cdots,\omega_n]\bigr) = \sum\limits_{i=1}^n X_i(\omega_i)$.
+  \item $E[X] = n \cdot p$.
+  \item $\var[X] = n \cdot p \cdot (1-p)$.
+\end{enumerate}
+\end{Definition}
+
+\begin{Definition}[Poisson-Verteilung] Näherung für $B(n,p;k)$ für $n\rightarrow\infty$,  $p \rightarrow 0$
+  \begin{enumerate}
+  \item $\lambda := n \cdot p$ \quad also $\displaystyle p = \frac{\lambda }{n}$
+  \item $\displaystyle \lim\limits_{n\rightarrow\infty} B\left(n,\frac{\lambda}{n};k\right) = \frac{\lambda^k}{k!} \cdot e^{-\lambda}$
+  \end{enumerate}
+\end{Definition}
+
+\begin{Satz} Die Summe Poisson-verteilter Zufallsgrößen ist Poisson-verteilt. \\
+\textbf{Vor}.: $\displaystyle P(X_1 = k) = \frac{\lambda_1^k}{k!}\cdot e^{-\lambda_1}$, \quad 
+               $\displaystyle P(X_2 = k) = \frac{\lambda_2^k}{k!}\cdot e^{-\lambda_2}$ \\
+\textbf{Beh}.: $\displaystyle P(X_1 + X_2 = k) = \frac{(\lambda_1+\lambda_2)^k}{k!}\cdot e^{-(\lambda_1+\lambda_2)}$
+\end{Satz}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "overview"
+%%% End: 

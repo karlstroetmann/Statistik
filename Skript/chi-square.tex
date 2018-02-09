@@ -1,0 +1,232 @@
+\section{Die $\chi^2$-Verteilung}
+In diesem Abschnitt gehen wir davon aus, dass $X_1$, $X_2$, $\cdots$, $X_n$  unabhängige 
+Zufalls-Größen sind, die alle einer standardisierten Normalverteilung genuügen, für die einzelnen
+$X_i$ gilt also 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle P(X_i \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x \exp\biggl(\frac{t^2}{2}\biggr)\dx t$
+\\[0.1cm]
+Die Zufalls-Größe $Z$ ist dann als 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle Z(\omega) = \sum\limits_{i=1}^n X_i^2(\omega)$
+\\[0.1cm]
+definiert.  Unser Ziel ist es, die Wahrscheinlichkeits-Dichte $P_z$ für diese Zufalls-Größe
+zu berechnen.  Wir beginnen mit dem Spezialfall $n=1$.
+
+\subsection{Berechnung der Verteilung des Quadrats einer normal verteilten Zufalls-Größe}
+Es sei $X$ eine Zufalls-Größe,
+die der Standard-Normal-Verteilung genügt, für die Wahrscheinlichkeits-Dichte 
+gilt also
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle p(x) = \frac{1}{\sqrt{2\pi}} \cdot \exp\bigl(-\frac{x^2}{2}\bigr)$.
+\\[0.1cm]
+Wir stellen uns die Frage, wie die Zufalls-Größe $X^2$ verteilt ist.  Wir berechnen 
+zunächst die kumulative Verteilungs-Funktion von $X^2$, die wir mit $F_{X^2}$ bezeichnen.  
+Ist $\Omega$ der zu Grunde liegende Ergebnis-Raum, so haben wir 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+\displaystyle F_{X^2}(x) & = & \displaystyle P(X^2 \leq x) \\[0.1cm]
+ & = & \displaystyle P\Bigl(\bigl\{ \omega \in \Omega \;\big|\; X^2(\omega) \leq x\bigr\} \bigr) \\[0.3cm]
+ & = & \displaystyle P\Bigl(\bigl\{ \omega \in \Omega \;\big|\; -\sqrt{x} \leq X(\omega) \leq \sqrt{x}\bigr\} \Bigr) \\[0.3cm]
+ & = & \displaystyle P\Bigl(\bigl\{ \omega \in \Omega \;\big|\; X(\omega) \leq \sqrt{x}\bigr\} \;\backslash\;
+                            \bigl\{ \omega \in \Omega \;\big|\; X(\omega) < -\sqrt{x}\bigr\} \Bigr) \\[0.3cm]
+ & = & \displaystyle \Phi\bigl(\sqrt{x}\bigr) - \Phi\bigl(-\sqrt{x}\bigr),
+\end{array}
+$
+\\[0.1cm]
+denn die Verteilungs-Funktion einer Zufalls-Größe mit Normalverteilung ist die Gauß'sche Integral-Funktion $x \mapsto \Phi(x)$.
+Berücksichtigen wir noch, dass 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\Phi(x) + \Phi(-x) = 1$, \quad als $\Phi(-x) = 1 - \Phi(x)$
+\\[0.1cm]
+gilt, so haben wir 
+\\[0.1cm]
+\hspace*{1.3cm}
+$F_{X^2}(x) = 2 \cdot \Phi\bigl(\sqrt{x}\bigr) - 1$.
+\\[0.1cm]
+Hier ist es zweckmäßig, die Gauß'sche Integral-Funktion $\Phi$ durch die Gauß'sche Fehler-Funktion $\textsl{erf}$
+auszudrücken.  Es gilt 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \Phi(x) = \frac{1}{2} + \frac{1}{2} \cdot \textsl{erf}\left(\frac{x}{\sqrt{2}}\right)$.
+\\[0.1cm]
+Damit erhalten wir das Ergebnis
+\\[0.1cm]
+\hspace*{1.3cm}
+\framebox{$\displaystyle F_{X^2}(x) = \textsl{erf}\left(\sqrt{\frac{x}{2}}\right)$}
+\\[0.1cm]
+ Die Wahrscheinlichkeits-Dichte $p_{X^2}$ der Zufalls-Größe $X^2$ erhalten wir, indem wir die
+Verteilungs-Funktion nach $x$ differenzieren.  Wegen 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \textsl{erf}(x) = \frac{2}{\sqrt{\pi\,}} \cdot \int_0^x \exp(-u^2) \dx u$
+\\[0.1cm]
+erhalten wir 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle p_{X^2}(x) = \frac{\dx}{\dx x}\left(\sqrt{\frac{x}{2}}\right) = \frac{2}{\sqrt{\pi\,}} \cdot \frac{1}{2\sqrt{2\,x}} \cdot \exp\left(-\frac{x}{2}\right)
+ = \frac{1}{\sqrt{2\pi\,}} \cdot \frac{1}{\sqrt{x}} \cdot \exp\left(-\frac{x}{2}\right)$
+
+
+\subsection{Berechnung der Verteilung von $X_1^2 + X_2^2$}
+Wir nehmen nun an, dass $X_1$ und $X_2$ zwei unabhängige Zufalls-Größen sind, die beide
+normalverteilt sind, es gilt also 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle P(X_1 \leq x) = P(X_2 \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x \exp\Bigl(-\frac{t^2}{2}\Bigr)\,\dx t$
+\\[0.1cm]
+Wir interessieren uns nun für die Verteilung der Zufalls-Größe 
+\\[0.1cm]
+\hspace*{1.3cm}
+$Z(x) = X_1^2(x) + X_2^2(x)$
+\\[0.1cm]
+und berechnen die entsprechende Verteilungs-Funktion.  Sind allgemein $X$ und $Y$ zwei Zufalls-Größen, die nur positive Werte annehmen können, 
+und ist $p_X$ die Wahrscheinlichkeits-Dichte von $X$ und $F_Y$ die Verteilungs-Funktion von $Y$, so kann 
+die Verteilungs-Funktion der Zufalls-Größe $Z = X + Y$ nach der Formel 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+F_Z(x) & = & P(Z \leq x)   \\[0.1cm]
+       & = & P(X + Y \leq x)   \\[0.1cm]
+       & = & \displaystyle \int_{0}^x p_X(t) \cdot F_Y(x - t) \dx t   
+\end{array}
+$
+\\[0.3cm]
+berechnet werden, denn alle Fälle, in denen die Summe von $X$ und $Y$ einen Wert kleiner oder gleich  $x$ ergibt,
+erhalten wir, indem wir für $X$ über alle Werte $t$ von $0$ bis $x$ laufen lassen und für jeden festen Wert von $X$
+alle die Werte von $Y$ berücksichtigen, die kleiner als $x-t$ sind.
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  P(X^2_1 + X_2^2 \leq x) & = & \displaystyle
+      \int_0^x \frac{1}{\sqrt{2\,\pi\,}} \cdot \frac{1}{\sqrt{t\,}} \cdot \exp\Bigl(-\frac{t}{2}\Bigr) \cdot F_{X_2^2}(x - t)\, \dx t \\[0.4cm]
+& = & \displaystyle 
+      \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_0^x \frac{1}{\sqrt{t\,}} \cdot \exp\Bigl(-\frac{t}{2}\Bigr) \cdot \textsl{erf}\left(\sqrt{\frac{x-t}{2}}\right) \dx t\\[0.4cm]
+\end{array}
+$
+\\[0.1cm]
+Um hier weiter zu kommen, brauchen wir einen kleinen Hilfssatz.  
+Es sei eine Funktion 
+\\[0.1cm]
+\hspace*{1.3cm}
+$f:\mathbb{R}_+ \rightarrow \mathbb{R}$
+\\[0.1cm]
+definiert durch
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle f(x) := \int_0^x u(t) \cdot v(x - t) \dx t$
+\\[0.1cm]
+und die Funktion $v$ sei differenzierbar. Dann gilt für die Ableitung von $f$ die Formel 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \frac{\dx f}{\dx x} = u(x) \cdot v(0) + \int_0^x u(t) \cdot v'(x - t) \dx\, t$
+\vspace*{0.1cm}
+
+\noindent
+\textbf{Beweis}: Die Ableitung einer Funktion $f$ an einem Punkt $x$ ist als Grenzwert definiert:
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \frac{\dx f}{\dx x}(x) = \lim\limits_{h \rightarrow 0} \frac{f(x + h) + f(x)}{h}$
+\\[0.1cm]
+Wir formen den Differenzen-Quotienten $\frac{f(x + h) + f(x)}{h}$ wie folgt um 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+            \displaystyle \frac{f(x + h) + f(x)}{h} 
+& =       & \displaystyle \frac{1}{h} \cdot \left( \int_0^{x+h} u(t)\cdot v(x+h - t) \dx t\; - \int_0^{x} u(t)\cdot v(x - t) \dx t \right) \\[0.5cm]
+& \approx & \displaystyle \frac{1}{h} \cdot \left( \int_0^{x+h} u(t)\cdot \bigl(v(x - t) + v'(x - t) \cdot h\bigr) \dx t\; - \int_0^{x} u(t)\cdot v(x - t) \dx t \right) \\[0.5cm]
+& =       & \displaystyle \frac{1}{h} \cdot \left( \int_x^{x+h} u(t)\cdot v(x - t) \dx t \right)\;+\;
+            \int_0^{x+h} u(t)\cdot v'(x - t) \dx t  \\[0.5cm]
+& \approx & \displaystyle  u(x)\cdot v(0)  \;+\;
+            \int_0^{x} u(t)\cdot v'(x - t) \dx t  \\[0.5cm]
+\end{array}
+$
+\\[0.1cm] 
+Dabei haben wir die folgenden Approximationen durchgeführt, die für kleine Werte von $h$ gültig sind:
+\begin{enumerate}
+\item $v(x+h-t) \approx v(x-t) + v'(x - t) \cdot h$ 
+
+      folgt aus der Definition der Ableitung als Differenzen-Quotienten.
+\item Für stetige Funktionen $g$ gilt für kleine Werte von $h$
+      \\[0.1cm]
+      \hspace*{1.3cm}
+      $\displaystyle \int_a^{a+h} f(t) \dx t \approx f(a)\cdot h$.
+\item Für stetige Funktionen $g$ gilt für kleine Werte von $h$
+      \\[0.1cm]
+      \hspace*{1.3cm}
+      $\displaystyle \int_0^{x+h} g(t) \dx t \approx \int_0^{x} g(t) \dx t$. \qed
+\end{enumerate}
+
+\noindent
+Wir wollen nun die Wahrscheinlichkeits-Dichte der Zufalls-Größe $Z = X_1^2 + X_2^2$ berechnen.  
+Wegen
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \frac{\dx}{\dx x}\textsl{erf}\left(\sqrt{\frac{x-t}{2}}\right) = \frac{1}{2\sqrt{2\cdot (x - t)\,}}\cdot \exp\left(\frac{t-x}{2}\right)$
+\\[0.1cm]
+gilt nach dem eben bewiesenen Hilfssatz: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{cl}
+   & p_Z(x)                  \\[0.1cm]
+ = & \displaystyle \frac{\dx}{\dx x} P(X^2_1 + X_2^2 \leq x) \\[0.1cm]
+ = & \displaystyle
+     \frac{\dx}{\dx x}\left( 
+     \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_0^x \frac{1}{\sqrt{t\,}} \cdot \exp\Bigl(-\frac{t}{2}\Bigr) \cdot \textsl{erf}\left(\sqrt{\frac{x-t}{2}}\right) \dx t
+     \right)\\[0.4cm]
+ = & \displaystyle
+      \frac{1}{\sqrt{2\,\pi\,}} \cdot \left( \frac{1}{\sqrt{x\,}} \cdot \exp\Bigl(-\frac{x}{2}\Bigr) \cdot \textsl{erf}(0) \;+\;
+ \int_0^x \frac{1}{\sqrt{t\,}} \cdot \exp\Bigl(-\frac{t}{2}\Bigr) \cdot \frac{1}{\sqrt{2\, \pi\cdot (x - t)\,}}\cdot \exp\left(\frac{t-x}{2}\right) \dx t\right) \\[0.4cm]
+ = & \displaystyle
+\frac{1}{2\,\pi} \cdot \exp\left(-\frac{x}{2}\right) \cdot \int_0^x \frac{1}{\sqrt{t\cdot (x - t)\,}} \dx t \\[0.4cm]
+ = & \displaystyle
+\frac{1}{2} \cdot \exp\left(-\frac{x}{2}\right),
+\end{array}
+$
+\\[0.1cm]
+denn es gilt 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \int_0^x \frac{1}{\sqrt{t\cdot (x - t)\,}} \dx t = \pi$.
+\\[0.1cm] 
+Aus Gründen der Vollständigkeit zeigen wir auch die Berechnung dieses Integrals:
+\\[0.1cm]
+\hspace*{0.3cm}
+$
+\begin{array}[t]{cll}
+  & \displaystyle \int_0^x \frac{1}{\sqrt{t\cdot (x - t)\,}} \dx t 
+  & \mbox{substituiere $u = t - \frac{1}{2}x$, also $t = u + \frac{1}{2}x$}                       \\[0.7cm]
+= & \displaystyle \int_{-x/2}^{x/2} \frac{1}{\sqrt{(u + \frac{1}{2}x)\cdot (x - u - \frac{1}{2}x)\,}} \dx u \\[0.7cm]
+= & \displaystyle \int_{-x/2}^{x/2} \frac{1}{\sqrt{\frac{1}{4}x^2 - u^2\,}} \dx u
+  & \mbox{substituiere $u = \frac{x}{2}\sin(\varphi)$} \\[0.7cm]
+= & \displaystyle \int_{-\pi/2}^{\pi/2} \frac{1}{\sqrt{\frac{1}{4}x^2 - \frac{1}{4}x^2\cdot\sin^2(\varphi)\,}} \frac{x}{2} \cos(\varphi)\dx \varphi 
+  & \mbox{denn  $\dx u = \frac{x}{2}\cos(\varphi)\dx \varphi$} \\[0.7cm]
+= & \displaystyle \int_{-\pi/2}^{\pi/2} \frac{1}{\sqrt{1 - \sin^2(\varphi)\,}} \cos(\phi)\dx \varphi \\[0.7cm]
+= & \displaystyle \int_{-\pi/2}^{\pi/2} \frac{1}{\cos(\phi)} \cos(\phi)\dx \varphi 
+  & \mbox{wegen $\cos(\varphi) = \sqrt{1 - \sin^2(\varphi)\,}$} \\[0.5cm]
+= & \displaystyle \int_{-\pi/2}^{\pi/2} 1 \dx \varphi \\[0.5cm]
+= & \displaystyle \varphi \big|_{-\pi/2}^{\pi/2} \\[0.3cm]
+= & \displaystyle \frac{\pi}{2} - \frac{-\pi}{2}  \\[0.3cm]
+= & \displaystyle \pi  \\[0.3cm]
+\end{array}
+$
+\\[0.1cm]
+Wir halten das Ergebnis fest: 
+\\[0.1cm]
+\hspace*{1.3cm}
+\framebox{$\displaystyle p_Z(x) = \frac{1}{2} \cdot \exp\left(-\frac{x}{2}\right)$}
+\\[0.1cm]
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% End: 

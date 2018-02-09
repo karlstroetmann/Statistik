@@ -1,0 +1,1275 @@
+\chapter{Stetige Zufalls-Variablen}
+Bisher haben wir nur mit diskreten Wahrscheinlichkeits-Räumen 
+$\langle \Omega, 2^\Omega, P\rangle$
+gearbeitet, $\Omega$ war dabei eine höchstens abzählbare Menge diskreter
+Ergebnisse.  Bei vielen Zufalls-Experimenten ist das Ergebnis aber 
+nicht eine natürliche Zahl, sondern eine beliebige reelle Zahl oder sogar ein Tupel
+reeller Zahlen.  In diesen Fällen hat der Wahrscheinlichkeits-Raum die Form
+\\[0.2cm]
+\hspace*{1.3cm}
+$\langle \Omega, \frak{A}, P \rangle$.
+\\[0.2cm]
+Die Komponenten dieses Tripels haben dabei die folgenden Eigenschaften:
+\begin{enumerate}
+\item Die erste Komponente $\Omega$ bezeichnen wir als den \blue{Ergebnis-Raum}. Es gilt 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\Omega \subseteq \mathbb{R}$ oder $\Omega \subseteq \mathbb{R}^n$ für ein $n \in \mathbb{N}$      .
+\item Die zweite Komponente $\frak{A}$ bezeichnen wir als den \blue{Ereignis-Raum}.  
+      Es gilt
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\frak{A} \subseteq 2^\Omega$.
+      \\[0.2cm]
+      Der Ereignisraum $\frak{A}$ ist jetzt nicht mehr mit der Potenzmenge von $\Omega$ identisch, sondern ist
+      nur noch eine Teilmenge dieser Potenzmenge.  Der Grund dafür ist, vereinfacht gesagt, dass die Potenzmenge von $\Omega$
+      bestimmte Mengen enthält, die so kompliziert sind, dass wir diesen Mengen keine Wahrscheinlichkeit
+      zuordnen können.  Daher können diese Mengen auch nicht  Elemente unseres  Ereignisraums sein.  Diese
+      Mengen sind die so genannten \blue{nicht messbaren Mengen}.  Die Existenz solcher pathologischen Mengen ist
+      Gegenstand des \href{https://en.wikipedia.org/wiki/Vitali_set}{Satzes von Vitali}.  
+
+      
+      Um mit dem Ereignisraum arbeiten zu können müssen wir fordern, dass der Ereignis-Raum
+      bestimmten Abschuss-Eigenschaften genügt. Genauer muss gelten: 
+      \begin{enumerate}
+      \item $\Omega \in \frak{A}$.
+      \item Aus $A \in \frak{A}$ folgt $A^\mathrm{c} \in \frak{A}$.
+      \item Gilt für alle $n \in \mathbb{N}$ dass $A_n \in \frak{A}$ ist, dann gilt auch 
+            \\[0.2cm]
+            \hspace*{1.3cm}
+            $\ds \bigcup\limits_{n \in \mathbb{N}} A_n \in \frak{A}$.
+      \end{enumerate}
+      Ein Mengensystem, dass diesen Abschuss-Eigenschaften genügt, bezeichnen
+      wir auch als eine \href{https://en.wikipedia.org/wiki/Sigma-algebra}{$\sigma$-Algebra}.
+
+      Wenn $\Omega \subseteq \mathbb{R}$ ist, dann reicht es für unsere Zwecke aus, wenn $\frak{A}$ einerseits alle Intervalle
+      $[a,b]$ enthält, für die $[a,b] \subseteq \Omega$ ist und andererseits die oben angegebenen
+      Abschuss-Eigenschaften erfüllt sind.
+\item Die dritte Komponente $P$ ist eine Abbildung, die den selben Axiomen wie 
+      im diskreten Fall genügt:
+      \begin{enumerate}
+      \item $0 \leq P(A) \leq 1$ \quad für alle $A \subseteq \frak{A}$.
+      \item $P(\emptyset) = 0$.
+      \item $P(\Omega) = 1$.
+      \item Ist $(A_n)_{n\in\mathbb{N}}$ eine Folge paarweise disjunkter von Mengen aus
+            $\frak{A}$, gilt also 
+            \\[0.2cm]
+            \hspace*{1.3cm} 
+            $\forall n\in\mathbb{N}: A_n \in \frak{A}$ \quad und \quad
+            $\forall m,n\in\mathbb{N}: m \not= n \rightarrow A_m \cap A_n =  \emptyset$
+            \\[0.2cm]
+            so folgt \quad $\ds P\left(\bigcup\limits_{n \in \mathbb{N}} A_n\right) = \sum\limits_{n=0}^\infty P(A_n)$.
+      \end{enumerate}
+      Die Funktion $P$ bezeichnen wir als die \blue{Wahrscheinlichkeits-Maß}.
+\end{enumerate}
+Um Zufalls-Experimente beschreiben zu können,  führen wir den Begriff der
+\blue{stetigen Zufalls-Variable} ein, wobei wir uns auf den eindimensionalen Fall
+beschränken.  Eine  \blue{stetige Zufalls-Variable} $X$ ist eine Abbildung 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X: \Omega \rightarrow \mathbb{R}$.
+\\[0.2cm]
+Hat $\Omega$ die Form $\Omega = [a,b]$ mit
+\begin{enumerate}
+\item $a \in \mathbb{R} \cup \{-\infty\}$,
+\item $b \in \mathbb{R} \cup \{+\infty\}$,
+\item $a < b$,
+\end{enumerate}
+so ist die \blue{(kumulative) Verteilungs-Funktion}\footnote{
+Das Attribut \blue{kumulativ} lassen wir im folgenden weg.} 
+$F_X$ der Zufalls-Variable $X$  definiert als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$F_X : [a,b] \rightarrow [0,1]$ \quad mit $F_X(x) := P(X \leq x)$.
+\\[0.2cm]
+Aus der Verteilungs-Funktion läßt sich sofort die Wahrscheinlichkeit eines Ereignisses der
+Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\bigl\{ \omega \in \Omega \;\big|\; u < X(\omega) \leq v \bigr\}$
+\\[0.2cm]
+berechnen, denn es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P\bigl(\bigl\{ \omega \in \Omega \;\big|\; u < X(\omega) \leq v \bigr\}\bigr) = F_X(v) - F_X(u)$.
+\\[0.2cm]
+ Anstelle der Verteilungs-Funktion werden wir oft mit der \blue{Wahrscheinlichkeits-Dichte}
+$p_X$ arbeiten.  Die Wahrscheinlichkeits-Dichte 
+\\[0.2cm]
+\hspace*{1.3cm}
+$p_X: \Omega \rightarrow \mathbb{R}$
+\\[0.2cm]
+wird als Grenzwert definiert:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_X(x) := \lim\limits_{h \rightarrow 0} \frac{F_X(x + h) - F_X(x)}{h} =\frac{\dx F_X}{\dx x}$.
+\\[0.2cm]
+Nach dem \href{https://de.wikipedia.org/wiki/Fundamentalsatz_der_Analysis}{Hauptsatz der Differenzial- und Integral-Rechnung}
+kann die Verteilungs-Funktion auf die Wahrscheinlichkeits-Dichte zurückgeführt werden.  Hat $\Omega$ die Form $[a,b]$,
+so gilt: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds F_X(x) = \int_a^x p_X(t) \dx t$.
+
+\example
+Der einfachste Fall einer stetigen Zufalls-Variable ist eine \blue{gleichverteilte} Zufalls-Variable.
+Es seien $a,b \in \mathbb{R}$ und der Wahrscheinlichkeits-Raum habe die Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\langle [a,b], \frak{A}, P \rangle$.
+\\[0.2cm]
+Die Wahrscheinlichkeits-Verteilung $P(A)$ sei für ein Intervall $[u,v] \subseteq [a,b]$
+durch das Verhältnis der Längen definiert:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl([u,v]\bigr) = \frac{v-u}{b-a}$
+\\[0.2cm]
+Weiter sei die Zufalls-Variable $X: [a,b] \rightarrow \mathbb{R}$ 
+trivial definiert durch $X(x) := x$.
+Die Verteilungs-Funktion $F_X$ der Zufalls-Variable $X$ hat dann die Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds F_X(x) = P(X \leq x) = P\bigl([a,x]\bigr) = \frac{x - a}{b-a}$.
+\\[0.2cm]
+Damit ergibt sich die Wahrscheinlichkeits-Dichte $p_X$ der Zufalls-Variable $X$ als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_X(x) = \frac{\dx F_X}{\dx x} = \frac{\dx}{\dx x} \left(\frac{x-a}{b-a}\right) = \frac{1}{b-a}$.
+
+\exercise
+In einer fremden Stadt kommen Sie zu einem zufälligen Zeitpunkt an eine Bushaltestelle, an
+der kein Fahrplan hängt.  Sie wissen allerdings, dass Busse im Intervall von 30 Minuten ankommen. 
+Berechnen Sie die Wahrscheinlichkeit, dass Sie länger als 20 Minuten auf den Bus warten müssen.
+
+\solution
+Der Wahrscheinlichkeits-Raum hat die Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\langle [0,30], \frak{A}, P \rangle$
+\\[0.2cm]
+und die Zufalls-Variable $X$, die die Zahl in Minuten angibt, bis der nächste Bus kommt, ist
+gleichverteilt.  Also ist die Verteilungs-Funktion $F_X$ durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds F_X(x) = \frac{x - 0}{30 - 0} = \frac{x}{30}$
+\\[0.2cm]
+gegeben.  Damit haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+P(X \geq 20) 
+& = & P(20 \leq X \leq 30) \\[0.2cm]
+& = & \ds F_X(30)  - F_X(20) \\[0.2cm]
+& = & \ds \frac{30}{30} - \frac{20}{30} \\[0.3cm]
+& = & \ds 1 - \frac{2}{3} \\[0.3cm]
+& = & \ds \frac{1}{3} 
+\end{array}
+$
+\\[0.2cm]
+Die Wahrscheinlichkeit, dass Sie länger als 20 Minuten warten müssen, beträgt also etwa
+$33\%$.
+\eox
+
+Wir betrachten nun ein Beispiel, bei dem zwar die Wahrscheinlichkeits-Verteilung $P$ gleichmäßig ist, 
+in dem aber die Zufalls-Variable selber nicht mehr gleichverteilt ist.
+
+\example
+Der Feuerleitrechner eines Artillerie-Geschützes ist durch Feindeinwirkung beschädigt und produziert
+für den Abschusswinkel $\varphi$
+nur noch gleichverteilte Zufallszahlen aus dem Intervall $\bigl[0, \frac{\pi}{4}\bigr]$.  
+Unser Wahrscheinlichkeits-Raum hat also die Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \bigl\langle \bigl[0,\frac{\pi}{4}\bigr], \frak{A}, P\bigr\rangle$ \quad 
+mit $\ds P\bigl([u,v]\bigr) = \frac{v - u}{\frac{\pi}{4}} = \frac{4}{\pi} \cdot (v - u)$
+\\[0.2cm]
+Die Zufalls-Variable, an der wir interssiert sind, ist in diesem Fall die Schussweite $R(\varphi)$,
+die (unter Vernachlässigung des Luftwiderstands) nach der
+\href{https://de.wikipedia.org/wiki/Wurfparabel}{Formel}
+\begin{equation}
+  \label{eq:schussweite}
+\ds R(\varphi) = \frac{v_0^2}{g} \cdot \sin(2\cdot \varphi)
+\end{equation}
+berechnet werden kann.  Dabei bezeichnet $v_0$ die Geschwindigkeit, die das Geschoss beim Austritt aus der Mündung
+des Geschützes besitzt.  Für die weitere Rechnung nehmen wir $v_0 = 300\, \mathrm{m}/\mathrm{s}$ an.
+Die Konstante $g$ steht für die \href{https://de.wikipedia.org/wiki/Schwerefeld}{Erdbeschleunigung}, die in unseren
+Breiten etwa den Wert $9.8\, \mathrm{m}/\mathrm{s}^2$ besitzt.  Wir wollen die Verteilungs-Funktion der
+Zufalls-Variable ``Schussweite'' $R$ berechnen.  
+Nach Gleichung (\ref{eq:schussweite}) nimmt die Schussweite ihren Maximalwert 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds R_{\max} = \frac{v_0^2}{g}$
+\\[0.2cm]
+bei $\varphi = \frac{\pi}{4}$ an.  Für die zugehörige Verteilungs-Funktion $F_R$ finden wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  F_R(x) &  = & P(R \leq x)  \\[0.2cm]
+         &  = & \ds P\left( \frac{v_0^2}{g} \cdot \sin(2\cdot \varphi) \leq x \right) \\[0.5cm]
+         &  = & \ds P\left( \sin(2\cdot \varphi) \leq x \cdot \frac{g}{v_0^2}\right) \\[0.5cm]
+         &  = & \ds P\left( \varphi \leq \frac{1}{2} \cdot \arcsin\Bigl(x \cdot \frac{g}{v_0^2}\Bigr)\right) \\[0.5cm]
+         &  = & \ds \frac{4}{\pi} \cdot \frac{1}{2} \cdot \arcsin\Bigl(x \cdot \frac{g}{v_0^2}\Bigr) \\[0.5cm]
+         &  = & \ds \frac{2}{\pi} \cdot \arcsin\Bigl( \frac{x}{R_{\max}}\Bigr) 
+\end{array}
+$
+\\[0.2cm]
+Die zugehörige Wahrscheinlichkeits-Dichte finden wir, indem wir die Verteilungs-Funktion
+nach $x$ differenzieren.  Es ergibt sich 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_R(x) = \frac{\dx F_f}{\dx x} = 
+\frac{2}{\pi \cdot R_{\max}} \cdot \frac{1}{\sqrt{1 - \left(\frac{\mbox{$x$}}{R_{\max}}\right)^2}}$.
+\\[0.2cm]
+Diese Wahrscheinlichkeits-Dichte ist keinesweg gleichverteilt. Abbildung
+\ref{fig:reichweite}
+zeigt den Graphen der Wahrscheinlichkeits-Dichte unter der Annahme $v_0 = 300\, \mathrm{m}/\mathrm{s}$.
+An der rechten Intervall-Grenze divergiert die Wahrscheinlichkeits-Dichte, es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{x \rightarrow R_{\max}} p_R(x) = \infty$.
+\vspace*{0.3cm}
+
+\begin{figure}[t]
+  \centering
+   \epsfig{file=schussweite,scale=0.5}
+   \caption{Wahrscheinlichkeits-Dichte der Schussweite.}
+  \label{fig:reichweite}
+\end{figure}
+
+\noindent
+Der nächste Satz  verallgemeinert das obige Beispiel.  
+\begin{Satz}[Variablen-Transformation] \label{satz:vartrans} Es sei
+  \begin{enumerate}
+  \item $\mathcal{W}= \langle \Omega, \frak{A}, P \rangle$ ein Wahrscheinlichkeits-Raum,
+  \item $X:\Omega \rightarrow [a,b]$ eine stetige Zufalls-Variable,
+  \item $\varphi:[a,b] \rightarrow [c,d]$ eine streng monoton wachsende Funktion
+  \item $\psi:[c,d] \rightarrow [a,b]$ die Umkehrfunktion von $\varphi$, also 
+        \\[0.2cm]
+        \hspace*{1.3cm}
+        $\psi\bigl(\varphi(t)\bigr) = t$ \quad für alle $t\in [a,b]$,
+  \item $Y:\Omega \rightarrow [c,d]$ eine Zufalls-Variable, die definiert ist durch 
+        \\[0.2cm]
+        \hspace*{1.3cm}
+        $Y(\omega) := \varphi\bigl(X(\omega)\bigr)$.
+  \end{enumerate}
+  Dann gilt für die Wahrscheinlichkeits-Dichten $p_X$ und $p_Y$ die Beziehung 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds p_Y(t) = p_X\bigl(\psi(t)\bigr) \cdot \frac{\dx \psi}{\dx t}$
+\end{Satz}
+
+\proof Wir betrachten die Verteilungs-Funktion der Zufalls-Variable $Y$. Es gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcll}
+ F_Y(t) & = & P(Y \leq t) \\[0.2cm]
+& = & P(\varphi\circ X \leq t)    & \mbox{nach Definition von $Y$} \\[0.2cm]
+& = & P\bigl(X \leq \psi(t)\bigr) & \mbox{denn $\psi$ ist Umkehrfunktion von $\varphi$} \\[0.2cm]
+& = & F_X\bigl( \psi(t) \bigr)    & \mbox{nach Definition der Verteilungs-Funktion von $X$}
+\end{array}
+$
+\\[0.2cm]
+Wir haben also $F_Y(t) = F_X\bigl( \psi(t) \bigr)$.  Wenn wir diese Gleichung nach $t$ differenzieren,
+erhalten wir die Behauptung mit Hilfe der Ketten-Regel: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_Y(t) = \frac{\dx}{\dx t}F_Y(t) = \frac{\dx}{\dx t}F_X\bigl(\psi(t)\bigr) = 
+   \frac{\dx F_X}{\dx t}\bigl(\psi(t)\bigr)\cdot \frac{\dx \psi}{\dx t} = p_X\bigl(\psi(t)\bigr)\cdot \frac{\dx \psi}{\dx t}$. 
+\qed
+
+\section{Erwartungswert und Varianz stetiger Zufalls-Variablen}
+Es sei $\langle [a,b], \frak{A}, P\rangle$ ein Wahrscheinlichkeits-Raum und 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X: [a,b] \rightarrow [c,d]$ 
+\\[0.2cm]
+sei eine stetige Zufalls-Variable mit Wahrscheinlichkeits-Dichte $p_X$.
+Wir überlegen uns, wie wir die Definition des Erwartungswerts auf den kontinuierlichen Fall übertragen können.
+Für eine diskrete Zufalls-Variable $Y$, deren Wertebereich sich als Menge der Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$Y(\Omega) = \bigl\{ y_k \;\big|\; k \in \{1,\cdots,n\} \bigr\}$
+\\[0.2cm]
+schreiben läßt, hatten wir seinerzeit die Formel 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[Y] = \sum\limits_{k=0}^n y_k \cdot P(Y=y_k)$
+\\[0.2cm]
+gefunden.  Da der Wertebereich der Zufalls-Variable $X$ kontinuierlich ist, können wir versuchen,
+die möglichen Werte von $X$ in viele kleine Intervalle der Form
+\\[0.2cm]
+\hspace*{1.3cm}
+$[x_k, x_{k+1}]$ \quad mit $\ds x_k = c + \frac{k}{n} \cdot (d - c)$ für $k=0,\cdots,n-1$
+\\[0.2cm]
+aufzuteilen.  Jedes dieser Intervalle hat die Länge 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds h = x_{k+1} - x_k = \frac{k+1}{n}\cdot(d-c) - \frac{k}{n}\cdot(d-c) = \frac{d-c}{n}$.
+\\[0.2cm]
+Wenn $n$ groß ist, wird die Länge $h$ diese Intervalle  sehr klein, so dass die Zahlen, die in dem
+selben Intervall liegen, nahezu gleich sind.
+Dann können  wir den Erwartungswert der Zufalls-Variable $X$ näherungsweise durch
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[X] \approx \sum\limits_{k=1}^n x_k \cdot P(x_{k-1} \leq X \leq x_k)$
+\\[0.2cm]
+berechnen.  Nun gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(x_{k-1} \leq X \leq x_k) = \int_{x_{k-1}}^{x_k} p_X(x)\, \dx x$.
+\\[0.2cm]
+Also haben wir für den Erwartungswert 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[X] \approx \sum\limits_{k=1}^n x_k \cdot \int_{x_{k-1}}^{x_k} p_X(x)\, \dx x$
+\\[0.2cm]
+Hier können wir die Konstante $x_k$ in das Intergral hineinziehen und durch die Variable
+$x$ ersetzen, denn innerhalb eines Intervalls $[x_{k-1},x_k]$ ändert sich $x$ kaum, wenn
+$n$ groß ist.  Dann haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[X] \approx \sum\limits_{k=1}^n  \int_{x_{k-1}}^{x_k} x \cdot p_X(x)\, \dx x = \int_{c}^{d} x \cdot p_X(x)\, \dx x$
+\\[0.2cm]
+Diese Überlegungen motivieren im Fall stetiger Zufalls-Variablen die Definition
+des \blue{Erwartungswerts} einer stetigen Zufalls-Variable $X$ durch die Formel
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[X] := \int_c^d x \cdot p_X(x) \dx x$.
+\\[0.2cm]
+Hier bezeichnen $c$ und $d$ den minimalen bzw.~maximalen Wert, den die Zufalls-Variable $X$ annehmen kann.
+Die Varianz einer stetigen Zufalls-Variable wird nun wie früher durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \var[X] := E\Bigl[(X - E[X])^2\Bigr]$
+\\[0.2cm]
+definiert.  Setzen wir $\mu := E[X]$, so heißt dies
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \var[X] = \int_c^d (x - \mu)^2 \cdot p_X(x) \dx x$. 
+
+\exercise
+Berechnen Sie Varianz und Erwartungswert der Zufalls-Variable $X$, falls für die Verteilungs-Funktion
+$F_X$ gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$F_X(t) = \left\{
+\begin{array}[c]{ll}
+ \ds 1 - \mathrm{e}^{-\lambda \cdot t} & \mbox{falls $t \geq 0$;} \\[0.2cm]
+               0                        & \mbox{sonst.}
+\end{array}
+\right.
+$
+\eox
+
+\solution
+Zunächst müssen wir die Wahrscheinlichkeits-Dichte $p_X$ berechnen.  Es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_X(t) = \frac{\dx}{\dx t} (1 - \mathrm{e}^{-\lambda \cdot t}) = \lambda \cdot \mathrm{e}^{-\lambda \cdot t}$ \quad für $x \geq 0$.
+\\[0.2cm]
+Damit erhalten wir für den Erwartungswert 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}  
+E[X] 
+& = & \ds  \int_0^\infty x \cdot \lambda \cdot \mathrm{e}^{-\lambda \cdot x} \dx x \\[0.3cm]
+&   & \mbox{partielle Integration: $u(x) = x$ und $v'(x) = \lambda \cdot \mathrm{e}^{-\lambda \cdot x}$} \\
+&   & \mbox{also:  \hspace*{2.4cm} $u'(x) = 1$ und $v(x) = - \mathrm{e}^{-\lambda \cdot x}$} \\[0.2cm]
+& = & \ds \underbrace{-x \cdot \mathrm{e}^{-\lambda \cdot x}\Big|_0^\infty}_0 + 
+      \int_0^\infty \mathrm{e}^{-\lambda \cdot x} \dx x                     \\[0.7cm]
+&   & \mbox{denn $\lim\limits_{x \rightarrow \infty} x \cdot \mathrm{e}^{-\lambda \cdot x} = 0$} \\[0.3cm]
+& = & \ds \frac{-1}{\lambda} \cdot \mathrm{e}^{-\lambda \cdot x} \Big|_0^\infty         \\[0.4cm]
+& = & \ds \frac{1}{\lambda} 
+\end{array}
+$
+\\[0.2cm]
+Für die Varianz finden wir entsprechend 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}  
+\var[X] 
+& = & \ds  \int_0^\infty \Bigl(x - \frac{1}{\lambda}\Bigr)^2  \cdot \lambda \cdot \mathrm{e}^{-\lambda \cdot x} \dx x \\[0.3cm]
+&   & \mbox{partielle Integration: $u(x) = (x-\frac{1}{\lambda})^2$ und $v'(x) = \lambda \cdot \mathrm{e}^{-\lambda \cdot x}$} \\
+&   & \mbox{also  \hspace*{2.5cm}  $u'(x) = 2\cdot(x - \frac{1}{\lambda})$ und $v(x) = - \mathrm{e}^{-\lambda \cdot x}$} \\[0.4cm]
+& = & \ds - \Bigl(x - \frac{1}{\lambda}\Bigr)^2 \cdot \mathrm{e}^{-\lambda \cdot x}\Big|_0^\infty + 
+      2 \cdot \int_0^\infty \Bigl(x - \frac{1}{\lambda}\Bigr) \cdot \mathrm{e}^{-\lambda \cdot x} \dx x                     \\[0.4cm]
+& = & \ds \frac{1}{\lambda^2} + 2 \cdot \int_0^\infty \Bigl(x - \frac{1}{\lambda}\Bigr) \cdot \mathrm{e}^{-\lambda \cdot x} \dx x \\[0.4cm]
+&   & \mbox{partielle Integration: $u(x) = x-\frac{1}{\lambda}$ und $v'(x) = \mathrm{e}^{-\lambda \cdot x}$} \\
+&   & \mbox{also  \hspace*{2.5cm}  $u'(x) = 1$ und $v(x) = - \frac{1}{\lambda} \cdot \mathrm{e}^{-\lambda \cdot x}$} \\[0.4cm]
+& = & \ds \frac{1}{\lambda^2} - \left(2 \cdot \Bigl(x-\frac{1}{\lambda}\Bigr) \cdot \frac{1}{\lambda} \cdot \mathrm{e}^{-\lambda \cdot x} \Big|_0^\infty\right) +
+      \frac{2}{\lambda} \cdot \int_0^\infty \mathrm{e}^{-\lambda \cdot x} \dx x \\[0.4cm]
+& = & \ds \frac{1}{\lambda^2} - \frac{2}{\lambda^2}  -
+      \left(\frac{2}{\lambda^2} \cdot \mathrm{e}^{-\lambda \cdot x} \Big|_0^\infty\right) \\[0.4cm]
+& = & \ds \frac{1}{\lambda^2} - \frac{2}{\lambda^2}  +
+      \frac{2}{\lambda^2}  \\[0.4cm]
+& = & \ds \frac{1}{\lambda^2}. 
+\end{array}
+$ 
+\qed
+
+\begin{Satz} \label{satz:varianz}
+  Es sei $X:\Omega \rightarrow [a,b]$ eine Zufalls-Variable mit Wahrscheinlichkeits-Dichte $p_X(t)$. 
+  Dann kann die Varianz $\var[X]$ wie folgt berechnet werden: 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\var[X] = E\bigl[X^2\bigr] - \bigl(E[X]\bigr)^2$.
+\end{Satz}
+\proof  Es sei $\mu := E[X] = \int_a^b x \cdot p_X(x)\,\dx x$.  Dann gilt 
+\\[0.2cm]
+\hspace*{0.8cm}
+$
+\begin{array}[b]{lcl}
+\var[X] & = & E\Bigl[\bigl(X-E[X]\bigr)^2\Bigr] \\[0.2cm]
+& = & \ds
+      \int_a^b (x - \mu)^2 \cdot p_X(x)\,\dx x \\[0.5cm]
+& = & \ds
+      \int_a^b \bigl(x^2 - 2 \cdot \mu \cdot x + \mu^2\bigr) \cdot p_X(x)\,\dx x \\[0.5cm]
+& = & \ds
+      \int_a^b x^2 \cdot p_X(x)\,\dx x \;-\;
+      2 \cdot \mu \cdot \underbrace{\int_a^b x \cdot p_X(x)\,\dx x}_{E[X]} \;+\;
+      \mu^2 \cdot \underbrace{\int_a^b  p_X(x)\,\dx x}_1 
+      \\[0.7cm]
+& = & \ds
+      E\bigl[X^2\bigr] - 2 \cdot \mu^2 + \mu^2  
+      \\[0.2cm]
+& = & \ds
+      E\bigl[X^2\bigr] - \bigl(E[X]\bigr)^2  
+\end{array}
+$ \qed
+
+\begin{Satz}[Verhalten des Erwartungswerts bei Variablen-Transformation] 
+\label{satz:vartranserw} Es sei
+  \begin{enumerate}
+  \item $\mathcal{W}= \langle \Omega, \frak{A}, P \rangle$ ein Wahrscheinlichkeits-Raum,
+  \item $X:\Omega \rightarrow [a,b]$ eine stetige Zufalls-Variable,
+  \item $\varphi:[a,b] \rightarrow [c,d]$ eine stetige Funktion
+  \item $Y:\Omega \rightarrow [c,d]$ eine Zufalls-Variable, die definiert ist durch 
+        \\[0.2cm]
+        \hspace*{1.3cm}
+        $Y := \varphi \circ X$, \quad also \quad $Y(\omega) := \varphi\bigl(X(\omega)\bigr)$ \quad für alle $\omega \in \Omega$.
+  \end{enumerate}
+  Dann gilt für den Erwartungswert von $Y$ 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds E[Y] = E[\varphi \circ X] = \int_a^b \varphi(x) \cdot p_X(x)\, \dx x$
+\end{Satz}
+
+\proof Wir setzen zusätzlich voraus, dass die Funktion $\varphi$ streng monoton steigend
+ist und dass $\psi:[c,d] \rightarrow [a,b]$ die Umkehrfunktion von $\varphi$ ist.
+Nach dem Satz über Variablen-Transformation gilt dann
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_Y(t) = p_X\bigl(\psi(t)\bigr) \cdot \frac{\dx \psi}{\dx t}$.
+\\[0.2cm]
+Nach Definition des Erwartungswerts gilt 
+\\[0.2cm]
+\hspace*{0.3cm}
+$
+\begin{array}[t]{lcll}
+  E[Y] 
+& = & \ds 
+      \int_c^d y \cdot p_Y(y)\,\dx y & \mbox{nach Definition von $E[Y]$} \\[0.4cm] 
+& = & \ds 
+      \int_c^d y \cdot p_X\bigl(\psi(y)\bigr) \cdot \frac{\dx \psi}{\dx y}\,\dx y 
+      & \mbox{nach Satz \ref{satz:vartrans} über Variablen-Transformationen}                  \\[0.4cm]
+& = & \ds
+      \int_c^d \varphi(\psi(y)) \cdot p_X\bigl(\psi(y)\bigr) \cdot \frac{\dx \psi}{\dx y}\,\dx y
+      & \mbox{denn $\psi$ ist die Umkehrfunktion von $\varphi$}  \\[0.4cm]
+& = & \ds
+      \int_a^b \varphi(\psi) \cdot p_X(\psi) \dx \psi
+      & \mbox{Substitutionsregel der Analysis}                    \\[0.4cm]
+& = & \ds
+      \int_a^b \varphi(x) \cdot p_X(x) \dx x
+      & \hspace*{-1cm} \mbox{ob die Integrations-Variable $x$ oder $\psi$ heißt, ist egal}
+\end{array}
+$
+\\[0.2cm]
+Im allgemeinen Fall kann der Beweis dadurch geführt werden,
+dass wir das Intervall $[a,b]$ in Intervalle zerlegen, in denen die Funktion
+$\varphi$ streng monoton ist.
+\qed
+
+\section{Moment-erzeugende Funktion}
+In diesem Abschnitt führen wir ein Hilfsmittel ein, mit dem wir später die Wahrscheinlichkeits-Dichte für eine
+Reihe wichtiger Zufalls-Variablen berechnen können.  Dieses Hilfsmittel ist die
+\href{https://de.wikipedia.org/wiki/Momenterzeugende_Funktion}{moment-erzeugende Funktion} einer
+Zufalls-Variable $X$.  Der Begriff der moment-erzeugenden Funktion wird außerdem zum Beweis des 
+\blue{zentralen Grenzwert-Satzes} benötigt.
+
+\begin{Definition}[Moment-erzeugende Funktion]
+Es sei $X: [a,b] \rightarrow [c,d]$ eine stetige Zufalls-Variable.
+Dann definieren wir die moment-erzeugende Funktion 
+\\[0.2cm]
+\hspace*{1.3cm}
+$M_X: \mathbb{R} \rightarrow \mathbb{R}$
+\\[0.2cm]
+für alle $t \in \mathbb{R}$ als den folgenden Erwartungswert:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds M_X(t) := E\bigl[\exp(t \cdot X)\bigr] = \int_c^d \exp\bigl(t\cdot x\bigr) \cdot p_X(x)\, \dx x$.
+\\[0.2cm]  
+Dabei haben wir bei der letzten Gleichung Gebrauch von Satz \ref{satz:vartranserw} gemacht.
+\eox
+\end{Definition}
+
+\begin{Satz}[Verschiebungs-Satz für moment-erzeugende Funktionen]
+Es sei $X:\Omega \rightarrow \mathbb{R}$ eine Zufalls-Variable, $a \in \mathbb{R}$ und $b\in \mathbb{R}\backslash \{0\}$.
+Definieren wir die Zufalls-Variable $Y:\Omega \rightarrow \mathbb{R}$ als
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds Y(\omega) = \frac{X + a}{b}$,
+\\[0.2cm]
+so gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds M_{Y}(t) = M_X\Bigl(\frac{\;t\;}{b}\Bigr) \cdot \exp\Bigl(\frac{a \cdot t}{b}\Bigr)$.
+\end{Satz}
+
+\exercise
+Beweisen Sie den Verschiebungs-Satz für moment-erzeugende Funktionen.
+
+\noindent
+\textbf{Hinweis}: Verwenden Sie Satz \ref{satz:vartrans}.
+
+
+\example
+Es sei $\mu\in\mathbb{R}$ und $\sigma\in \mathbb{R}_+$.
+Die Zufalls-Variable $N_{\mu,\sigma}: \Omega \rightarrow \mathbb{R}$ habe die Wahrscheinlichkeits-Dichte
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_{\Nms}(x) = \frac{1}{\sqrt{2\cdot\pi\;}\!\cdot \sigma} \cdot \exp\left(- \frac{(x-\mu)^2}{2\cdot\sigma^2}\right)$ \quad mit $\sigma > 0$.
+\\[0.2cm]
+Eine solche Zufalls-Variable heißt \blue{normal-verteilt} mit Parametern $\mu$ und $\sigma$.  
+Wir werden später sehen, dass $\mu$ der Erwartungswert von $N_{\mu,\sigma}$ ist.  Den
+Parameter $\sigma$ werden wir als die Standard-Abweichung von $N_{\mu,\sigma}$ erkennen.
+Wir definieren eine lineare Funktion $\varphi: \mathbb{R} \rightarrow \mathbb{R}$ durch
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \varphi(x) = \frac{x - \mu}{\sigma}$.
+\\[0.2cm]
+Die Umkehrfunktion $\psi$ von $\varphi$ ist dann
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \psi(y) = y\cdot \sigma + \mu$.
+\\[0.2cm]
+Definieren  wir die Zufallsgröße $N_{0,1}$ durch $N_{0,1} = \varphi \circ N_{\mu,\sigma}$ so folgt nach Satz \ref{satz:vartrans}
+für die Wahrscheinlichkeits-Dichte $p_N$:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_{N_{0,1}}(y) = p_{\Nms}(y\cdot \sigma + \mu) \cdot \sigma =  \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(- \frac{y^2}{2}\right)$.
+\\[0.2cm]
+Die moment-erzeugende Funktion von $N_{0,1}$ erhalten wir wie folgt:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ M_{N_{0,1}}(t) 
+& = & \ds
+      \int_{-\infty}^\infty \exp(t\cdot x) \cdot \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(- \frac{x^2}{2}\right)\, \dx x 
+      \\[0.5cm]
+& = & \ds 
+      \frac{1}{\sqrt{2\cdot\pi\;}} \cdot 
+      \int_{-\infty}^\infty \exp(t\cdot x) \cdot \exp\left(- \frac{x^2}{2}\right)\, \dx x 
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{\sqrt{2\cdot\pi\;}} \cdot 
+      \int_{-\infty}^\infty \exp\left(- \frac{1}{2}\cdot(x^2 - 2 \cdot t \cdot x) \right)\, \dx x 
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{\sqrt{2\cdot\pi\;}} \cdot 
+      \int_{-\infty}^\infty 
+      \exp\left(- \frac{1}{2}\cdot\bigl(x^2 - 2 \cdot t \cdot x + t^2 \bigr) + \frac{1}{2}\cdot t^2 \right)\, \dx x 
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(\frac{1}{2}\cdot t^2\right) \cdot
+      \int_{-\infty}^\infty 
+      \exp\left(- \frac{1}{2}\cdot\bigl(x - t\bigr)^2 \right)\, \dx x 
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(\frac{1}{2}\cdot t^2\right) \cdot
+      \int_{-\infty}^\infty 
+      \exp\left(- \frac{1}{2}\cdot y^2 \right)\, \dx y 
+      \\[0.5cm]
+&   & \mbox{mit der Variablen-Transformation $x \mapsto y + t$}
+      \\[0.2cm]
+& = & \ds
+      \exp\left(\frac{1}{2}\cdot t^2\right) 
+      \\[0.4cm]
+&   & \mbox{denn $\ds \int_{-\infty}^\infty \exp\left(- \frac{1}{2}\cdot y^2 \right)\, \dx y = \sqrt{2\cdot\pi\,}$.}
+      \\[0.4cm]
+\end{array}
+$
+\\[0.2cm]
+Zwischen der Zufallsgröße $N_{\mu,\sigma}$ und der Zufallsgröße $N_{0,1}$ besteht der Zusammenhang 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds N_{\mu,\sigma} = \psi \circ N_{0,1} = N_{0,1} \cdot \sigma + \mu = \left(N_{0,1} + \frac{\mu}{\sigma}\right)\cdot \sigma = 
+   \left(N_{0,1} + \frac{\mu}{\sigma}\right)\cdot \frac{1}{\textstyle \frac{1}{\sigma}}$
+\\[0.2cm]
+Nach dem Verschiebungs-Satz für moment-erzeugende Funktionen gilt daher 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl} 
+M_{\Nms}(t) & = & \ds 
+\exp(\mu \cdot t) \cdot M_{N_{0,1}}\bigl(t \cdot \sigma\bigr) \\[0.3cm]
+& = & \ds \exp(\mu \cdot t ) \cdot \exp\left( \frac{1}{2} \cdot t^2 \cdot \sigma^2\right) \\[0.3cm]
+& = & \ds \exp\left( \frac{1}{2} \cdot t^2 \cdot \sigma^2 + \mu \cdot t\right)
+\end{array}
+$
+\qed 
+
+\exercise
+Beweisen Sie die beiden folgenden Eigenschaften einer normal-verteilten Zufalls-Variablen:
+\\[0.2cm]
+\hspace*{1.3cm}
+$E\bigl[N_{\mu,\sigma}\bigr] = \mu$ \quad und \quad
+$\var\bigl[N_{\mu,\sigma}\bigr] = \sigma^2$.  \eoxs
+
+
+\begin{Satz}[Eindeutigkeits-Satz] \label{satz:moment-eindeutig}
+Es seien $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei Zufallsgrößen und
+für die moment-erzeugenden Funktionen $M_X$ und $M_Y$ gelte 
+\\[0.2cm]
+\hspace*{1.3cm}
+$M_X(t) = M_Y(t)$ \quad für alle $t \in \mathbb{R}$.
+\\[0.2cm]
+Dann sind die Wahrscheinlichkeits-Dichten $p_X$ und $p_Y$ gleich:
+\\[0.2cm]
+\hspace*{1.3cm}
+$p_X(t) = p_Y(t)$ \quad für alle $t \in \mathbb{R}$. \eox
+\end{Satz}
+
+\noindent
+Der Beweis dieses Satzes gelingt, indem die moment-erzeugende Funktion einer Zufallsgröße
+auf die Fourier-Transformierte zurückgeführt wird.  Da wir die Fourier-Transformation
+in der Analysis nicht mehr behandelt haben, können wir hier die Details dieses Beweises nicht 
+diskutieren.  Trotzdem ist der Satz für unsere weitere Arbeit ein wichtiges Hilfsmittel,
+denn er gestattet uns, die Wahrscheinlichkeits-Dichten bestimmter Zufallsgrößen durch Berechnung 
+der moment-erzeugenden Funktion zu berechnen.
+
+\begin{Satz} \label{satz:moment-unabhaengig}
+Es seien  $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei \red{unabhängige} Zufallsgrößen.
+Dann läßt sich die moment-erzeugende Funktion der Zufallsgröße $X + Y$ als Produkt der
+moment-erzeugenden Funktionen von $X$ und $Y$ schreiben:
+\\[0.2cm]
+\hspace*{1.3cm}
+$M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$ \quad für alle $t\in \mathbb{R}$.
+\end{Satz}
+
+\proof  Es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}
+      M_{X+Y}(t) 
+& = & E\left[\exp\bigl(t\cdot(X+Y)\bigr)\right] \\[0.2cm]
+& = & E\left[\exp(t\cdot X) \cdot \exp(t\cdot Y)\right] \\[0.2cm]
+& = & E\left[\exp(t\cdot X)\right] \cdot E\left[\exp(t\cdot Y)\right] \\[0.2cm]
+&   & \mbox{denn wenn $X$ und $Y$ unabhängig sind, } \\[0.2cm]
+&   & \mbox{dann sind auch $\exp(t\cdot X)$ und $\exp(t\cdot Y)$ unabhängig} \\[0.2cm]
+& = & M_X(t) \cdot M_Y(t) 
+\end{array}
+$
+\\[0.2cm]
+Hier haben wir im vorletzten Schritt ausgenutzt, dass mit $X$ und $Y$ auch die Zufallsgrößen
+$\exp(t\cdot X)$ und $\exp(t\cdot Y)$ unabhängig sind.  Genau wir im diskreten Fall auch gilt für den Erwartungswert
+des Produkts unabhängiger Zufallsgrößen $X$ und $Y$ die Gleichung 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E[X\cdot Y] = E[X] \cdot E[Y]$.
+\qed
+
+\begin{Satz}
+  Ist $f(t) = M_X(t)$ die moment-erzeugende Funktion der Zufallsgröße $X$, und ist
+  die Funktion $f$ zweimal differenzierbar,
+  so lassen sich Erwartungswert und Varianz der Zufallsgröße $X$ wie folgt berechnen:
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds E[X] = \frac{\dx f}{\dx x}(0)$ \quad und \quad
+  $\ds \var[X] = \frac{\dx^2 f}{\dx x^2}(0) - \bigl(E[X]\bigr)^2$.
+\end{Satz}
+
+\proof Es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcll}
+      M_X(t) 
+& = & \ds 
+      \int_a^b \exp(t\cdot x) \cdot p_X(t)\, \dx x 
+      \\[0.5cm]
+& = & \ds 
+      \int_a^b \sum\limits_{n=0}^\infty \frac{(t\cdot x)^n}{n!} \cdot p_X(t)\, \dx x &
+      \mbox{Taylor-Reihe: $\exp(x) = \sum\limits_{n=0}^\infty \frac{x^n}{n!}$}
+      \\[0.5cm]
+& = & \ds 
+      \sum\limits_{n=0}^\infty \frac{t^n}{n!} \cdot \int_a^b x^n \cdot p_X(t)\, \dx x 
+      \\[0.5cm]
+& = & \ds 
+      \sum\limits_{n=0}^\infty \frac{t^n}{n!} \cdot E\bigl[X^n\bigr] 
+      \\[0.5cm]
+\end{array}
+$
+\\[0.2cm]
+Auf der anderen Seite hat die Taylor-Reihe von $f(t)$ die Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds f(t) = \sum\limits_{n=0}^\infty \frac{t^n}{n!} \cdot f^{(n)}(0)$ 
+\\[0.2cm]
+Durch einen Koeffizienten-Vergleich der beiden Reihen erkennen wir, dass 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E[X^n] = f^{(n)}(0)$ \quad für alle $n \in \mathbb{N}$ gilt.
+\\[0.2cm]
+Wir haben in Satz \ref{satz:varianz} gezeigt, dass für die Varianz
+\\[0.2cm]
+\hspace*{1.3cm}
+$\var[X] = E\bigl[X^2\bigr] - \bigl(E[X]\bigr)^2$
+\\[0.2cm]
+gilt.  Daraus folgt nun die Behauptung. \qed
+\vspace*{0.2cm}
+
+\noindent
+\textbf{Bemerkung}:
+Der Ausdruck $E\bigl[X^n\bigr]$ wird auch als das $n$-te \blue{Moment} der Zufallsgröße $X$
+bezeichnet.  Der Beweis des letzten Satzes zeigt, dass das $n$-te Moment gerade die $n$-te Ableitung
+der moment-erzeugenden Funktion an der Stelle $t=0$ ist.
+Dieser Umstand erklärt den Namen der moment-erzeugenden Funktion.
+
+\section{Der zentrale Grenzwert-Satz}
+Wir kommen nun zu dem wichtigsten Ergebnis der Wahrscheinlichkeits-Rechnung.
+\begin{Satz}[Zentraler Grenzwertsatz]  
+Es sei $(X_n)_{n\in\mathbb{N}}$ eine Folge unabhängiger stetiger Zufallsgrößen, die alle die selbe Wahrscheinlichkeits-Dichte haben,
+es gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\forall m,n\in\mathbb{N}: p_{X_m}(t) = p_{X_n}(t)$.
+\\[0.2cm]
+Weiter gelte 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mu = E[X_n]$ \quad und \quad $\sigma^2 = \var[X_n]$.
+\\[0.2cm]
+Definieren wir die Zufallsgrößen $S_n$ durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds S_n = \frac{1}{\sigma \cdot \sqrt{n}} \cdot \sum\limits_{k=1}^n \left(X_k - \mu\right)$,
+\\[0.2cm]
+so konvergieren die Wahrscheinlichkeits-Dichten $p_{S_n}$ der Zufallsgrößen $S_n$ gegen die Normal-Verteilung, es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n \rightarrow \infty} p_{S_n}(t) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\left(-\frac{1}{2} \cdot t^2\right)$.
+\end{Satz}
+
+\proof Wir führen den Beweis, indem wir zeigen, dass die moment-erzeugenden Funktionen 
+$M_{S_n}$ der Zufallsgrößen $S_n$ gegen die moment-erzeugende Funktion einer normal-verteilten Zufallsgröße mit Mittelwert 
+$0$ und Varianz $1$ konvergieren.  Die Behauptung folgt dann aus dem Eindeutigkeits-Satz. 
+Es sei $f_k$ die moment-erzeugende Funktion der Zufallsgröße
+\\[0.2cm]
+\hspace*{1.3cm}
+ $\ds Y_k := \frac{X_k - \mu}{\sigma \cdot \sqrt{n}}$, \quad also
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds f_k(t) = M_{Y_k}(t) = E\left[\exp\left(t \cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot (X_k - \mu)\right)\right]$.
+\\[0.2cm]
+Da die Zufallsgrößen $X_n$ alle die selbe Wahrscheinlichkeits-Dichte haben, sind auch die 
+moment-erzeugenden Funktionen $M_{Y_k}$ für alle $k$ gleich, so dass wir den Index $k$ bei der 
+Funktion $f_k$ weglassen können.  Für die moment-erzeugende Funktion $M_{S_n}$ finden wir jetzt
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}
+      M_{S_n}(t) 
+& = & \ds
+      E\left[ \exp\left(t\cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot \sum\limits_{k=1}^n \left(X_k - \mu\right)\right) \right] \\[0.5cm]
+& = & \ds
+      E\left[ \prod\limits_{k=1}^n \exp\left(t\cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot \left(X_k - \mu\right)\right) \right] \\[0.5cm]
+& = & \ds
+      \prod\limits_{k=1}^n E\left[ \exp\left(t\cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot \left(X_k - \mu\right)\right) \right] \\[0.5cm]
+&   & \mbox{denn die Zufallsgrößen $X_k$ sind unabhängig} \\[0.2cm]
+& = & \ds
+      \prod\limits_{k=1}^n f(t) \\[0.5cm]
+& = & \ds
+      f^n(t) \\[0.2cm]
+\end{array}
+$
+\\[0.2cm]
+In der Definition der Funktion $f$ ersetzen wir die Exponential-Funktion durch die Taylor-Reihe 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \exp(x) = \sum\limits_{i=0}^\infty \frac{x^i}{i!}$
+\\[0.2cm]
+und erhalten 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl} 
+      f(t) 
+& = & \ds
+      E\left[ \sum\limits_{i=0}^\infty \frac{1}{i!} \cdot \left(\frac{t}{\sigma \cdot \sqrt{n}}\right)^i \cdot (X_k - \mu)^i\right]
+      \\[0.5cm]
+& = & \ds
+      \sum\limits_{i=0}^\infty \frac{1}{i!} \cdot \left(\frac{t}{\sigma \cdot \sqrt{n}}\right)^i \cdot E\bigl[(X_k - \mu)^i\bigr]
+      \\[0.5cm]
+& = & \ds
+      1 \;+\; \frac{t}{\sigma \cdot \sqrt{n}} \cdot \underbrace{E[X_k - \mu]}_0
+      \;+\; \frac{1}{2} \cdot \frac{t^2}{\sigma^2 \cdot n} \cdot E\bigl[(X_k - \mu)^2\bigr] \\[0.6cm]
+&   & \ds+\; \frac{1}{6} \cdot \frac{t^3}{\sigma^3 \cdot n \cdot \sqrt{n}} \cdot E\bigl[(X_k - \mu)^3\bigr] \;+\; \cdots
+      \\[0.5cm]
+& \approx & \ds
+      1 \;+\; \frac{1}{2} \cdot \frac{t^2}{\sigma^2 \cdot n} \cdot E\bigl[(X_k - \mu)^2\bigr] 
+      \\[0.5cm]
+& = & \ds
+      1 \;+\; \frac{1}{2} \cdot \frac{t^2}{\sigma^2 \cdot n} \cdot \sigma^2 
+      \\[0.5cm]
+& = & \ds
+      1 \;+\; \frac{1}{2} \cdot \frac{t^2}{n} 
+      \\[0.5cm]
+\end{array}
+$
+\\[0.2cm]
+Dabei haben wir im letzten Schritt ausgenutzt, dass für $n \rightarrow \infty$ die Terme,
+bei denen $n^{i/2}$ mit $i>2$ im Nenner steht, gegenüber dem Term mit $\frac{1}{n}$ 
+vernachläßigt werden können.  Daher haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}
+  \lim\limits_{n \rightarrow \infty} M_{S_n}(t) 
+& = & \ds \lim\limits_{n \rightarrow \infty} 
+      \left(1 \;+\; \frac{1}{2} \cdot \frac{t^2}{n}\right)^n \\[0.3cm] 
+& = & \ds 
+      \exp\left(\frac{1}{2} \cdot t^2\right) \\[0.3cm] 
+\end{array}
+$
+\\[0.2cm]
+Das ist aber gerade die moment-erzeugende Funktion einer Zufallsgröße mit der Wahrscheinlichkeits-Dichte
+$N(0,1)$.  Aus dem Eindeutigkeits-Satz für die moment-erzeugenden Funktionen folgt nun 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n \rightarrow \infty} p_{S_n}(x) = p_{N(0,1)}(x) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\left(-\frac{1}{2}\cdot x^2\right)$.
+\qed
+\vspace*{0.3cm}
+
+\noindent
+Die Voraussetzungen des zentralen Grenzwertsatzes können noch abgeschwächt werden.
+Es ist nicht erforderlich, dass die einzelnen Zufallsgrößen $X_k$ alle die selbe Wahrscheinlichkeits-Dichte 
+haben.  Im wesentlichen reicht es aus, wenn die Erwartungswerte und die Varianzen dieser 
+Zufallsgrößen beschränkt sind. Darüber hinaus muss dann noch eine weitere recht technische Bedingung erfüllt sein.
+Der zentrale Grenzwertsatz ist der Grund dafür, dass in der Praxis viele Zufallsgrößen normal-verteilt sind.
+Diese liegt einfach daran, dass viele Größen, die wir  beobachten, durch eine große Zahl 
+von Faktoren bestimmt werden.  Auch wenn die einzelnen Faktoren beliebig verteilt sind, so ist 
+die Summe dieser Faktoren doch annähernd normal-verteilt.
+
+\exercise
+Die Zufallsgrößen $X_1$ und $X_2$ seien normal-verteilt mit den Erwartungswerten  $\mu_1$ und $\mu_2$ und den Varianzen
+$\sigma_1^2$ und $\sigma_2^2$.  Außerdem seien $X_1$ und $X_2$ unabhängig. 
+Berechnen Sie die Wahrscheinlichkeits-Dichte der Zufallsgröße $X_1 + X_2$.
+\vspace*{0.2cm}
+
+\noindent
+\textbf{Hinweis}:
+Orientieren Sie sich am Beweis des zentralen Grenzwertsatzes.
+
+\section{Die $\chi^2$-Verteilung}
+In diesem Abschnitt gehen wir davon aus, dass $X_1$, $X_2$, $\cdots$, $X_n$  unabhängige 
+Zufalls-Variablen sind, die alle einer standardisierten Normalverteilung genügen, für die einzelnen
+$X_i$ gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X_i \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x \exp\biggl(-\frac{t^2}{2}\biggr)\dx t$
+\\[0.2cm]
+Die Zufalls-Variable $Z$ ist dann als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds Z(\omega) = \sum\limits_{i=1}^n X_i^2(\omega)$
+\\[0.2cm]
+definiert und hat eine \href{https://de.wikipedia.org/wiki/Chi-Quadrat-Verteilung}{$\chi^2$-Verteilung}.  Die
+Zahl $n$ wird auch als der \blue{Freiheitsgrad} der $\chi^2$-Verteilung bezeichnet. 
+Unser Ziel ist es, die Wahrscheinlichkeits-Dichte $p_Z$ für die Zufalls-Variable $Z$
+zu berechnen.  Wir beginnen mit dem Spezialfall $n=1$.
+
+\subsection{Die $\chi^2$-Verteilung mit einem Freiheitsgrad}
+Es sei $X$ eine Zufalls-Variable,
+die der Standard-Normal-Verteilung genügt, für die Wahrscheinlichkeits-Dichte $p_X(x)$
+gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_X(x) = \frac{1}{\sqrt{2\pi}} \cdot \exp\Bigl(-\frac{x^2}{2}\Bigr)$.
+\\[0.2cm]
+Wir stellen uns die Frage, wie die Zufalls-Variable $X^2$ verteilt ist.  Wir berechnen 
+zunächst die kumulative Verteilungs-Funktion von $X^2$, die wir mit $F_{X^2}$ bezeichnen.  
+Ist $\Omega$ der zu Grunde liegende Ergebnis-Raum, so haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+\ds F_{X^2}(x) & = & \ds P(X^2 \leq x) \\[0.2cm]
+ & = & \ds P\Bigl(\bigl\{ \omega \in \Omega \;\big|\; X^2(\omega) \leq x\bigr\} \Bigr) \\[0.3cm]
+ & = & \ds P\Bigl(\bigl\{ \omega \in \Omega \;\big|\; -\sqrt{x} \leq X(\omega) \leq \sqrt{x}\bigr\} \Bigr) \\[0.3cm]
+ & = & \ds P\Bigl(\bigl\{ \omega \in \Omega \;\big|\; X(\omega) \leq \sqrt{x}\bigr\} \;\backslash\;
+                            \bigl\{ \omega \in \Omega \;\big|\; X(\omega) < -\sqrt{x}\bigr\} \Bigr) \\[0.3cm]
+ & = & \ds \Phi\bigl(\sqrt{x}\bigr) - \Phi\bigl(-\sqrt{x}\bigr),
+\end{array}
+$
+\\[0.2cm]
+denn die Verteilungs-Funktion einer Zufalls-Variable mit Normalverteilung ist die Gaußsche Integral-Funktion
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \Phi(x) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{-\infty}^x \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t$.
+\\[0.2cm]
+Berücksichtigen wir noch, dass auf Grund der Symmetrie des Integranden die Gleichung
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Phi(x) + \Phi(-x) = 1$ \quad gilt, wir also \quad $\Phi(-x) = 1 - \Phi(x)$
+\\[0.2cm]
+haben, so ergibt sich 
+\\[0.2cm]
+\hspace*{1.3cm}
+$F_{X^2}(x) = 2 \cdot \Phi\bigl(\sqrt{x}\bigr) - 1$.
+\\[0.2cm]
+ Die Wahrscheinlichkeits-Dichte $p_{X^2}$ der Zufalls-Variable $X^2$ erhalten wir, indem wir die
+Verteilungs-Funktion nach $x$ differenzieren.  Wegen
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \frac{\mathrm{d} \Phi}{\mathrm{d}x}(x) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\bigl(-x^2/2\bigr)$
+\\[0.2cm]
+finden wir:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  p_{X^2}(x) & = & \ds \frac{\dx}{\dx x} \Bigl(2 \cdot \Phi\bigl(\sqrt{x}\bigr) - 1\Bigr) 
+                  \\[0.5cm]
+            & = & \ds 2 \cdot \frac{1}{2\cdot\sqrt{x}} \cdot \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp(-x/2) 
+                  \\[0.5cm]
+            & = & \ds \frac{1}{\sqrt{2\cdot\pi\cdot x\,}} \cdot \exp(-x/2) 
+\end{array}
+$
+
+\exercise
+Berechnen Sie die moment-erzeugende Funktion der Zufalls-Variable $X^2$.
+
+\solution
+Die Wahrscheinlichkeits-Dichte von $X^2$ haben wir eben berechnet.  Setzen wir das Ergebnis in die Definition
+der Moment-Erzeugenden Funktion ein, so erhalten wir:
+\\[0.2cm]
+\hspace*{1.0cm}
+$
+\begin{array}[b]{lcl}
+      M_{X^2}(t) 
+& = & \ds
+      \int_0^\infty \exp(t\cdot x) \cdot \frac{1}{\sqrt{2\pi\,}} \cdot \frac{1}{\sqrt{x}} \cdot \exp\left(-\frac{x}{2}\right)\,\dx x
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{\sqrt{2\pi\,}} \cdot \int_0^\infty \frac{1}{\sqrt{x}} \cdot \exp\left(t\cdot x -\frac{x}{2}\right)\,\dx x
+      \\[0.4cm]
+&   & \mbox{mit der Variablen-Transformation $x = y^2$, also $\dx x = 2\cdot y\, \dx y$ erhalten wir}  \\[0.2cm]
+& = & \ds
+      \frac{1}{\sqrt{2\pi\,}} \cdot \int_0^\infty \frac{1}{y} \cdot \exp\left( \Bigl(t - \frac{1}{2}\Bigr)\cdot y^2 \right)\cdot 2\cdot y\,\dx y
+      \\[0.5cm]
+& = & \ds
+      \frac{2}{\sqrt{2\pi\,}} \cdot \int_0^\infty \exp\left( - \bigl(1 - 2 \cdot t\bigr)\cdot \frac{y^2}{2} \right)\,\dx y
+      \\[0.4cm]
+&   & \mbox{mit der Variablen-Transformation $\ds y = \frac{1}{\sqrt{1 - 2 \cdot t\;}} \cdot z$ wird daraus}  \\[0.3cm]
+& = & \ds
+      \frac{2}{\sqrt{2\pi\,}} \cdot \frac{1}{\sqrt{1 - 2 \cdot t\;}} \cdot \int_0^\infty \exp\left(-\frac{z^2}{2} \right)\,\dx z
+      \\[0.4cm]
+& = & \ds
+      \frac{2}{\sqrt{2\pi\,}} \cdot \frac{1}{\sqrt{1 - 2 \cdot t\;}} \cdot \frac{1}{2} \cdot \sqrt{2\pi\;}
+      \\[0.4cm]
+&   & \mbox{denn $\ds \int_0^\infty \exp\left(-\frac{z^2}{2} \right)\,\dx z =
+                  \frac{1}{2} \cdot\int_{-\infty}^\infty \exp\left(-\frac{z^2}{2} \right)\,\dx z =\frac{1}{2}\cdot \sqrt{2\pi\;}$} \\[0.5cm]
+& = & \ds
+      \frac{1}{\sqrt{1 - 2 \cdot t\;}}
+\end{array}
+$
+\\[0.2cm]
+Wir halten das Ergebnis fest: 
+\begin{equation}
+  \label{eq:chi-square2}
+  \ds M_{X^2}(t) = \frac{1}{\sqrt{1 - 2 \cdot t\;}}
+\end{equation}
+
+\subsection{Der allgemeine Fall}
+Um unser eigentliches Problem lösen zu können,
+benötigen wir zwei Definitionen.
+
+\begin{Definition}[Gamma-Funktion] Die Gamma-Funktion ist für positive reelle Zahlen $x$ als
+das folgende Integral definiert:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \Gamma(x) := \int_0^\infty t^{x-1} \cdot \mathrm{e}^{-t} \, \dx t$. \eox
+\end{Definition}
+
+\exercise
+Weisen Sie die folgenden Eigenschaften der Gamma-Funktion nach:
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\begin{enumerate}
+\item $\Gamma(1) = 1$.
+\item $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$      .
+
+      \textbf{Hinweis}: Führen Sie das Integral durch eine geeignete Substitution
+      auf das Integral
+      \\[0.2cm]
+      \hspace*{1.3cm} $\ds \int_0^\infty \exp\left(-\frac{1}{2}\cdot t^2\right)\, \dx t$ 
+      \\[0.2cm]
+      zurück.
+\item $\Gamma(x + 1) = x \cdot \Gamma(x)$. 
+
+      \textbf{Hinweis}: Partielle Integration.
+\item $\Gamma(n+1) = n!$ \quad für alle $n\in\mathbb{N}$.
+
+      \textbf{Hinweis}: Vollständige Induktion.
+
+      Die letzte Eigenschaft zeigt, dass die Gamma-Funktion als eine Erweiterung
+      der Fakultäts-Funktion auf die positiven reellen Zahlen aufgefaßt werden kann. 
+      \eox
+\end{enumerate}
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+
+\begin{Definition}[Gamma-Verteilung]
+  Eine Zufalls-Variable $Y$ genügt einer \blue{Gamma-Verteilung mit Parametern $\alpha$ und $\beta$},
+  falls für die Wahrscheinlichkeits-Dichte $p_Y$ gilt 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $p_Y(x) = \left\{
+  \begin{array}[c]{ll}
+     \ds 
+       \frac{x^{\alpha-1} \cdot \exp\left(\ds -\frac{x}{\beta}\right)}{\beta^\alpha \cdot \Gamma(\alpha)} 
+     & \mbox{für $x>0$}; \\[0.2cm]
+     0 & \mbox{für $x \leq 0$}
+  \end{array}\right.
+  $ 
+  \\[0.2cm]
+  Die Parameter $\alpha$ und $\beta$ sind dabei positive reelle Zahlen.  
+  In diesem Fall schreiben wir $Y \sim \Gamma(\alpha,\beta)$.
+\eox
+\end{Definition}
+
+\exercise
+Nehmen Sie an, dass $Y$ eine gamma-verteilte Zufalls-Variable mit den Parametern $\alpha$ und $\beta$ ist, es
+gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$Y \sim \Gamma(\alpha, \beta)$
+\\[0.2cm]
+Berechnen Sie die moment-erzeugende Funktion von $Y$.
+
+\solution
+Nach Definition der moment-erzeugenden Funktion $p_Y$ gilt:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+      M_Y(t) 
+& = & \ds
+      \int_0^\infty \exp(t\cdot x) \cdot p_Y(x)\, \dx x 
+      \\[0.5cm]
+& = & \ds
+      \int_0^\infty \exp(t\cdot x) \cdot \frac{x^{\alpha-1} \cdot \exp\left(\textstyle -x/\beta\right)}{\beta^\alpha \cdot \Gamma(\alpha)}\, \dx x 
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{\beta^\alpha \cdot \Gamma(\alpha)} \cdot \int_0^\infty  x^{\alpha-1} \cdot \exp\left(-\frac{x}{\beta} + t\cdot x\right)\, \dx x 
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{\beta^\alpha \cdot \Gamma(\alpha)} \cdot \int_0^\infty x^{\alpha-1} \cdot \exp\left(-\Bigl(\frac{1}{\beta} - t\Bigr)\cdot x\right)\, \dx x 
+\end{array}
+$
+\\[0.2cm]
+Mit der Variablen-Transformation $\ds x = \frac{1}{\Bigl(\frac{1}{\beta} - t\Bigr)} \cdot y$ wird daraus:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+      M_Y(t) 
+      & = & \ds
+      \frac{1}{\beta^\alpha \cdot \Gamma(\alpha)} \cdot \frac{1}{\Bigl(\frac{1}{\beta} - t\Bigr)} \cdot \frac{1}{\Bigl(\frac{1}{\beta} - t\Bigr)^{\alpha-1}} \cdot 
+      \int_0^\infty y^{\alpha-1} \cdot \exp(-y)\, \dx y
+      \\[0.6cm]
+& = & \ds
+      \frac{1}{\beta^\alpha \cdot \Gamma(\alpha)} \cdot \frac{1}{\Bigl(\frac{1}{\beta} - t\Bigr)^{\alpha}} \cdot 
+      \Gamma(\alpha)
+      \\[0.6cm]
+& = & \ds
+      \frac{1}{\beta^\alpha} \cdot \frac{1}{\Bigl(\frac{1}{\beta} - t\Bigr)^{\alpha}} 
+      \\[0.6cm]
+& = & \ds
+      \frac{1}{\beta^\alpha} \cdot \left(\frac{\beta}{1 - \beta \cdot t}\right)^{\alpha}
+      \\[0.4cm]
+& = & \ds
+      \bigl(1 - \beta \cdot t \bigr)^{-\alpha}.  \hspace*{2cm} \Box
+\end{array}
+$
+\\[0.3cm]
+Also hat die moment-erzeugende Funktion für eine Zufalls-Variable $Y$, die einer Gamma-Verteilung mit den
+Parametern $\alpha$ und $\beta$ genügt, die Form
+\begin{equation}
+  \label{eq:chi-square3}
+  M_Y(t) = (1 - \beta \cdot t)^{-\alpha}
+\end{equation}
+
+
+\noindent
+Wir lösen nun unser eigentliches Problem, nämlich die Berechnung der Wahrscheinlichkeits-Dichte
+einer Zufalls-Variable $Z$, die aus $n$ unabhängigen, standard-normal-verteilten Zufalls-Variablen
+$X_i$ nach der Formel
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds Z = \sum\limits_{i=1}^n X_i^2$
+\\[0.2cm]
+berechnet wird.  In diesem Fall schreiben wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$Z \sim \chi^2(n)$
+\\[0.2cm]
+und sagen, dass $Z$ eine \blue{$\chi^2$-Verteilung mit $n$ Freiheitsgraden} 
+hat.  Wir berechnen zunächst die moment-erzeugende Funktion $M_Z$ von $Z$.  Nach Satz \ref{satz:moment-unabhaengig}
+und Gleichung (\ref{eq:chi-square2}) gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds M_Z(t) = \Bigl(M_{X^2}(t)\Bigr)^n = (1 - 2 \cdot t)^{\textstyle -\frac{n}{2}}$
+\\[0.2cm]
+Nach Gleichung (\ref{eq:chi-square3}) hat eine Zufalls-Variable, die einer Gamma-Verteilung
+mit den Parametern $\alpha = \frac{n}{2}$ und $\beta = 2$ genügt,
+die selbe moment-erzeugende Funktion.  Aus dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig} für die moment-erzeugende 
+Funktion folgt daher, dass die Wahrscheinlichkeits-Dichte der Zufalls-Variable $Z = \sum\limits_{i=1}^n X_i^2$ die Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_Z(x) = \frac{1}{A_n} \cdot x^{n/2-1} \cdot \exp\left( -\frac{x}{2}\right)$ \quad mit
+$\ds A_n = 2^{n/2} \cdot \Gamma\left(\frac{n}{2}\right)$
+\quad für $x > 0$ hat.
+\\[0.2cm]
+Wir formulieren dieses Ergebnis als Satz.  Vorher benötigen wir noch eine Definition.
+
+
+\begin{Satz} \label{satz:chi-square-normal}
+  Es seien $X_1$, $X_2$, $\cdots$, $X_n$ unabhängige Zufalls-Variablen, die
+  standard-normal-verteilt sind.  Die Zufalls-Variable $Z$ sei definiert als 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds Z := \sum\limits_{i=1}^n X_i^2$
+  \\[0.2cm]
+  Dann hat die Zufalls-Variable $Z$ die Wahrscheinlichkeits-Dichte 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds p_Z(x) = \frac{1}{A_n} \cdot x^{n/2-1} \cdot \exp\left( -\frac{x}{2}\right)$ \quad mit
+  $\ds A_n = 2^{n/2} \cdot \Gamma\left(\frac{n}{2}\right)$.
+  \\[0.2cm]
+  Eine Zufalls-Variable mit dieser Wahrscheinlichkeits-Dichte heißt
+  \blue{$\chi^2$-verteilt mit $n$ Freiheitsgraden}. \eox
+\end{Satz}
+
+\noindent
+Bei der Diskussion des $\chi^2$-Tests im nächsten Kapitel benötigen wir die beiden
+folgenden Sätze.
+
+\begin{Satz} \label{satz:chi-square-sum}
+Es seien $U$, $V$ und $W$ Zufalls-Variablen mit folgenden Eigenschaften:
+\begin{enumerate}
+\item $U$ ist $\chi^2$-verteilt mit $m$ Freiheitsgraden,
+\item $V$ ist $\chi^2$-verteilt mit $n$ Freiheitsgraden,
+\item $U$ und $V$ sind unabhängig,
+\item $W = U + V$.
+\end{enumerate}
+Dann genügt die Zufalls-Variable $W$ einer $\chi^2$-Verteilung mit $m+n$ Freiheitsgraden.
+\end{Satz}
+
+\proof  Aus dem Beweis des letzten Satzes können wir ablesen, wie die
+moment-erzeugenden Funktionen  von $U$ und $V$ aussehen müssen.  Es gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds M_U(t) = (1- 2 \cdot t)^{\textstyle -\frac{m}{2}}$ \quad und \quad
+$\ds M_V(t) = (1- 2 \cdot t)^{\textstyle -\frac{n}{2}}$.
+\\[0.2cm]
+Nach Satz \ref{satz:moment-unabhaengig} gilt daher für die moment-erzeugende Funktion $M_W$:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds M_W(t) = M_U(t) \cdot M_V(t) = (1- 2 \cdot t)^{\textstyle -\frac{m}{2}} \cdot (1- 2 \cdot
+t)^{\textstyle -\frac{n}{2}} = (1- 2 \cdot t)^{\textstyle -\frac{m+n}{2}}$.
+\\[0.2cm]
+Dies ist aber genau die moment-erzeugende Funktion einer Zufalls-Variable, die einer
+$\chi^2$-Verteilung mit $m+n$ Freiheitsgraden genügt.   Daher folgt die Behauptung nun aus
+dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig}. \qed
+\vspace*{0.3cm}
+
+\noindent
+\textbf{Bemerkung}:  Der obige Satz läßt sich leicht auf die Summe von mehr als zwei
+$\chi^2$-verteilten Zufalls-Variablen verallgemeinern.
+Sind $U_1$, $\cdots$, $U_k$ unabhängige Zufalls-Variablen, so dass für alle $i=1,\cdots,k$
+die Zufalls-Variable $U_i$  einer $\chi^2$-Verteilung mit $m_i$ Freiheitsgraden genügt, dann
+genügt die Summe
+\\[0.2cm]
+\hspace*{1.3cm}
+$W := \ds \sum\limits_{i=1}^k U_i$
+\\[0.2cm]
+einer $\chi^2$-Verteilung mit $m_1 + \cdots + m_k$ Freiheitsgraden.   Diese Aussage kann
+mit Hilfe des letzten Satzes durch eine triviale Induktion nach $k$ gezeigt werden.
+\qed
+
+Der nächste Satz zeigt, dass sich der letzte Satz auch umkehren läßt.
+
+\begin{Satz} \label{satz:chi-square4}
+Es seien $U$, $V$ und $W$ Zufalls-Variablen mit folgenden Eigenschaften:
+\begin{enumerate}
+\item $U$ ist $\chi^2$-verteilt mit $m$ Freiheitsgraden,
+\item $W$ ist $\chi^2$-verteilt mit $m+n$ Freiheitsgraden,
+\item $U$ und $V$ sind unabhängig,
+\item $W = U + V$.
+\end{enumerate}
+Dann genügt die Zufalls-Variable $V$ einer $\chi^2$-Verteilung mit $n$ Freiheitsgraden.
+\end{Satz}
+
+\proof
+Wir führen den Beweis indem wir zeigen, dass die moment-erzeugende Funktion $M_V$ mit der
+moment-erzeugenden Funktion einer $\chi^2$-verteilten Zufalls-Variable mit $n$
+Freiheitsgraden übereinstimmt.  
+
+Aus den ersten beiden Voraussetzungen folgt, dass die
+moment-erzeugenden Funktionen der Zufalls-Variablen $U$ und $W$ die folgende Gestalt haben: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$M_U(t) = (1- 2 \cdot t)^{\textstyle -\frac{m}{2}}$ \quad und \quad
+$M_W(t) = (1- 2 \cdot t)^{\textstyle -\frac{m+n}{2}}$.
+\\[0.2cm]
+Nach Satz \ref{satz:moment-unabhaengig} gilt für die moment-erzeugenden Funktionen 
+\\[0.2cm]
+\hspace*{1.3cm}
+$M_W(t) = M_U(t) \cdot M_V(t)$
+\\[0.2cm]
+Setzen wir hier die obigen Werte ein, so folgt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$(1- 2 \cdot t)^{\textstyle -\frac{m+n}{2}} = (1- 2 \cdot t)^{\textstyle -\frac{m}{2}}\cdot M_V(t)$
+\\[0.2cm]
+und daraus folgt sofort 
+\\[0.2cm]
+\hspace*{1.3cm}
+$M_V(t) = (1- 2 \cdot t)^{\textstyle -\frac{n}{2}}$.
+\\[0.2cm]
+Dies ist aber genau die moment-erzeugende Funktion einer $\chi^2$-verteilten
+Zufalls-Variable.  Nach dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig} hat die
+Zufalls-Variable $V$ also eine $\chi^2$-Verteilung mit $n$ Freiheitsgraden.
+\qed 
+\vspace*{0.3cm}
+
+\exercise
+Nehmen Sie an, dass die Zufalls-Variable $X$ einer $\chi^2$-Verteilung mit $n$ Freiheitsgraden genügt.
+Berechnen Sie Erwartungswert und Varianz von $X$.
+\vspace*{0.3cm}
+
+\exercise
+Es sei $X$ eine Zufalls-Variable, die einer $\chi^2$-Verteilung mit $4$ Freiheitsgraden
+genügt.  Berechnen Sie die Verteilungs-Funktion $F_X$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 

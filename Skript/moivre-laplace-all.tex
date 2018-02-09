@@ -1,0 +1,193 @@
+\section{Praktische Berechnung von Fakultät und \\ Binomial-Koeffizienten}
+In der Wahrscheinlichkeits-Rechnung verfolgen uns die Fakultät und die 
+Binomial-Koeffizienten auf Schritt und Tritt.  Für kleine Werte von $n$ können wir $n!$
+und ${n \choose k}$ problemlos mit dem Taschenrechner ausrechnen.  Aber schon bei der
+Lösung Aufgabe 5 stößt der Taschenrechner an seine Grenzen, denn der Ausdruck 
+\\[0.1cm]
+\hspace*{1.3cm}
+${40\,000 \choose 200}$
+\\[0.1cm]
+der bei der Lösung dieser Aufgabe im Nenner auftritt, liefert eine ganze Zahl mit 545
+Stellen.  Solche Zahlen sind mit einem gewöhnlichen Taschenrechner nicht mehr
+darstellbar.   Wir entwickeln daher in diesem Abschnitt eine Näherungs-Formel für den
+Binomial-Koeffizienten. 
+
+Damit dies möglich ist, müssen wir zunächst eine Näherung für die Fakultät angeben. 
+Die klassische Näherung von Stirling (James Stirling; 1692 - 1770) lautet 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle n! \approx \sqrt{2 \cdot \pi \cdot n} \cdot \frac{n^n}{e^n}$.
+\\[0.1cm]
+Genauer ist die Formel von Lanzcos (Cornelius Lanzcos; 1893 - 1974), sie lautet: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle n! \approx \sqrt{2 \cdot \pi\;} \cdot \left(\frac{n+ \frac{1}{2}}{e}\right)^{n+\frac{1}{2}}$.
+\\[0.1cm]
+Die Formel auf der rechten Seite approximiert die Fakultät in dem folgenden Sinne: Es gilt
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \lim\limits_{n\rightarrow \infty} \frac{\sqrt{2 \cdot \pi\;} \cdot
+  \left(\frac{n+ \frac{1}{2}}{e}\right)^{n+\frac{1}{2}}}{n!} = 1$.
+\\[0.1cm]
+Für eine Herleitung dieser Formeln bleibt uns leider nicht die Zeit.  Oft sind die
+Fakultäten so groß, dass Sie nicht mehr auf dem Taschenrechner dargestellt werden können.
+Sie treten dann meist in Brüchen auf und der zu berechnende Bruch ist durchaus noch
+darstellbar. Dann kann es hilfreich sein, zum Logarithmus überzugehen.   Um beispielsweise
+${n \choose k}$ zu berechnen, gehen wir wie folgt vor: 
+\begin{equation}
+  \label{eq:binappr}  
+\begin{array}[b]{lcl}
+\displaystyle 
+ {n \choose k} & = & \displaystyle \frac{n!}{k! \cdot (n-k)!} \\[0.3cm]
+                & = & \displaystyle \exp\left(\ln\left(\frac{n!}{k! \cdot (n-k)!}\right)\right) \\[0.3cm]  
+                & = & \displaystyle \exp\Bigl(\ln\bigl(n!\bigr) - \ln\bigl(k!\bigr) - \ln\bigl((n-k)!\bigr)\Bigr) \\[0.3cm]  
+\end{array}
+\end{equation}
+Zu Berechnung der von $\ln(n!)$ wenden wir auf  die Näherungsformel von Lanzcos den
+Logarithmus an und erhalten 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \ln\bigl(n!\bigr) \approx  \frac{1}{2}\cdot\ln(2\cdot \pi) + \left(n+\frac{1}{2}\right) \cdot \left( \ln\Bigl(n + \frac{1}{2}\Bigr) - 1 \right)$.
+\\[0.1cm]
+Setzen wir diesen Wert in Gleichung (\ref{eq:binappr}) ein, so  können wir den
+Binomial-Koeffizienten approximieren.
+Berechnen wir ${100 \choose 50}$ auf diese Weise, so erhalten wir 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle {100 \choose 50} \approx 1.007667751 \cdot 10^{30}$.
+\\[0.1cm]
+Der relative Fehler liegt bei $1.2$\textperthousand.
+
+
+Es sei $n = 2*m$ und $k = \frac{1}{2}n + s = m + s$. Also gilt $n - k = m - s$.
+Die \emph{Stirling'sche Formel} lautet
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle 
+  n! \approx \sqrt{2\pi n} \left(\frac{n}{e}\right)^n$.
+\\[0.1cm] 
+Logarithmieren dieser Formel liefert 
+\\[0.1cm]
+\hspace*{1.3cm}
+
+$\displaystyle 
+  \ln\bigl(n!\bigr) \approx \frac{1}{2} \ln(2\pi) + \frac{1}{2} \ln(n) + n\ln(n) - n$
+\\[0.1cm]
+Die Funktion $\ln(1+x)$ läßt sich wie folgt in einer Taylor-Reihe entwickeln: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle \ln(1+x) \approx x - \frac{1}{2} x^2$, \qquad also 
+$\displaystyle \ln(1-x) \approx - x - \frac{1}{2} x^2$.
+\\[0.1cm]
+Damit kann der Binomial-Koeffizient ${n \choose k}$ approximiert werden: 
+\begin{equation}
+  \label{eq:ml0}
+  \begin{array}[t]{lcl}
+\displaystyle
+ \ln\Biggl( {n \choose k} \Biggr)
+& = & \displaystyle \ln\left(\frac{n!}{k! (n-k)!}\right) \\[0.5cm]
+& = & \displaystyle \ln\left(\frac{n!}{(m+s)! (m-s)!}\right) \\[0.5cm]
+& = & \displaystyle \ln(n!) - \ln\bigl((m+s)!\bigr) - \ln\bigl((m-s)!\bigr) \\[0.3cm]
+& \approx & \displaystyle 
+            + \frac{1}{2} \ln(2\pi) + \frac{1}{2} \ln(n) + n\ln(n) - n \\[0.3cm]
+&         & \displaystyle
+            - \frac{1}{2} \ln(2\pi) - \frac{1}{2} \ln(m+s) - (m+s)\ln(m+s) + m + s \\[0.3cm]
+&         & \displaystyle
+            - \frac{1}{2} \ln(2\pi) - \frac{1}{2} \ln(m-s) - (m-s)\ln(m-s) + m - s \\[0.6cm]
+& =       & \displaystyle 
+            - \frac{1}{2} \ln(2\pi) + \frac{1}{2} \ln(n) + n\ln(n)  \\[0.3cm]
+&         & \displaystyle
+            - \frac{1}{2} \ln(m+s) - (m+s)\ln(m+s)  \\[0.3cm]
+&         & \displaystyle
+            - \frac{1}{2} \ln(m-s) - (m-s)\ln(m-s)  \\[0.6cm]
+& =       & \displaystyle 
+            - \frac{1}{2} \ln(2\pi) + \frac{1}{2} \ln(n) + n\ln(n)  \\[0.3cm]
+&         & \displaystyle
+            - \frac{1}{2} \ln(m) - \frac{1}{2}\ln\left(1+\frac{s}{m}\right) - (m+s)\ln(m) - (m+s)\ln\left(1+\frac{s}{m}\right)  \\[0.3cm]
+&         & \displaystyle
+            - \frac{1}{2} \ln(m) - \frac{1}{2}\ln\left(1-\frac{s}{m}\right) - (m-s)\ln(m) - (m-s)\ln\left(1-\frac{s}{m}\right)  \\[0.3cm]
+\\[0.3cm]
+  \end{array}
+\end{equation}
+Es gilt 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+\displaystyle
+ \frac{1}{2}\ln(n) - \frac{1}{2}\ln(m) - \frac{1}{2}\ln(m) & = &
+\displaystyle
+ \frac{1}{2}\ln(n) - \ln\bigl(\frac{n}{2}\bigr) \\[0.3cm]
+& = & \displaystyle
+   \frac{1}{2}\ln(n) - \ln(n) + \ln(2)  \\[0.3cm]
+& = & - \frac{1}{2}\ln(n) + \ln(2)  \\[0.3cm]
+\end{array}
+$
+\\[0.1cm]
+Weiter gilt 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+\displaystyle n\ln(n) - (m+s)\ln(m) - (m-s)\ln(m) & = & \displaystyle n\ln(n) - 2m\ln(m) \\[0.3cm] 
+&=& \displaystyle n\ln(n) -  n\ln\left(\frac{n}{2}\right) \\[0.3cm] 
+&=& \displaystyle n\ln(n) - n\ln(n) + n\ln(2) \\[0.3cm]
+&=& \displaystyle n\ln(2)
+\end{array}
+$
+\\[0.1cm]
+Wir haben 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\displaystyle
+  - \frac{1}{2}\ln\left(1+\frac{s}{m}\right) - \frac{1}{2}\ln\left(1-\frac{s}{m}\right) \approx
+- \frac{1}{2} \left(\frac{s}{m} - \frac{1}{2}\frac{s^2}{m^2} - \frac{s}{m} - \frac{1}{2}\frac{s^2}{m^2}\right)
+= \frac{1}{2}\frac{s^2}{m^2}
+$
+\\[0.1cm]
+Es gilt 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{cl}
+& \displaystyle 
+(m+s)\ln\left(1+\frac{s}{m}\right)  + (m-s)\ln\left(1-\frac{s}{m}\right) \\[0.3cm]
+\approx & \displaystyle
+(m+s)\left(\frac{s}{m} - \frac{1}{2}\frac{s^2}{m^2}\right)  + (m-s)\left(-\frac{s}{m} - \frac{1}{2}\frac{s^2}{m^2}\right) \\[0.6cm]
+\approx & \displaystyle
+\left(s - \frac{1}{2}\frac{s^2}{m}\right)  + \left(-s - \frac{1}{2}\frac{s^2}{m}\right) +
+\left(\frac{s^2}{m} - \frac{1}{2}\frac{s^3}{m^2}\right) + \left(\frac{s^2}{m} + \frac{1}{2}\frac{s^3}{m^2}\right) \\[0.6cm]
+= & \displaystyle
+\frac{s^2}{m}
+\end{array}
+$
+\\[0.1cm]
+Damit ergibt sich
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{cl}
+& \displaystyle
+  \ln\Biggl( {n \choose k} \Biggr) \\[0.6cm]
+\approx & \displaystyle
+- \frac{1}{2}\ln(2\pi) - \frac{1}{2}\ln(n) + \ln(2) + n\ln(2) + \frac{1}{2}\frac{s^2}{m^2} - \frac{s^2}{m}  \\[0.6cm]
+\approx & \displaystyle
+ \ln\left(\sqrt{\frac{2}{\pi n}}\right) + \ln\bigl(2^n\bigr) - \frac{s^2}{\frac{n}{2}}  \\[0.6cm]
+= & \displaystyle
+ \ln\left(\sqrt{\frac{2}{\pi n}}\right) + \ln\bigl(2^n\bigr) - \frac{\bigl(k - \frac{1}{2}n\bigr)^2}{\frac{n}{2}},  \\[0.6cm]
+\end{array}
+$
+\\[0.1cm]
+wobei wir im zweiten Schritt den Term $\frac{1}{2}\frac{s^2}{m^2}$ gegenüber den anderen Termen vernachlässigt haben.
+Damit haben wir die folgende Formel hergeleitet:
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle
+ {n \choose k} \approx \sqrt{\frac{2}{\pi n}} \cdot 2^n \cdot \exp\left(-\frac{\bigl(k - \frac{1}{2}n\bigr)^2}{\frac{1}{2}n}\right)$
+\\[0.1cm]
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% End: 

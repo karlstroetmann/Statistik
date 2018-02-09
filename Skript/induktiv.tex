@@ -1,0 +1,915 @@
+\chapter{Induktive Statistik}
+Zwei wesentliche Aufgaben der Statistik sind das \blue{Schätzen von Parametern} und das
+\blue{Testen von Hypothesen}.  Wir besprechen diese beiden Aufgaben in den beiden folgenden
+Abschnitten. 
+
+\section{Parameter-Schätzung}
+Bisher haben wir uns im wesentlichen mit der Wahrscheinlichkeits-Rechnung beschäftigt.
+Bei der Wahrscheinlichkeits-Rechnung haben wir ein Model eines Prozesses in Form eines
+Wahrscheinlichkeits-Raums.  
+Mit Hilfe dieses Models berechnen wir dann die
+Wahrscheinlichkeit für das Auftreten bestimmter Ereignisse.
+Damit das möglich ist, müssen uns die Parameter des Models bekannt sein.
+Ein  solcher Parameter wäre beispielsweise der Erwartungswert $\lambda$ einer
+Poisson-Verteilung oder der Erwartungswert $\mu$ und die Varianz $\sigma^2$ einer
+normal-verteilten Zufalls-Variable.
+
+Bei der Statistik ist die Situation anders:  Wir haben zwar meistens 
+ebenfalls ein Model in Form eines Wahrscheinlichkeits-Raums, allerdings sind
+diesmal die Parameter, welche die Verteilung der Zufalls-Variablen festlegen,  unbekannt.  Um diese Parameter
+bestimmen zu können, beobachten wir Ereignisse und versuchen dann, mit Hilfe der Beobachtungen
+die Parameter zu erschließen.  Wir haben diesen Prozess bereits in der Einführung am
+Beispiel der Ameisenzählung demonstriert.  Wir wollen diesen Prozess jetzt formalisieren.
+Dazu benötigen wir einige Definitionen.
+
+\begin{Definition}[\blue{Stichprobe}]
+Gegeben sei eine endliche oder unendliche Menge $\Omega$, die wir im folgenden
+als \blue{Population} (oder auch Grundgesamtheit) bezeichnen wollen. Ein
+\blue{Merkmal} $X$ dieser Population ist eine Funktion 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X: \Omega \rightarrow \mathbb{R}$.
+\\[0.2cm]
+Eine \blue{Stichprobe} vom Umfang $n$ ist eine Teilmenge
+\\[0.2cm]
+\hspace*{1.3cm}
+$\{ \omega_1, \cdots, \omega_n \} \subseteq \Omega$
+\\[0.2cm]
+die genau $n$ Elemente enthält. Setzen wir $x_i := X(\omega_i)$ für $i=1,\cdots,n$,
+so werden die $x_i$ auch als \blue{Stichproben-Werte} bezeichnet.
+\qed
+\end{Definition}
+
+\subsection{Schätzung des Erwartungswertes einer Zufalls-Variable}
+Ist eine Stichprobe gegeben, so können wir versuchen, von der Stichprobe auf die
+Grundgesamtheit zu schließen.  Ist beispielsweise $\{\omega_1,\cdots,\omega_n\}$ eine
+Stichprobe und $X$ eine Zufalls-Variable, so wird der \blue{arithmetische Mittelwert} von $X$
+mit $\overline{X}$ bezeichnet und durch
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \overline{X} := \frac{1}{n} \cdot \sum\limits_{i=1}^{n} X(\omega_i) = \frac{1}{n} \cdot \sum\limits_{i=1}^{n} x_i$
+\\[0.2cm]
+definiert.  Um das Verhalten von $\overline{X}$ mit den Mitteln der
+Wahrscheinlichkeits-Rechnung untersuchen zu können, gehen wir aus von dem
+Wahrscheinlichkeits-Raum 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathcal{V} = \langle \Omega, \frak{A}, P \rangle$.
+\\[0.2cm]
+Hier ist $\Omega$ die Population, $\frak{A}$ ist eine geeignete $\Sigma$-Algebra und $P$ ein Wahrscheinlichkeits-Maß.
+Dann definieren wir das $n$-fache kartesische Produkt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathcal{W} := \mathcal{V}^n = \langle \Omega^n, \frak{A}^n, \widehat{P} \rangle$.
+\\[0.2cm]
+Für ein Tupel von Ereignissen $\langle A_1, \cdots, A_n \rangle$ ist das Wahrscheinlichkeits-Maß $\widehat{P}$ als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\widehat{P}\bigl(\langle A_1, \cdots, A_n \rangle\bigr) := P(A_1) \cdot \dots \cdot P(A_n)$
+\\[0.2cm]
+definiert.  Dann können wir auf $\Omega^n$ die Zufalls-Variablen $X_i$  als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X_i\bigl( \langle \omega_1, \cdots, \omega_i, \cdots, \omega_n \rangle\bigr) := X(\omega_i)$
+\\[0.2cm]
+definieren, $X_i$ ist also gerade die Anwendung  von $X$ auf die $i$-te Komponente der Stichprobe.
+Die Wahrscheinlichkeits-Verteilungen der Zufalls-Variablen $X_i$ sind dann alle gleich der
+Wahrscheinlichkeits-Verteilung der Zufalls-Variable $X$ auf dem ursprünglichen Wahrscheinlichkeits-Raum $\mathcal{V}$.
+
+Mit den $X_i$ ist auch der arithmetische Mittelwert $\overline{X}$ eine Zufalls-Variable auf
+dem Stichproben-Raum $\Omega^n$. Wir können den Erwartungswert von $\overline{X}$
+berechnen und finden 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ E\Bigl[\overline{X}\Bigr] 
+& = & \ds
+      E\left[ \frac{1}{n} \cdot \sum\limits_{i=1}^{n} X_i \right] \\[0.5cm]
+& = & \ds  
+      \frac{1}{n} \cdot \sum\limits_{i=1}^{n} E\left[X_i\right] \\[0.5cm]
+& = & \ds  
+      \frac{1}{n} \cdot \sum\limits_{i=1}^{n} E\left[X\right] \\[0.5cm]
+& = & \ds  
+      \frac{1}{n} \cdot E\left[X\right] \cdot \sum\limits_{i=1}^{n} 1 \\[0.5cm]
+& = & \ds  
+      \frac{1}{n} \cdot E\left[X\right] \cdot n \\[0.3cm]
+& = & \ds  
+      E\left[X\right].
+\end{array}
+$
+\\[0.2cm]
+Diese Rechnung zeigt, dass wir den arithmetischen Mittelwert einer Stichprobe benutzen
+können um den Erwartungswert der Zufalls-Variable $X$ zu \blue{schätzen}.  
+Ist 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\langle x_1, \cdots, x_n \rangle = \langle X(\omega_1), \cdots, X(\omega_n) \rangle$
+\\[0.2cm]
+ein \blue{Stichproben-Ergebnis}, so liefert uns dieses Ergebnis eine Schätzung des
+Mittelwerts $E[X]$: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[X] \approx \frac{1}{n} \cdot\sum\limits_{i=1}^{n} x_i = \overline{X}\bigl(\langle \omega_1, \cdots, \omega_n\rangle\bigr)$.
+\\[0.2cm]
+Wir untersuchen noch die Varianz der Zufalls-Variable $\overline{X}$, denn diese gibt uns
+Aufschluss über die Genauigkeit unserer Schätzung.  Mit einer Rechnung, die analog zur
+Herleitung des $\sqrt{n}$-Gesetzes ist, kann gezeigt werden, dass 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \var\Bigl[\overline{X}\Bigr] = \frac{1}{n} \cdot \var[X]$ \quad und damit \quad
+$\ds \sigma\Bigl[\overline{X}\Bigr] = \frac{1}{\sqrt{n}} \cdot \sigma[X]$ 
+\\[0.2cm]
+gilt.  Dies zeigt, wie die Genauigkeit mit wachsender Größe $n$ der Stichprobe zunimmt.
+Der zentrale Grenzwertsatz zeigt, dass $\overline{X}$ für große Werte von $n$ annähernd
+normal verteilt ist.  In der Praxis zeigt sich, dass die Wahrscheinlichkeits-Verteilung
+von $\overline{X}$ für $n \geq 30$ hinreichend gut durch eine Normal-Verteilung approximiert wird.
+
+\subsection{Schätzung der Varianz einer Zufalls-Variable}
+Als nächstes suchen wir eine Zufalls-Variable, mit der wir die Varianz einer Zufalls-Variable
+$X$ abschätzen können.  Dazu definieren wir die \blue{Stichproben-Varianz} $S^2$ einer Stichprobe
+vom Umfang $n$ als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds S^2 := \frac{1}{n} \cdot \sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2$
+\\[0.2cm]
+Die Zufalls-Variable $S^2$ ist genau wie die Zufalls-Variable $\overline{X}$ auf dem
+Stichproben-Raum $\Omega^n$ definiert.  Wir werden im folgenden 
+die Wahrscheinlichkeits-Verteilung von
+$S^2$ berechnen. 
+In der Literatur wird die Stichproben-Varianz gelegentlich mit dem Faktor $\frac{1}{n-1}$
+anstelle des Faktors $\frac{1}{n}$ definiert.  Wir folgen bei der obigen Definition der
+Darstellung von Spiegel \cite{spiegel:2000}.  
+
+Wir berechnen jetzt den Erwartungswert der Zufalls-Variable $S^2$.  
+Dazu definieren wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mu := E[X]$ \quad und \quad $\sigma^2 := \var[X]$.
+\\[0.2cm]
+Zunächst formen wir die Summe $\sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2$ um:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{cl}
+   & \ds
+     \sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2 
+     \\[0.5cm]
+ = & \ds
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu + \mu - \overline{X}\bigr)^2 
+     \\[0.5cm]
+ = & \ds
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 + \bigl(\mu - \overline{X}\bigr)^2 + 2 \cdot (\mu - \overline{X}) \cdot (X_i - \mu)
+     \\[0.5cm]
+ = & \ds
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 + 
+     \sum\limits_{i=1}^{n} \bigl(\mu - \overline{X}\bigr)^2 + 
+     \sum\limits_{i=1}^{n} 2 \cdot (\mu - \overline{X}) \cdot (X_i - \mu)
+     \\[0.5cm]
+ = & \ds
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 + 
+     \sum\limits_{i=1}^{n} \bigl(\mu - \overline{X}\bigr)^2 + 
+     2 \cdot (\mu - \overline{X}) \cdot \sum\limits_{i=1}^{n} (X_i - \mu)
+     \\[0.5cm]
+ = & \ds
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 + 
+     n \cdot \bigl(\mu - \overline{X}\bigr)^2 + 
+     2 \cdot (\mu - \overline{X}) \cdot n \cdot (\overline{X} - \mu)
+     \\[0.5cm]
+   & \mbox{denn $\sum\limits_{i=1}^{n} X_i = n \cdot \overline{X}$ und $\sum\limits_{i=1}^n \mu = n \cdot \mu$}  \\[0.2cm]
+ = & \ds
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 + 
+     n \cdot \bigl(\mu - \overline{X}\bigr)^2 - 
+     2 \cdot n \cdot \bigl(\mu - \overline{X}\bigr)^2 
+     \\[0.5cm]
+ = & \ds
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 -
+     n \cdot \bigl(\mu - \overline{X}\bigr)^2 
+     \\[0.5cm]
+\end{array}
+$
+\\[0.2cm]
+Wir haben also 
+\begin{equation}
+  \label{eq:varianz-zerlegung}
+ \ds \sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2 =
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 - n \cdot \bigl(\mu - \overline{X}\bigr)^2 
+\end{equation}
+gezeigt.  Damit können wir $E\bigl[S^2\bigr]$ berechnen:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+      E\bigl[ S^2 \bigr] 
+& = & \ds
+      \frac{1}{n} \cdot E\left[ \sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2  \right]
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{n} \cdot E\left[ \left(\sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 \right)- n \cdot \bigl(\mu - \overline{X}\bigr)^2 \right]
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{n} \cdot \left(\left(\sum\limits_{i=1}^{n} 
+      E\left[ \bigl(X_i - \mu\bigr)^2 \right]\right) - n \cdot E\left[\bigl(\mu - \overline{X}\bigr)^2 \right]\right)
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{n} \cdot \left(\sum\limits_{i=1}^{n} E\left[ \bigl(X_i - \mu\bigr)^2 \right] \;-\;
+      \sum\limits_{i=1}^{n} E\left[\bigl(\mu - \overline{X}\bigr)^2 \right]\right)
+\end{array}
+$
+\\[0.2cm]
+Nun gilt einerseits 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E\left[ \bigl(X_i - \mu\bigr)^2 \right] = E\left[ \bigl(X - \mu\bigr)^2 \right] = \sigma^2$,
+\\[0.2cm]
+denn die Zufalls-Variablen $X_i$ haben ja alle die selbe Verteilung wie die Zufalls-Variable $X$,
+andererseits haben wir wegen $E\Bigl[\overline{X}\Bigr] = E[X] = \mu$
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E\left[\bigl(\mu - \overline{X}\bigr)^2 \right] = \var\Bigl[\overline{X}\Bigr] = \frac{1}{n} \cdot \sigma^2$.
+\\[0.2cm]
+Das ergibt insgesamt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+      E\bigl[ S^2 \bigr] 
+& = & \ds
+      \frac{1}{n} \cdot \left(\sum\limits_{i=1}^{n} E\left[ \bigl(X_i - \mu\bigr)^2 \right] \;-\;
+      \sum\limits_{i=1}^{n} E\left[\bigl(\mu - \overline{X}\bigr)^2 \right]\right)
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{n} \cdot\left( \sum\limits_{i=1}^{n} \sigma^2 \;-\;
+      \sum\limits_{i=1}^{n} \frac{1}{n} \cdot \sigma^2 \right)
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{n} \cdot\left( n \cdot  \sigma^2 - \sigma^2 \right)
+      \\[0.5cm]
+& = & \ds
+      \frac{n-1}{n} \cdot \sigma^2 
+      \\[0.5cm]
+\end{array}
+$
+\\[0.2cm]
+Auf den ersten Blick mag dieses Ergebnis verblüffen, denn es zeigt,
+dass die Stichproben-Varianz $S^2$ nicht dazu geeignet ist, die Varianz der Zufalls-Variable 
+$S$ zu schätzen.  Es gilt aber 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E\left[ \frac{n}{n-1} \cdot S^2 \right] = \sigma^2$,
+\\[0.2cm]
+so dass wir die Zufalls-Variable
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \widehat{S}^2 = \frac{n}{n-1} \cdot S^2 = \frac{1}{n-1} \cdot \sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2$ 
+\\[0.2cm]
+zur Schätzung der Varianz verwenden können.
+\vspace*{0.3cm}
+
+Der nächste Satz gibt uns Aufschluss über die Verteilung der Zufalls-Variable $S^2$ für den Fall,
+dass die zugrundeliegende Zufalls-Variable $X$ normal verteilt ist und zeigt gleichzeitig die 
+Bedeutung der $\chi^2$-Verteilung.
+
+\begin{Satz} \label{satz:chi-square-n-minus-1}
+  Ist die Zufalls-Variable $X$ normal verteilt mit Erwartungswert $\mu$ und Varianz
+  $\sigma^2$, und wird für eine $n$-elementige Stichprobe die Zufalls-Variable $S^2$ durch 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds S^2 = \frac{1}{n} \cdot \sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2$
+  \\[0.2cm]
+  definiert, so hat die Zufalls-Variable 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds \frac{n}{\sigma^2} \cdot S^2 = \frac{1}{\sigma^2} \cdot \sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2$
+  \\[0.2cm]
+  eine $\chi^2$-Verteilung mit $n-1$ Freiheitsgraden.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Wir definieren drei Zufalls-Variablen $U$, $V$ und $W$ durch
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds U := \frac{n}{\sigma^2} \cdot \bigl(\overline{X} - \mu \bigr)^2$, 
+$\ds V := \frac{1}{\sigma^2} \cdot \sum\limits_{i=1}^{n} \bigl(X_i -
+\overline{X}\bigr)^2$ \quad und \quad
+$\ds W := \frac{1}{\sigma^2} \cdot \sum\limits_{i=1}^{n} (X_i - \mu \bigr)^2$.
+\\[0.2cm]
+Um zu sehen, wie diese Zufalls-Variablen zusammenhängen, schreiben wir Gleichung (\ref{eq:varianz-zerlegung}) um:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds 
+     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 =
+     n \cdot \bigl(\mu - \overline{X}\bigr)^2 \;+\; \sum\limits_{i=1}^{n} \bigl(X_i - \overline{X}\bigr)^2 
+$
+\\[0.2cm]
+Wenn wir diese Gleichung durch $\sigma^2$ dividieren und die Gleichung
+$(\mu - \overline{X})^2 = (\overline{X} - \mu)^2$ berücksichtigen, dann sehen wir, dass 
+\\[0.2cm]
+\hspace*{1.3cm}
+$W = U + V$
+\\[0.2cm]
+gilt.  Wir untersuchen jetzt, wie die Zufalls-Variablen $U$, $V$ und $W$ verteilt sind.
+Wir beginnen mit der Zufalls-Variable $W$.
+Zunächst ist mit $X_i$ auch $X_i - \mu$ normal verteilt und die Zufalls-Variable
+$\frac{1}{\sigma} \cdot (X_i - \mu)$ ist normal verteilt mit Erwartungswert
+$0$ und Varianz $1$, also standard-normal-verteilt.
+Nach Satz \ref{satz:chi-square-normal} hat die Zufalls-Variable $W$ daher eine
+$\chi^2$-Verteilung mit $n$ Freiheitsgraden.  
+
+Als nächstes untersuchen wir die Verteilung der Zufalls-Variable $U$.
+Nach Aufgabe 29 ist die Summe zweier normal verteilter Zufalls-Variablen normal verteilt.
+Damit ist dann auch die Summe von $n$ Zufalls-Variablen normal verteilt.  Also ist die Zufalls-Variable
+$\overline{X} = \frac{1}{n} \cdot \sum_{i=1}^{n} X_i$ normal verteilt.  Also ist auch $\overline{X} - \mu$ normal verteilt.
+Der Erwartungswert von $\overline{X} - \mu$ ist 0 und die Varianz ist nach dem $\sqrt{n}$-Gesetz
+$\frac{1}{n} \cdot \sigma^2$.  Also hat die Zufalls-Variable $\frac{\sqrt{n}}{\sigma} \cdot (\overline{X} - \mu)$ den Erwartungswert 0 und die Varianz
+$1$.  Wenn wir nun Satz \ref{satz:chi-square-normal} für den Fall $n=1$ anwenden, sehen wir,
+dass die Zufalls-Variable $U$, die ja das Quadrat der Zufalls-Variable $\frac{\sqrt{n}}{\sigma} \cdot (\overline{X} - \mu)$ ist,
+einer $\chi^2$-Verteilung mit Freiheitsgrad $n=1$ genügt.
+
+Ohne Beweis teilen wir mit, dass die Zufalls-Variablen U und V unabhängig sind.
+Damit können wir jetzt Satz \ref{satz:chi-square4} auf die Zufalls-Variablen $U$, $V$ und $W$ 
+anwenden und folgern, dass die Zufalls-Variable $V$ einer $\chi^2$-Verteilung mit
+$n-1$ Freiheitsgraden genügt. \qed
+
+\section{Testen von Hypothesen}
+Das Testen von Hypothesen ist eine der beiden Hauptaufgaben der induktiven Statistik, die beispielsweise in
+der Medizin häufig angewendet wird.  Wir erläutern das Testen von Hypothesen an einem
+einführenden Beispiel.  Wir wollen untersuchen, ob sich beim Werfen einer gegeben Münze
+die Ergebnisse ``Wappen'' und ``Zahl'' mit der selben Wahrscheinlichkeit einstellen.
+Wir kodieren das Ergebnis ``Wappen'' als $0$ und das Ergebnis ``Zahl'' als $1$.  
+Unsere Hypothese ist, dass bei einem Wurf für die
+Wahrscheinlichkeit 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl(\{0\}\bigr) = P\bigl(\{1\}\bigr) = \frac{1}{2}$
+\\[0.2cm]
+gilt.  Diese Hypothese bezeichnen wir als \blue{Null-Hypothese}, \index{Null-Hypothese}
+denn es gibt Null Unterschied zwischen den beiden Wahrscheinlichkeiten.
+Um diese Hypothese zu überprüfen, werfen wir die Münze $100$ mal.  Angenommen, wir
+erhalten dabei $75$ mal ``Wappen'' und $25$ mal ``Zahl''.  Dann können wir uns fragen, wie
+wahrscheinlich ein solches Ereignis ist, wenn wir die Null-Hypothese annehmen.
+Wenn diese Wahrscheinlichkeit kleiner ist als ein vorgegebener Wert $\alpha$,
+dann würden wir die Null-Hypothese ablehnen und sagen, dass der Test auf dem
+\blue{Niveau} $\alpha$ \blue{signifikant} war.  In der Praxis wird für $\alpha$ oft ein
+Wert von $5\%$ oder $1\%$ gewählt.
+
+Bezeichnen wir die Häufigkeit, mit der
+das Ereignis ``Wappen'' eintritt ist, mit $X_0$ und die Häufigkeit, mit der das Ereignis
+``Zahl'' eintritt, mit $X_1$, und ist $n$ die Anzahl der Münzwürfe, so misst die Größe
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds C := \frac{(X_0 - n \cdot \frac{1}{2})^2}{n \cdot \frac{1}{2}} + \frac{(X_1 - n \cdot \frac{1}{2})^2}{n \cdot \frac{1}{2}}$
+\\[0.2cm]
+wie stark $X_0$ und $X_1$ von dem Erwartungswert $n \cdot \frac{1}{2}$ abweichen.  
+Eine solche Zufalls-Variable wird auch als eine \blue{Statistik} bezeichnet.
+\index{Statistik}
+Für die oben genannten Werte von $X_0 = 75$ und $X_1 = 25$ ergibt sich für die Statistik $C$
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds C = \frac{(75 - 50)^2}{50} + \frac{(25 - 50)^2}{50} = 2 \cdot \frac{25^2}{50} = 25$
+\\[0.2cm]
+Um diesen Wert interpretieren zu können, berechnen wir die Wahrscheinlichkeit, dass die
+Zufalls-Variable $C$ einen Wert größer oder gleich 25 annimmt, unter der Voraussetzung, dass
+ die Null-Hypothese
+wahr ist.  Dazu formen wir den Ausdruck für $C$ um:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcll}
+      C 
+& = & \ds
+      \frac{\bigl(X_0 - n \cdot \frac{1}{2}\bigr)^2}{n \cdot \frac{1}{2}} + \frac{\bigl(X_1 - n \cdot \frac{1}{2}\bigr)^2}{n \cdot \frac{1}{2}}
+      \\[0.5cm]
+& = & \ds
+      \frac{\bigl(X_0 - n \cdot \frac{1}{2}\bigr)^2}{n \cdot \frac{1}{2}} + \frac{\bigl(n - X_0 - n \cdot \frac{1}{2}\bigr)^2}{n \cdot \frac{1}{2}}
+      & \mbox{denn $X_1 = n - X_0$}
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{n \cdot\frac{1}{2}} \cdot \left(\left(X_0 - n \cdot \frac{1}{2}\right)^2 + \left(n - X_0 - n \cdot \frac{1}{2}\right)^2\right)
+      \\[0.5cm]
+& = & \ds
+      \frac{1}{n \cdot\frac{1}{2}} \cdot \left(\left(X_0 - n \cdot \frac{1}{2}\right)^2 + \left(n \cdot \frac{1}{2} - X_0 \right)^2\right)
+      \\[0.5cm]
+& = & \ds
+      \frac{2}{n \cdot\frac{1}{2}} \cdot \left(X_0 - n \cdot \frac{1}{2}\right)^2 
+      \\[0.5cm]
+& = & \ds
+      \frac{\left(X_0 - n \cdot \frac{1}{2}\right)^2}{n \cdot\frac{1}{2}\cdot\bigl(1-\frac{1}{2}\bigr)}  
+      \\[0.5cm]
+\end{array}
+$
+\\[0.2cm]
+Wenn die Null-Hypothese zutrifft, dann ist die Zufalls-Variable $X_0$ binomial verteilt mit
+dem Erwartungswert $\mu = n \cdot \frac{1}{2}$ und der Varianz
+ $\sigma^2 = n \cdot \frac{1}{2} \cdot (1-\frac{1}{2})$.  Für große Werte von $n$ kann diese Verteilung 
+durch eine Normal-Verteilung $N_{\mu,\sigma}$ mit Mittelwert $\mu$ und Varianz $\sigma$
+approximiert werden.  Brauchbare Werte erhalten wir, sobald $\sigma^2 > 9$ gilt.
+Für $n = 100$  haben wir $\sigma^2 = 25$, so dass diese Bedingung erfüllt ist.
+Wenn $X_0$ aber ein Normal-Verteilung hat, so hat die Zufalls-Variable
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds Y := \frac{X_0 - n \cdot \frac{1}{2}}{\sqrt{n \cdot \frac{1}{2} \cdot (1-\frac{1}{2})}}$
+\\[0.2cm]
+eine Standard-Normal-Verteilung $N_{0,1}$.  Im letzten Kapitel haben wir gesehen, dass
+dann $Y^2$ eine $\chi^2$-Verteilung mit einem Freiheitsgrad genügt.  Die Zufalls-Variable
+$Y^2$ ist aber gleich $C$, so dass wir damit die Verteilung von $C$ gefunden haben.
+Daher können wir jetzt die Wahrscheinlichkeit, dass $C$ einen Wert größer oder gleich
+$25$ annimmt, berechnen.  Für die Wahrscheinlichkeits-Dichte einer $\chi^2$-Verteilung
+mit einem Freiheitsgrad hatten wir im letzten Kapitel den Ausdruck
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p_{\chi^2,1}(x) = \frac{1}{A_1} \cdot \frac{1}{\sqrt{x}} \cdot \exp\left(-\frac{x}{2}\right)$ 
+\quad mit $\ds A_1 = \sqrt{2\;} \cdot \Gamma\left(\frac{1}{2}\right) = \sqrt{2\pi\;}$
+\\[0.2cm]
+gefunden. Wir setzen zur Abkürzung $z=25$ und rechnen wie folgt:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+      P(C \geq 25) 
+& = & 1 - P(C < 25) \\[0.2cm] 
+& \approx & \ds
+      1 - \int_0^z p_{\chi^2,1}(x)\, \dx x
+      \\[0.5cm]
+& = & \ds
+      1 - \int_0^z \frac{1}{\sqrt{2\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
+      \\[0.5cm]
+&   & \mbox{Substitution $x = 2\,y^2$, also $\dx x = 4 \cdot y\, \dx y$}
+      \\[0.2cm]
+& = & \ds
+      1 - \int_0^{\sqrt{z/2}} \frac{1}{\sqrt{4\pi\;} \cdot y} \cdot
+      \exp\left(-y^2\right)\cdot 4 \cdot y \, \dx y
+      \\[0.5cm]
+& = & \ds
+      1 - \frac{2}{\sqrt{\pi\,}} \cdot \int_0^{\sqrt{z/2}} \cdot \exp\left(-y^2\right)\,\dx y
+      \\[0.5cm]
+& = & \ds
+      1 - \textsl{erf}\left(\sqrt{\frac{z}{2}}\right)
+ = 
+      1 - \textsl{erf}\left(\frac{5}{\sqrt{2\,}}\right)
+\approx 
+      5.7 \cdot 10^{-7}
+\end{array}
+$
+\\[0.2cm]
+Wenn die Null-Hypothese zutrifft, dann ist die Wahrscheinlichkeit, dass die 
+Zufalls-Variable $C$ einen Wert größergleich $25$ annimmt, 
+verschwindend gering.  Daher verwenden wir die Null-Hypothese verwerfen.
+\qed
+
+
+\noindent
+Wir verallgemeinern das letzte Beispiel und betrachten nun eine Anwendung der Statistik
+aus dem wirklichen Leben.
+
+\example
+Die Würfel, die an der Berufsakademie zur Notenfindung eingesetzt werden, werden jedes
+Jahr in einem aufwendigen Prozess\footnote{
+Unter den Studenten ist dieser Prozess als die sogenannte \blue{Assistenten-Prüfung} bekannt.} 
+geeicht.  Dazu wird mit dem zu eichenden Würfel 100 mal gewürfelt und die Häufigkeit der
+einzelnen Ziffern wird notiert.  Da bei der BA nur Noten von $1$ bis $5$ vergeben werden,
+handelt es sich bei den verwendeten Würfeln um kostspielige Spezialanfertigungen, mit
+denen sich nur Zahlen aus der Menge $\{1,\cdots,5\}$ würfeln lassen.
+Bei meinem Würfel ergab sich die dabei die folgenden Verteilung der Häufigkeiten:
+\begin{center}
+\begin{tabular}[t]{|l|r|r|r|r|r|}
+\hline
+  Zahl       &  1 &  2 &  3 &  4 &  5  \\
+\hline
+\hline
+  Häufigkeit & 10 & 16 & 14 & 35 & 25  \\
+\hline
+\end{tabular}
+\end{center}
+Wir würden erwarten, dass jede Zahl mit einer durschnittlichen Häufigkeit von $100 \cdot \frac{1}{5} = 20$
+in der Tabelle erscheint, aber es ist auch klar, dass es statistische Schwankungen dieser
+Häufigkeiten geben wird.  Für $i=1,\cdots,5$ bezeichnen wir die Häufigkeit des Auftretens
+der Zahl $i$ mit $X_i$. 
+Als ein Mass für die Abweichung der oben gezeigten Häufigkeiten
+von dem Erwartungswert verwenden wir die Zufalls-Variable $C$, die wir in Analogie zu dem
+letzten Beispiel als 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds C = \sum\limits_{i=1}^{5} \frac{(X_i - 20)^2}{100 \cdot \frac{1}{5}} =
+  \frac{1}{20} \cdot \sum\limits_{i=1}^{5} (X_i - 20)^2$
+\\[0.2cm]
+definieren.  Für meinen Würfel ergibt sich dabei ganz konkret der Wert 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds C = \frac{1}{20} \cdot (10^2 + 4^2 + 6^2 + 15^2 + 5^2)  = \frac{402}{20} = 20.1$
+\\[0.2cm]
+Wir fassen $C$ nun als Zufalls-Variable auf und überlegen uns, wie wahrscheinlich es ist,
+dass die Zufalls-Variable $C$ einen Wert  größer oder gleich $20.1$ annimmt, wir berechnen
+also die Wahrscheinlichkeit 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(C \geq 20.1)$.
+\\[0.2cm]
+Um diese Wahrscheinlichkeit berechnen zu können, müssen wir zunächst eine Annahme machen,
+die uns zeigt, wie die Zufalls-Variablen $X_i$ verteilt sind.  Wir machen die Annahme, dass
+es sich bei dem Würfel um einen Laplace-Würfel handelt, dass also die Wahrscheinlichkeit
+für das Auftreten jeder einzelnen Ziffer den Wert $\frac{1}{5}$ hat.  Diese Annahme
+ist jetzt die zu prüfende \blue{Null-Hypothese}.
+
+Die  Zufalls-Variablen $X_i$ sind dann binomial verteilt und es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl(X_i = k\bigr) = {100 \choose k} \cdot \left(\frac{1}{5}\right)^k \cdot \left(\frac{4}{5}\right)^{100-k}$.
+\\[0.2cm]
+Da $100 \cdot \frac{1}{5} \cdot \frac{4}{5} = 16 > 9$ ist, können wir diese
+Verteilung durch eine Normalverteilung approximiert.  Wir setzen also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \mu = 100 \cdot \frac{1}{5} = 20$ \quad und \quad $\ds \sigma^2 = 100 \cdot \frac{1}{5} \cdot \frac{4}{5} = 16$.
+\\[0.2cm]
+und haben dann für die Verteilung der Zufalls-Variablen $X_i$ die Approximation 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl(X_i \leq k) \approx
+\frac{1}{\sqrt{2\pi\,} \cdot \sigma} \cdot \int_{-\infty}^k  \exp\left( - \frac{(k - \mu)^2}{2 \cdot\sigma^2}\right)\, \dx x$
+\\[0.2cm]
+In Analogie zur letzten Aufgabe kann gezeigt werden, dass die Zufalls-Variable $C$ 
+einer $\chi^2$-Verteilung mit $5 - 1$ Freiheitsgraden genügt. Die $1$, die wir von der $5$
+abziehen, hat ihre Ursache in der Tatsache, dass die fünf Zufalls-Variablen $X_1$, $\cdots$,
+$X_5$ nicht unabhängig sind, denn wenn wir $X_1$,  $X_2$,  $X_3$ und  $X_4$ kennen, dann
+können wir $X_5$ über die Formel $X_1 + X_2 + X_3 + X_4 + X_5 = 100$ berechnen.
+Dies erklärt, dass die $\chi^2$-Verteilung nicht fünf, sondern nur vier Freiheitsgrade hat.
+Wir wollen dieses Ergebnis hier nicht beweisen
+sondern nur darauf hinweisen, dass die Situation ganz ähnlich ist wie im Satz \ref{satz:chi-square-n-minus-1}.
+ Also gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+      P(C \geq 20.1) 
+& = & 1 - P(C < 20.1) \\[0.2cm]
+& = & \ds
+      1 - P\left(C \leq z \right)
+      \quad \mbox{mit $\ds z := 20.1$}
+      \\[0.4cm]
+& = & \ds
+      1 - \int_0^{z} \frac{1}{A_4} \cdot x \cdot \exp\left(-\frac{x}{2}\right)\, \dx x
+      \\[0.4cm]
+&   & \ds \mbox{mit} \quad A_4 = 2^2 \cdot \Gamma(2) = 4
+\end{array}
+$
+\\[0.4cm]
+Wir berechnen das Integral separat: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{cll}
+   & \ds
+     \int_0^z \frac{1}{4} \cdot x \cdot \exp\left(-\frac{x}{2}\right)\, \dx x
+     \quad \mbox{mit der Substitution $y = \frac{x}{2}$ wird daraus} 
+     \\[0.5cm]
+ = & \ds
+     \int_0^{z/2} y \cdot \exp\left(-y\right)\, \dx y
+     \\[0.5cm]
+   & \mbox{partielle Integration: $u(y) = y$, $v'(y) = \exp(-y)$} \\[0.2cm]
+   & \mbox{also: \hspace*{2.4cm}  $u'(y) = 1$, $v(y) = -\exp(-y)$} \\[0.2cm]
+ = & \ds
+     - y \cdot \exp(-y)\Big|_0^{z/2} + \int_0^{z/2}  \exp\left(-y\right)\, \dx y
+     \\[0.5cm]
+ = & \ds
+     - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) + \int_0^{z/2}  \exp\left(-y\right)\, \dx y
+     \\[0.5cm]
+ = & \ds
+     - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) - \left( -\exp(-y)\Big|_0^{z/2} \right) 
+     \\[0.5cm]
+ = & \ds
+     - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) - \exp\left(-\frac{z}{2}\right) + 1 
+\end{array}
+$
+\\[0.2cm]
+Damit finden wir für die gesuchte Wahrscheinlichkeit $P(C \geq 20.1)$ 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  P(C \geq 20.1) 
+& = & \ds
+      1 - \left( - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) - \exp\left(-\frac{z}{2}\right) + 1 \right)
+      \\[0.3cm]
+& = & \ds
+      \left(\frac{z}{2} + 1\right) \cdot \exp\left(-\frac{z}{2}\right)
+      \\[0.3cm]
+& \approx & 4.8 \cdot 10^{-4}
+\end{array}
+$
+\\[0.2cm]
+Diese Wahrscheinlichkeit ist sehr klein.  Dies deutet mit hoher Sicherheit darauf
+hin, dass die Null-Hypothese falsch ist.  Wir müssen daher die Null-Hypothese verwerfen und
+davon ausgehen, dass sich die Wahrscheinlichkeit der einzelnen
+Zahlen bei meinem Würfel deutlich von dem Wert $\frac{1}{5}$ unterscheidet.  
+Also sollte ich mir von den Studiengebühren einen neuen Würfel beschaffen. \qed
+\vspace*{0.3cm}
+
+\noindent
+\textbf{Bemerkung}:  Das in dem obigen Beispiel skizzierte Verfahren
+wird als $\chi^2$-Test bezeichnet.  Die nächste Aufgabe zeigt, wie dieser Test in der Medizin
+angewendet wird.
+\vspace*{0.3cm}
+
+\exercise
+Zur Untersuchung der Frage, ob ein Zusammenhang zwischen Zigaretten-Rauchen und dem Auftreten
+von Lungenkrebs besteht, wurde eine Gruppe von $30\,000$ Rauchern über einen Zeitraum von
+10 Jahren beobachtet.  Am Ende des Tests wurde für jede einzelne Person überprüft, ob
+die Person während des Tests an Lungenkrebs erkrankt ist.  Dabei ergaben sich die
+folgenden Ergebnisse:
+\begin{center}
+  \begin{tabular}[t]{|l||r|r|r|}
+\hline
+                   &   Raucher & Nichtraucher &    Gesamt \\
+\hline
+\hline
+  Lungenkrebs      &      $62$ &         $14$ &      $76$ \\   
+\hline
+  kein Lungenkrebs &  $9\,938$ &    $19\,986$ & $29\,924$ \\
+\hline
+  Gesamt           & $10\,000$ &    $20\,000$ & $30\,000$ \\
+\hline
+  \end{tabular}
+\end{center}
+Die zu testende Null-Hypothese lautet in diesem Fall, dass es 
+zwischen dem Rauchen und dem Auftreten von Lungenkrebs keinen Zusammenhang gibt.
+Folglich hätte die Wahrscheinlichkeit $p$, dass eine Person an Lungenkrebs erkrankt, in
+beiden Fällen den selben Wert.  Im Gegensatz zu dem letzten Beispiel kennen wir den Wert
+von $p$ nicht und müssen ihn daher schätzen.  Als Schätzwert wählen wir das Verhältnis
+der Gesamtzahl der Lungenkrebs-Erkrankungen zu der Zahl aller Test-Personen und erhalten 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p = \frac{76}{30\,000} = 0.25\overline{3}\,\%$.
+\\[0.2cm]
+Überprüfen Sie die Null-Hypothese mit Hilfe des $\chi^2$-Tests.
+\vspace*{0.3cm}
+
+\noindent
+\textbf{Bemerkung}:
+Selbstverständlich handelt es sich bei allen Zahlen, die ich den Beispielen verwende um
+Fakten.  Bei den obigen Zahlen handelt es sich sogar um Fakten, die ich mir nicht selber
+ausgedacht habe.  Sie können diese Zahlen in dem Buch von Sheldon M.~Ross \cite{ross:2004}
+wiederfinden.
+\vspace*{0.2cm}
+
+\solution
+Wir bezeichnen die Anzahl der an Lungenkrebs erkrankten Rauchern mit $X_{1,1}$, die Anzahl der
+Raucher, die nicht erkrankt sind mit $X_{1,2}$, die Anzahl
+der erkrankten Nichtraucher mit $X_{2,1}$ und die Anzahl der Nichtraucher, die nicht erkrankt sind, mit
+$X_{2,2}$.  Weiter sei $N_1$ die Anzahl der Raucher und $N_2$ 
+sei die Anzahl der Nichtraucher, es gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$N_1 = 10\,000$ \quad und \quad $N_2 = 20\,000$.
+\\[0.2cm]
+In Analogie zu den vorigen Beispielen definieren wir die Zufalls-Variable $C$ als 
+\\[0.2cm]
+\hspace*{0.3cm}
+$\ds C = \frac{\bigl(X_{1,1} - N_1 \cdot p\bigr)^2}{N_1 \cdot p} + \frac{\bigl(X_{1,2} - N_1 \cdot (1-p)\bigr)^2}{N_1 \cdot (1 - p)} + 
+                     \frac{\bigl(X_{2,1} - N_2 \cdot p\bigr)^2}{N_2 \cdot p} + \frac{\bigl(X_{2,2} - N_2 \cdot (1-p)\bigr)^2}{N_2 \cdot (1 - p)}$
+\\[0.2cm]
+Setzen wir die konkreten Werte ein, so erhalten wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$C \approx 79.81$
+\\[0.2cm]
+Wie in den vorherigen Beispielen auch hat $C$ eine $\chi^2$-Verteilung, wir müssen aber noch die 
+Anzahl der Freiheitsgrade bestimmen.
+\begin{enumerate}
+\item Wir haben vier Zufalls-Variablen $X_{1,1}$, $X_{1,2}$, $X_{2,1}$ und $X_{2,2}$.
+\item Zwischen diesen vier Zufalls-Variablen gibt es drei verschiedene Beziehungen:
+      \begin{enumerate}
+      \item $X_{1,1} + X_{1,2} = N_1$
+      \item $X_{2,1} + X_{2,2} = N_2$
+      \item $\ds\frac{X_{1,1} + X_{2,1}}{N_1 + N_2} = p$
+      \end{enumerate}
+\end{enumerate}
+Daher hat die $\chi^2$-Verteilung nur $4-3 = 1$ Freiheitsgrad!
+Setzen wir $z:= 79.81$ so gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+      P(C \geq 79.81) 
+& = & P(C \geq z)   \\[0.2cm]
+& = & 1 - P(C < z)   \\[0.2cm]
+& \approx & \ds
+      1 - \int_0^z p_{\chi^2,1}(x)\, \dx x
+      \\[0.5cm]
+& = & \ds
+      1 - \int_0^z \frac{1}{\sqrt{2\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
+\end{array}
+$
+\\[0.2cm]
+Das Integral, das hier auftritt, haben wir bereits zu Beginn dieses Abschnitts berechnet.
+Es gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(C \geq z) \approx 1 - \textsl{erf}\left(\sqrt{\frac{z}{2}}\right) \approx 0.41 \cdot 10^{-18}$
+\\[0.2cm]
+Dieser Wert ist so klein, dass der Zufall als Ursache für die höhere Zahl der
+Lungenkrebs-Erkrankungen bei den Rauchern praktisch ausgeschlossen werden kann.  Das heißt
+natürlich noch lange nicht, dass zwischen dem Rauchen und dem Auftreten von Lungenkrebs
+eine kausale Beziehung besteht, denn die beobachtete Korrelation könnte auch andere
+Ursachen haben:
+\begin{enumerate}
+\item Nehmen wir einmal an, dass Rauchen vor Aids schützt\footnote{
+        Diese Annahme ist keinesweg so absurd wie sie zunächst erscheinen mag,
+        denn bekanntlich macht Rauchen häßlich.}.
+      Wenn dann  die Nichtraucher zu einem nennenswerten Prozentsatz an Aids wegsterben
+      würden, noch bevor Sie ihre Ansprüche auf einen vollwertigen Lungenkrebs realisieren
+      könnten, so würde dies die beobachteten Unterschiede erklären.
+\item Es wäre theoretisch möglich, dass es ein Gen gibt, dass einerseits das Auftreten von
+      Lungenkrebs begünstigt, andererseits aber auch den gesunden Menschenverstand
+      dahingehend beeinträchtigt, dass Personen, die dieses Gen besitzen, verstärkt zu 
+      Rauchern werden.  Wenn dies der Fall wäre, so würde es einem Raucher wenig nützen,
+      wenn er das Rauchen aufgibt, denn einerseits würde sich dadurch sein Risiko,
+      an Lungenkrebs zu erkanken, nicht ändern und andererseits würde sich auch sein
+      Intelligenz-Quotient nicht erhöhen.  Das einzige was sich erhöhen würde, wäre das
+      Risiko an Aids zu erkanken.
+
+      Einer der größten Statistiker des letzten Jahrhunderts, Sir Ronald Fisher (1890 -
+      1962), war tatsächlich der Ansicht, dass die
+      Korrelation zwischen dem Rauchen und dem Auftreten von Lungenkrebs 
+      genetisch bedingt ist.  Der Fairness halber soll erwähnt werden, dass zu dem
+      Zeitraum, an dem Sir Ronald diese Hypothese aufstellte, der medizinische
+      Wissensstand noch keine klare Aussage zuließ.  Der Vollständigkeit halber soll 
+      allerdings auch erwähnt werden, dass Sir Ronald bei der Tabak-Industrie unter
+      Vertrag stand und selber ein leidenschaftlicher Zigarren-Raucher war.
+      Und um die Geschichte abzuschließen, bemerken wir noch, dass Sir Ronald
+      dann auch nicht an Lungenkrebs gestorben ist, sondern an Kehlkopfkrebs.
+      Dies ist die bevorzugte Krebsart bei Zigarren-Rauchern und hat in etwa den selben
+      Spaßfaktor wie Lungenkrebs. \qed
+\end{enumerate}
+
+\noindent
+Wir fassen die bisherigen Beispiele in einem Satz zusammen, den wir allerdings nicht
+beweisen können.
+
+\begin{Satz}[$\chi^2$-Test]
+  Es seien $n$ verschiedene Zufalls-Variablen $X_1$, $\cdots$, $X_n$ gegeben.
+  Weiter sei eine Null-Hypothese $H_0$ gegeben.  Wenn diese Hypothese zutrifft, dann
+  gelte:
+  \begin{enumerate}
+  \item Die Zufalls-Variablen genügen (zumindest näherungsweise) einer Normalverteilung.
+  \item Zwischen den Zufalls-Variablen bestehen $k$ \blue{unabhängige} Beziehungen.
+
+        Mit \blue{unabhängig} ist hier gemeint, dass keine der Beziehungen aus den 
+        restlichen $k-1$ Beziehungen gefolgert werden kann.
+  \end{enumerate}
+  Dann genügt die Zufalls-Variable
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds C = \sum\limits_{i=1}^n \frac{(X_i - E[X_i])^2}{E[X_i]}$
+  \\[0.2cm]
+  einer $\chi^2$-Verteilung mit $n - k$ Freiheitsgraden.  Nimmt die Zufalls-Variable also
+  einen bestimmen Wert $z$ an, so gilt für die Wahrscheinlichkeit, dass $C \geq z$ ist
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds P(C \geq z) = 1 - \int_0^z p_{\chi^2_{n-k}}(x)\,\dx x$. 
+  \\[0.2cm]
+  Ist diese Wahrscheinlichkeit kleiner als ein vorgegebener Wert $\alpha$
+  (in der Praxis nimmt man oft $\alpha = 0.05$, $\alpha = 0.01$ oder $\alpha = 0.001$),
+  so sagen wir, dass die Null-Hypothese auf dem Signifikanz-Niveau $\alpha$ verworfen
+  werden kann.
+  \qed
+\end{Satz}
+
+\exercise
+Besuchen Sie im Internet die Seite 
+\\[0.2cm]
+\hspace*{1.3cm}
+\texttt{http://www.cemetery.org/alphaindex.html}
+\\[0.2cm]
+Bei dieser Seite handelt es sich um einen virtuellen Friedhof.  Notieren Sie 
+die Wochentage des Ablebens der Verblichenen.  Überprüfen Sie die Hypothese,
+dass für den Todestag eines Menschen alle Wochentage die selbe Wahrscheinlichkeit haben
+mit Hilfe des $\chi^2$-Tests und interpretieren Sie das Ergebnis.
+\qed
+
+\section{Die Verteilung des Mittelwerts für endliche Populationen}
+Wir betrachten das folgende Problem: Gegeben ist eine Population
+\\[0.3cm]
+\hspace*{1.3cm}
+$\Omega := \{\omega_1, \cdots, \omega_N\}$
+\\[0.3cm]
+mit $N$ Elementen, der eine zufällige Stichprobe vom Umfang $n \leq N$
+entnommen wird.  Auf $\Omega$ sei ein Merkmal $X$ definiert.  Mit $X_i$ bezeichnen
+wir dann den Wert, den dieses Merkmal für das $i$-te Element der Stichprobe annimmt.
+Wir wollen den
+Erwartungswert des arithmetischen Mittelwert 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\overline{X} := \frac{1}{n} \sum\limits_{i=1}^n X_i$
+\\[0.3cm]
+und die Varianz des arithmetischen Mittelwerts berechnen.
+Wir setzen 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\ds \mu := \frac{1}{N} \cdot \sum\limits_{i=1}^N X(\omega_i)$ \quad und \quad
+$\ds \sigma^2 := \frac{1}{N} \cdot \sum\limits_{i=1}^N \bigl(X(\omega_i) - \mu\bigr)^2$.
+\\[0.3cm]
+Entnehmen wir der Menge $\Omega$ eine Stichprobe vom Umfang $n$, so bezeichnen
+wir das $i$-te entnommene Element mit $O_i$.  Der Ergebnisraum für das Zufalls-Experiment
+``Entnahme einer Liste $[O_1,\cdots,O_n]$'' aus der Menge $\Omega$
+besteht dann aus allen Listen der Länge $n$, in denen jedes Element von $\Omega$ höchstens
+einmal vorkommt. Die Zahl der möglichen Listen ist dann durch 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\ds N \cdot (N-1) \cdot \dots \cdot (N-n+1) = \frac{N!}{(N-n)!}$
+\\[0.3cm]
+gegeben.  Eine zufällige Stichprobe ist dadurch gekennzeichnet, dass alle diese Listen
+die selbe Wahrscheinlichkeit haben.  Damit hat die Wahrscheinlichkeit, dass eine bestimmte
+Liste gewählt wird, den Wert 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\ds \frac{(N-n)!}{N!}$
+\\[0.3cm]
+Für das Folgende benötigen wir die Wahrscheinlichkeit  dafür, dass das $i$-te Element
+der Liste einen bestimmten Wert $a \in \Omega$ und das  $j$-te Element
+der Liste einen anderen Wert $b \in \Omega$ hat.  Diese Wahrscheinlichkeit schreibt sich
+\\[0.3cm]
+\hspace*{1.3cm}
+$P(O_i = a \wedge O_j = b)$
+\\[0.3cm] 
+Es sei $\Lambda$ die Menge aller Listen, der Länge $n$ mit Elementen aus $\Omega$, deren
+$i$-tes  Element $a$ ist, deren $j$-tes  Element $b$ ist und deren Elemente alle
+verschieden sind.  Offenbar hat die Anzahl der Elemente von $\Lambda$ den Wert 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\ds
+ |\Lambda| = (N - 2) \cdot (N - 3) \cdot \dots \cdot ((N-2)- (n-2) + 1) = \frac{(N-2)!}{(N-n)!}$
+\\[0.3cm]
+Damit gilt 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\ds P(O_i = a \wedge O_j = b) = \frac{|\Lambda|}{\frac{N!}{(N-n)!}} = 
+  \frac{(N-2)!}{(N-n)!} \cdot \frac{(N-n)!}{N!} = \frac{1}{N \cdot (N - 1)}$
+\\[0.3cm]
+Damit können wir jetzt die Kovarianz der Zufalls-Variablen $X_i$ und $X_j$ für $i\not=j$
+berechnen.  Da der Erwartungswert von $X_i$ und $X_j$ offenbar den Wert $\mu$ hat, gilt
+\\[0.3cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+      \mathtt{Cov}(X_i,X_j) 
+& = & \ds
+      E[(X_i - \mu) \cdot (X_j - \mu)]
+      \\[0.2cm]
+& = & \ds
+      \sum\limits_{a=1}^N \sum\limits_{b=1 \atop b \not = a}^N 
+      P(O_i = \omega_a \wedge O_i = \omega_b) \cdot 
+      \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_b) - \mu\bigr)
+      \\[0.2cm]
+& = & \ds
+      \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N \sum\limits_{b=1 \atop b \not = a}^N 
+      \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_b) - \mu\bigr)
+      \\[0.2cm]
+& = & \ds
+      \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N  
+      \bigl(X(\omega_a) - \mu\bigr) \cdot 
+      \sum\limits_{b=1 \atop b \not = a}^N \bigl(X(\omega_b) - \mu\bigr)
+      \\[0.2cm]
+& = & \ds
+      - \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N  
+      \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_a) - \mu\bigr)
+      \\[0.2cm]
+& = & \ds
+      - \frac{1}{N - 1} \cdot \sigma^2
+\end{array}
+$
+\\[0.3cm]
+Dabei haben wir im vorletzten Schritt ausgenutzt, dass gilt
+\\[0.3cm]
+\hspace*{1.3cm}
+$\sum\limits_{b=1 \atop b \not = a}^N \bigl(X(\omega_b) - \mu\bigr) =
+ \sum\limits_{b=1}^N \bigl(X(\omega_b) - \mu\bigr) - \bigl(X(\omega_a) - \mu\bigr) = 
+ - \bigl(X(\omega_a) - \mu\bigr)$.
+\\[0.3cm]
+
+\begin{Satz}
+  Wird einer Population der Größe $N$ eine Stichprobe vom Umfang $n$ entnommen,
+  so gilt für den arithmetischen Mittelwert $\overline{X}$:
+\\[0.3cm]
+\hspace*{1.3cm}
+  $E[\overline{X}] = \mu$ \quad und \quad
+  $\ds \mathrm{Var}[\overline{X}] = \frac{\sigma^2}{n} \cdot \frac{N - n}{N - 1}$ .
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Nachrechnen. \qed
+
+\exercise
+Es sei $\Omega = \{ 1, \cdots, N \}$ und das Merkmal $X$ sei definiert als $X( i) := i$.
+Zeigen Sie, dass gilt:
+\\[0.3cm]
+\hspace*{1.3cm}
+$\ds E[\overline{X}] = \frac{1}{2} \cdot (N + 1)$ \quad und \quad
+$\ds \mathrm{Var}[\overline{X}] = \frac{1}{12} \cdot \frac{(N+1) \cdot (N - n)}{n}$.
+\\[0.3cm]
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 

@@ -1,0 +1,9 @@
+restart;
+with(plots):
+m := 60;
+P := n -> evalf(1 - 365!/((365-n)!*365^n));
+for n from 1 to m do
+    print(n, P(n));
+end do;
+points := [seq( [ n, P(n)], n = 1..m), [m,0]]:
+polygonplot( points);

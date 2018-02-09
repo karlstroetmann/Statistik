@@ -1,0 +1,15 @@
+// Compute n choose k.
+choose := procedure(n, k) {
+    if (k < 0 || k > n) {
+        return 0;
+    }
+    return n! / ((n - k)! * k!);
+};
+        
+binonomialPDF := procedure(n, k, p) {
+    return choose(n, k) * p ** k * (1 - p) ** (n - k);
+};
+
+binonomialCDF := procedure(n, k, p) {
+    return 0 +/ [binonomialPDF(n, i, p) : i in [0 .. k]];
+};

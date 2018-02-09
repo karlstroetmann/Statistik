@@ -1,0 +1,54 @@
+restart;
+
+memory := array[100, 600];
+
+for n from 1 to 100 do
+    for s from n to 6*n do
+        memory[n,s] := -1;
+    end do;
+end do;
+
+# Die Prozedur anzahl(n,s) berechnet die Anzahl der Möglichkeiten, die
+# es gibt um mit n Würfeln eine Augensumme von insgesamt s zu würfeln.
+anzahl := proc(n, s)
+global memory;
+local  result, i;
+    if s < n or s > 6 * n then
+        return 0;
+    end if;
+    if n = 1 then
+        return 1;
+    end if;
+    if memory[n,s] > 0 then
+        return memory[n,s];
+    end if;
+    result := 0;
+    for i from 1 to 6 do
+        result := result + anzahl(n - 1, s - i);
+    end do;
+    memory[n, s] := result;
+    return result;
+end proc;
+
+# Die Prozedur probSum(n,s) berechnet die Wahrscheinlichkeit für das
+# Ereignis, dass bei einem Wurf mit n Würfeln die Augensumme den Wert
+# s annimmt.
+probSum := proc(n, s)
+    return anzahl(n,s) / 6^n;
+end proc;
+
+with(plots):
+
+# Die Prozedur plotProbability(n) erstellt einen Plot für die
+# Wahrscheinlichkeiten für das Ereignis, dass bei einem Wurf mit n
+# Würfeln die Augensumme den Wert s annimmt.
+plotProbability := proc(n)
+    local points;
+    points := [ [n-1,0], seq( [k, probSum(n,k)], k = n .. 6*n), [6*n+1,0] ];
+    polygonplot(points);
+end proc;
+
+for n from 2 to 10 do
+    print(n, " Würfel");
+    plotProbability(n);
+end do;

@@ -1,0 +1,12 @@
+restart;
+with(plots):
+M := 40000;
+K :=   200;
+F :=  1000;
+n :=    17;
+P := k -> evalf(binomial(F, k) * binomial(M - F, K - k) / binomial(40000,K));
+for k from 0 to n do
+    print(k, P(k));
+end do;
+points := [[0,0],seq( [ k, P(k) ], k = 0..n), [n,0]]:
+polygonplot( points );

@@ -1,0 +1,231 @@
+\section[Berechnung der Binomial-Koeffizienten]{Praktische Berechnung von Fakultät und \\ Binomial-Koeffizienten}
+In der Wahrscheinlichkeits-Rechnung verfolgen uns die Fakultät und die 
+Binomial-Koeffizienten auf Schritt und Tritt.  Für kleine Werte von $n$ können wir $n!$
+und ${n \choose k}$ problemlos mit dem Taschenrechner ausrechnen.  Aber schon bei der
+Lösung von Aufgabe 5 stößt der Taschenrechner an seine Grenzen, denn der Ausdruck 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds {40\,000 \choose 200}$,
+\\[0.1cm]
+der bei der Lösung dieser Aufgabe im Nenner auftritt, liefert eine ganze Zahl mit 545
+Stellen.  Zwar kann \textsc{SetlX} solche Zahlen noch mühelos berechnen, aber in vielen andern
+Programmier-Sprachen können Sie mit solchen Zahlen nicht mehr arbeiten.   Wir stellen daher in diesem Abschnitt
+eine Näherungs-Formel für die Fakultät und für den Binomial-Koeffizienten vor. 
+Wir beginnen mit einer Approximation der Fakultät.
+Die klassische \href{https://de.wikipedia.org/wiki/Stirlingformel}{Näherung von Stirling} 
+(\href{https://de.wikipedia.org/wiki/James_Stirling_(Mathematiker)}{James Stirling}; 1692 - 1770) lautet  
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds n! \approx \sqrt{2 \cdot \pi \cdot n\,} \cdot \left(\frac{n}{\mathrm{e}}\right)^n$.
+\\[0.1cm]
+Hier bezeichnet $\mathrm{e}$ die \href{https://de.wikipedia.org/wiki/Eulersche_Zahl}{Eulersche Zahl}.
+Genauer ist die Formel des ungarischen Mathematikers 
+\href{https://en.wikipedia.org/wiki/Cornelius_Lanczos}{Cornelius Lanzcos} (1893 - 1974). 
+Diese Formel lautet:  
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds n! \approx \sqrt{2 \cdot \pi\;} \cdot \left(\frac{n+ \frac{1}{2}}{\mathrm{e}}\right)^{n+\frac{1}{2}}$.
+\\[0.1cm]
+Die Formel auf der rechten Seite approximiert die Fakultät in dem folgenden Sinne: Es gilt
+\\[0.3cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n\rightarrow \infty} \frac{\sqrt{2 \cdot \pi\;} \cdot
+  \left(\frac{n+ \frac{1}{2}}{e}\right)^{n+\frac{1}{2}}}{n!} = 1$.
+\\[0.3cm]
+Für eine Herleitung dieser Formeln bleibt uns leider nicht die Zeit.  Oft sind die
+Fakultäten so groß, dass Sie nicht mehr auf dem Taschenrechner dargestellt werden können.
+Sie treten dann meist in Brüchen auf und der zu berechnende Bruch ist durchaus noch
+darstellbar. Dann kann es hilfreich sein, zum Logarithmus überzugehen.   Um beispielsweise
+${n \choose k}$ zu berechnen, gehen wir wie folgt vor: 
+\begin{equation}
+  \label{eq:binappr}  
+\begin{array}[b]{lcl}
+\ds 
+ {n \choose k} & = & \ds \frac{n!}{k! \cdot (n-k)!} \\[0.3cm]
+                & = & \ds \exp\left(\ln\left(\frac{n!}{k! \cdot (n-k)!}\right)\right) \\[0.3cm]  
+                & = & \ds \exp\Bigl(\ln\bigl(n!\bigr) - \ln\bigl(k!\bigr) - \ln\bigl((n-k)!\bigr)\Bigr) \\[0.3cm]  
+\end{array}
+\end{equation}
+Zu Berechnung der verschiedenen Fakultäten in dieser Formel wenden wir auf die Näherungsformel von Lanzcos den
+Logarithmus an und erhalten 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds \ln\bigl(n!\bigr) \approx  \frac{1}{2}\cdot\ln(2\cdot \pi) + \left(n+\frac{1}{2}\right) \cdot \left( \ln\Bigl(n + \frac{1}{2}\Bigr) - 1 \right)$.
+\\[0.1cm]
+Setzen wir diesen Wert in Gleichung (\ref{eq:binappr}) ein, so  können wir den
+Binomial-Koeffizienten approximieren.
+Berechnen wir ${100 \choose 50}$ auf diese Weise, so erhalten wir 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds {100 \choose 50} \approx 1.007667751 \cdot 10^{29}$.
+\\[0.1cm]
+Der exakte Wert ist
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds {100 \choose 50} = 100\,891\,344\,545\,564\,193\,334\,812\,497\,256$
+\\[0.1cm]
+und der relative Fehler liegt bei $1.2$\textperthousand.  Bei der Berechnung von
+Wahrscheinlichkeiten sind solche Genauigkeiten meistens ausreichend.
+
+Noch einfacher können Binomial-Koeffizienten über die Formel 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\ds
+ {n \choose k} \approx \sqrt{\frac{2}{\pi \cdot n}} \cdot 2^n \cdot \exp\left(-\frac{\bigl(k - \frac{1}{2}\cdot
+     n\bigr)^2}{\frac{1}{2}\cdot n}\right)$.
+\\[0.3cm]
+berechnet werden.  Diese Formel geht auf 
+\href{https://en.wikipedia.org/wiki/Abraham_de_Moivre}{Abraham de Moivre} (1667 - 1754) 
+zurück.  Diese Näherung liefert brauchbare Werte sobald die
+Bedingung $n > 36$ erfüllt ist.  Die Werte sind am genauesten für $k \approx \frac{n}{2}$.
+Berechnen wir mit dieser Formel eine Näherung für ${100 \choose 50}$, so erhalten wir 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds {100 \choose 50} \approx 1.0114388424145895 \cdot 10^{29}$.
+\\[0.1cm]
+Diesmal liegt der relative Fehler bei $2.5$\textperthousand\ und ist damit doppelt so hoch
+wie bei der Verwendung der Formel von Lanzcos.
+
+Der Binomial-Koeffizient tritt oft in Termen der Form 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} \cdot p^k \cdot (1-p)^{n-k}$ 
+\\[0.1cm]
+auf.  
+Für diesen Fall gibt es noch eine Approximations-Formel, die einfacher zu handhaben
+ist.  Die Formel lautet 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} \cdot p^k \cdot (1-p)^{n-k} 
+  \approx \frac{1}{\sqrt{2\cdot \pi \cdot n \cdot p \cdot (1-p)\;}} \cdot 
+          \exp\left(-\frac{(k - n \cdot p)^2}{2 \cdot n \cdot p \cdot (1 - p)}\right)$
+\\[0.1cm]
+und geht auf \href{https://en.wikipedia.org/wiki/Pierre-Simon_Laplace}{Pierre Simon Laplace} (1749 - 1827)
+zurück.  Diese Näherung liefert brauchbare Werte sobald die Bedingung
+\\[0.1cm]
+\hspace*{1.3cm}
+$n \cdot p \cdot (1 - p) > 9$
+\\[0.1cm]
+erfüllt ist.  Für $p= \frac{1}{2}$ geht diese Formel in die von de Moivre angegebene
+Formel über.  Die Werte, die mit dieser Formel berechnet werden, sind am brauchbarsten für
+die Werte von $k$, die in der Nähe von $n \cdot p$ liegen.
+
+Normalerweise interessiert uns nicht eine einzelne Wahrscheinlichkeit der Form 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} \cdot p^k \cdot (1 - p)^{n-k}$,
+\\[0.1cm]
+sondern wir wollen vielmehr wissen, welchen Wert ein Ausdruck der Form 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{i=0}^k {n \choose i} \cdot p^i \cdot (1 - p)^{n-i}$
+\\[0.1cm]
+annimmt, denn dieser Ausdruck gibt die Wahrscheinlichkeit dafür an, dass bei einer
+Binomial-Verteilung bei einer $n$-fachen Durchführung eines Experiments 
+ein Ergeignis höchstens $k$-mal auftritt.  Wir wollen daher jetzt eine Näherung für diese
+Summe herleiten.  Dazu definieren wir zunächst 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds F^n_p(k) := \sum\limits_{i=0}^k {n \choose i} \cdot p^i \cdot (1 - p)^{n-i}$.
+\\[0.1cm]
+Die Funktion $F^n_p(k)$ bezeichnen wir auch als die \blue{Verteilungsfunktion}.
+Um die nachfolgende Rechnung zu vereinfachen, definieren wir zur Abkürzung 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\mu := n \cdot p$, \quad $q := 1 - p$ \quad und \quad $\sigma := \sqrt{n \cdot p \cdot q\,}$.
+\\[0.1cm]
+Allgemein läßt sich eine Summe der Form $\sum_{i=0}^k f(i)$ wie folgt durch ein Integral
+approximieren: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{i=a}^b f(i) \approx \int_{a-\frac{1}{2}}^{b+\frac{1}{2}} f(t)\dx t$
+\\[0.1cm]
+Wir approximieren nun in der Definition der Verteilungsfunktion $F^n_p(k)$ einerseits den
+Binomial-Koeffizienten durch die Formel von Laplace und andererseits nähern wir die Summe
+durch ein Integral an.  Dann erhalten wir 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ F^n_p(k) & =       & \ds 
+                      \sum\limits_{i=0}^k {n \choose i} \cdot p^i \cdot (1 - p)^i \\[0.5cm]
+          & \approx & \ds 
+                      \sum\limits_{i=0}^k \frac{1}{\sqrt{2 \, \pi \,n \, p \, (1-p)\;}} \cdot \exp\left(-\frac{(i - n \cdot p)^2}{2 \, n \, p \,(1 - p)}\right) \\[0.5cm]
+          & =       & \ds
+                      \sum\limits_{i=0}^k \frac{1}{\sqrt{2\, \pi\;} \cdot \sigma} \cdot \exp\left(-\frac{(i - \mu)^2}{2\, \sigma^2}\right) \\[0.5cm]
+          & \approx & \ds
+                      \int_{-\frac{1}{2}}^{k+\frac{1}{2}} \frac{1}{\sqrt{2\, \pi\;} \cdot \sigma} \cdot \exp\left(-\frac{(u - \mu)^2}{2\, \sigma^2}\right)\dx u \\[0.5cm]
+          & =       & \ds
+                      \frac{1}{\sqrt{2\, \pi\;} \cdot \sigma} \cdot \int_{-\frac{1}{2}}^{k+\frac{1}{2}} \exp\left(-\frac{(u - \mu)^2}{2\, \sigma^2}\right)\dx u \\[0.5cm]
+\end{array}
+$
+\\[0.1cm]
+Das hier auftretende Integral vereinfachen wir, indem wir die Variablen-Substitution 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds t(u) = \frac{u - \mu}{\sigma}$, \quad also $\dx t = \frac{1}{\sigma} \dx u$\quad $\sigma\dx t = \dx u$
+\\[0.1cm]
+durchführen.  Setzen wir hier für $u$ die Grenzen $-\frac{1}{2}$ bzw. $k+\frac{1}{2}$ ein,
+so erhalten wir 
+\\[0.1cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ F^n_p(k) & = & \ds \frac{1}{\sqrt{2\, \pi\;} \cdot \sigma} \cdot 
+                \int\limits_{(-\frac{1}{2}-\mu)/\sigma}^{(k+\frac{1}{2}-\mu)/\sigma} \exp\left(-\frac{t^2}{2}\right)\,\sigma\dx t \\[0.75cm]
+ 
+          & = & \ds \frac{1}{\sqrt{2\, \pi\;}} \cdot 
+                \int\limits_{(-\frac{1}{2}-\mu)/\sigma}^{(k+\frac{1}{2}-\mu)/\sigma} \exp\left(-\frac{t^2}{2}\right)\dx t 
+\end{array}
+$
+\\[0.1cm]
+Um an dieser Stelle weiter zu kommen, benötigen wir die Gauß'sche Integralfunktion
+$\Phi(x)$.  Diese Funktion wird wie folgt definiert: 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds \Phi(x) = \frac{1}{\sqrt{2\,\pi}} \cdot \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right)\dx t$
+\\[0.1cm]
+Damit haben für die Verteilungsfunktion $F^n_p(k)$ die Näherung
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds  F^n_p(k) = \Phi\Biggl(\frac{k+\frac{1}{2}-\mu}{\sigma}\Biggr) -   \Phi\Biggl(\frac{-\frac{1}{2}-\mu}{\sigma}\Biggr)$
+\\[0.1cm]
+gefunden.  Berücksichtigen wir noch, dass $\mu = n \cdot p$ und $\sigma = \sqrt{n\,p\,q}$ gilt und
+bedenken, dass wir eine Näherung für große Werte von $n$ suchen, so gilt 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds \Phi\left(\frac{-\frac{1}{2}-\mu}{\sigma}\right) =
+  \Phi\left(\frac{-\frac{1}{2}-n\,p}{\sqrt{n\,p\,q}}\right) 
+  \stackrel{\ds\longrightarrow}{_{n \rightarrow \infty}} \Phi\left(-\infty\right) = 0$
+\\[0.1cm]
+Damit lautet unsere Näherung für die Verteilungsfunktion $F^n_p(k)$ 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\ds F^n_p(k) \approx \Phi\Biggl(\frac{k+\frac{1}{2}- n\,p}{\sqrt{n\,p\,q\,}}\Biggr)$.
+\\[0.1cm]
+In dieser Formel wird häufig die sogenannte \emph{Stetigkeits-Korrektur} $\frac{1}{2}$
+weggelassen, denn gegenüber dem Term $n\,p$ fällt diese kaum ins Gewicht.
+Wir werden also im folgenden die Näherung
+\\[0.3cm]
+\hspace*{1.3cm}
+\framebox{$\ds F^n_p(k) \approx \Phi\Biggl(\frac{k- n\,p}{\sqrt{n\,p\,q\,}}\Biggr)$}
+\\[0.3cm]
+verwenden.  Die $\Phi$-Funktion ist in \textsc{SetlX} vordefiniert und hat dort den Namen
+\texttt{stat\_normalCDF}.  Diese Funktion wird mit drei Parametern aufgerufen.  Es gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Phi(x) = \mathtt{stat\_normalCDF}(x, 0, 1)$.
+\\[0.2cm]
+Damit sind wir jetzt in der Lage, auch interessantere Aufgaben aus der
+Wahrscheinlichkeits-Rechnung numerisch zu lösen. 
+
+\exercise
+Angenommen, wir würfeln $n$ mal mit einem Laplace-Würfel.  Wie gross muss $n$ gewählt
+werden, damit wir mit einer  Wahrscheinlichkeit von $99\%$ davon ausgehen können, 
+dass mindestens $\frac{n}{7}$ mal eine Sechs  gewürfelt wird?
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 

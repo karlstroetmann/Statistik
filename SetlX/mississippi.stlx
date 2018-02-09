@@ -1,0 +1,19 @@
+// How many ways are there to reorder the characters in "MISSISSIPPI"?
+
+// If we don't use a chached procedure here, the computation takes more
+// than 150 times longer.
+permutation := cachedProcedure(s) {
+    if (s == "") {
+        return { "" };
+    }
+    Result := {};
+    for (i in [1 .. #s]) {
+        rest := s[.. (i-1)] + s[(i+1) ..];
+        Result += { s[i] + w : w in permutation(rest) };
+    }
+    return Result;
+};
+s := "MISSISSIPPI";
+print(#permutation(s));
+
+print(11! / (4! * 4! * 2!));

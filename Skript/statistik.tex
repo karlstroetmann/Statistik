@@ -1,0 +1,179 @@
+\documentclass{report}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\usepackage{enumerate}
+\usepackage{a4wide}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{textcomp}
+\usepackage{fancyvrb}
+\usepackage{alltt}
+\usepackage{fleqn}
+\usepackage{epsfig}
+\usepackage{theorem}
+\usepackage{color}
+\usepackage{hyperref}
+
+\usepackage[all]{hypcap}
+\hypersetup{
+	colorlinks = true, % comment this to make xdvi work
+	linkcolor  = blue,
+	citecolor  = red,
+        filecolor  = blue,
+        urlcolor   = [rgb]{0.5, 0.0, 0.5},
+	pdfborder  = {0 0 0} 
+}
+\usepackage{fancyhdr}
+\usepackage{lastpage} 
+
+\renewcommand*{\familydefault}{\sfdefault}
+
+\pagestyle{fancy}
+
+\fancyfoot[C]{--- \thepage/\pageref{LastPage}\ ---}
+
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyfoot[C]{--- \thepage/\pageref{LastPage}\ ---}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername \ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection. \ #1}{}}
+\fancyhead[R]{\leftmark}
+\fancyhead[L]{\rightmark}
+
+\definecolor{amethyst}{rgb}{0.2, 0.4, 0.6}
+\definecolor{orange}{rgb}{1, 0.9, 0.0}
+\newcommand{\blue}[1]{{\color{blue}#1}}
+\newcommand{\red}[1]{{\color{red}#1}}
+
+\newcommand{\next}{\vspace*{0.1cm}
+
+\noindent}
+
+\newcommand{\exercise}{\vspace*{0.2cm}
+\stepcounter{aufgabe}
+
+\noindent
+\textbf{Aufgabe \arabic{aufgabe}}: }
+
+\newcommand{\proof}{\vspace*{0.2cm}
+
+\noindent
+\textbf{Beweis}: }
+
+\newcommand{\remark}{\vspace*{0.2cm}
+
+\noindent
+\textbf{Bemerkung}: }
+
+\newcommand{\solution}{\vspace*{0.2cm}
+
+\noindent
+\textbf{Lösung}: }
+
+\newcommand{\example}{\vspace*{0.2cm}
+
+\noindent
+\textbf{Beispiel}: \ }
+
+\newcommand{\Nms}{N_{\mbox{\scriptsize$\mu,\sigma$}}}
+\newcommand{\dx}{\,\textrm{d}}
+\newcommand{\bruch}[2]{\frac{\displaystyle#1}{\displaystyle #2}}
+\newcommand{\folge}[1]{\bigl(#1\bigr)_{n\in\mathbb{N}}}
+\def\pair(#1,#2){\langle #1, #2 \rangle}
+
+\newcommand{\qed}{\hspace*{\fill} $\Box$
+\vspace*{0.2cm}
+
+}
+\newcommand{\qeds}{\hspace*{\fill} $\Box$}
+\newcommand{\eox}{\hspace*{\fill} $\diamond$
+\vspace*{0.2cm}
+
+}
+\newcommand{\eoxs}{\hspace*{\fill} $\diamond$}
+
+\newcommand{\var}{\mathrm{Var}}
+\newcommand{\ds}{\displaystyle}
+
+
+{\theorembodyfont{\em}
+\newtheorem{Definition}{Definition}
+\newtheorem{Satz}[Definition]{Satz}
+\newtheorem{Lemma}[Definition]{Lemma}
+}
+
+\newcounter{aufgabe}
+
+\title{Wahrscheinlichkeits-Rechnung und Statistik \\[0.3cm]
+       {\large --- Eine Einführung --- \\ }
+       {\large Unterlagen für das Sommersemester 2018}
+     }
+\author{Prof.~Dr.~Karl Stroetmann}
+\date{today}
+
+\date{\today\\[1.5cm]
+\begin{minipage}[t]{1.0\linewidth}
+\noindent
+Dieses Skript ist einschließlich der \LaTeX-Quellen sowie der in diesem Skript diskutierten
+Programme unter
+\\[0.2cm]
+\hspace*{1.3cm}
+\href{https://github.com/karlstroetmann/Statistik}{\texttt{https://github.com/karlstroetmann/Statistik}}
+\\[0.2cm]
+im Netz verfügbar.  Das Skript selbst finden Sie in dem Unterverzeichnis
+\href{https://github.com/karlstroetmann/Statistik/tree/master/Skript}{Skript}.
+Dort ist das Skript in der Datei
+\href{https://github.com/karlstroetmann/Lineare-Algebra/blob/master/Statistik/statistik.pdf}{\texttt{statistik.pdf}}
+abgespeichert.
+Wenn Sie auf Ihrem Rechner \href{http://git-scm.com/download}{\texttt{git}}
+installieren und mein Repository mit Hilfe des Befehls
+\\[0.2cm]
+\hspace*{1.3cm}
+\mbox{\texttt{git clone https://github.com/karlstroetmann/Statistik.git}}
+\\[0.2cm]
+klonen, dann können Sie durch den Befehl
+\\[0.2cm]
+\hspace*{1.3cm}
+\texttt{git pull}
+\\[0.2cm]
+die aktuelle Version meines Skriptes aus dem Netz laden.  Falls Sie Fehler in dem Skript finden,
+so bin ich für Hinweise an die Email-Adresse
+\\[0.2cm]
+\hspace*{1.3cm}
+\texttt{karl.stroetmann@dhbw-mannheim.de} 
+\\[0.2cm]
+dankbar.  Wer sich mit \href{https://en.wikipedia.org/wiki/Git}{git} und
+\href{https://www.latex-project.org}{\LaTeX} auskennt, darf mir auch gerne einen 
+\href{https://help.github.com/articles/about-pull-requests/}{Pull-Request} schicken.
+\end{minipage}
+}
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\include{einfuehrung}
+\include{wahrscheinlichkeits-rechnung}
+\include{moivre-laplace}
+\include{bayes}
+\include{binomial}
+\include{stetig}
+\include{induktiv}
+\include{markov}
+\include{rank}
+
+\bibliographystyle{alpha}
+\bibliography{cs}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 

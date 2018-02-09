@@ -1,0 +1,1586 @@
+\chapter{Bedingte Wahrscheinlichkeiten}
+In diesem Abschnitt beantworten wir die folgende Frage: Es sei ein
+Wahrscheinlichkeits-Raum $\langle \Omega, 2^\Omega, P \rangle$ gegeben.  Wir
+betrachten ein Ereignis $A\in 2^\Omega$.  Angenommen wir erfahren nun, dass ein
+Ereignis $B$ eingetreten ist.  Wie verändert sich durch diese Information die
+Wahrscheinlichkeit für das Eintreten des Ereignisses $A$?  Die 
+Wahrscheinlichkeit für das Eintreten von $A$ unter der Voraussetzung, dass $B$
+bereits eingetreten ist, bezeichnen wir mit
+\\[0.2cm]
+\hspace*{1.3cm} $P(A|B)$.
+
+\example Wir betrachten das Zufalls-Experiment ``\blue{Wurf eines
+  Laplace-Würfels}'' mit dem Ergebnis-Raum $\Omega = \{1,\cdots,6\}$.  Es sei $A$
+das Ereignis, dass eine 6 gewürfelt wird, also $A = \{6\}$.  Da wir
+vorausgesetzt haben, dass es sich um einen Laplace-Würfel handelt, gilt 
+\\[0.2cm]
+\hspace*{1.3cm} $\ds P(A) = \frac{1}{6}$.
+\\[0.2cm]
+Es sei weiterhin $B$ das Ereignis, dass die Augenzahl größer als 4 ist, also
+$B = \{5,6\}$.  Wir nehmen nun an, dass der Würfel geworfen wird und wir gesagt
+bekommen, dass das Ereignis $B$ eingetreten ist.  Das genaue Ergebnis des
+Zufalls-Experiments ist uns allerdings nicht bekannt.  Da dann nur noch zwei Möglichkeiten für das Ergebnis 
+bleiben, nämlich die Zahlen 5 und 6, würden wir in dieser neuen Situation dem
+Ereignis $A$ die Wahrscheinlichkeit $\frac{1}{2}$ zuordnen, also gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A|B) = \frac{1}{2}$. \eox
+
+
+\example
+Aus einer Sterbetafel, in der das Lebensalter von $100\,000$ Frauen
+verzeichnet ist,  entnehmen wir die Information, dass $89\,835$
+aller Frauen das Alter von mindestens 60 Jahren erreichen, während $57\,062$ ein
+Alter von mehr als 80 Jahren erreichen.  Angenommen, eine Frau wird 60 Jahre alt.
+Mit welcher Wahrscheinlichkeit erreicht Sie dann ein Alter von 80 Jahren?
+
+Wir bezeichnen das Ereignis, dass eine Frau das Alter von $60$ Jahren erreicht, mit
+$A$, während das Ereignis, dass eine Frau das Alter von $80$ Jahren erreicht, mit 
+$B$ bezeichnet wird.  Offenbar ist $B$ eine Teilmenge von $A$ und es ist klar, dass
+der Anteil der sechzigjährigen Frauen, die auch noch das Alter von 80 Jahren
+erreichen, durch den Bruch $\frac{|B|}{|A|}$ gegeben wird.  Also gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(B|A) = \frac{|B|}{|A|} = \frac{57\,062}{89\,835} \approx 0.63519$. 
+\\[0.2cm]
+Damit beträgt also die Wahrscheinlichkeit dafür, dass eine sechzigjährige Frau das
+Alter von 80 Jahren erreicht, $63.5\%$.
+\eox
+
+\next Wir verallgemeinern die obigen Beispiele.  Wir gehen davon aus, dass ein
+Wahrscheinlichkeits-Raum
+\\
+\hspace*{1.3cm} $\langle \Omega, 2^\Omega, P \rangle$
+\\[0.2cm]
+mit einer gleichmäßigen Wahrscheinlichkeits-Verteilung $P$ gegeben ist, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm} $\ds P(E) = \frac{|E|}{|\Omega|}$ \quad für alle $E \in
+2^\Omega$.
+\\[0.2cm]
+Wir betrachten zwei Ereignisse $A$ und $B$ und berechnen die bedingte
+Wahrscheinlichkeit für das Eintreten von $B$, wenn wir bereits wissen, dass $A$
+eingetreten ist.  Wenn $A$ eingetreten ist, kommen für das Eintreten von $B$ nur
+noch die Ergebnisse in Frage, die in $B \cap A$ liegen.  Nehmen wir an, dass diese
+Ergebnisse nach wie vor die selbe Wahrscheinlichkeit haben, dann haben wir einen
+neuen Wahrscheinlichkeits-Raum, dessen Ereignis-Raum die Menge $A$ ist.  Folglich
+gilt
+\begin{equation}
+  \label{eq:condProb}  
+\ds P(B|A) = \frac{|B \cap A|}{|A|} 
+   = \frac{\frac{|B \cap A|}{|\Omega|}}{\frac{|A|}{|\Omega|}}
+   = \frac{P(B \cap A)}{P(A)}.
+\end{equation}
+Diese Gleichung für die bedingte Wahrscheinlichkeit gilt auch im allgemeinen Fall.
+Sind zwei Ereignisse $A$ und $B$ gegeben und führen wir das zugrunde liegende
+Zufalls-Experiment $n$-mal aus, so erwarten wir, dass für große $n$ ein Ereignis
+$E$ etwa $n \cdot P(E)$ mal eintritt.  Ist das Ereignis $A$ bereits eingetreten, so
+tritt das Ereignis $B$ genau dann ein, wenn das Ereignis $B \cap A$ eintritt.  Also
+ist die relative Häufigkeit für das Eintreten des Ereignisses $B$ unter der Annahme,
+dass $A$ bereits eingetreten ist, durch den Quotienten
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \frac{n \cdot P(B \cap A)}{n \cdot P(A)} = \frac{P(B \cap A)}{P(A)}$
+\\[0.2cm]
+gegeben und daher definieren wir die bedingte Wahrscheinlichkeit immer als diesen Quotienten.
+
+\exercise
+Eine Lieferung von Glühbirnen enthalte erfahrungsgemäß drei Arten von Glühbirnen:
+\begin{enumerate}
+\item Glühbirnen, die bereits defekt sind.  Der Anteil dieser Glühbirnen betrage
+      $10\%$.
+\item Glühbirnen, die zwar funktionieren, aber nur eine Lebensdauer von weniger als 10 Tagen haben.  Hier
+      beträgt der Anteil $20\%$. 
+\item Glühbirnen, die voll funktionsfähig sind.
+\end{enumerate}
+Angenommen, Sie testen eine Glühbirne und stellen fest, dass diese Birne noch nicht
+defekt ist.  Wie hoch ist dann die Wahrscheinlichkeit dafür, dass diese Glühbirne 
+voll funktionsfähig ist?
+
+\solution
+Wir bezeichnen das Ereignis ``\blue{Glühbirne defekt}'' mit $D$, das Ereignis
+``\blue{Glühbirne hat kurze Lebensdauer}'' mit $K$ und das Ereignis
+``\blue{Glühbirne voll funktionsfähig}'' mit $F$.  Gefragt ist dann nach der
+Wahrscheinlichkeit, dass die Glühbirne voll funktionsfähig ist unter der Bedingung,
+dass die Glühbirne nicht defekt ist.  Das ist genau die bedingte Wahrscheinlichkeit
+$P(F|D^c)$:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcll}
+ P(F|D^c) & = & \ds \frac{P(F \cap D^c)}{P(D^c)} \\[0.5cm]
+          & = & \ds \frac{P\bigl(F \cap (K \cup F)\bigr)}{P(K \cup F)} 
+              & \mbox{wegen $D^c = K \cup F$} \\[0.5cm]
+          & = & \ds \frac{P\bigl((F \cap K) \cup (F \cap F)\bigr)}{P(K \cup F)} \\[0.5cm]
+          & = & \ds \frac{P\bigl(\emptyset \cup F\bigr)}{P(K \cup F)} 
+              & \mbox{wegen $F \cap K = \emptyset$} \\[0.5cm]
+          & = & \ds \frac{P(F)}{P(K) + P(F)} 
+              & \mbox{wegen $K \cap F = \emptyset$} \\[0.5cm]
+          & = & \ds \frac{0.7}{0.2 + 0.7} 
+              & \mbox{wegen $P(F) = 1 - P(D) - P(K)$} \\[0.5cm]
+          & = & \ds \frac{7}{9}
+\end{array}
+$
+\\[0.2cm]
+Damit hat die gesuchte Wahrscheinlichkeit den Wert $0.\overline{7}$.
+
+\next
+Die Gleichung (\ref{eq:condProb}) zur Berechnung der bedingten Wahrscheinlichkeit
+kann wie folgt umgestellt werden:
+\begin{equation}
+\label{eq:condProbCut}
+P(B \cap A) = P(B|A) \cdot P(A)
+\end{equation}
+
+\exercise
+Wir nehmen an, dass bei der Produktion von Glühbirnen die Wahrscheinlichkeit dafür,
+dass eine Glühbirne defekt ist, den Wert $0.1$ hat.  Diese Glühbirnen werden
+anschließend in Kisten verpackt und ausgeliefert.  Die Wahrscheinlichkeit, dass eine
+solche Kiste beim 
+Transport hinfällt, betrage $5\%$.  Außerdem gehen wir davon aus, dass beim
+Hinfallen einer Kiste $30\%$ der intakten Glühbirnen zerstört werden.
+Berechnen Sie die Wahrscheinlichkeit dafür, dass eine gelieferte Glühbirne
+funktionsfähig ist. 
+
+\section{Die totale Wahrscheinlichkeit und die Formel von Bayes}
+Es sei ein Wahrscheinlichkeits-Raum $\langle \Omega, 2^\Omega, P \rangle$ gegeben.
+Wir betrachten zwei Ereignisse $A$ und $B$. Nach Definition des komplementären
+Ereignisses gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$B \cup B^c = \Omega$.
+\\[0.2cm]
+Wegen $A \cap \Omega = A$ folgt daraus 
+\\[0.2cm]
+\hspace*{1.3cm}
+$A = A \cap (B \cup B^c) = (A \cap B) \cup (A \cap B^c)$.
+\\[0.2cm]
+Da die beiden Mengen $A \cap B$ und $A \cap B^c$ disjunkt sind, können wir damit die
+Wahrscheinlichkeit des Ereignisses $A$ durch die folgende Formel berechnen:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcll}
+P(A) & = & P(A \cap B) + P(A \cap B^c) \\[0.2cm]
+     & = & P(A|B)\cdot P(B) + P(A|B^c)\cdot P(B^c) 
+         & \mbox{nach Gleichung (\ref{eq:condProbCut})}
+\end{array}
+$
+\\[0.2cm]
+Dieses Ergebnis läßt sich verallgemeinern.  Ist eine Familie $B_1$, $\cdots$, $B_n$
+von Ereignissen gegeben, so dass 
+\begin{enumerate}
+\item $B_1 \cup \cdots \cup B_n = \Omega$ \quad und
+\item $B_i \cap B_j = \emptyset$ für alle $i \not= j$
+\end{enumerate}
+gilt, so haben wir 
+\begin{equation}
+  \label{eq:condTotal}
+\begin{array}[b]{lcl}
+P(A) & = & P(A \cap B_1) + \cdots + P(A \cap B_n) \\[0.2cm]
+     & = & P(A|B_1)\cdot P(B_1) + \cdots + P(A|B_n) \cdot P(B_n) \\[0.2cm]
+     & = & \ds \sum\limits_{i=1}^n P(A|B_i)\cdot P(B_i).
+\end{array}  
+\end{equation}
+Dies ist die Formel von der \blue{totalen Wahrscheinlichkeit}.
+Eine Familie $B_1$, $\cdots$, $B_n$ von Ereignissen mit den oben angegebenen
+Eigenschaften bezeichnen wir als \blue{Zerlegung} von $\Omega$.
+
+\exercise
+Erfahrungsgemäß sind etwa $8\%$ aller Männer farbenblind, während nur $0.6\%$ aller
+Frauen farbenblind sind.
+Nehmen Sie an, dass der Anteil der Männer in der Gesamtbevölkerung $47\%$ beträgt und
+berechnen Sie die Wahrscheinlichkeit dafür, dass eine beliebige Person farbenblind
+ist.
+
+\solution
+Es sei $B$ das Ereignis, das eine Person farbenblind ist.  Das Ereignis, dass eine
+Person männlich ist bezeichnen wir mit $M$ und das dazu komplementäre Ereignis
+bezeichnen wir mit $F$.  Dann gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(B) = P(B|M)\cdot P(M) + P(B|F) \cdot P(F) = 0.08 \cdot 0.47 + 0.006 \cdot 0.53 \approx 0.04078$.
+\\[0.2cm]
+Also sind etwa $4.1\%$ aller Personen farbenblind.
+\eox
+
+\next
+Aus der Gleichung $P(B \cap A) = P(B|A) \cdot P(A)$ können wir eine weitere Formel ableiten:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  P(B|A) \cdot P(A) & = & P(B \cap A) \\[0.2cm]
+                    & = & P(A \cap B) \\[0.2cm]
+                    & = & P(A|B) \cdot P(B)
+\end{array}
+$
+\\[0.2cm]
+Teilen wir diese Formel durch $P(A)$, so ergibt sich 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)}$
+\\[0.2cm]
+Nehmen wir nun an, dass $B_1$, $\cdots$, $B_n$ eine Zerlegung von $\Omega$ ist,
+so gilt nach dem Satz von der totalen Wahrscheinlichkeit 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(A) = \sum\limits_{i=1}^n P(A|B_i) \cdot P(B_i)$.
+\\[0.2cm]
+Gilt nun  $B = B_k$ für ein $k\in\{1,\cdots,n\}$, so haben wir insgesamt 
+\begin{equation}
+  \label{eq:bayes}
+  \ds P(B_k|A) = \frac{P(A|B_k) \cdot P(B_k)}{\sum\limits_{i=1}^n P(A|B_i) \cdot P(B_i)}.
+\end{equation}
+Dies ist der \href{https://de.wikipedia.org/wiki/Satz_von_Bayes}{Satz von Bayes}
+(\href{https://de.wikipedia.org/wiki/Thomas_Bayes}{Thomas Bayes, 1701 -- 1761}).  Diese Formel führt
+die Wahrscheinlichkeit dafür, dass ein Ereignis $B_k$ unter der Bedingung
+$A$ eintritt auf die Wahrscheinlichkeiten, dass das Ereignis $A$ unter der Bedingung
+$B_i$ eintritt, zurück.  Die Formel von Bayes ist sehr wichtig im Bereich der Medizin
+und der Rechtssprechung. Wir betrachten entsprechende Beispiele.
+
+\example
+Ein (hypothetischer) Bluttest erkennt das Vorliegen von Malaria mit einer
+Wahrscheinlichkeit von $99.9\%$.  Mit einer Wahrscheinlichkeit von $0.5\permil$ liefert der Test aber 
+auch dann ein positives Ergebnis, wenn keine Malaria vorliegt.
+Die Wahrscheinlichkeit, dass eine Person aus Deutschland an Malaria erkrankt ist,
+liegt bei etwa $10^{-6}$.  Angenommen, Sie machen diesen Bluttest und erhalten ein
+positives Ergebnis.  Wie hoch ist dann die Wahrscheinlichkeit, dass Sie Malaria
+haben?
+
+\solution
+Wir bezeichnen das Ereignis, dass eine in Deutschland lebende Person Malaria hat, mit
+$B_1$ und das dazu komplementäre Ereignis mit $B_2$.  Weiterhin sei $A$ das Ereignis,
+dass der Bluttest ein positives Result ergibt.  Nach der Aufgabenstellung haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(B_1) = 10^{-6}$, \quad $P(B_2) = 1 - 10^{-6}$, \quad 
+$P(A|B_1) = 0.999$ \quad und \quad $P(A|B_2) = 0.0005$.
+\\[0.2cm]
+Gesucht ist die bedingte Wahrscheinlichkeit $P(B_1|A)$.
+Nach der Formel von Bayes gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}  
+P(B_1|A) 
+ & = & \ds \frac{P(A|B_1) \cdot P(B_1)}{P(A|B_1) \cdot P(B_1) + P(A|B_2) \cdot P(B_2)} \\[0.3cm]
+ & = & \ds \frac{0.999 \cdot 10^{-6}}{0.999 \cdot 10^{-6} + 0.0005 \cdot (1 - 10^{-6})}   \\[0.3cm]
+ & \approx & 0.001994017946
+\end{array}
+$
+\\[0.2cm]
+Damit liegt die Wahrscheinlichkeit dafür, dass Sie tatsächlich an Malaria erkrankt
+sind, unter $2\permil$.  Dieses Beispiel zeigt, dass die bedingte
+Wahrscheinlichkeit für das Eintreten eines Ereignisses $A$ unter einer Bedingung $B$
+völlig verschieden ist von der Wahrscheinlichkeit des Eintretens des Ereignisses $B$
+unter der Bedingung $A$!  \eox
+
+Das bei der letzten Aufgabe erhaltene Ergebnis erscheint zunächst kontraintuitiv.
+Wir beleuchten den Sachverhalt  daher noch aus einer anderen Perspektive.  Wir gehen
+davon aus, dass in Deutschland etwa $83\,000\,000$ Personen leben.  Von diesen
+Personen hat dann $83$ Personen Malaria.  Würden wir nun alle Personen aus 
+Deutschland testen, so würden wir zwei Gruppen von Personen positiv testen:
+\begin{enumerate}
+\item Die $83$ tatsächlich an Malaria erkrankte Person werden (mit hoher Wahrscheinlichkeit) 
+      alle positiv getestet.
+\item Bei den $82\,999\,917$ gesunden Personen schlägt der Test mit einer Wahrscheinlichkeit von 
+      $0.5\permil$ an.  Daher erhalten wir also zusätzlich etwa
+      $0.0005 \cdot 82\,999\,917 \approx 41\,500$ weitere positive Testergebnisse.
+\end{enumerate}
+Da es insgesamt $41\,583$ positive Tests gibt, ist das Verhältnis von positiven Tests,
+die korrekt das Vorliegen von Malaria erkennen, zu den positiven Tests, die
+fälschlicherweise das Vorliegen von Malaria behaupten, durch den Bruch 
+$\frac{83}{41\,583}$ geben und das sind etwa $2$ Promille.
+
+\exercise 
+Auf einer Insel ist die Tochter des dort amtierenden Königs einem Verbrechen zum Opfer gefallen.  Es gibt
+zunächst keinen Verdächtigen, aber dafür kann am Tatort eine DNA-Probe des Täters sichergestellt werden.  Da es
+zu teuer ist, alle $100\,000$ auf der Insel lebenden Männer zu testen, werden zufällig $100$ Männer für einen
+DNA-Test ausgewählt.  Bei einem dieser Männer ist der Test in der Tat positiv.  Bei dem besagten Test wird ein
+spezielles Gen verglichen.  Die Chance, dass dieses Gen bei zwei zufällig ausgewählten Männern identisch ist, liegt
+bei $1$ zu $50\,000$.  Wie groß ist die Wahrscheinlichkeit, dass es sich bei dem positiv getesteten Mann um den
+Täter handelt?  Beantworten Sie die selbe Frage für den Fall, dass auf der Insel $1\,000\,000$ Männer leben.
+
+
+\section{Das Monty-Hall-Problem}
+\exercise Das folgende Problem wird in der Literatur als das
+\href{https://de.wikipedia.org/wiki/Ziegenproblem}{Monty-Hall-Problem} bezeichnet.  
+\vspace*{0.3cm}
+
+\begin{minipage}[t]{0.9\linewidth}
+{\em Bei einer Fernseh-Show steht der Kandidat vor der Auswahl, eine von drei
+Türen zu öffnen.  Hinter einer der Türen befindet sich ein Auto, das der Kandidat
+gewinnt, wenn er diese Tür öffnet.  Hinter den anderen beiden Türen befindet sich
+jeweils eine Ziege.  Der Kandidat hat keinerlei Informationen, wo sich das Auto
+befindet und wählt zufällig eine der Türen aus.  Nachdem der Kandidat seine Wahl
+getroffen hat, gibt er diese Wahl bekannt und  der Show-Master 
+\href{https://de.wikipedia.org/wiki/Monty_Hall}{Monty Hall} tritt in Aktion.
+Dieser weiß, hinter welcher Tür sich das Auto befindet und öffnet eine Tür,
+die einerseits verschieden ist von der Tür, die der Kandidat gewählt hat und hinter
+der andererseits eine Ziege steht.  Falls es hier zwei Möglichkeiten gibt, trifft der
+Show-Master die Wahl zufällig, wobei er beide Türen mit der selben Wahrscheinlichkeit wählt.  Der Kandidat
+erhält jetzt die Möglichkeit, seine ursprüngliche Wahl zu revidieren und die andere, noch verbleibende Tür
+auszuwählen. Angenommen, der Kandidat hat die erste Tür gewählt und der Show-Master hat die zweite Tür geöffnet
+um dem Kandidaten die dahinter verborgende Ziege zu zeigen.  Ist es für den Kandidaten vorteilhaft, seine Wahl
+revidieren?} 
+\end{minipage}
+\vspace*{0.3cm}
+
+\solution
+Wir überlegen uns zunächst, wie der Ergebnisraum $\Omega$ aussieht und definieren 
+\\[0.2cm]
+\hspace*{1.3cm}
+$M = \{1,2,3\}$ \quad und \quad
+$\Omega = \bigl\{ \langle a, w, o \rangle \;|\; a \in M \wedge w \in M \wedge o \in M \backslash \{a,w\}\bigr\}$
+\\[0.2cm]
+Hier gibt $a$ die Tür an, hinter der das \underline{A}uto steht, $w$ gibt die Tür an,
+die der Kandidat ge\underline{w}ählt hat und $o$ gibt die Tür an, die vom Show-Master
+ge\underline{ö}ffnet wurde.   Die Wahrscheinlichkeits-Verteilung $P$, die dem
+Problem zugrunde liegt, ist \textbf{keine} gleichmäßige Verteilung.  Der Grund dafür
+ist die dritte Komponente $o$ der Trippel $\langle a, w, o\rangle$.  Zunächst sind
+alle Werte von $a$ und $w$ tatsächlich gleich wahrscheinlich.  Für gegebene Werte $a,w\in M$
+definieren wir das Ereignis $E(a,w)$ als
+\\[0.2cm]
+\hspace*{1.3cm}
+$E(a,w) = \bigl\{\langle a, w, o \} \in M^3 \;\big|\; o \neq a \wedge o \neq w \bigr\}$.
+\\[0.2cm]
+Das Ereignis $E(a,w)$ fasst alle die Ergebnisse aus $\Omega$ zusammen, bei denen die
+Werte von $a$ und $w$ fest sind.  Wir nehmen an, dass diese Ereignisse alle die selbe
+Wahrscheinlichkeit haben.
+Das es insgesamt 9 Paare $\langle a, w\rangle$
+gibt,  gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \forall a,w \in M: P\bigl( E(a,w) \bigr) = \frac{1}{9}$.
+\\[0.2cm]
+Wenn $a \not= w$ ist, dann enthält die Menge $E(a,w)$ genau ein Element, aber wenn $a=w$ ist, was dem Fall
+entspricht, dass der Kandidat die Tür gewählt hat, hinter der tatsächlich das Auto steht, dann enthält die
+Menge $E(a,w)$ zwei Elemente, denn dann hat der Show-Master zwei Türen zur Verfügung, die er öffnen kann.  Wir
+haben festgelegt, dass der Show-Master in diesem Fall beide Türen mit der selben Wahrscheinlichkeit auswählt.
+Daher gilt insgesamt  
+\\[0.2cm]
+\hspace*{1.3cm}
+$P\Bigl(\bigl\{\langle a, w, o\rangle\bigr\}\Bigr) = \left\{
+\begin{array}{cl}
+\ds \frac{1}{ 9} & \mbox{falls $a \not= w$;} \\[0.4cm]
+\ds \frac{1}{18} & \mbox{sonst.}
+\end{array}
+\right.
+$ 
+\\[0.2cm]
+Um das Problem zu lösen, definieren wir nun eine Reihe von Ereignissen.
+\begin{enumerate}
+\item $A_n := \bigl\{ \langle a, w, o \rangle \in \Omega \;\big|\; a = n\bigr\}$ für $n =1,2,3$.
+
+      Das Ereignis $A_n$ gibt an, dass das Auto hinter der Tür mit der Nummer $n$ steht.
+\item $W_n := \bigl\{ \langle a, w, o \rangle \in \Omega \;\big|\; w = n\bigr\}$ für $n =1,2,3$.
+
+      Das Ereignis $W_n$ gibt an, dass der Kandidat die Tür mit der Nummer $n$
+      gewählt hat.
+\item $O_n := \bigl\{ \langle a, w, o \rangle \in \Omega \;\big|\; o = n\bigr\}$ für $n =1,2,3$.
+
+      Das Ereignis $O_n$ gibt an, dass der Show-Master die Tür mit der Nummer $n$
+      geöffnet hat.  
+\end{enumerate}
+Um die Aufgabe zu lösen müssen wir die bedingten Wahrscheinlichkeiten
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(A_1|W_1 \cap O_2)$ \quad und \quad $P(A_3|W_1 \cap O_2)$ 
+\\[0.2cm]
+berechnen, denn dies sind die Wahrscheinlichkeiten dafür, dass das Auto hinter
+der ersten bzw.~hinter der zweiten Tür steht.  Die Bedingung $W_1 \cap O_2$ drückt
+dabei unser bisheriges Wissen aus: Der Kandiat hat die Tür 1 gewählt und der 
+Show-Master hat die Tür 2 geöffnet.
+
+Wir beginnen mit der Berechnung von $P(A_3|W_1 \cap O_2)$.  
+Nach Gleichung (\ref{eq:condProb}) gilt 
+\begin{equation}
+  \label{eq:ziege1}
+  \ds P(A_3|W_1 \cap O_2) = \frac{P(A_3 \cap W_1 \cap O_2)}{P(W_1 \cap O_2)}.
+\end{equation}
+Nun haben wir $A_3 \cap W_1 \cap O_2 = \bigl\{ \langle 3, 1, 2 \rangle \bigr\}$, also
+gilt 
+\begin{equation}
+  \label{eq:ziege2}  
+\ds P(A_3 \cap W_1 \cap O_2) = 
+  P\Bigl(\bigl\{ \langle 3, 1, 2 \rangle \bigr\}\Bigr) = \frac{1}{9}.
+\end{equation}
+Die Wahrscheinlichkeit $P(W_1 \cap O_2)$ berechnen wir mit Hilfe des Satzes von der
+totalen Wahrscheinlichkeit, wobei wir als Zerlegung von $\Omega$ die Mengen
+$A_1$, $A_2$ und $A_3$ wählen: 
+\begin{equation}
+  \label{eq:ziege3}
+\ds P(W_1 \cap O_2) = \sum\limits_{i=1}^3 P(W_1 \cap O_2|A_i) \cdot P(A_i)
+\end{equation}
+Die Ausdrücke $P(W_1 \cap O_2|A_i) \cdot P(A_i)$ berechnen wir für $i=1,2,3$ mit Hilfe von
+Gleichung $(\ref{eq:condProbCut})$.
+\begin{enumerate}
+\item $\ds P(W_1 \cap O_2|A_1) \cdot P(A_1) = P(W_1 \cap O_2 \cap A_1) = 
+       P\Bigl(\bigl\{ \langle 1, 1, 2 \rangle \bigr\} \Bigr) = \frac{1}{18}$.
+\item $\ds P(W_1 \cap O_2|A_2) \cdot P(A_2) = P(W_1 \cap O_2 \cap A_2) = 
+       P\Bigl(\bigl\{\bigr\} \Bigr) = 0$.
+\item $\ds P(W_1 \cap O_2|A_3) \cdot P(A_3) = P(W_1 \cap O_2 \cap A_3) = 
+       P\Bigl(\bigl\{ \langle 3, 1, 2 \rangle \bigr\} \Bigr) = \frac{1}{9}$.
+\end{enumerate}
+Damit haben wir nun nach Gleichung (\ref{eq:ziege3})
+\begin{equation}
+  \label{eq:ziege4}
+\ds P(W_1 \cap O_2) = \frac{1}{18} + 0 + \frac{1}{9} = \frac{3}{18} = \frac{1}{6}.
+\end{equation}
+Setzen wir die Ergebnisse der Gleichungen (\ref{eq:ziege2}) und (\ref{eq:ziege4}) in
+Gleichung (\ref{eq:ziege1}) ein, so erhalten wir 
+\begin{equation}
+  \label{eq:ziege5}
+  \ds P(A_3|W_1 \cap O_2) = \frac{\frac{1}{9}}{\;\frac{1}{6}\;} = \frac{2}{3}.
+\end{equation}
+Eine analoge Rechnung liefert $P(A_1|W_1 \cap O_2) = \frac{1}{3}$.  Wir brauchen die
+Rechnung nicht durchzuführen, denn es muss
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(A_1|W_1 \cap O_2) + P(A_2|W_1 \cap O_2) + P(A_3|W_1 \cap O_2) = 1$
+\\[0.2cm]
+gelten und wegen $P(A_2|W_1 \cap O_2) = 0$ wissen wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(A_1|W_1 \cap O_2) = 1 - P(A_3|W_1 \cap O_2) = 1 - \frac{2}{3} = \frac{1}{3}$.
+\\[0.2cm]
+Folglich ist es für den Kandiaten vorteilhaft, seine Entscheidung zu revidieren. \eox
+
+\section{Unabhängige Ereignisse}
+Es gibt viele Situationen in denen das Wissen, dass ein Ereignis $E$ eingetreten ist,
+die Wahrscheinlichkeit für das Auftreten eines anderen Ereignisses $F$ nicht
+beeinflußt.  
+In diesem Fall gilt
+\begin{equation}
+  \label{eq:independent1}
+  P(F|E) = P(F).
+\end{equation}
+Ein einfaches Beispiel dafür wäre das Würfeln mit zwei Würfeln.  Wenn $F$ das
+Ereignis ist, dass im ersten Wurf eine Sechs gewürfelt wird und $E$ das Ereignis ist, das
+der im zweiten Wurf eine Drei gewürfelt wird, also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$F = \bigl\{ \langle 6,i\rangle \;\big|\; i \in \{1,\cdots,6\}\bigr\}$ \quad und \quad
+$E = \bigl\{ \langle i, 3 \rangle \;\big|\; i \in \{1,\cdots,6\}\bigr\}$,
+\\[0.2cm]
+dann ist offensichtlich, dass das Ereignis $E$ das Ereignis $F$ nicht beeinflussen
+kann, denn die beiden Ereignisse betreffen ja verschiedene Würfel.
+
+Ersetzen wir in Gleichung (\ref{eq:independent1}) die bedingte Wahrscheinlichkeit
+durch den in Gleichung (\ref{eq:condProb}) gegebenen Wert, so haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \frac{P(F \cap E)}{P(E)} = P(F)$.
+\\[0.2cm]
+Multiplikation dieser Gleichung mit $P(E)$ liefert
+\begin{equation}
+  \label{eq:independent}
+  P(F \cap E) = P(E) \cdot P(F).
+\end{equation}
+Wir bezeichnen zwei Ereignisse $E$ und $F$ als \blue{unabhängig}, wenn Gleichung
+(\ref{eq:independent}) erfüllt ist. Wegen $F \cap E = E \cap F$ ist diese Definition
+symmetrisch: Die Ereignisse $E$ und $F$ sind genau dann unabhängig, wenn die
+Ereignisse $F$ und $E$ unabhängig sind.
+
+Unabhängige Ereignisse treten dann auf, wenn ein Zufalls-Experiment durchgeführt
+wird, dass aus zwei unabhängigen Zufalls-Experimenten besteht.  Ein einfaches
+Beispiel dafür ist das Würfeln mit zwei Würfeln.  Um diese Situation formal
+beschreiben zu können, führen wir das Produkt zweier Wahrscheinlichkeits-Räume ein.
+
+\begin{Definition}[Produkt-Raum]
+  Sind $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$
+  und  $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$
+  zwei Wahr\-scheinlichkeits-Räume, so definieren wir 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\mathcal{W}_1 \times \mathcal{W}_2 := \langle \Omega_1 \times \Omega_2, 2^{\Omega_1 \times \Omega_2}, P \rangle$,
+  \\[0.2cm]
+  wobei die neue Wahrscheinlichkeits-Verteilung $P$ dadurch definiert wird, dass wir
+  die Wahrscheinlichkeiten der Elementar-Ereignisse angeben:
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $P\bigl(\{\langle x, y \rangle\}\bigr) := P_1(\{x\}) \cdot P_2(\{y\})$ \quad
+  für alle $x \in \Omega_1$ und alle $y \in \Omega_2$.
+  \\[0.2cm]
+  Für beliebige Ereignisse $E$ ist die Wahrscheinlichkeits-Verteilung dann durch 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds P(E) = \sum\limits_{\omega \in E} P\bigl(\{\omega\}\bigr)$
+  \\[0.2cm]
+  gegeben.  \eox
+\end{Definition}
+
+\begin{Definition}   Ist
+  \\[0.2cm]
+  \hspace*{1.3cm}
+   $\langle \Omega, 2^\Omega, P \rangle = \mathcal{W}_1 \times \mathcal{W}_2 =
+  \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle \times \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$
+  \\[0.2cm]
+  ein Produkt-Raum, und ist $E$ ein Ereignis aus diesem Raum, so sagen wir,
+  dass $E$ \blue{durch die erste Komponente bestimmt} ist, falls es eine Menge $\widehat{E}$ gibt, so dass
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $E = \bigl\{ \langle x, y \rangle \;\big|\; x \in \widehat{E} \wedge y \in \Omega_2 \bigr\}$
+  \\[0.2cm]
+  gilt.  Analog sagen wir, dass $E$ \blue{durch die zweite  Komponente bestimmt} ist, wenn  es eine
+  Menge $\widehat{E}$ gibt, so dass 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $E = \bigl\{ \langle x, y \rangle \;\big|\; x \in \Omega_1  \wedge y \in \widehat{E} \bigr\}$
+  \\[0.2cm]
+  gilt.  \eox
+\end{Definition}
+
+\example
+Wir betrachten das Zufalls-Experiment ``Würfeln mit zwei Würfeln'' und definieren
+zunächst $\Omega_1 := \{ 1, \cdots, 6\}$, 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P_1(A) := \frac{1}{6} \cdot |A|$ \quad und \quad 
+$\mathcal{W}_1 := \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$.
+\\[0.2cm]
+Weiter sei $\mathcal{W} := \mathcal{W}_1 \times \mathcal{W}_1$. Dann ist das Ereignis
+\\[0.2cm]
+\hspace*{1.3cm}
+$\bigl\{ \langle 6, n \rangle \;\big|\; n \in \{1,\cdots,6\} \bigr\}$
+\\[0.2cm]
+durch die erste Komponente bestimmt, während das Ereignis 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\bigl\{ \langle m, n \rangle \;\big|\; m \in \{1,\cdots,6\} \wedge n \in \{2,4,6\} \bigr\}$
+\\[0.2cm]
+durch die zweite Komponente bestimmt wird. \eox
+
+\begin{Satz} \label{satz:unabhaengig} Ist 
+  $\mathcal{W} = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle \times \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$
+  ein Produkt-Raum und sind $E$ und $F$ Ereignisse, so dass 
+  $E$ durch die erste und $F$ durch die zweite Komponente bestimmt ist, so sind die
+  Ereignisse $E$ und $F$ unabhängig.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}:
+Nach Voraussetzung gibt es Mengen $\widehat{E}$ und $\widehat{F}$, so dass 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E = \bigl\{ \pair(x,y) \in \Omega_1 \times \Omega_2 \;|\; x \in \widehat{E} \wedge y \in \Omega_2 \bigr\}$
+\quad und \quad
+$F = \bigl\{ \pair(x,y) \in \Omega_1 \times \Omega_2 \;|\; x \in \Omega_1 \wedge y \in \widehat{F} \bigr\}$
+\\[0.2cm] 
+gilt.
+Es ist zu zeigen, dass \\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(E \cap F) = P(E) \cdot P(F)$ 
+\\[0.2cm]
+gilt. Nach Definition der Wahrscheinlichkeits-Verteilung  $P$ gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ P(E \cap F) & = & \ds
+                   \sum\limits_{\omega \in E \cap F} P\bigl(\{\omega\}\bigr)  \\[0.5cm]
+             & = & \ds
+                   \sum\limits_{\pair(x,y) \in E \cap F} P\bigl(\{\pair(x,y)\}\bigr)  
+\end{array}
+$
+\\[0.2cm]
+Die Bedingung $\pair(x,y) \in E \cap F$ formen wir um: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{ll}
+                & \pair(x,y) \in E \cap F                   \\[0.2cm]
+\Leftrightarrow & \pair(x,y) \in E \wedge \pair(x,y) \in F   \\[0.2cm]
+\Leftrightarrow & \Bigl(x \in \widehat{E} \wedge y \in \Omega_2\Bigr) \,\wedge\,\Bigl(x\in\Omega_1 \wedge y \in \widehat{F}\Bigr) \\[0.2cm]
+\Leftrightarrow & x \in \widehat{E} \wedge y \in \widehat{F} \\[0.2cm]
+\end{array}
+$
+\\[0.2cm]
+Damit können wir die Summe in der Gleichung für $P(E \cap F)$ umschreiben: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\ds P(E \cap F) = 
+\sum\limits_{x \in \widehat{E},\;y \in \widehat{F}} P\bigl( \{ \pair(x,y) \}\bigr)$.
+\\[0.2cm]
+Nach Definition des Produkt-Raums gilt $P\bigl(\{\pair(x,y)\}\bigr) = P_1\bigl(\{x\}\bigr)\cdot P_2\bigl(\{y\}\bigr)$.
+Damit haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\ds P(E \cap F) = 
+\sum\limits_{x \in \widehat{E},\;y \in \widehat{F}} P_1\bigl( \{ x \}\bigr) \cdot P_2\bigl(\{y\}\bigr)$.
+\\[0.2cm]
+Jetzt können wir die Summe, die oben über $x$ und $y$ läuft, in zwei getrennte Summen
+aufspalten und finden 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+   P(E \cap F) & = & \ds
+\sum\limits_{x \in \widehat{E},\;y \in \widehat{F}} P_1\bigl( \{ x \}\bigr) \cdot P_2\bigl(\{y\}\bigr) \\[0.6cm]
+& = & \ds
+  \sum\limits_{x \in \widehat{E}} \sum\limits_{y \in \widehat{F}} P_1\bigl( \{ x \}\bigr) \cdot P_2\bigl(\{y\}\bigr) \\[0.6cm]
+& = & \ds
+  \sum\limits_{x \in \widehat{E}} P_1\bigl( \{ x \}\bigr) \sum\limits_{y \in \widehat{F}} P_2\bigl(\{y\}\bigr) \\[0.6cm]
+& = & \ds
+  \left(\sum\limits_{x \in \widehat{E}} P_1\bigl( \{ x \}\bigr)\right) \cdot \left(\sum\limits_{y \in \widehat{F}} P_2\bigl(\{y\}\bigr)\right) \\[0.6cm]
+& = & \ds
+  P_1\bigl(\widehat{E}\bigr)  \cdot P_2\bigl(\widehat{F}\bigr) 
+\end{array}
+$
+\\[0.2cm]
+Der Beweis ist abgeschlossen, wenn wir zeigen können, dass $P_1(\widehat{E}) = P(E)$ und  $P_2(\widehat{F}) = P(F)$ gilt.
+Dies folgt aus 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+P(E) & = & P\bigl(\bigl\{ \pair(x,y) \in \Omega_1 \times \Omega_2 \;|\; x \in \widehat{E} \wedge y \in \Omega_2 \bigr\}\bigr) \\[0.3cm]
+     & = & \sum\limits_{\pair(x,y) \in  \{ \pair(x,y) \in \Omega_1 \times \Omega_2 \,|\, x \in \widehat{E} \,\wedge\, y \in \Omega_2 \}}
+           P\bigl(\bigl\{ \pair(x,y) \bigr\}\bigr) \\[0.6cm]
+     & = & \sum\limits_{x \in \widehat{E}, \, y \in \Omega_2} P\bigl(\bigl\{ \pair(x,y) \bigr\}\bigr) \\[0.6cm]
+     & = & \sum\limits_{x \in \widehat{E}, \, y \in \Omega_2} P_1\bigl(\bigl\{ x \bigr\}\bigr) \cdot P_2\bigl(\bigl\{ y \bigr\}\bigr) \\[0.6cm]
+     & = & \sum\limits_{x \in \widehat{E}} \sum\limits_{y \in \Omega_2} P_1\bigl(\bigl\{ x \bigr\}\bigr) \cdot P_2\bigl(\bigl\{ y \bigr\}\bigr) \\[0.6cm]  
+     & = & \sum\limits_{x \in \widehat{E}} P_1\bigl(\bigl\{ x \bigr\}\bigr) \sum\limits_{y \in \Omega_2} P_2\bigl(\bigl\{ y \bigr\}\bigr) \\[0.6cm]  
+     & = & \left(\sum\limits_{x \in \widehat{E}} P_1\bigl(\bigl\{ x \bigr\}\bigr)\right) \cdot \left(\sum\limits_{y \in \Omega_2} P_2\bigl(\bigl\{ y \bigr\}\bigr)\right) \\[0.6cm]
+     & = & P_1\bigl(\widehat{E}\bigr) \cdot P_2\bigl(\Omega_2) \\[0.2cm]
+     & = & P_1\bigl(\widehat{E}\bigr) \cdot 1 \\[0.2cm]
+     & = & P_1\bigl(\widehat{E}\bigr) 
+\end{array}
+$
+\\[0.2cm]
+Damit haben wir  $P_1(\widehat{E}) = P(E)$ gezeigt.  Der Nachweis von  
+$P_2(\widehat{F}) =P(F)$ verläuft völlig analog, so dass wir auf die Details verzichten können.
+\qed
+
+Es ist offensichtlich, dass der Begriff des Produkt-Raums auch auf Produkte von mehr als
+zwei Faktoren erweitert werden kann.  Als Anwendung der bisher präsentierten Theorie
+zeigen wir eine alternative Lösung des Ziegen-Problems, bei der wir den zugrunde liegenden
+Wahrscheinlichkeits-Raum nicht explizit angeben.
+Stattdessen können wir uns auf die Betrachtung von Ereignissen beschränken.
+
+\example 
+Diesmal definieren wir die Ereignisse $A_i$, $W_i$ und $O_i$ unmittelbar ohne Rückgriff 
+auf einen zugrunde liegenden Ergebnisraum $\Omega$ wie folgt:
+\begin{enumerate}
+\item $A_n$: ``\blue{Das Auto steht hinter der Tür mit der Nummer $n$}''.
+
+      Da die Ereignisse $A_1$, $A_2$ und $A_3$ alle die selbe Wahrscheinlichkeit haben,
+      gilt \\[0.2cm]
+      \hspace*{1.3cm} $\ds P(A_n) = \frac{1}{3}$ \quad für alle $n \in \{1,2,3\}$.
+\item $W_n$: ``\blue{Der Kandidat hat die Tür mit der Nummer $n$ gewählt}''.
+
+      Da die Ereignisse $W_1$, $W_2$ und $W_3$ alle die selbe Wahrscheinlichkeit haben,
+      gilt \\[0.2cm]
+      \hspace*{1.3cm} $\ds P(W_n) = \frac{1}{3}$ \quad für alle $n \in \{1,2,3\}$.
+\item $O_n$: ``\blue{Der Showmaster hat die Tür mit der Nummer $n$ geöffnet}''.
+
+      Die Wahrscheinlichkeit $P(O_n)$ läßt sich nicht unmittelbar angeben,
+      denn das Ereignis $O_n$ wird offenbar von den anderen Ereignissen beeinflußt.
+\end{enumerate}
+Wir berechnen wieder die bedingte Wahrscheinlichkeit $P(A_3|W_1 \cap O_2)$:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A_3|W_1 \cap O_2) = \frac{P(A_3 \cap W_1 \cap O_2)}{P(W_1 \cap O_2)}$
+\\[0.2cm]
+Um an dieser Stelle weitermachen zu können, müssen wir $P(A_3 \cap W_1 \cap O_2)$
+berechnen.  Wir stellen diese Wahrscheinlichkeit als bedingte Wahrscheinlichkeit dar:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A_3 \cap W_1 \cap O_2) = P(O_2 \cap A_3 \cap W_1) = P(O_2|A_3 \cap W_1)\cdot P(A_3 \cap W_1)$
+\\[0.2cm]
+Die Ereignisse $A_3$ und $W_1$ sind offenbar unabhängig, daher gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A_3 \cap W_1) = P(A_3) \cdot P(W_1) = \frac{1}{3} \cdot \frac{1}{3} = \frac{1}{9}$
+\\[0.2cm]
+Die bedingte Wahrscheinlichkeit $P(O_2|A_3 \cap W_1)$ hat den Wert 1, denn wenn das Auto
+hinter der dritten Tür steht und der Kandidat die erste Tür wählt, dann hat der Showmaster
+keine Wahlmöglichkeit und öffnet immer die zweite Tür.
+Damit haben wir also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A_3 \cap W_1 \cap O_2) = P(O_2|A_3 \cap W_1)\cdot P(A_3 \cap W_1) = \frac{1}{9}$
+\\[0.2cm]
+Jetzt müssen wir noch die Wahrscheinlichkeit $P(W_1 \cap O_2)$ bestimmen. Das geht so: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  P(W_1 \cap O_2) & = & P\bigl(W_1 \cap O_2 \cap (A_1 \cup A_2 \cup A_3)\bigr) \\[0.2cm]
+                  & = & P\bigl((W_1 \cap O_2 \cap A_1) \cup (W_1 \cap O_2 \cap A_2) \cup (W_1 \cap O_2 \cap A_3)\bigr) \\[0.2cm]
+                  & = & P(W_1 \cap O_2 \cap A_1) + P(W_1 \cap O_2 \cap A_2) + P(W_1 \cap O_2 \cap A_3) \\[0.2cm]
+\end{array}
+$
+\\[0.2cm]
+Es bleibt die Aufgabe, die Wahrscheinlichkeiten $P(W_1 \cap O_2 \cap A_i)$ für $i=1,2,3$
+zu berechnen.   Damit das möglich ist, müssen wir diese Wahrscheinlichkeiten als bedingte
+Wahrscheinlichkeiten schreiben.  Wir beginnen mit $P(W_1 \cap O_2 \cap A_1)$:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(W_1 \cap O_2 \cap A_1) = P(O_2 \cap A_1 \cap W_1) = P(O_2|A_1 \cap W_1)\cdot P(A_1 \cap W_1)$
+\\[0.2cm]
+Die Ereignisse $A_1$ und $W_1$ sind offenbar unabhängig, daher gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A_1 \cap W_1) = P(A_1) \cdot P(W_1) = \frac{1}{3} \cdot \frac{1}{3} = \frac{1}{9}$
+\\[0.2cm]
+Die bedingte Wahrscheinlichkeit $P(O_2|A_1 \cap W_1)$ hat aus Symmetrie-Gründen den selben
+Wert wie die Wahrscheinlichkeit $P(O_3|A_1 \cap W_1)$, denn
+ wenn das Auto hinter der ersten Tür steht und der Kandidat diese Tür wählt, dann kann der Showmaster
+entweder die zweite oder die dritte Tür öffnen.  Da diese beiden Wahrscheinlichkeiten
+zusammen den Wert 1 ergeben müssen, folgt
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(O_2|A_1 \cap W_1) = \frac{1}{2}$.
+\\[0.2cm]
+Damit haben wir also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(W_1 \cap O_2 \cap A_1) = P(O_2|A_1 \cap W_1)\cdot P(A_1 \cap W_1) =
+  \frac{1}{2}\cdot\frac{1}{9} = \frac{1}{18}$.
+\\[0.2cm]
+Jetzt berechnen wir  $P(W_1 \cap O_2 \cap A_2)$.  Hier müssen wir nicht lange überlegen,
+denn wenn das Auto hinter der zweiten Tür steht, dann wird der Showmaster die zweite Tür
+nicht öffnen, also gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$W_1 \cap O_2 \cap A_2 = \emptyset$, \quad folglich ist \quad $P(W_1 \cap O_2 \cap A_2) = 0$.
+\\[0.2cm]
+Jetzt benötigen  wir  $P(W_1 \cap O_2 \cap A_3)$. Es gilt aber
+$W_1 \cap O_2 \cap A_3 = A_3 \cap W_1 \cap O_2$ und für dieses Ereignis haben wir oben
+bereits die Wahrscheinlichkeit  $\frac{1}{9}$ gefunden.  Damit haben wir insgesamt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ P(A_3|W_1 \cap O_2) 
+& = & \ds
+ \frac{P(A_3 \cap W_1 \cap O_2)}{P(W_1 \cap O_2)} \\[0.5cm]
+& = & \ds
+ \frac{\frac{1}{9}}{P(W_1 \cap O_2 \cap A_1) + P(W_1 \cap O_2 \cap A_2) + P(W_1 \cap O_2 \cap A_3)} \\[0.5cm]  
+& = & \ds
+ \frac{\frac{1}{9}}{\frac{1}{18} + 0 + \frac{1}{9}} \\[0.5cm]
+& = & \ds
+ \frac{2}{1 + 2} \\[0.4cm]
+& = & \ds
+ \frac{2}{3} 
+\end{array}
+$
+\\[0.2cm] 
+Das ist das selbe Ergebnis, was wir auch schon früher gefunden haben.
+\eox
+
+\exercise
+Anton, Bruno und Charlie haben sich unsterblich in die selbe Frau verliebt und
+beschließen, ein Dreier-Duell durchzuführen.  Dieses wird folgendermaßen durchgeführt: Die
+drei Duellanten stellen sich so auf, dass zwischen jedem Paar ein Abstand von 25 Metern
+besteht.  Es wird ausgelost, wer als erstes einen Schuß abgeben darf, danach wird immer in
+der Reihenfolge Anton, Bruno, Charlie geschossen, mit der kleinen Einschränkung, dass
+jemand, der tot ist, nicht mehr mitspielen darf.  Wenn jemand einen Schuß abgeben darf, so
+steht es ihm frei, auf welchen Kontrahenten er schießt.  Außerdem hat er auch die
+Möglichkeit, in die Luft zu schießen.  Dies gilt allerdings nicht für Anton, der darf
+nicht in die Luft schießen.  
+Die Bewaffnung der drei Duellanten ist  unterschiedlich.
+\begin{enumerate}
+\item Anton verfügt über eine Maschinen-Pistole vom Typ \href{https://de.wikipedia.org/wiki/Kalaschnikow}{Kalaschnikow}.  Seine
+      Trefferwahrscheinlichkeit liegt daher bei $100\%$.
+\item Bruno setzt eine Pumpgun ein und hat eine Trefferwahrscheinlichkeit von $80\%$.
+\item Charlie besitzt einen klassischen 
+      \href{https://de.wikipedia.org/wiki/Colt_Single_Action_Army}{Fünfundvierziger Peacemaker} mit dem er eine
+      Trefferwahrscheinlichkeit von $50\%$ erzielt.
+\end{enumerate}
+Lösen Sie die folgenden Aufgaben:
+\begin{enumerate}[(a)]
+\item Überlegen Sie, welche Strategie für die einzelnen Kontrahenten optimal ist.
+\item Berechnen Sie die Überlebenswahrscheinlichkeit für jeden der Duellanten.
+\item Wie groß ist der Erwartungswert für die Dauer des Duells.
+\end{enumerate}
+
+\noindent
+\textbf{Hinweis}: Die am schwierigsten zu berechnende Situation ist die,
+wenn Bruno den Anton erschossen hat und Charlie und Bruno sich nun abwechselnd beschießen.
+Um die bei diesem Duell auftretenden Wahrscheinlichkeiten berechnen zu können, ist
+es zweckmäßig, für dieses Duell die folgenden Abkürzungen einzuführen.
+\begin{enumerate}
+\item $c(n)$ ist die Wahrscheinlichkeit dafür, dass Charlie nach der $n$-ten Runde noch lebt.
+
+      Eine Runde besteht dabei aus dem Schuss von Charlie und dem Schuss von Bruno, falls
+      dieser noch dazu in der Lage ist.
+\item $b(n)$ ist die Wahrscheinlichkeit dafür, dass Bruno nach der $n$-ten Runde noch lebt.
+\item $g(n)$ ist die Wahrscheinlichkeit dafür, dass das Spiel nach der $n$-ten Runde beendet ist.
+
+      Die Wahrscheinlichkeit $g$ kann auf die beiden Wahrscheinlichkeiten $c(n)$ und $b(n)$
+      zurückgeführt werden.
+\end{enumerate}
+Es ist zweckmäßig, für $c(n)$ und $b(n)$ ein System von Rekurrenz-Gleichungen aufzustellen und zu lösen.
+Anschließend können die Grenzwerte dieser Folgen für $n$ gegen Unendlich berechnet werden. Es ergibt sich 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n\rightarrow\infty} c(n) = \frac{5}{9}$ \quad und \quad
+$\ds \lim\limits_{n\rightarrow\infty} b(n) = \frac{4}{9}$.
+\\[0.2cm]
+Der Rest der Aufgabe ist dann nicht mehr schwer.
+\vspace*{0.3cm}
+
+\noindent
+Der Begriff der Unabhängigkeit von Ereignissen kann auf mehr als zwei Ereignisse
+ausgedehnt werden.  Wir sagen, dass $\{A_1, \cdots, A_n\}$ eine Menge unabhängiger Ereignisse ist, falls
+für jede nicht-leere Teilmenge $I \subseteq \{1,\cdots,n\}$ gilt:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\biggl(\bigcap\limits_{i\in I} A_i\biggr) = \prod\limits_{i\in I} P(A_i)$.
+
+\section{Unabhängige Zufalls-Variablen}
+Wir verallgemeinern die Begriffsbildung des letzten Abschnitts und betrachten nun
+die Unabhängigkeit von Zufalls-Variablen. 
+
+\begin{Definition}[Unabhängige Zufalls-Variablen]
+  Es sei
+  \begin{enumerate}
+  \item $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum,
+  \item $X:\Omega \rightarrow \mathbb{R}$ und $Y:\Omega \rightarrow \mathbb{R}$ seien zwei Zufalls-Variablen.
+  \end{enumerate}
+  Dann sind die Zufalls-Variablen $X$ und $Y$ \blue{unabhängig}, wenn für alle $x,y \in \mathbb{R}$
+  die Ereignisse 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\bigl\{ \omega \in \Omega \;\big|\; X(\omega) = x \bigr\}$ \quad und \quad
+  $\bigl\{ \omega \in \Omega \;\big|\; Y(\omega) = y \bigr\}$.
+  \\[0.2cm]
+  unabhängig sind.  Nach Definition der Unabhängigkeit zweier Ereignisse ist das äquivalent
+  zu der Forderung, dass für alle $x,y \in \mathbb{R}$ die Gleichung
+  \\[0.2cm]
+  \hspace*{0.3cm}
+  $
+  \begin{array}[t]{cl}
+    & P\Bigl( \bigl\{ \omega \in \Omega \;\big|\; X(\omega) = x \bigr\} \cap \bigl\{ \omega \in \Omega \;\big|\; Y(\omega) = y \bigr\} \Bigr) \\[0.2cm]
+   =& P\Bigl( \bigl\{ \omega \in \Omega \;\big|\; X(\omega) = x \bigr\}\Bigr) \cdot P\Bigl(\bigl\{ \omega \in \Omega \;\big|\; Y(\omega) = y \bigr\} \Bigr)
+  \end{array}
+  $
+  \\[0.2cm]
+  gilt.  Diese Gleichung können wir kürzer in der Form 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $P( X = x \wedge Y = y) = P(X = x) \cdot P(Y = y)$
+  \\[0.2cm]
+  schreiben. \eoxs
+\end{Definition}
+
+\example
+Angenommen, wir würfeln mit zwei Laplace-Würfel.  Der Ergebnis-Raum hat dann die Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Omega = \bigl\{ \pair(i,j) \;\big|\; i,j \in \{1,\cdots,6\}\bigr\}$.
+\\[0.2cm]
+Definieren wir die Zufalls-Variablen $X$ und $Y$ durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X\bigl(\pair(i,j)\bigr) = i$ \quad und $Y\bigl(\pair(i,j)\bigr) = j$,
+\\[0.2cm]
+so sind  diese Zufalls-Variablen unabhängig, denn wählen wir beispielsweise $x = 2$  und $y = 5$, so müssen wir zeigen, dass
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(X = 2 \wedge Y = 5) = P(X = 2) \cdot P(Y = 5)$
+\\[0.2cm]
+gilt. Dies rechnen wir sofort nach, denn einerseits gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X = 2 \wedge Y = 5) = P\bigl(\{ \pair(2,5)\}\bigr) = \frac{1}{36}$,
+\\[0.2cm]
+andererseits haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  P(X=2) & = & P\bigl( \{ \pair(i,j) \in \Omega \;|\; X(\pair(i,j)) = 2 \}\bigr) \\[0.2cm]
+         & = & P\bigl( \{ \pair(i,j) \in \Omega \;|\; i = 2 \}\bigr) \\[0.2cm]
+         & = & P\bigl( \{ \pair(2,j)  \;|\; j \in \{1,\cdots,6 \}\bigr) \\[0.2cm]
+         & = & \ds \frac{\bigl|\{ \pair(2,j)  \;|\; j \in \{1,\cdots,6 \}\bigl|}{36} \\[0.2cm]
+         & = & \ds \frac{6}{36} \\[0.4cm]
+         & = & \ds \frac{1}{6}.
+\end{array}
+$
+\\[0.2cm]
+Genau so sehen wir $P(Y = 5) = \frac{1}{6}$ und daher gilt insgesamt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X = 2 \wedge Y = 5) = \frac{1}{36} = \frac{1}{6} \cdot \frac{1}{6} = P(X = 2) \cdot P(Y = 5)$.
+\\[0.2cm]
+Die Tatsache, dass wir hier mit $x=2$ und $y=5$ gearbeitet haben, ist völlig unerheblich, denn wir hätten bei jedem anderen Wert
+das selbe Ergebnis bekommen.  Daher sind die beiden Zufalls-Variablen $X$ und $Y$ unabhängig. \eox
+
+Um das letzte  Beispiel verallgemeinern zu können, fehlt noch eine Definition.
+\begin{Definition}
+Es seien
+\begin{enumerate}
+\item $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$ und
+      $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$ Wahrscheinlichkeits-Räume.
+\item $\mathcal{W} = \mathcal{W}_1 \times \mathcal{W}_2 = \langle \Omega, 2^\Omega, P\rangle$ der aus $\mathcal{W}_1$ und $\mathcal{W}_2$ gebildete Produkt-Raum.
+\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße auf $\mathcal{W}$.
+\end{enumerate}
+Dann \blue{wird $X$ durch die erste Komponente bestimmt}, falls 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\forall \omega_1 \in \Omega_1: \forall \omega_2,\omega_3 \in \Omega_2: X\bigl(\pair(\omega_1,\omega_2)\bigr) = X\bigl(\pair(\omega_1,\omega_3)\bigr)$
+\\[0.2cm]
+gilt. Bei der Auswertung der Zufallsgröße $X$ spielt also die zweite Komponente keine Rolle.
+Analog sagen wir, dass \blue{$X$ durch die zweite Komponente bestimmt wird}, wenn die erste Komponente
+bei der Auswertung von $X$ keine Rolle spielt, wenn also gilt: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\forall \omega_2 \in \Omega_2: \forall \omega_1,\omega_3 \in \Omega_1: X\bigl(\pair(\omega_1,\omega_2)\bigr) = X\bigl(\pair(\omega_3,\omega_2)\bigr)$. 
+ \eox
+\end{Definition}
+
+\begin{Satz}
+Es seien 
+\begin{enumerate}
+\item $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$ und
+      $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$ Wahrscheinlichkeits-Räume.
+\item $\mathcal{W} = \mathcal{W}_1 \times \mathcal{W}_2 = \langle \Omega, 2^\Omega, P\rangle$ der aus $\mathcal{W}_1$ und $\mathcal{W}_2$ gebildete Produkt-Raum.
+\item $X_1: \Omega \rightarrow \mathbb{R}$ und
+      $X_2: \Omega \rightarrow \mathbb{R}$ Zufalls-Variablen auf $\mathcal{W}$.
+\end{enumerate}
+Falls nun $X_1$ durch die erste Komponente bestimmt wird und $X_2$ durch die zweite Komponente
+bestimmt wird, dann sind die Zufalls-Variablen $X_1$ und $X_2$ unabhängig.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Wir müssen zeigen, dass für beliebige Zahlen $x_1,x_2 \in \mathbb{R}$ die Gleichung
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(X_1 = x_1 \wedge X_2 = x_2) = P(X_1 = x_1) \cdot P(X_2 = x_2)$
+\\[0.2cm]
+gilt.  Dies ist gleichbedeutend damit, dass die beiden Ereignisse 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E_1:= \bigl\{ \omega \in \Omega \;\big|\; X_1(\omega) = x_1 \bigr\}$ \quad und \quad
+$E_2 := \bigl\{ \omega \in \Omega \;\big|\; X_2(\omega) = x_2 \bigr\}$
+\\[0.2cm]
+unabhängig sind. Dies folgt aus Satz \ref{satz:unabhaengig}, falls wir zeigen können,
+dass $E_1$ auf die erste und $E_2$ auf zweite Komponente beschränkt ist.  Wir führen den Nachweis für das
+Ereignis $E_1$, der Nachweis für das Ereignis $E_2$ verläuft völlig analog.  Dazu definieren wir eine Menge
+$\widehat{E}_1$ durch
+\\[0.2cm]
+\hspace*{1.3cm}
+$\widehat{E}_1 := \bigl\{ \omega_1 \in \Omega_1 \;\big|\; \exists \omega_2 \in \Omega_2: X_1(\pair(\omega_1,\omega_2)) = x_1 \}$
+\\[0.2cm]
+und zeigen, dass
+$E_1 = \bigl\{ \pair(\omega_1,\omega_2) \in \Omega \;\big|\; \omega_1 \in \widehat{E}_1 \wedge \omega_2 \in \Omega_2 \bigr\}$
+gilt. Den Nachweis, dass diese beiden Mengen  gleich sind führen wir, indem wir zeigen, dass 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\pair(\omega_1,\omega_2) \in \bigl\{ \omega \in \Omega \;\big|\; X_1(\omega) = x_1 \bigr\} \;\Leftrightarrow\;
+ \pair(\omega_1,\omega_2) \in \bigl\{ \pair(\omega_1,\omega_2) \in \Omega \;\big|\; \omega_1 \in \widehat{E}_1 \wedge \omega_2 \in \Omega_2 \bigr\}$
+\\[0.2cm]
+gilt.  Wir betrachten zunächst die linke Seite:
+\begin{equation}
+  \label{eq:l1}  
+\begin{array}[b]{cl}
+                & \pair(\omega_1,\omega_2) \in \bigl\{ \omega \in \Omega \;\big|\; X_1(\omega) = x_1 \bigr\} \\[0.2cm]
+\Leftrightarrow & X_1(\pair(\omega_1,\omega_2)) = x_1 \\[0.2cm]
+\end{array}
+\end{equation}
+Jetzt formen wir die rechte Seite um:
+\begin{equation}
+  \label{eq:r1}
+\begin{array}[b]{cl}
+                & \pair(\omega_1,\omega_2) \in \bigl\{ \pair(\omega_1,\omega_2) \in \Omega \;\big|\; \omega_1 \in \widehat{E}_1 \wedge \omega_2 \in \Omega_2 \bigr\} \\[0.2cm]
+\Leftrightarrow & \omega_1 \in \widehat{E}_1 \wedge \omega_2 \in \Omega_2                                                                                            \\[0.2cm]
+\Leftrightarrow & \omega_1 \in \widehat{E}_1                                                                                                                         \\[0.2cm]
+\Leftrightarrow & \omega_1 \in \bigl\{ \omega_1 \in \Omega_1 \;\big|\; \exists \omega_3 \in \Omega_2: X_1(\pair(\omega_1,\omega_3)) = x_1 \}                         \\[0.2cm]
+\Leftrightarrow & \exists \omega_3 \in \Omega_2: X_1(\pair(\omega_1,\omega_3)) = x_1                         \\[0.2cm]
+\end{array}
+\end{equation}
+Um zu zeigen, dass die Bedingungen (\ref{eq:r1}) und (\ref{eq:l1}) äquivalent sind, bemerken wir zunächst, dass die Richtung
+\\[0.2cm]
+\hspace*{1.3cm}
+$X_1(\pair(\omega_1,\omega_2)) = x_1 \;\Rightarrow\; \exists \omega_3 \in \Omega_2: X_1(\pair(\omega_1,\omega_3)) = x_1$
+\\[0.2cm]
+offensichtlich ist, denn wir können für das $\omega_3$, dessen Existenz auf der rechten Seite gefordert wird,
+ja $\omega_2$ einsetzen.  Um  die umgekehrte Richtung
+\\[0.2cm]
+\hspace*{1.3cm}
+$\exists \omega_3 \in \Omega_2: X_1(\pair(\omega_1,\omega_3)) = x_1 \;\Rightarrow\; X_1(\pair(\omega_1,\omega_2)) = x_1$
+\\[0.2cm]
+zu zeigen, nehmen wir also an, dass für ein $\omega_3 \in \Omega_2$ die Gleichung
+\\[0.2cm]
+\hspace*{1.3cm}
+$X_1(\pair(\omega_1,\omega_3)) = x_1$ 
+\\[0.2cm]
+gilt. Nun folgt aus der Voraussetzung, dass $X_1$ durch die erste Komponente bestimmt wird, 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X_1(\pair(\omega_1,\omega_2)) = X_1(\pair(\omega_1,\omega_3)) = x_1$ 
+\\[0.2cm]
+und damit ist der Beweis abgeschlossen. \qed
+
+Der nächsten Satz ist eine unmittelbare Konsequenz aus der Definition des Begriffs der unabhängigen Zufalls-Variablen.
+\begin{Satz}
+  Es sei
+  \begin{enumerate}
+  \item $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum,
+  \item $X:\Omega \rightarrow \mathbb{R}$ und $Y:\Omega \rightarrow \mathbb{R}$ seien zwei unabhängige Zufalls-Variablen.
+  \item $A,B \subseteq \mathbb{R}$.
+  \end{enumerate}
+  Dann sind die Ereignisse
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\bigl\{ \omega \in \Omega \;\big|\; X(\omega) \in A \bigr\}$ \quad und \quad
+  $\bigl\{ \omega \in \Omega \;\big|\; Y(\omega) \in B \bigr\}$
+  \\[0.2cm]
+  unabhängig, es gilt also
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $P( X \in A \wedge Y \in B) = P(X \in A) \cdot P(Y \in B)$.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}:  Zunächst eine Vorbemerkung. Ist eine Menge 
+\\[0.2cm]
+\hspace*{1.3cm}
+$C = \{ c_n \;|\; n \in \mathbb{N} \}$
+\\[0.2cm]
+gegeben, wobei wir stillschweigend voraussetzen, dass die Elemente $c_n$ voneinander verschieden sind,
+ und ist weiter $Z$ eine Zufallsgröße auf $\Omega$, so kann die Wahrscheinlichkeit
+$P(Z \in C)$ wie folgt berechnet werden:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  P(Z \in C) 
+& = & P\bigl(\{ \omega \in \Omega \;|\; Z(\omega) \in C\}\bigr) \\[0.2cm]
+& = & \ds 
+      P\left(\bigcup\limits_{n=0}^\infty \{ \omega \in \Omega \;|\; Z(\omega) = c_n \}\right) \\[0.5cm]
+& = & \ds 
+      \sum\limits_{n=0}^\infty P\bigl(\{ \omega \in \Omega \;|\; Z(\omega) = c_n \}\bigr) \\[0.5cm]
+& = & \ds 
+      \sum\limits_{n=0}^\infty P\bigl( Z = c_n \bigr). 
+\end{array}
+$
+\\[0.2cm]
+Diese Identität werden wir weiter unten benötigen.
+
+Wir nehmen nun an, dass wir  die Mengen $A$ und $B$ in der Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$A = \{ a_n \;|\; n \in \mathbb{N}\}$ \quad und \quad $B = \{ b_n \;|\; n \in \mathbb{N}\}$,
+\\[0.2cm]
+schreiben können, wobei wir stillschweigend $a_m \not= a_n$ für $n\not=m$ und
+ $b_m \not= b_n$ für $n\not=m$ voraussetzen, wir betrachten also nur den Fall,
+dass die beiden Mengen $A$ und $B$ unendlich viele Elemente enthalten. 
+Dann gilt in Analogie zu der oben gezeigten Identität:
+\\[0.2cm]
+\hspace*{0.3cm}
+$
+\begin{array}[b]{lcll}
+      P(X \in A \wedge Y \in B) 
+& = & \ds
+      \sum\limits_{m=0}^\infty \sum\limits_{n=0}^\infty P(X = a_m \wedge Y = b_n) \\[0.5cm]
+& = & \ds
+      \sum\limits_{m=0}^\infty \sum\limits_{n=0}^\infty P(X = a_m) \cdot P(Y = b_n)
+    & \mbox{$X$ und $Y$ sind unabhängig} \\[0.6cm]
+& = & \ds
+      \sum\limits_{m=0}^\infty P(X = a_m) \cdot \sum\limits_{n=0}^\infty P(Y = b_n)
+    & \mbox{Distributiv-Gesetz} \\[0.6cm]
+& = & \ds
+      \left(\sum\limits_{m=0}^\infty P(X = a_m)\right) \cdot \left(\sum\limits_{n=0}^\infty P(Y = b_n)\right)
+    & \mbox{Distributiv-Gesetz} \\[0.6cm]
+& = & \ds
+      P(X \in A) \cdot P(Y \in B)
+\end{array}
+$ \qed
+
+\noindent
+Genau wie wir den Begriff der Unabhängigkeit auch für mehr als zwei Ereignisse definieren konnten,
+so können wir auch den Begriff der Unabhängigkeit von Zufalls-Variablen für mehr als zwei Zufalls-Variablen definieren.
+Eine Menge $\{X_1,\cdots,X_n\}$ von Zufalls-Variablen ist unabhängig, falls für jede nicht-leere Teilmenge $I
+\subseteq \{1,\cdots,n\}$ gilt: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\biggl(\bigwedge\limits_{i\in I} X_i = x_i\biggr) = \prod\limits_{i\in I} P(X_i = x_i)$.
+
+
+\section{Eigenschaften von Erwartungswert und Varianz}
+Der Erwartungswert hat die folgende Linearitäts-Eigenschaft.
+\begin{Satz}[Linearität des Erwartungswerts]
+Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und sind $X: \Omega \rightarrow \mathbb{R}$  
+und $Y: \Omega \rightarrow \mathbb{R}$ zwei Zufalls-Variablen, so können wir für beliebige $\alpha,\beta \in \mathbb{R}$ eine Zufallsgröße 
+$Z:\Omega \rightarrow \mathbb{R}$ durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$Z(\omega) := \alpha \cdot X(\omega) + \beta \cdot Y(\omega)$
+\\[0.2cm]
+definieren.  Für den Erwartungswert dieser Zufallsgröße gilt: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E\bigl[Z\bigr] = \alpha \cdot E\bigl[X\bigr] + \beta \cdot E\bigl[Y\bigr]$.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Dieser Satz wird bewiesen, indem wir die Definition des Erwartungswerts expandieren:
+\hspace*{1.3cm}
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}
+E[Z] & = & \ds \sum\limits_{\omega\in\Omega} P(\{\omega\}) \cdot Z(\omega) \\[0.5cm]
+     & = & \ds \sum\limits_{\omega\in\Omega} P(\{\omega\}) \cdot \bigl(\alpha \cdot X(\omega) + \beta \cdot Y(\omega)\bigr) \\[0.5cm]
+     & = & \ds \sum\limits_{\omega\in\Omega} P(\{\omega\}) \cdot \alpha \cdot X(\omega) + 
+                         \sum\limits_{\omega\in\Omega} P(\{\omega\}) \cdot \beta  \cdot Y(\omega) \\[0.5cm]
+     & = & \ds \alpha \cdot \sum\limits_{\omega\in\Omega} P(\{\omega\}) \cdot X(\omega) + 
+                         \beta  \cdot \sum\limits_{\omega\in\Omega} P(\{\omega\}) \cdot Y(\omega) \\[0.5cm]
+     & = & \ds \alpha \cdot E[X] + \beta \cdot E[Y]
+\end{array}
+$ \qed
+
+\exercise
+Beweisen Sie:
+Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und definieren wir
+für ein beliebiges $\beta \in \mathbb{R}$ die Zufallsgröße $X:\Omega \rightarrow \mathbb{R}$ als 
+\\[0.2cm]
+\hspace*{1.3cm} $X(\omega) = \beta$, \\[0.2cm]
+so gilt 
+$E[X] = \beta$. \eox
+\vspace*{0.3cm}
+
+\noindent
+Im Gegensatz zu dem Erwartungswert ist die Varianz kein linearer Operator.
+Es gilt aber der folgende Satz.
+
+\begin{Satz}[Verschiebungs-Satz]
+Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und ist $X: \Omega \rightarrow \mathbb{R}$  
+ein Zufallsgröße, so können wir für beliebige $\alpha,\beta \in \mathbb{R}$ eine Zufallsgröße 
+$Z:\Omega \rightarrow \mathbb{R}$ durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$Z(\omega) = \alpha \cdot X(\omega) + \beta$
+\\[0.2cm]
+definieren.  Für die Varianz dieser Zufallsgröße gilt: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\var\bigl[Z\bigr] = \alpha^2 \cdot \var\bigl[X\bigr]$.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Zur Abkürzung definieren wir zunächst 
+$\mu := E[X]$.
+Nach dem gerade bewiesenen Satz gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E[\alpha \cdot X + \beta] = \alpha \cdot E[X] + \beta \cdot E[1] = \alpha \cdot \mu + \beta$.
+\\[0.2cm]
+Nun gilt für die Varianz von $Z$: 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}
+  \var[Z] 
+& = & E\bigl[(Z - E[Z])^2\bigr] \\[0.2cm]
+& = & E\bigl[\bigl(\alpha \cdot X + \beta - (\alpha \cdot \mu + \beta)\bigr)^2\bigr] \\[0.2cm]
+& = & E\bigl[\bigl(\alpha \cdot X  - \alpha \cdot \mu\bigr)^2\bigr] \\[0.2cm]
+& = & E\bigl[\bigl(\alpha \cdot (X - \mu)\bigr)^2\bigr] \\[0.2cm]
+& = & E\bigl[\alpha^2 \cdot (X - \mu)^2\bigr] \\[0.2cm]
+& = & \alpha^2 \cdot E\bigl[(X - \mu)^2\bigr] \\[0.2cm]
+& = & \alpha^2 \cdot \var[X] 
+\end{array}
+$ \qed
+
+\noindent
+Um den später folgenden Satz beweisen zu können, benötigen wir einen Satz über den 
+Erwartungswerts des Produktes zweier unabhängiger Zufalls-Variablen.
+
+\begin{Lemma} \label{lemma:produnabhaengig}
+Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und sind $X: \Omega \rightarrow \mathbb{R}$  und
+$Y: \Omega \rightarrow \mathbb{R}$ zwei \red{unabhängige} Zufalls-Variablen, so gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E[X \cdot Y\bigr] = E\bigl[X\bigr] \cdot E\bigl[Y\bigr]$.  
+\end{Lemma}
+
+\noindent
+\textbf{Beweis}: Der Wertebereich der Zufalls-Variablen $X$ und $Y$ sei durch die Mengen
+\\[0.2cm]
+\hspace*{1.3cm}
+$X(\Omega) = \{ x_n \;|\; n \in \mathbb{N}\}$ \quad und \quad
+$Y(\Omega) = \{ y_n \;|\; n \in \mathbb{N}\}$
+\\[0.2cm]
+gegeben.  Dann ist der Wertebereich der Zufallsgröße $Z:\Omega \rightarrow \mathbb{R}$, die durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$Z(\omega) = X(\omega) \cdot Y(\omega)$
+\\[0.2cm]
+definiert ist, wie folgt gegeben:
+\\[0.2cm]
+\hspace*{1.3cm}
+$Z(\Omega) = \{ x_m \cdot y_n \;|\; m,n \in \mathbb{N}\}$. 
+\\[0.2cm]
+Damit finden wir für den Erwartungswert von $Z$ 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcll}
+E[Z] & = & \sum\limits_{m=0}^\infty \sum\limits_{n=0}^\infty P(X = x_m \wedge Y = y_n) \cdot x_m \cdot y_n \\[0.6cm]
+     & = & \sum\limits_{m=0}^\infty \sum\limits_{n=0}^\infty P(X = x_m) \cdot P(Y = y_n) \cdot x_m \cdot y_n 
+         & \mbox{$X$ und $Y$ sind unabhängig} \\[0.6cm]
+     & = & \sum\limits_{m=0}^\infty P(X = x_m) \cdot x_m \cdot \sum\limits_{n=0}^\infty P(Y = y_n) \cdot y_n 
+         & \mbox{Distributiv-Gesetz} \\[0.6cm]
+     & = & \left(\sum\limits_{m=0}^\infty P(X = x_m) \cdot x_m\right) \cdot \left(\sum\limits_{n=0}^\infty P(Y = y_n) \cdot y_n\right)
+         & \mbox{Distributiv-Gesetz} \\[0.6cm]
+     & = & E[X] \cdot E[Y]  \hspace*{\fill} \Box
+\end{array}
+$ 
+
+
+\exercise
+Zeigen Sie: Sind $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei unabhängige Zufalls-Variablen,
+ist $\alpha \in \mathbb{R}$ und
+ist die Zufallsgröße $Z:\Omega \rightarrow \mathbb{R}$ definiert durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$Z(\omega) = X(\omega) + \alpha$,
+\\[0.2cm]
+so sind auch die Zufalls-Variablen $Z$ und $Y$ unabhängig. \eox
+
+\noindent
+Der nächste Satz ist für die weitere Theorie von fundamentaler Bedeutung.
+
+\begin{Satz}
+Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und sind $X: \Omega \rightarrow \mathbb{R}$  und
+$Y: \Omega \rightarrow \mathbb{R}$ zwei \red{unabhängige} Zufalls-Variablen, so gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\var\bigl[X + Y\bigr] = \var\bigl[X\bigr] + \var\bigl[Y\bigr]$.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Zur Abkürzung setzen wir $\mu_X := E[X]$ und  $\mu_Y := E[Y]$.  Wegen $E[X+Y] = \mu_X + \mu_Y$ gilt dann
+\\[0.2cm]
+\hspace*{0.3cm}
+$
+\begin{array}[b]{lcl}
+ \var[X+Y] & = & E\bigl[(X + Y - \mu_X - \mu_Y)^2\bigr] \\[0.2cm] 
+           & = & E\bigl[\bigl((X - \mu_X) + (Y - \mu_Y)\bigr)^2\bigr] \\[0.2cm] 
+           & = & E\bigl[(X - \mu_X)^2 + (Y - \mu_Y)^2 + 2 \cdot (X - \mu_X) \cdot (Y - \mu_Y)\bigr] \\[0.2cm] 
+           & = & E\bigl[(X - \mu_X)^2\bigr] + E\bigl[(Y - \mu_Y)^2\bigr] + 2 \cdot E\bigl[(X - \mu_X) \cdot (Y - \mu_Y)\bigr] \\[0.2cm] 
+           & = & \var[X] + \var[Y] + 2 \cdot E\bigl[(X - \mu_X) \cdot (Y - \mu_Y)\bigr] \\[0.2cm] 
+           & = & \var[X] + \var[Y] + 2 \cdot E\bigl[(X - \mu_X)\bigr] \cdot E\bigl[Y - \mu_Y)\bigr] \\[0.2cm] 
+           &   & \mbox{nach Lemma \ref{lemma:produnabhaengig}, denn $X- \mu_X$ und $Y - \mu_Y$ sind unabhängig nach Aufgabe 19} \\[0.2cm]
+           & = & \var[X] + \var[Y] + 2 \cdot \bigl(E[X] - \mu_X\bigr) \cdot \bigl(E[Y] - \mu_Y\bigr) \\[0.2cm] 
+           & = & \var[X] + \var[Y] + 2 \cdot \bigl(\mu_X - \mu_X\bigr) \cdot \bigl(\mu_Y - \mu_Y\bigr) \\[0.2cm] 
+           & = & \var[X] + \var[Y]. \hspace*{\fill} \Box
+\end{array}
+$
+\pagebreak
+
+\noindent
+Der letzte Satz läßt sich auf Mengen von unabhängigen Zufalls-Variablen verallgemeinern.
+Ist $\{X_1,\cdots,X_n\}$ eine Menge unabhängiger Zufalls-Variablen, so gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \var\left(\sum\limits_{i=0}^n X_i\right) = \sum\limits_{i=0}^n \var(X_i)$.
+\\[0.2cm]
+In dieser Form hat der Satz eine äußerst wichtige Konsequenz.  Wir gehen aus von einem 
+Zufalls-Experiment, dass durch einen Wahrscheinlichkeits-Raum der Form
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathcal{W} = \langle \Omega, 2^\Omega, P\rangle$
+\\[0.2cm]
+beschrieben wird.  Weiter sei $X$ eine Zufallsgröße, die bei diesem Experiment eine Rolle spielt.
+Wiederholen wir das Zufalls-Experiment $n$-mal, so haben wir eine Menge 
+$\{X_1, \cdots, X_n\}$ von $n$ Zufalls-Variablen, die offenbar unabhägig sind.  Wir definieren jetzt die Zufallsgröße
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \overline{X} := \frac{1}{n} \sum\limits_{k=1}^n X_k$.
+\\[0.2cm]
+$\overline{X}$ ist offenbar das arithmetische Mittel der Zufalls-Variablen $X_1,\cdots,X_n$. Für den Erwartungswert von
+$\overline{X}$ gilt dann 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+  E\Bigl[\overline{X}\Bigr] & = & \ds E\left[\frac{1}{n} \cdot \sum\limits_{k=1}^n X_k\right] \\[0.5cm]
+  & = & \ds \frac{1}{n} \cdot \sum\limits_{k=1}^n E\left[X_k\right] \\[0.5cm]
+  & = & \ds \frac{1}{n} \cdot \sum\limits_{k=1}^n E[X] \\[0.5cm]
+  & = & \ds \frac{1}{n} \cdot E[X] \cdot \sum\limits_{k=1}^n 1 \\[0.5cm]
+  & = & \ds \frac{1}{n} \cdot E[X] \cdot n \\[0.3cm]
+  & = & E[X] 
+\end{array}
+$
+\\[0.2cm]
+Dabei haben wir ausgenutzt, dass die Zufalls-Variablen $X_i$ alle den selben Erwartungswert $E[X]$ haben.
+Natürlich ist es nicht weiter verwunderlich, dass das arithmetische Mittel dann ebenfalls den Erwartungswert $E[X]$ hat.
+Wesentlich interessanter ist die Frage nach der Varianz der Zufallsgröße $\overline{X}$. 
+Es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+\var\bigl[\overline{X}\bigr]  & = & \ds \var\left[ \frac{1}{n} \cdot \sum\limits_{k=1}^n X_i \right] \\[0.6cm]
+ & = & \ds \left(\frac{1}{n}\right)^2 \cdot \var\left[ \sum\limits_{k=1}^n X_i \right] \\[0.6cm]
+ & = & \ds \frac{1}{n^2} \cdot \sum\limits_{k=1}^n \var\left[ X_i \right] \\[0.6cm]
+ & = & \ds \frac{1}{n^2} \cdot \sum\limits_{k=1}^n \var\left[ X \right] \\[0.6cm]
+ & = & \ds \frac{1}{n^2} \cdot \var\left[ X \right] \cdot \sum\limits_{k=1}^n 1 \\[0.6cm]
+ & = & \ds \frac{1}{n^2} \cdot \var\left[ X \right] \cdot n \\[0.6cm]
+ & = & \ds \frac{1}{n}   \cdot \var\left[ X \right] 
+\end{array}
+$
+\\[0.2cm]
+Die Standard-Abweichung $\sigma$ ist die Wurzel der Varianz, es gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+\colorbox{blue}{\framebox{\colorbox{yellow}{
+$\ds \sigma\Bigl[\overline{X}\Bigr] = \frac{1}{\sqrt{n}} \cdot \sigma[X]$.}}}
+\\[0.2cm]
+Dieser Zusammenhang wird in der Literatur als das $\sqrt{n}$-Gesetz bezeichnet:
+
+\begin{Satz}[$\sqrt{n}$-Gesetz] Es sei
+\begin{enumerate}
+\item $\mathcal{W} = \langle \Omega, 2^\Omega, P \rangle$  ein Wahrscheinlichkeits-Raum,
+\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße auf $\mathcal{W}$,
+\item $\mathcal{W}^n = \underbrace{\mathcal{W} \times \cdots \times \mathcal{W}}_n$
+      sei das $n$-fache kartesisches Produkt von $\mathcal{W}$ mit sich selbst,
+\item $X_i: \Omega^n \rightarrow \mathbb{R}$ sei für $i=1,\cdots,n$ definiert durch 
+      \\[0.2cm]
+      \hspace*{1.3cm} $X_i\bigl(\langle\omega_1, \cdots, \omega_n\rangle\bigr): X(\omega_i)$
+\item $\overline{X}: \Omega^n \rightarrow \mathbb{R}$ sei definiert durch 
+      \\[0.2cm]
+      \hspace*{1.3cm} $\ds \overline{X}(\omega):= \frac{1}{n} \cdot \sum\limits_{k=1}^n X_i(\omega)$
+\end{enumerate}
+Dann gilt:
+\begin{enumerate}
+\item $E\Bigl[\overline{X}\Bigr] = E[X]$
+\item $\ds \var\Bigl[\overline{X}\Bigr] = \frac{1}{n} \cdot \var[X]$ \quad und \quad $\ds \sigma\Bigl[\overline{X}\Bigr] = \frac{1}{\sqrt{n}} \cdot \sigma[X]$ \qed
+\end{enumerate}
+\end{Satz}
+
+\noindent
+Das $\sqrt{n}$-Gesetz hat in der Praxis eine sehr wichtige Anwendung bei der Messung.  Wird eine physikalische Größe gemessen,
+so können wir diese Messung als Zufalls-Experiment ansehen.  Der Erwartungswert des Zufalls-Experiments
+ist dann der tatsächliche Wert, während die Standard-Abweichung als die ungefähre Größe des Meßfehlers 
+interpretiert werden kann.  Das $\sqrt{n}$-Gesetz zeigt uns eine Möglichkeit, um die Genauigkeit
+unserer Messung zu verbessern:  Führen wir die selbe Messung $n$-mal durch und bilden den Mittelwert unserer 
+Ergebnisse, so wird die Meß-Genauigkeit um den Faktor $\sqrt{n}$ gesteigert. 
+Ein anderes Beispiel ist das Würfeln:  Gibt die Zufallsgröße $X$ die Augenzahl beim einmaligen
+Würfeln an, so haben wir für  Varianz und Standard-Abweichung die Werte
+\\[0.2cm]
+\hspace*{1.3cm}
+$\var[X] = \frac{35}{12}$ \quad und \quad $\sigma[X] = \sqrt{\frac{35}{12}} \approx 1.707825128$.
+\\[0.2cm]
+Würfeln wir hingegen $100$-mal und bilden das arithmetische Mittel $\overline{X}$ aller gewürfelten Augenzahlen,
+so finden wir für die Standard-Abweichung den Wert
+\\[0.2cm]
+\hspace*{1.3cm}
+$\sigma\Bigl[\overline{X}\Bigr] = 0.1707825128$
+\\[0.2cm]
+Im nächsten Abschnitt werden wir sehen, welche konkreten Aussagen über die Wahrscheinlichkeit
+aus der Standard-Abweichung abgeleitet werden können.
+
+\section[Das Gesetz der großen Zahlen]{Der Satz von Tschebyschow und das Gesetz  der großen Zahlen}
+Der folgende Satz, der nach 
+\href{https://de.wikipedia.org/wiki/Pafnuti_Lwowitsch_Tschebyschow}{Pafnuti Lwowitsch Tschebyschow} 
+(1821 -- 1894) benannt ist, zeigt uns,  
+welche konkrete Bedeutung die Standard-Abweichung $\sigma[X]$ hat.
+
+\begin{Satz}[Ungleichung von Tschebyschow]
+  Es sei
+  \begin{enumerate}
+  \item $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum,
+  \item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße mit Erwartungswert $\mu = E[X]$ und
+        Standard-Abweichung $\sigma^2 = \var[X]$. 
+  \end{enumerate}
+  Dann gilt  für alle $r \in \mathbb{R}_+$ 
+  \\[0.2cm]
+  \hspace*{1.3cm} 
+  $\ds P\bigl(|X - \mu| \geq r \cdot \sigma\bigr) \leq \frac{1}{r^2}$.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}:
+Zunächst formen wir die Bedingung $|X - \mu| \geq r \cdot \sigma$ um.  Es gilt offenbar für beliebige $\omega \in \Omega$
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds |X(\omega) - \mu| \geq r \cdot \sigma \;\Leftrightarrow\; \bigl(X(\omega) - \mu\bigr)^2 \geq r^2 \cdot \sigma^2
+\;\Leftrightarrow\; \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2$
+\\[0.2cm]
+Wir zeigen jetzt zunächst die Ungleichung 
+\\[0.2cm]
+\hspace*{1.3cm}
+$r^2 \cdot P\bigl(|X - \mu| \geq r \cdot \sigma\bigr) \leq 1$.
+\\[0.2cm]
+Wenn wir diese Ungleichung durch $r^2$ dividieren, folgt die Behauptung. 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}
+ r^2 \cdot P\bigl(|X - \mu| \geq r \cdot \sigma\bigr) 
+& = & \ds                           
+ r^2 \cdot P\bigl(\,(X - \mu)^2 \geq r^2 \cdot \sigma^2\bigr) \\[0.2cm]
+& = & \ds
+r^2 \cdot \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \\[0.7cm]
+& = & \ds
+\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot r^2 \\[0.7cm]
+& \leq & \ds
+         \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2 \right\}} 
+         P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X - \mu}{\sigma}\right)^2 
+\end{array}
+$
+\\[0.2cm]
+Im letzten Schritt haben wir ausgenutzt, dass die Summe nur über die $\omega$ läuft, für die $\left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2$ gilt, so dass die Summe
+größer wird, wenn wir $r^2$ durch $\left(\frac{X - \mu}{\sigma}\right)^2$ ersetzen.
+Im nächsten Schritt vergrößern wir die Summe, indem wir über alle $\omega \in \Omega$ summieren:
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}
+ r^2 \cdot P\bigl(|X - \mu| \geq r \cdot \sigma\bigr) 
+& \leq & \ds
+\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X - \mu}{\sigma}\right)^2 
+      \\[0.7cm]
+& \leq & \ds
+\sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X - \mu}{\sigma}\right)^2 
+      \\[0.7cm]
+& = & \ds
+\frac{1}{\sigma^2} \sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot (X - \mu)^2 
+      \\[0.7cm]
+& = & \ds
+     \frac{1}{\sigma^2} \cdot \var[X] \\[0.4cm]
+& = & \ds
+     1
+ \end{array}
+$
+\qed
+
+\exercise 
+Schätzen Sie mit Hilfe der Ungleichung von
+Tschebyschow ab, 
+wie oft Sie würfeln müssen, damit die Wahrscheinlichkeit, dass der arithmetische Mittelwert der Augenzahlen um mehr als 
+$0.1$ vom Erwartungswert abweicht, kleiner als $1\%$ ist?
+
+\solution
+Zunächst formalisieren wir die Aufgabenstellung. Gesucht ist ein $n$, so dass für den arithmetischen Mittelwert
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \overline{X} = \frac{1}{n} \sum\limits_{k=1}^n X_i$
+\\[0.2cm]
+die Beziehung 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl(|\overline{X} - \mu| \geq 0.1) \leq 0.01$
+\\[0.2cm]
+gilt.  Um diesen Ausdruck auf die Ungleichung von Tschebyschow zurück führen zu können, formen wir den Wert $0.1$ um:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds 0.1 = 0.1 \cdot \frac{1}{\sigma} \cdot \sigma$ \quad und definieren $\ds r = 0.1 \cdot \frac{1}{\sigma}$
+\\[0.2cm]
+Damit können wir die obige Ungleichung auch in der Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl(|\overline{X} - \mu| \geq r \cdot \sigma) \leq 0.01$
+\\[0.2cm]
+schreiben.  Damit diese Ungleichung aus der Ungleichung von Tschebyschow folgt, muss 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \frac{1}{r^2} \leq 0.01$
+\\[0.2cm]
+gelten.  Setzen wir hier den Wert für $r$ ein, so haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds 10^2 \cdot \sigma^2 \leq 0.01$, \quad also \quad $10 \cdot \sigma \leq 0.1$, \quad also \quad  $\sigma \leq \frac{1}{100}$.
+\\[0.2cm]
+Die Standard-Abweichung $\sigma$ können wir aus dem $\sqrt{n}$-Gesetz bestimmen, denn da
+die Augenzahl beim Würfeln mit einem Würfel die Varianz $\frac{35}{12}$ hat,  gilt für die
+Varianz beim $n$-maligen Würfeln
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sigma = \sqrt{\frac{1}{n} \cdot \frac{35}{12}}$
+\\[0.2cm]
+Also haben wir die Ungleichung 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{cl}
+                & \ds \sqrt{\frac{1}{n} \cdot \frac{35}{12}} \leq \frac{1}{100}     \\[0.4cm]
+\Leftrightarrow & \ds \frac{1}{n} \cdot \frac{35}{12}        \leq \frac{1}{10\,000} \\[0.4cm]
+\Leftrightarrow & \ds 10\,000 \cdot \frac{35}{12} \leq n                            \\[0.4cm]
+\Leftrightarrow & \ds 29\,166.\overline{6}\cdots  \leq n           
+\end{array}
+$
+\\[0.2cm]
+Wenn wir $29\,167$ mal würfeln, dann weicht der arithmetische Mittelwert um weniger als $0.1$ vom
+Erwartungswert ab. \eoxs
+
+\remark
+Die Ungleichung von Tschebyschow ist nicht sehr genau.  Wir werden später noch eine wesentlich bessere
+Abschätzung finden.  \eoxs
+
+\exercise
+Angenommen, wir würfeln $n$ mal mit einem Laplace-Würfel.  Bestimmen Sie mit Hilfe der Ungleichung von
+Tschebyschow ein $n$ so,  dass Sie mit einer  Wahrscheinlichkeit von $99\%$ davon ausgehen können, 
+dass mindestens $\frac{n}{7}$ mal eine Sechs  gewürfelt wird? \eoxs
+
+\remark
+Sie können diese Aufgabe auch mit Hilfe der Näherung von Laplace für die (kumulative) Verteilungsfunktion 
+lösen.  Dann ergibt sich ein kleinerer Wert.  Das ist nicht weiter verwunderlich, denn die Tschebyschow-Ungleichung
+gilt für beliebige Verteilungen, während die Näherung von Laplace nur gilt, wenn die Verteilungsfunktion die Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{i=0}^k {n \choose i} \cdot  p^i \cdot (1-p)^{n-i}$
+\\[0.2cm]
+hat.
+\vspace*{0.3cm}
+
+\noindent
+Wenn wir ein Zufalls-Experiment nur oft genug durchführen und dabei eine Zufallsgröße 
+$X$ ermitteln, so wird die Wahrscheinlichkeit, dass der arithmetische Mittelwert, den wir bei $n$ Messungen finden,
+beliebig klein, wenn wir nur $n$ groß genug wählen.  Genauer gilt:
+
+\begin{Satz}[Schwaches Gesetz der großen Zahlen] Es sei 
+\begin{enumerate}
+\item $\mathcal{W} = \langle \Omega, 2^\Omega, P \rangle$  ein Wahrscheinlichkeits-Raum,
+\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße auf $\mathcal{W}$ mit dem Erwartungswert $\mu = E[X]$ und Standard-Abweichung
+      $\sigma := \sqrt{\var[X]\,}$,
+\item $\mathcal{W}^n = \underbrace{\mathcal{W} \times \cdots \times \mathcal{W}}_n$
+      sei das $n$-fache kartesisches Produkt von $\mathcal{W}$ mit sich selbst,
+\item $X_i: \Omega^n \rightarrow \mathbb{R}$ sei für $i=1,\cdots,n$ definiert durch 
+      \\[0.2cm]
+      \hspace*{1.3cm} $X_i\bigl(\langle\omega_1, \cdots, \omega_n\rangle\bigr):= X(\omega_i)$
+\item $\overline{X}: \Omega^n \rightarrow \mathbb{R}$ sei definiert durch 
+      \\[0.2cm]
+      \hspace*{1.3cm} $\ds \overline{X}(\omega):= \frac{1}{n} \cdot \sum\limits_{i=1}^n X_i(\omega)$
+\end{enumerate}
+Dann gilt für alle $\varepsilon > 0$: \\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n\rightarrow\infty} P\bigl( |\overline{X} - \mu| \geq \varepsilon) = 0$.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Nach dem $\sqrt{n}$-Gesetz haben wir für die Zufallsgröße $\overline{X}$:
+\\[0.2cm]
+\hspace*{1.3cm}
+$E\Bigl[\overline{X}\Bigr] = \mu$ \quad und \quad $\ds \var\Bigl[\overline{X}\Bigr] = \frac{\sigma^2}{n}$, \quad 
+also $\ds\sigma\Bigl[\overline{X}\Bigr] = \frac{\sigma}{\sqrt{n}}$.
+\\[0.2cm]
+Definieren wir nun 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds r := \frac{\varepsilon}{\sigma} \cdot \sqrt{n}$, \quad so gilt $\ds \varepsilon = r \cdot \frac{\sigma}{\sqrt{n}}$
+\\[0.2cm]
+und mit nach der Ungleichung von Tschebyschow folgt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl( |\overline{X} - \mu| \geq \varepsilon\bigr) \leq \frac{1}{\frac{\varepsilon^2}{\sigma^2} \cdot n}$, \quad
+ also $\ds P\bigl( |\overline{X} - \mu| \geq \varepsilon\bigr) \leq \frac{\sigma^2}{n \cdot \varepsilon^2}$.
+\\[0.2cm]
+Wegen $\ds\lim\limits_{n\rightarrow\infty} \frac{\sigma^2}{n \cdot \varepsilon^2} = 0$ folgt die Behauptung. \qed
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 
+ 

@@ -1,0 +1,527 @@
+\newdimen\snellbaselineskip
+\newdimen\snellskip
+\snellskip=1.5ex
+\snellbaselineskip=\baselineskip
+\def\srule{\omit\kern.5em\vrule\kern-.5em}
+\newbox\bigstrutbox
+\setbox\bigstrutbox=\hbox{\vrule height14.5pt depth9.5pt width0pt}
+\def\bigstrut{\relax\ifmmode\copy\bigstrutbox\else\unhcopy\bigstrutbox\fi}
+\def\middlehrule#1#2{\noalign{\kern-\snellbaselineskip\kern\snellskip}
+&\multispan#1\strut\hrulefill
+&\omit\hbox to.5em{\hrulefill}\vrule 
+height \snellskip\kern-.5em&\multispan#2\hrulefill\cr}
+
+\makeatletter
+\def\bordermatrix#1{\begingroup \m@th
+  \@tempdima 8.75\p@
+  \setbox\z@\vbox{%
+    \def\cr{\crcr\noalign{\kern2\p@\global\let\cr\endline}}%
+    \ialign{$##$\hfil\kern2\p@\kern\@tempdima&\thinspace\hfil$##$\hfil
+      &&\quad\hfil$##$\hfil\crcr
+      \omit\strut\hfil\crcr\noalign{\kern-\snellbaselineskip}%
+      #1\crcr\omit\strut\cr}}%
+  \setbox\tw@\vbox{\unvcopy\z@\global\setbox\@ne\lastbox}%
+  \setbox\tw@\hbox{\unhbox\@ne\unskip\global\setbox\@ne\lastbox}%
+  \setbox\tw@\hbox{$\kern\wd\@ne\kern-\@tempdima\left(\kern-\wd\@ne
+    \global\setbox\@ne\vbox{\box\@ne\kern2\p@}%
+    \vcenter{\kern-\ht\@ne\unvbox\z@\kern-\snellbaselineskip}\,\right)$}%
+  \null\;\vbox{\kern\ht\@ne\box\tw@}\endgroup}
+
+\makeatother
+
+\chapter{Markow-Ketten}
+
+\begin{Definition}[Markow-Kette]
+  Eine \emph{Markow-Kette} ist ein Paar
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\pair(S, P)$ 
+  \\[0.3cm]
+  Dabei ist $S = \{ s_1, \cdots, s_n \}$ eine endliche Menge von Zuständen
+  und $\mathbf{P} = (p_{i,j})_{i,j}$ ist eine $n \times n$ Matrix, deren Einträge positive reelle
+  Zahlen kleiner oder gleich 1 sind: 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\forall i,j \in \{1,\cdots,n\}: 0 \leq p_{i,j} \leq 1$.
+  \\[0.3cm]
+  Der Wert $p_{i,j}$ gibt die Wahrscheinlichkeit an, dass das System
+  vom Zustand $s_i$ in den Zustand $s_j$ wechselt.  Die Matrix $\mathbf{P}$ bezeichnen
+  wir als \emph{Übergangs-Matrix}.  Um die Zahlen $p_{i,j}$ in dieser Weise interpretieren 
+  zu können, muss die Übergangs-Matrix die \emph{Normierungs-Bedingungen} 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\displaystyle \sum\limits_{j=1}^n p_{i,j} = 1$ \quad für alle $j\in \{1,\cdots,n\}$
+  \\[0.3cm]
+  erfüllen.
+
+  Wir werden ohne Beschränkung der Allgemeinheit davon ausgehen, dass die Menge 
+  $S$ der Zustände nur aus positiven natürlichen Zahlen besteht, es gilt also 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $S = \{1,\cdots,n\}$. \qed
+\end{Definition}
+
+\noindent
+Ist $\pair(S, P)$ eine Markow-Kette, so ist der Ergebnis-Raum $\Omega$ als die Menge aller
+Folgen von Zuständen aus $S$ definiert:
+\\[0.3cm]
+\hspace*{1.3cm}
+$\Omega := \Bigl\{ (s_n)_{n\in\mathbb{N}} \mid \forall n\in\mathbb{N} : s_n \in S \Bigr\}$
+
+\noindent
+Bilden wir das Matrix-Produkt der Übergangs-Matrix $\mathbf{P}$ mit sich selbst so erhalten wir die
+Matrix $\mathbf{P}^2 = \mathbf{P} \cdot \mathbf{P}$, die wir in der Form 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\mathbf{P}^2 = (p^{(2)}_{i,j})_{i,j}$ 
+\\[0.3cm] 
+schreiben.  Der Eintrag $p^{(2)}_{i,j}$ gibt die Wahrscheinlichkeit dafür, dass das System
+in zwei Schritten vom Zustand $i$ in den Zustand $j$ wechselt, denn es gilt 
+\\[0.3cm]
+\hspace*{1.3cm}
+$p^{(2)}_{i,j} = \sum\limits_{k=1}^n p_{i,k} \cdot p_{k,j}$
+\\[0.3cm]
+und das Sytem wechselt dann in zwei Schritten vom Zustand $i$ in den Zustand $j$, wenn es
+im ersten Schritt vom Zustand $i$ in einen Zustand $k$ wechselt und im zweiten Schritt
+vom Zustand $k$ in den Zustand $j$ wechselt.
+
+Schreiben wir die $m$-te Potenz der Übergangs-Matrix $\mathbf{P}$ als
+\\[0.3cm]
+\hspace*{1.3cm}
+$\mathbf{P}^m = (p^{(m)}_{i,j})_{i,j}$,
+\\[0.3cm]
+so gibt das Element $p^{(m)}_{i,j}$ die Wahrscheinlichkeit dafür an, dass
+das System vom $i$-ten Zustand in $m$ Schritten in den $j$-ten Zustand übergeht.
+
+\begin{Definition}[Wahrscheinlichkeits-Vektor]
+  Ist eine Markow-Kette mit $n$ Zuständen gegeben, so bezeichnen wir einen
+  Vektor $\vec{u} \in \mathbb{R}^n$ als \emph{Wahrscheinlichkeits-Vektor}, falls
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\forall i \in \{1,\cdots,n\}: 0 \leq u_i \leq 1$ \quad und \quad 
+  $\displaystyle \sum\limits_{i=1}^n u_{i} = 1$
+  \\[0.3cm]
+  gilt.  Wir interpretieren die Komponente $u_i$ des Vektors $\vec{u}$ als die
+  Wahrscheinlichkeit, dass sich dass zugrunde liegende System in dem
+  Zustand $i$ befindet. \qed
+\end{Definition}
+
+\begin{Satz}
+Es sei $\mathbf{P}$ die Übergangs-Matrix einer Markow-Kette und $\vec{u}$ sei ein
+Wahrscheinlichkeits-Vektor, der den Start-Zustand beschreibt.
+Die Wahrscheinlichkeit, dass das System nach $m$ Schritten in dem Zustand $i$ ist,
+ist durch die $i$-te Komponente des Vektors 
+\\[0.3cm]
+\hspace*{1.3cm}
+$ \vec{u}^{(n)} = \vec{u} \cdot \mathbf{P}^n$
+\\[0.3cm]
+gegeben.
+\end{Satz}
+
+\proof
+Dieser Satz kann durch Induktion nach $n$ bewiesen werden. \qed
+
+\section{Absorbierende Markow-Ketten}
+\begin{Definition}[Absorbierende Zustände, transiente Zustände]
+Ein Zustand $i$ einer Markow-Kette heißt 
+\emph{absorbierend} wenn es unmöglich ist, diesen Zustand wieder zu verlassen.
+Der Zustand $i$ ist also genau dann absorbierend, wenn 
+\\[0.1cm]
+\hspace*{1.3cm}
+$p_{i,i} = 1$ \quad und \quad $p_{i,j} = 0$ für $j \not= i$
+\\[0.1cm]
+gilt.  (Hier folgt die Bedingung für die $p_{i,j}$ mit $j \not= i$ aus 
+der Normierungs-Bedingung der Übergangs-Matrix.)
+Zustände, die nicht absorbierend sind, heißen \emph{transient}.
+Der Zustand $i$ ist also genau dann transient, wenn 
+\\[0.1cm]
+\hspace*{1.3cm}
+$p_{i,i} < 1$
+\\[0.1cm]
+gilt. \qed
+\end{Definition}
+
+\begin{Definition}[Absorbierende Markow-Ketten]
+  Eine Markow-Kette heißt \emph{absorbierend}, wenn die folgenden beiden Bedingungen
+  erfüllt sind:
+  \begin{enumerate}
+  \item Es gibt wenigstens einen absorbierenden Zustand.
+  \item Für jeden transienten Zustand $t$     gibt es einen absorbierenden Zustand
+        $a$, so dass der Zustand $a$ ausgehend von dem Zustand $t$ in endlich
+        vielen Schritten mit einer Wahrscheinlichkeit $p > 0$ erreicht werden kann.
+        \qed
+      \end{enumerate}
+\end{Definition}
+
+Wir wollen im folgenden davon ausgehen, dass die Zustände der Markow-Kette so numeriert
+sind, dass die die ersten $t$ Zustände
+transient sind, während die letzten $r := n - t$ Zustände absorbierend sind.  Dann hat die
+Übergangs-Matrix $\mathbf{P}$ die folgende sogenannte \emph{kanonische} Form: 
+\[
+\offinterlineskip
+\mathbf{P}\;= 
+\bordermatrix{      
+                               &\hbox{TR.}&\omit\hfil&\hbox{ABS.}\cr
+           \hbox{TR.}\bigstrut & \mathbf{Q} &\srule    & \mathbf{R}    \cr
+\middlehrule{1}{1}
+           \hbox{ABS.}\bigstrut& \mathbf{0} &\srule    & \mathbf{E}}
+\] 
+Hierbei gilt:
+\begin{enumerate}
+\item $\mathbf{Q}$ ist eine $t \times t$ Matrix.
+      Diese Matrix bezeichnet die Übergänge von den transienten Zuständen
+      in die transienten Zustände.  Daher sind hier die Einträge $q_{i,i}$ 
+      echt kleiner als 1,
+      denn wenn $q_{i,i} = 1$ wäre, dann wäre der Zustand $i$ absorbierend.
+
+      Außerdem muss es ein $i \in \{1,\cdots,t\}$ geben, so dass
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $\sum\limits_{j=1}^n q_{i,j} < 1$
+      \\[0.3cm]
+      gilt, denn die obere Summe gibt gerade die Wahrscheinlichkeit dafür an,
+      dass das System aus dem Zustand $i$ in einen transienten Zustand übergeht.
+      Wenn diese Wahrscheinlichkeit für alle $i \in \{1,\cdots,t\}$ den Wert $0$ hätte,
+      dann könnte das System aus einem transienten Zustand nie in einen 
+      absorbierenden Zustand wechseln.
+\item $\mathbf{0}$ steht für eine $r \times t$ Matrix.
+      Diese Matrix beschreibt die Übergänge von den $r$ absorbierenden Zuständen
+      zu den $t$ transienten Zuständen.  Da es keine solchen Übergänge gibt, haben alle
+      Einträge den Wert $0$.
+\item $\mathbf{R}$ ist eine $t \times r$ Matrix.
+      Die Matrix beschreibt die Übergänge von den $t$ transienten Zuständen zu den
+      $r$ absorbierenden Zuständen.  Da es von jedem transienten Zustand einen Weg zu einem
+      absorbierenden Zustand geben muss, hat diese Matrix wenigstens einen von $0$
+      verschiedenen Eintrag.  
+
+      Wir bezeichnen $\mathbf{R}$ als die Absorbtions-Matrix, 
+      weil der Eintrag $r_{i,j}$ die Wahrscheinlichkeit angibt, dass das System ausgehend von
+      dem transienten Zustand $i$ in den absorbierenden Zustand $j$ übergeht.
+\item $\mathbf{E}$ ist eine $r \times r$ Matrix, die die Übergänge von den absorbierenden
+      Zuständen zu den absorbierenden Zuständen beschreibt.  
+      Da ein absorbierender Zustand nie wieder verlassen wird, ist $E$ die Einheitsmatrix. 
+\end{enumerate}
+Durch Induktion nach $m$ können wir zeigen, dass für eine absorbierenden Markow-Kette
+die $m$-te Potenz der Übergangs-Matrix die folgende Form hat:
+\[
+\offinterlineskip
+\mathbf{P}^m \;= 
+\bordermatrix{      
+                               &\hbox{TR.}&\omit\hfil&\hbox{ABS.}\cr
+           \hbox{TR.}\bigstrut & \mathbf{Q}^m &\srule & *   \cr
+\middlehrule{1}{1}
+           \hbox{ABS.}\bigstrut& \mathbf{0} &\srule   & \mathbf{E}}
+\] 
+Hierbei steht $*$ für eine $t \times r$ Matrix, deren genaue Form im folgenden nicht weiter
+wichtig ist.
+
+\begin{Satz}
+  Für eine absorbierende Markow-Kette gilt 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\lim\limits_{m \rightarrow \infty} \mathbf{Q}^m = \mathbf{0}$.
+\end{Satz}
+\vspace{0.1cm}
+
+\noindent
+\textbf{Beweis-Idee}: 
+Dieser Satz besagt, dass die Wahrscheinlichkeit, dass ein System in einem transienten
+Zustand bleibt, für große $m$ gegen $0$ konvergiert.  Das liegt ganz einfach daran, dass es
+für jeden transienten Zustand $t$ einen absorbierenden Zustand $a$ gibt, so dass das System
+mit einer positiven Wahrscheinlichkeit $p$ in einer bestimmten Anzahl $k$ von Schritten von
+$t$ in den Zustand $a$ übergeht.  
+Damit sind die absorbierenden Zustände gewissermaßen Fallen, aus denen das System nie
+mehr heraus kommt.
+Nun beschreibt die Matrix $\mathbf{Q}^m$ gerade die Wahrscheinlichkeit,
+dass das System nach $m$ Schritten von einem transienten Zustand in einen transienten
+Zustand übergeht.  Da das System auf lange Sicht in einem absorbierenden Zustand
+gefangen wird, muss die durch $\mathbf{Q}$ beschriebene Wahrscheinlichkeit  gegen 0 gehen.
+\qed
+
+\begin{Satz}
+  Für eine absorbierende Markow-Kette ist die Matrix $\mathbf{E} - \mathbf{Q}$
+  invertierbar und es gilt 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\displaystyle (\mathbf{E} - \mathbf{Q})^{-1} = \sum\limits_{k=0}^{\infty} \mathbf{Q}^k$.
+  \\[0.3cm]
+  Dabei ist $\mathbf{Q}^0 := \mathbf{E}$.  Definieren wir dann 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $N := (E - Q)^{-1}$
+  \\[0.3cm]
+  und definieren wir weiter die Zufallsgröße $X^{(j)}$
+  als die Anzahl der Zeitpunkte, für die das System in dem Zustand $j$ ist, also
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\displaystyle X^{(j)}\bigl((s_m)_m\bigr) := 
+    \sum\limits_{k=0}^{\infty} \textsl{eq}(j,s_m)$
+  \\[0.3cm]
+  so gibt der Eintrag $n_{i,j}$ der Matrix $\mathbf{N}$
+  gerade den Erwartungswert der Zufallsgröße $X^{(j)}$ für den Fall an, 
+  dass das System in dem Zustand $i$ startet: 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $E\bigl[X^{(i)}| s_0 = i\bigr] = n_{i,j}$.
+\end{Satz}
+\vspace{0.1cm}
+
+\noindent
+\textbf{Beweis}:
+Wir zeigen zunächst, dass die Matrix $\mathbf{E} - \mathbf{Q}$ invertierbar ist.  Dazu
+nehmen wir an, dass
+\\[0.3cm]
+\hspace*{1.3cm}
+$(\mathbf{E} - \mathbf{Q}) \vec{x} = 0$
+\\[0.3cm]
+gilt und zeigen, dass daraus $\vec{x} = 0$ folgt.  Es gilt
+\\[0.3cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lll}
+              & (\mathbf{E} - \mathbf{Q}) \vec{x} = 0 \\[0.1cm]
+  \Rightarrow & \mathbf{E} \vec{x} = \mathbf{Q} \vec{x}  \\[0.1cm]
+  \Rightarrow & \vec{x} = \mathbf{Q} \vec{x}   \\[0.1cm]
+  \Rightarrow & \vec{x} = \mathbf{Q}^m \vec{x}   
+              & \mbox{für alle $m \in \mathbb{N}$}\\[0.1cm]
+  \Rightarrow & \vec{x} = \vec{0}, 
+              & \mbox{denn} \lim\limits_{m \rightarrow \infty} \mathbf{Q}^m = \mathbf{0}.
+\end{array}
+$
+\\[0.3cm]
+Damit ist gezeigt, dass $\mathbf{E} - \mathbf{Q}$ invertierbar ist.  Die Formel
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle (\mathbf{E} - \mathbf{Q})^{-1} = \sum\limits_{k=0}^{\infty} \mathbf{Q}^k$
+\\[0.3cm]
+rechnet man nun unmittelbar nach, indem man beide Seiten dieser Gleichung mit
+der Matrix $\mathbf{E} - \mathbf{Q}$ multipliziert.
+Interpretieren wir die Einheitsmatrix \textbf{E} als
+$1$, so ist die oben angegebene Formel für $(\mathbf{E}-\mathbf{Q})^{-1}$
+nichts weiter als die geometrische Reihe: 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle \sum\limits_{k=0}^{\infty} q^k = \frac{1}{1 - q}$. 
+\\[0.3cm]
+Wird nun $\mathbf{N} := (\mathbf{E} - \mathbf{Q})^{-1}$ gesetzt und bezeichen wir die
+Einträge der Matrix $N$ mit $n_{i,j}$, so gilt 
+\begin{equation}
+  \label{eq:e1}
+\displaystyle n_{i,j} = \sum\limits_{k=0}^{\infty} q^{(k)}_{i,j}
+\end{equation}
+Hier ist $q^{(k)}_{i,j}$ der Eintrag der Matrix $\mathbf{Q}^{(k)}$ in  der $i$-ten Zeile
+und der $j$-ten Spalte.  Dieser Eintrag gibt die Wahrscheinlichkeit dafür an, dass
+sich das System nach $k$ Schritten im $j$-ten Zustand befindet.  Daher ist die Summe in
+Gleichung (\ref{eq:e1}) gerade der Erwartungswert dafür, wie oft das System sich im
+Zustand $j$ befindet wenn es im Zustand $i$ startet.
+\qed
+
+\vspace{0.3cm}
+
+\noindent
+\textbf{Bemerkung}: Die Matrix \textbf{N} wird auch als die \emph{Fundamental-Matrix} bezeichnet.
+
+\begin{Satz}
+  Definieren wir für eine absorbierende Markow-Kette und für einen transienten Zustand $i$
+  die Zahl $w_i$ als den Erwartungswert für die Zahl der Schritte, bei denen das System
+  noch keinen absorbierenden Zustand erreicht hat, ist $\vec{w} \in \mathbb{R}^t$
+  ein Vektor mit den Komponenten $w_i$
+  und ist $\vec{e} \in \mathbb{R}^t$ ein 
+  Vektor, dessen sämtliche Komponenten den Wert $1$ haben, so gilt 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\vec{w} = \mathbf{N} \cdot \vec{e}$.
+\end{Satz}
+\vspace{0.1cm}
+
+\noindent
+\textbf{Beweis}: Nach dem Beweis des vorherigen Satzes gibt die Zahl $n_{i,j}$ den
+Erwartungswert dafür an, wie lange das System im Durchschnitt im Zustand $j$ ist, wenn es
+im Zustand $i$ startet.  Daher gibt die Zahl
+\\[0.3cm]
+\hspace*{1.3cm}
+$\sum\limits_{j=1}^t n_{i,j}$
+\\[0.3cm]
+gerade den Erwartungswert für die Zeit an, den das Sytem in einem der transienten Zustände
+$j$ mit $j \in \{1,\cdots,t\}$ verbringt.  Also gilt 
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle w_i = \sum\limits_{j=1}^t n_{i,j}$. 
+\\[0.3cm]
+Schreiben wir dieses Ergebnis in in verktorieller Form, so erhalten wir
+die Behauptung $\vec{w} = \mathbf{N} \cdot \vec{e}$.
+\qed
+
+\begin{Satz}
+  Es sei $b_{i,j}$ die Wahrscheinlichkeit dafür, dass eine absorbierende Markow-Kette,
+  die in dem Zustand $i$ startet, in dem Zustand $j$ absorbiert wird und $\mathbf{B}$ sei
+  eine $t \times r$ Matrix mit den Einträgen $b_{i,j}$.  Dann gilt 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\mathbf{B} = \mathbf{N} \cdot \mathbf{R}$.
+  \\[0.3cm]
+  Dabei ist $N$ die Fundamental-Matrix und $R$ bezeichnet die Absorbtions-Matrix.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}:
+Das System wird ausgehend von dem transienten Zustand $i$ in dem absorbierenden Zustand
+$j$ absorbiert, wenn dass System sich nach $m$ Schritten im transienten Zustand $k$ befindet und dann
+vom Zustand $k$ in den Zustand $j$ übergeht.  Die Wahrscheinlichkeit dafür, dass das
+System sich nach $m$ Schritten im Zustand $k$ befindet, ist $q_{i,k}$ und die
+Wahrscheinlichkeit dafür, dass das System dann in den Zustand $j$ übergeht, hat den Wert
+$r_{k,j}$.  Die Gesamtwahrscheinlichkeit $b_{i,j}$ erhalten wir, wenn wir die
+Wahrscheinlichkeiten für alle möglichen Werte von $m$ und $k$ aufsummieren.  Also gilt
+\\[0.3cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+b_{i,j} & = & \displaystyle
+              \sum\limits_{m=0}^\infty \sum\limits_{k=1}^t q^{(m)}_{i,k} \cdot r_{k,j} 
+              \\[0.5cm]
+        & = & \displaystyle
+              \sum\limits_{k=1}^t \left(\sum\limits_{m=0}^\infty  q^{(m)}_{i,k}\right)
+              \cdot r_{k,j} 
+              \\[0.5cm]
+        & = & \displaystyle
+              \sum\limits_{k=1}^t n_{i,k} \cdot r_{k,j} 
+\end{array}
+$
+\\[0.3cm]
+Stellen wir diese Gleichung in Matrix-Schreibweise dar, so erhalten wir die Behauptung.
+\qed
+
+
+
+\section{Ergodische Markow-Ketten}
+\begin{Definition}[Ergodische Markow-Ketten]
+  Eine Markow-Kette $\pair(S, P)$ heißt \emph{ergodisch}, wenn jeder Zustand von jedem
+  Zustand aus erreichbar ist.
+\end{Definition}
+\vspace{0.1cm}
+
+\noindent
+\textbf{Bemerkung}: Ergodische Markow-Ketten werden oft auch als \emph{irreduzierbare}
+Markow-Ketten bezeichnet.  Eine ergodische Markow-Kette kann insbesondere keine
+absorbierenden Zustände enthalten, denn einem absorbierenden Zustand kann das System ja
+nie wieder verlassen.
+
+Der Begriff der ergodischen Markow-Ketten kann verschärft werden zu dem Begriff der
+\emph{regulären} Markow-Kette:  Eine Markow-Kette $\pair(S, \mathbf{P})$ ist regulär wenn es eine
+natürliche Zahl $k$ gibt, so dass die Matrix $\mathbf{P}^{(k)}$ nur positive Einträge hat:
+\\[0.3cm]
+\hspace*{1.3cm}
+$\forall i,j \in \{1,\cdots,n\}: p^{(k)}_{i,j} > 0$.
+\\[0.3cm]
+Das System kann dann also von jedem Zustand in $k$ Schritten in jeden beliebigen anderen 
+Zustand übergehen.  Offenbar sind alle regulären Systeme ergodisch, aber die Umkehrung
+gilt nicht.  Um das zu sehen reicht es aus, ein System mit nur zwei Zuständen zu betrachten,
+also $S = \{1,2\}$, für dass die Übergangs-Matrix die Form
+$\mathbf{P} = \left(
+\begin{array}[c]{rr}
+  0  &  1  \\
+  1  &  0  
+\end{array}\right)
+$
+hat.  Das System geht also von dem Zustand $1$ immer in den Zustand $2$ über und von dem
+Zustand $2$ geht es immer in den Zustand $1$.  Diese Markow-Kette ist offenbar ergodisch
+aber sie ist nicht regulär, denn für gerade Zahlen $k$ sind die Potenzen $\mathbf{P}^{(k)}$ die
+Einheitsmatrix $\mathbf{E}$ und für ungerade Zahlen $k$ sind die Potenzen
+$\mathbf{P}^{(k)}$ mit $\mathbf{P}$ identisch. 
+
+\begin{Satz}
+  Es sei $\mathbf{P}$ die Übergangs-Matrix einer regulären Markow-Kette.
+  Dann gibt es eine Matrix $\mathbf{W}$ und einen Vektor $\vec{w}$, so dass gilt:
+  \begin{enumerate}
+  \item $\displaystyle \lim\limits_{k \rightarrow \infty} \mathbf{P}^{(k)} = \mathbf{W}$
+  \item $\forall i, j \in \{1,\cdots,n\}: w_{i,j} = w_i$,
+    
+        die Matrix $\mathbf{W}$ hat also in jeder Zeile die selben Einträge.
+  \end{enumerate}
+\end{Satz}
+\textbf{Beweis-Idee}: Aus den Normierungs-Bedingungen folgt, dass alle Eigenwerte
+der Matrix $\mathbf{P}$ kleiner oder gleich $1$ sind.  Da alle Einträge von $\mathbf{P}$
+positiv sind, liegen die Eigenwerte von $\mathbf{P}$ also in dem Intervall $[0,1]$.
+Bei der Berechnung von
+$\mathbf{P}^{(k)}$ wird de facto die Potenz-Methode mit den Spaltenvektoren der Matrix
+$\mathbf{W}$ als Start-Vektoren ausgeführt. Weil nun die Eigenwerte aus dem Intervall
+$[0,1]$ stammen, konvergiert die Potenz-Methode und der Grenzwert
+\\[0.3cm]
+\hspace*{1.3cm}
+$\displaystyle \mathbf{W} :=  \lim\limits_{k \rightarrow \infty} \mathbf{P}^{(k)}$
+\\[0.3cm]
+existiert.  Die entscheidende Beobachtung ist nun, dass es nur einen Eigenvektor zum
+Eigenwert 1 gibt und dass dieser die Form 
+\\[0.3cm]
+\hspace*{1.3cm}
+ $\vec{e} := \langle \underbrace{1,\cdots,1}_n \rangle$
+\\[0.3cm]
+haben muss. Die Tatsache, dass $\mathbf{e}$ ein Eigenvektor mit Eigenwert $1$ ist, folgt
+sofort aus den Normierungs-Bedingungen.  Die Tatsache, dass es keinen von $\mathbf{e}$
+linear unabhängigen Eigenvektor zum Eigenwert $1$ geben kann, beweisen wir indirekt.
+Wir nehmen an, dass $\vec{x}$ Eigenwert von $\mathbf{P}$ zum Eigenwert $1$ wäre und dass
+$\vec{x}$ von $\vec{e}$ linear unabhängig wäre.  Die lineare Unabhängigkeit heißt in
+diesem Fall nicht weiter als dass der Vektor $\vec{x}$ zwei verschiedenen Komponenten hat.
+Wir nehemen an, dass $u$ die größte und $v$ die zweitgrößte dieser Komponenten ist.
+Durch Umnummerierung der Zustände können wir erreichen, dass die größte Komponente
+die erste Komponente ist.  Die Gleichung
+\\[0.3cm]
+\hspace*{1.3cm}
+$\vec{x} = \mathbf{P} \cdot \vec{x}$
+\\[0.3cm]
+führt für die erste Komponente auf die Gleichung 
+\\[0.3cm]
+\hspace*{1.3cm}
+$
+\begin{array}{lcl}
+u &    = & \displaystyle
+           p_{1,j} \cdot u + \sum\limits_{j=2}^n p_{1,j} \cdot x_j 
+           \\[0.3cm]
+  & \leq & \displaystyle
+           p_{1,j} \cdot u + \sum\limits_{j=2}^n p_{1,j} \cdot v 
+           \\[0.3cm]
+  &    = & \displaystyle
+           \left(p_{1,j} + \sum\limits_{j=2}^n p_{1,j} \cdot \frac{v}{u}\right) \cdot u 
+           \\[0.3cm]
+  &    < & \displaystyle
+           1 \cdot u,
+           \\[0.3cm]
+\end{array}
+$
+\\[0.3cm]
+denn $\sum\limits_{j=1}^n p_{i,j} = 1$ und $p_{1,1} \not=1$. Der Widerspruch $u < u$
+widerlegt die Annahme. 
+
+Da es also nur einen Eigenvektor zum Eigenwert $1$ gibt und wir wissen, dass die
+Potenz-Methode gegen den Eigenvektor mit dem größten Eigenwert konvergiert, konvergiert
+die Potenz-Methode für jeden Spaltenvektor von $\mathbf{P}$ gegen diesen Eigenvektor.  Das
+liefert die Behauptung.
+\qed
+
+
+\begin{Satz}
+  Es sei $\langle S, \mathbf{P} \rangle$ eine reguläre Markow-Kette und es gelte
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\mathbf{W} := \lim\limits_{k \rightarrow \infty} \mathbf{P}^{(k)}$.
+  \\[0.3cm]
+  Weiter sei $\vec{w}$ der konstante Zeilen-Vektor, aus dem die Matrix
+  $\mathbf{W}$ aufgebaut ist.  Dann gilt:
+  \begin{enumerate}
+  \item $\vec{w} \cdot \mathbf{P} = \vec{w}$,
+
+        der Vektor $\vec{w}$ ist also ein Links-Eigenvektor der Matrix $\mathbf{W}$ zum
+        Eigenwert $1$.
+  \item Jeder andere Links-Eigenvektor der Matrix $\mathbf{W}$ zum
+        Eigenwert $1$ ist ein konstantes Vielfaches von $\vec{w}$.
+  \end{enumerate}
+\end{Satz}
+
+\noindent
+\textbf{Beweis}:
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% End: 

@@ -1,0 +1,227 @@
+\chapter{Maß-Theorie}
+Es sei $\Omega$ eine vorgegebene Menge. 
+Unter einem \emph{System von Mengen auf $\Omega$} verstehen wir eine beliebige
+Teilmenge der Potenzmenge von $\Omega$. 
+
+\begin{Definition}[$\sigma$-Algebra]
+  Gegeben sei eine Menge $\Omega$.  Es $\Sigma$ ein System von Mengen auf
+  $\Omega$, also $\Sigma \subseteq 2^\Omega$.  Dann nennen wir $\Sigma$ eine 
+  \emph{$\sigma$-Algebra auf $\Omega$} falls gilt:
+  \begin{enumerate}
+  \item $\Omega \in \Sigma$.
+  \item $\forall A \in \Sigma: A^c \in \Sigma$.
+
+        Hier bezeichnet $A^c := \Omega \backslash A$ das \emph{Komplement} von $A$
+        in der Menge $\Omega$.
+  \item Für jede Folge $\folge{A_n}$ von Elementen aus $\Sigma$ ist auch die
+        Vereinigung aller Folgenglieder ein Element aus $\Sigma$: 
+        \\[0.1cm]
+        \hspace*{1.3cm}
+        $\bigl(\forall n \in \mathbb{N}: A_n \in \Sigma\bigr) \rightarrow
+         \bigcup\limits_{n\in \mathbb{N}} A_n \in \Sigma$.
+         \hspace*{\fill} $\Box$
+  \end{enumerate}
+\end{Definition}
+$\sigma$-Algebren sind also Teilmengen der Potenzmenge einer gegebenen Menge,
+die die Menge $\Omega$ enthalten und abgeschlossen sind unter Komplementbildung
+und abzählbarer Vereinigung. 
+
+\begin{Definition}[messbarer Raum]
+  Wir bezeichnen ein Paar $\pair(\Omega, \Sigma)$ als \emph{messbaren Raum} 
+  falls $\Sigma$ eine $\sigma$-Algebra auf $\Omega$ ist.  In diesem Fall heißen
+  die Elemente aus $\Sigma$ \emph{messbare Mengen}.
+  \qed
+\end{Definition}
+
+\begin{Definition}[Topologie]
+  Gegeben sei eine Menge $\Omega$.  Es $\mathcal{O}$ ein System von Mengen auf 
+  $\Omega$, also $\mathcal{O} \subseteq 2^\Omega$.  Dann nennen wir $\mathcal{O}$ eine
+  \emph{Topologie $\Omega$} falls gilt:
+  \begin{enumerate}
+  \item $\emptyset \in \mathcal{O}$.
+  \item $\Omega \in \mathcal{O}$.
+  \item $\forall A,B \in \mathcal{O}: A \cap B \in \mathcal{O}$.
+  \item Für jede Menge $\bigl\{ A_i | i\in I\bigr\}$ von Elementen aus $\mathcal{O}$ ist auch die
+        Vereinigung dieser Menge ein Element aus $\mathcal{O}$: 
+        \\[0.1cm]
+        \hspace*{1.3cm}
+        $\bigl(\forall i \in i: A_i \in \mathcal{O}\bigr) \rightarrow
+         \bigcup\limits_{i \in I} A_i \in \mathcal{O}$.
+         \hspace*{\fill} $\Box$
+  \end{enumerate}
+\end{Definition}
+Eine Topologie $\mathcal{O}$ ist also eine Teilmengen der Potenzmenge einer gegebenen Menge,
+die sowohl die leere Menge  als auch die Menge $\Omega$ enthält und die
+abgeschlossen ist unter der Bildung des Schnittes zweier Mengen und
+und der beliebigen Vereinigung von Mengen aus $\mathcal{O}$. 
+
+\begin{Definition}[topologischer Raum]
+  Wir bezeichnen ein Paar $\pair(\Omega, \mathcal{O})$ als \emph{topologischen Raum} 
+  falls $\mathcal{O}$ eine Topologie auf $\Omega$ ist.  In diesem Fall heißen
+  die Elemente aus $\mathcal{O}$ \emph{offene Mengen}.
+  \qed
+\end{Definition}
+
+\begin{Definition}[messbare Abbildung]  Es sei 
+  \begin{enumerate}
+  \item $\pair(X,\Sigma)$ ein messbarer Raum
+  \item $\pair(Y,\mathcal{O})$ ein topologischer Raum
+  \item $f:X \rightarrow Y$ eine Abbildung.
+  \end{enumerate}
+  Dann nennen wir die Abbildung $f$ \emph{messbar} falls die Urbilder aller
+  offenen Mengen messbar sind: 
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $\forall U \in \Sigma : f^{-1}(U) \in \mathcal{O}$.
+  \qed
+\end{Definition}
+
+\begin{Definition}[erzeugte $\sigma$-Algebra]
+  Es sei $\Omega$ eine Menge und $\mathfrak{F}$ ein System von Mengen auf
+  $\Omega$.  Dann definieren wir die von $\mathfrak{F}$ erzeugte
+  $\sigma$-Algebra $\sigma(\mathfrak{F})$ als die kleinste $\sigma$-Algebra,
+  die $\mathfrak{F}$ enthält: 
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $\sigma(\mathfrak{F}) := \bigcap \bigl\{ \Sigma \subseteq 2^\Omega \;\big|\; \mbox{$\Sigma$ ist $\sigma$-Algebra auf $\Omega$} \bigr\}$.
+  \qed
+\end{Definition}
+
+\begin{Definition}[Borel'sche $\sigma$-Algebra, $\mathfrak{B}(\mathcal{O})$]
+  Es sei $\pair(\Omega, \mathcal{O})$ ein topologischer Raum.  Dann wird von 
+  der Topologie $\mathcal{O}$ eine $\sigma$-Algebra auf $\Omega$ erzeugt,
+  die wir die \emph{Borel'sche $\sigma$-Algebra} nennen und mit
+  $\mathfrak{B}(\mathcal{O})$ bezeichnen: 
+  \\[0.1cm]
+  \hspace*{1.3cm}
+  $\mathfrak{B}(\mathcal{O}) := \sigma(\mathcal{O})$.
+  \\[0.1cm]
+  Die Elemente aus $\mathfrak{B}(\mathcal{O})$ bezeichnen wir als
+  \emph{Borel'sche Mengen}.
+  \qed
+\end{Definition}
+
+\begin{Satz} \label{satz1} Es gelte:
+  \begin{enumerate}
+  \item $\pair(X,\Sigma)$ ist ein messbarer Raum.
+  \item $f:X \rightarrow Y$ bildet $X$ in $Y$ ab.
+  \item $\Omega = \bigl\{ E \in 2^Y \;\big|\; f^{-1}(E)\in\Sigma \bigr\}$
+  \end{enumerate}
+  Dann ist $\Omega$ eine $\sigma$-Algebra auf $Y$.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Wir müssen zeigen, dass $\Omega$ die bei der Definition
+der $\Sigma$-Algebra geforderten Abschluss-Eigenschaften hat.
+\begin{enumerate}
+\item Wir zeigen $Y \in \Omega$: 
+
+      Nach Definition von $\Omega$ gilt 
+      \\[0.1cm]
+      \hspace*{1.3cm}
+      $Y \in \Omega$ \quad g.d.w. \quad $f^{-1}(Y) \in \Sigma$.
+      \\[0.1cm]
+      Elementare Mengenlehre zeigt $f^{-1}(Y) = X$. 
+      Da $\Sigma$ eine $\sigma$-Algebra auf $X$ ist, gilt $X \in \Sigma$,
+      also $f^{-1}(Y) \in \Sigma$ und damit $Y \in \Omega$.
+\item Es sei $E \in \Omega$.  Wir müssen $E^c \in \Omega$ zeigen. Es gilt: 
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $
+      \begin{array}[t]{lcl}
+       E^c \in \Omega & \leftrightarrow & f^{-1}(Y \backslash E) \in \Sigma \qquad \mbox{nach Definition von $\Omega$} \\[0.3cm]
+                      & \leftrightarrow & f^{-1}(Y) \backslash f^{-1}(E) \in \Sigma \\[0.1cm]
+                      & & \mbox{denn für beliebige Mengen $A$ und $B$ gilt:} \\[0.1cm]
+                      & & \qquad f^{-1}(A \backslash B) = f^{-1}(A) \backslash f^{-1}(B) \\[0.3cm]
+                      & \leftrightarrow & X \backslash f^{-1}(E) \in \Sigma \qquad \mbox{denn $f^{-1}(Y) = X$} \\[0.3cm]
+                      & \leftrightarrow & f^{-1}(E) \in \Sigma \qquad \\[0.1cm]
+                      &&   \mbox{denn $\Sigma$ ist abgeschlossen unter Komplementbildung} \\[0.3cm]
+                      & \leftrightarrow & E \in \Omega \\[0.3cm]
+                      & \leftrightarrow & \mathtt{true} \\[0.3cm]
+      \end{array}
+      $
+\item Es sei eine Folge $\folge{E_n}$ mit $E_n \in \Omega$ für alle $n \in \mathbb{N}$
+      gegeben.  Für alle $n \in \mathbb{N}$ gilt also $f^{-1}(E_n) \in \Sigma$.
+      Zu zeigen ist dann $\bigcup\limits_{n\in \mathbb{N}} E_n \in \Omega$. 
+      Es gilt: 
+      \\[0.3cm]
+      \hspace*{1.3cm}
+      $
+      \begin{array}[t]{lcl}
+        \bigcup\limits_{n\in \mathbb{N}} E_n \in \Omega & \leftrightarrow &
+        f^{-1}\left(\bigcup\limits_{n\in \mathbb{N}} E_n\right) \in \Sigma 
+        \qquad \mbox{nach Definition von $\Omega$} \\[0.5cm]
+        & \leftrightarrow & \bigcup\limits_{n\in \mathbb{N}} f^{-1}(E_n) \in \Sigma \\[0.5cm]
+          && \mbox{denn für beliebige Systeme von Mengen $\bigl(A_i\bigr)_{i\in I}$ gilt} \\ 
+          && \qquad f^{-1}\left(\bigcup\limits_{i\in I} A_i\right) = \bigcup\limits_{i\in I} f^{-1}(A_i) \\[0.3cm]
+        & \leftrightarrow & \mathtt{true} \\[0.3cm]
+        && \mbox{denn nach Voraussetzung gilt $f^{-1}(E_n) \in \Sigma$ und} \\
+        &&   \mbox{$\Sigma$ ist abgeschlossen unter abzählbarer Vereinigung.}
+      \end{array}
+      $\qed
+\end{enumerate}
+
+
+
+\begin{Satz} Es gelte:
+  \begin{enumerate}
+  \item $\pair(X,\Sigma)$ ist ein messbarer Raum.
+  \item $\pair(Y,\mathcal{O})$ ist ein topologischer Raum.
+  \item $f:X \rightarrow Y$ ist messbar.
+  \end{enumerate}
+  Dann  sind die Urbilder der Borel'schen Mengen $\mathfrak{B}(\mathcal{O})$ messbar.  
+\end{Satz}
+
+\noindent
+\textbf{Beweis:} Wir definieren die Menge $\Omega$ wie in Satz \ref{satz1}: 
+\\[0.1cm]
+\hspace*{1.3cm} $\Omega := \bigl\{ E \subseteq Y \;\big|\; f^{-1}(E) \in \Sigma \bigr\}$
+\\[0.1cm]
+Ist $A \in \mathcal{O}$, dann folgt aus der Messbarkeit von $f$, dass $
+f^{-1}(A) \in\Sigma$ gilt.  Also haben wir 
+\\[0.1cm]
+\hspace*{1.3cm} $\mathcal{O} \subseteq \Omega$.
+\\[0.1cm]
+Weil $\Omega$ nach Satz \ref{satz1} eine $\sigma$-Algebra ist, folgt 
+\\[0.1cm]
+\hspace*{1.3cm} $\mathfrak{B}(\mathcal{O}) \subseteq \Omega$.
+\\[0.1cm]
+Also gilt für alle $E \in \mathfrak{B}(\mathcal{O})$  
+\\[0.1cm]
+\hspace*{1.3cm} $f^{-1}(E) \in \Sigma$. \qed
+\vspace*{0.3cm}
+
+\noindent
+Wir definieren  $\overline{\mathbb{R}} := \mathbb{R} \cup\{-\infty,+\infty\}$
+
+\begin{Satz} Es gelte:
+  \begin{enumerate}
+  \item $\pair(X,\Sigma)$ ist ein messbarer Raum.
+  \item $f:X \rightarrow \overline{\mathbb{R}}$ sei eine numerische Funktion.
+  \item $\forall\alpha \in \mathbb{R} : f^{-1}\bigl( (\alpha,\infty] \bigr) \in \Sigma$.
+  \end{enumerate}
+  Dann ist $f$ messbar.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}: Wir definieren 
+\\[0.1cm]
+\hspace*{1.3cm}
+$\Omega:= \bigl\{ E \subseteq \overline{\mathbb{R}} \;\big|\; f^{-1}(E) \in \Sigma \bigr\}$.
+\\[0.1cm]
+Nach Satz \ref{satz1} ist $\Omega$ eine $\sigma$-Algebra.
+Nach Voraussetzung sind zunächst alle Intervalle der Form $(\alpha,\infty]$ in $\Omega$.
+Wegen 
+\begin{enumerate}
+\item $[-\infty,\alpha] = \overline{\mathbb{R}} \backslash (\alpha,+\infty]$, 
+\item $[-\infty,\alpha) = \bigcup\limits_{n=1}^\infty [-\infty,\alpha - \frac{1}{n}]$,
+\item $(\alpha,\beta)   = [-\infty,\beta) \cap (\alpha,\infty]$, 
+\end{enumerate}
+folgt aus der Abgeschlossenheit der $\sigma$-Algebra $\Sigma$ unter der Bildung
+von Komplementen und Schnitten, dass offene Intervalle der Form $(\alpha,\beta)$ in 
+$\Omega$ liegen.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik.tex"
+%%% End: 
