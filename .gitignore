@@ -13,6 +13,7 @@ auto/
 .DS_Store
 Skript/_region_.prv
 Skript/statistik.synctex.gz
+Skript/statistik.prv/*
 Skript/lineare-algebra.prv
 Skript/texput.log
 Skript/_region_.*
