@@ -1,0 +1,51 @@
+\chapter{Die Ungleichung von Hoeffding}
+Angenommen, wir haben eine Urne mit weißen und schwarzen Kugeln.  Die Wahrscheinlichkeit, dass eine
+beliebige Kugel weiß ist, habe den Wert $\mu$, der uns allerdings nicht bekannt ist.  Wir entnehmen
+der Urne eine Stichprobe vom Umfang $N$ mit zurücklegen, so dass die Wahrscheinlichkeit, dass ein
+bestimmte Kugel weiß ist, immer den Wert $\mu$ hat.  Ziehen wir bei der Stichprobe insgesamt $k$
+weiße Kugeln, so können wir die Wahrscheinlichkeit, dass der Bruchteil $k/N$ um mehr als
+$\varepsilon$ von der Wahrscheinlichkeit $\mu$ abweicht, durch die
+\href{https://en.wikipedia.org/wiki/Hoeffding%27s_inequality}{Hoeffding Ungleichung}
+(\href{https://de.wikipedia.org/wiki/Wassily_Hoeffding} Wassily Hoeffding; 1914--1991)
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\biggl(\Bigl|\frac{k}{N} - \mu\Bigr| > \varepsilon\biggr) \leq 2 \cdot\exp\bigl(-2\cdot\varepsilon^2\cdot N\bigr) $
+\\[0.2cm] 
+abschätzen.  Diese Formel können wir nach $N$ umstellen.  Definieren wir $p$ als die
+Wahrscheinlichkeit, dass der Anteil der weißen Kugeln in der Stichprobe um mehr als $\varepsilon$
+von der Wahrscheinlichkeit $\mu$ abweicht, setzen wir also
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p := P\biggl(\Bigl|\frac{k}{N} - \mu\Bigr| > \varepsilon\biggr)$,
+\\[0.2cm]
+so haben wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p \leq 2 \cdot\exp\bigl(-2\cdot\varepsilon^2\cdot N\bigr)$.
+\\[0.2cm]
+Diese Ungleichung können wir nach $N$ auflösen.  Wir erhalten
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds N \geq -\frac{\ln(p/2)}{2 \cdot \varepsilon^2}$.
+\\[0.2cm]
+Nehmen wir beispielsweise an, dass wir einen Würfel haben und wir sollen die Wahrscheinlichkeit
+dafür, dass eine $6$ gewürfelt wird, mit einer Genauigkeit von $0.01$ bestimmen.  Die
+Wahrscheinlichkeit $p$, dass unser Ergebnis ein Genauigkeit von $0.01$ hat, soll $95\%$ ein.  Dann gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$p := 0.05$ \quad und \quad $\varepsilon := 0.01$.
+\\[0.2cm]
+Setzen wir diese Werte in die obige Formel ein, so erhalten wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$N \geq 18444.4$
+\\[0.2cm]
+und stellen fest, dass wir mindesten $18\,445$ mal würfeln müssen, um die Wahrscheinlichkeit, dass
+eine $6$ gewürfelt wird mit der erforderlichen Genauigkeit von $0.01$ und $95\%$ Sicherheit bestimmen zu können.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "statistik"
+%%% ispell-local-dictionary: "deutsch8"
+%%% eval: (setenv "LANG" "de_DE.UTF-8")
+%%% End: 
