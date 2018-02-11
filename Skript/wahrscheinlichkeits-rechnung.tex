@@ -1,9 +1,11 @@
 \chapter[Wahrscheinlichkeits-Rechnung]{Einführung in die Wahrscheinlichkeits-Rechnung}
-Das Leben ist voller Unwägbarkeiten und Risiken.  Schon die Kelten wussten, dass Ihnen jederzeit der Himmel auf
+Das Leben ist voller Unwägbarkeiten und Risiken.  Schon die Kelten wussten, dass ihnen jederzeit der Himmel auf
 den Kopf fallen konnte.  Glücklicherweise passiert so etwas nicht sehr häufig.  Trotzdem stellt sich die Frage,
 wie \blue{wahrscheinlich} ein solches Ereignis ist.  Zur Beantwortung dieser Frage ist zunächst der Begriff der
-\blue{Wahrscheinlichkeit} präzise festzulegen.  Dazu definieren wir zunächst den Begriff des \blue{Zufalls-Experiments}.
-Unter einem \blue{Zufalls-Experiment} verstehen wir ein Experiment, dessen Ausgang nicht
+\blue{Wahrscheinlichkeit} festzulegen.  Intuitiv sagen wir, dass ein Ereignis $A$ mit einer Wahrscheinlichkeit
+$p$ eintritt, wenn bei $n$-maliger Wiederholung des Experiments das Ereignis $A$ in etwa mit der Häufikeit
+$p \cdot N$ auftritt.  Um der Wahrscheinlichkeits-Begriff genauer festzulegen,  definieren wir den
+Begriff des \blue{Zufalls-Experiments}.  Darunter verstehen wir ein Experiment, dessen Ausgang nicht
 eindeutig vorbestimmt ist.  Ein Beispiel für ein solches Experiment wäre der Wurf einer
 Münze, bei dem als \blue{Ergebnis} entweder \textsl{Wappen} oder \textsl{Zahl} auftritt.  Ein
 anderes Zufalls-Experiment wäre der Wurf eines Würfels, dessen Seiten mit den Zahlen $1$ bis $6$ beschriftet
@@ -198,7 +200,7 @@ Es gibt eine ganz analoge Formel zur Berechnung der Anzahl der Elemente einer Me
 Bezeichen wir für eine Menge $M$ die Anzahl ihrer Elemente mit $|M|$, so gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
-$|A \cup B| = |A| + |B| - | A \cap B|$
+$|A \cup B| = |A| + |B| - | A \cap B|$.
 \\[0.2cm]
 Diese Formel läßt sich wie folgt interpretieren:
 Wenn wir zuerst die Elemente von $A$ zählen und anschließend die Elemente von $B$ zählen, so
@@ -312,7 +314,7 @@ Also lernen $20\%$ der Schüler überhaupt keine Fremdsprache.
 \exercise
 Zur Ermittelung der Noten würfelt ein Lehrer mit zwei Laplace-Würfeln.  Die Note ergibt
 sich dann als das Minimum der gewürfelten Augenzahlen.  
-\begin{enumerate}
+\begin{enumerate}[(a)]
 \item Geben Sie den Wahrscheinlichkeits-Raum für dieses Zufalls-Experiment an.
 \item Geben Sie die für die Notenvergabe relevanten Ereignisse an.
 \end{enumerate}
@@ -336,7 +338,7 @@ Die für die Notenvergabe interessanten Ereignisse sind:
       \hspace*{1.3cm}
       $A_1 = \bigl\{ \langle 1, n \rangle \mid n \in \{1,\cdots,6\} \bigr\} \cup \bigl\{ \langle n, 1 \rangle \mid n \in \{1,\cdots,6\} \bigr\}$
       \\[0.2cm]
-      Die Menge $A_1$ besteht aus $6 + 6 - 1$ Elementen, denn 
+      Die Menge $A_1$ besteht aus $6 + 6 - 1 = 11$ Elementen, denn 
       \\[0.2cm]
       \hspace*{1.3cm}
       $\bigl\{ \langle 1, n \rangle \mid n \in \{1,\cdots,6\} \bigr\} \cap \bigl\{ \langle n, 1 \rangle \mid n \in \{1,\cdots,6\} \bigr\} = \bigl\{\langle 1, 1 \rangle\}$.
@@ -347,37 +349,36 @@ Die für die Notenvergabe interessanten Ereignisse sind:
       \hspace*{1.3cm}
       $A_2 = \bigl\{ \langle 2, n \rangle \mid n \in \{2,\cdots,6\} \bigr\} \cup \bigl\{ \langle n, 2 \rangle \mid n \in \{2,\cdots,6\} \bigr\}$
       \\[0.2cm]
-      Die Menge $A_2$ besteht aus $5 + 5 - 1$ Elementen.
+      Die Menge $A_2$ besteht aus $5 + 5 - 1 = 9$ Elementen.
       Also hat die Wahrscheinlichkeit für die Note 2 den Wert $\frac{9}{36} = 0.25$.
 \item Vergabe einer 3: 
       \\[0.2cm]
       \hspace*{1.3cm}
       $A_3 = \bigl\{ \langle 3, n \rangle \mid n \in \{3,4,5,6\} \bigr\} \cup \bigl\{ \langle n, 3 \rangle \mid n \in \{3,4,5,6\} \bigr\}$
       \\[0.2cm]
-      Die Menge $A_3$ besteht aus $4 + 4 - 1$ Elementen.
+      Die Menge $A_3$ besteht aus $4 + 4 - 1 = 7$ Elementen.
       Also hat die Wahrscheinlichkeit für die Note 3 den Wert $\frac{7}{36} = 0.19\overline{4}$.
 \item Vergabe einer 4: 
       \\[0.2cm]
       \hspace*{1.3cm}
       $A_4 = \bigl\{ \langle 4, n \rangle \mid n \in \{4,5,6\} \bigr\} \cup \bigl\{ \langle n, 4 \rangle \mid n \in \{4,5,6\} \bigr\}$
       \\[0.2cm]
-      Die Menge $A_4$ besteht aus $3 + 3 - 1$ Elementen.
+      Die Menge $A_4$ besteht aus $3 + 3 - 1 = 5$ Elementen.
       Also hat die Wahrscheinlichkeit für die Note 4 den Wert $\frac{5}{36} = 0.13\overline{8}$.
 \item Vergabe einer 5: 
       \\[0.2cm]
       \hspace*{1.3cm}
       $A_5 = \bigl\{ \langle 5, n \rangle \mid n \in \{5,6\} \bigr\} \cup \bigl\{ \langle n, 5 \rangle \mid n \in \{5,6\} \bigr\}$
       \\[0.2cm]
-      Die Menge $A_5$ besteht aus $2 + 2 - 1$ Elementen.
+      Die Menge $A_5$ besteht aus $2 + 2 - 1 = 3$ Elementen.
       Also hat die Wahrscheinlichkeit für die Note 5 den Wert $\frac{3}{36} = 0.08\overline{3}$.
 \item Vergabe einer 6: 
       \\[0.2cm]
       \hspace*{1.3cm}
       $A_6 = \bigl\{ \langle 6, 6 \rangle \bigr\}$
       \\[0.2cm]
-      Die Menge $A_6$ enthält nur ein Element.
-      Also hat die Wahrscheinlichkeit für die Note 6 den Wert $\frac{1}{36} =
-      0.02\overline{7}$.
+      Die Menge $A_6$ enthält offenbar nur ein Element.  Also hat die Wahrscheinlichkeit für die
+      Note 6 den Wert $\frac{1}{36} = 0.02\overline{7}$. 
       \hspace*{\fill} $\Box$
 \end{enumerate}
 
@@ -397,7 +398,7 @@ die Berechnung der Anzahl der Elemente einer Menge zurück geführt werden kann.  
 bei den zu Grunde liegenden Zufalls-Experimenten jeweils um ein Laplace-Experiment handelt.  Bei allen
 Laplace-Experimenten läuft die Berechnung der Wahrscheinlichkeiten auf die Bestimmung der Anzahl der Elemente
 einer Menge heraus.  Diese Anzahl nennen wir auch die \blue{Kardinalitäten} der Menge.  Wir werden jetzt
-die Kardinalitäten für diejenigen Mengen, die in der Praxis häufig vorkommen, berechnen.  
+die Kardinalitäten für diejenigen Mengen-Typen, die in der Praxis häufig vorkommen, berechnen.  
 
 Wir nehmen als erstes an, dass wir $n$ Mengen $A_1$, $A_2$, $\cdots$, $A_n$ gegeben haben.
 Wir untersuchen die Menge $M$ aller Listen der Länge $n$, für die das $i$-te Element ein
@@ -419,7 +420,7 @@ werden können, ist die Gesamtzahl aller Möglichkeiten durch das Produkt gegeben.
 Die Gleichung (\ref{eq:produkt-regel}) bezeichnen wir daher als \blue{Produkt-Regel}.
 
 
-\paragraph{Anzahl der $k$-Tupel mit Wiederholung}
+\paragraph{Anzahl der $k$-Tupel mit Wiederholung:}
 Ist $M$ eine Menge der Mächtigkeit $n$, so gibt es nach der Produkt-Regel insgesamt
 $n^k$ Möglichkeiten, ein Tupel der Länge $k$ mit Elementen aus $M$ zu bilden, denn es gilt
 \begin{equation}
@@ -427,7 +428,7 @@ $n^k$ Möglichkeiten, ein Tupel der Länge $k$ mit Elementen aus $M$ zu bilden, de
   \bigl|M^k\bigr| = |M|^k = n^k.
 \end{equation}
 
-\paragraph{Anzahl der $k$-Tupel ohne Wiederholung}
+\paragraph{Anzahl der $k$-Tupel ohne Wiederholung:}
 Oft sind nur solche $k$-Tupel interessant, die kein Element mehrfach enthalten.
 Solche $k$-Tupel bezeichnen wir als \blue{Permutationen}.  Ist $M$ eine Menge und
 $k\in\mathbb{N}$, so definieren wir die \blue{Menge der $k$-Permutationen aus $M$} als 
@@ -454,7 +455,7 @@ $n$ so in einer Liste anzuordnen, dass jedes Element der Menge genau einmal in d
 
 
 
-\paragraph{Anzahl der $k$-Kombinationen ohne Wiederholung}
+\paragraph{Anzahl der $k$-Kombinationen ohne Wiederholung:}
 Wir bestimmen jetzt die Anzahl der $k$-elementigen Teilmengen einer $n$-elementigen Menge.
 Dazu definieren wir $C(M,k)$ als die Menge aller $k$-elementigen Teilmengen von $M$:
 \\[0.2cm]
@@ -463,7 +464,7 @@ $C(M,k) = \bigl\{ N \in 2^M \;\big|\; |N| = k \bigr\}$.
 \\[0.2cm]
 Diese Teilmengen bezeichnen wir auch als die $k$-elementigen \blue{Kombinationen} der
 Menge $M$.
-Um die Mächtigkeit von $C(M,k)$ zu bestimmen überlegen wir uns, wie die Mengen $P(M,k)$
+Um die Mächtigkeit von $C(M,k)$ zu bestimmen, überlegen wir uns, wie die Mengen $P(M,k)$
 und $C(M,k)$ zusammenhängen.  Ist eine Kombination 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -502,7 +503,7 @@ $\ds {n \choose k} := 0$ \quad falls $k > n$,
 \\[0.2cm]
 denn es ist nicht möglich, aus einer $n$-elementigen Menge eine Teilmenge mit $k$ Elementen auszuwählen, falls
 $k > n$ ist.
-Der Ausdruck ${n \choose k}$ genügt der folgenden Rekursions-Gleichung:
+Der Ausdruck ${n \choose k}$ genügt der folgenden \blue{Rekursions-Gleichung}:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds {n \choose k} + {n \choose k + 1} = {n+1 \choose k+1}$.
@@ -578,7 +579,7 @@ $\ds {n \choose k} \cdot x^k \cdot y^{n-k}$.
 Wenn wir diese Terme aufsummieren, erhalten wir den binomischen Lehrsatz.  \qed
 
 
-\begin{Satz}[Vandermonde-Gleichung \label{satz:vandermonde}]
+\begin{Satz}[Vandermonde-Gleichung\label{satz:vandermonde}]
 Sind $m$, $n$ und $k$ natürliche Zahlen, so gilt
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -586,7 +587,8 @@ $\ds {m + n \choose k} = \sum\limits_{i=0}^k {m \choose i} \cdot {n \choose k-i}
 \end{Satz}
 
 \proof
-Zwar kann auch diese Gleichung algebraisch bewiesen werden, aber es ist instruktiver, wenn wir versuchen zu
+Zwar kann die \href{https://en.wikipedia.org/wiki/Vandermonde%27s_identity}{Vandermonde-Gleichung}
+algebraisch bewiesen werden, aber es ist instruktiver, wenn wir versuchen zu 
 verstehen, was die beiden Seiten der Gleichung eigentlich aussagen.  Die linke Seite der Gleichung gibt an, wie
 viele Möglichkeiten es gibt, aus einer Menge mit $m + n$ Personen ein Team von $k$ Personen auszuwählen.  
 Wir nehmen nun an, dass die ersten $m$ Personen männlich sind, während es sich bei den restlichen $n$ Personen
@@ -615,7 +617,7 @@ Auswahl von Mengen interpretiert werden können.
 \begin{enumerate}
 \item $\ds {n \choose k} = {n \choose n - k}$
 
-      \textbf{Bemerkung}: Diese Gleichung wird als Symmetrie-Eigenschaft der Binomial-Koeffizienten bezeichnet.
+      \textbf{Bemerkung}: Diese Gleichung wird als \href{Symmetrie-Eigenschaft} der Binomial-Koeffizienten bezeichnet.
 \item $\ds (n+1) \cdot {n \choose k} = (k+1) \cdot {n+1 \choose k+1}$
 
       \textbf{Hinweis}:  Nehmen Sie an, dass Sie aus einer Gruppe von $n+1$ Personen ein Projektteam von $k+1$
@@ -761,7 +763,7 @@ Wir stellen fest, dass die \href{https://de.wikipedia.org/wiki/Eulersche_Zahl}{E
 
 
 
-\paragraph{Anzahl der $k$-Kombinationen mit Wiederholung}
+\paragraph{Anzahl der $k$-Kombinationen mit Wiederholung:}
 Als letztes stellen wir uns die Frage, wie viele Möglichkeiten es gibt, aus einer Menge $M$, die aus
 $n$ Elementen besteht, eine \blue{Multimenge} auszuwählen, die aus insgesamt $k$ Elementen besteht.  Den Begriff
 der \href{https://de.wikipedia.org/wiki/Multimenge}{Multimenge} müssen wir zunächst formal definieren.
@@ -779,7 +781,7 @@ der \href{https://de.wikipedia.org/wiki/Multimenge}{Multimenge} müssen wir zunäc
   \end{enumerate}
 \end{Definition}
 
-Multimengen werden ähnlich wir Mengen mit Hilfe von geschweiften Klammern notiert.  Zur Unterscheidung
+Multimengen werden ähnlich wie Mengen mit Hilfe von geschweiften Klammern notiert.  Zur Unterscheidung
 zwischen Mengen und Multimengen setzen wir den Index $_\textrm{\scriptsize m}$ an die schließende Klammer, wir
 schreiben also beispielsweise 
 \\[0.2cm]
@@ -848,7 +850,7 @@ denn an den anderen $k$ Positionen müssen dann ja Sternchen stehen.  Die Positio
 sind Zahlen aus der Menge $\{1, \cdots, k + n - 1\}$, denn der String hat ja insgesamt die Länge $k+n-1$.  Der
 String ist also dann eindeutig festgelegt, wenn wir eine Teilmenge der Menge $\{1, \cdots, k + n - 1\}$ mit genau
 $n-1$ Elementen festlegen, welche die Positionen der senkrechten Striche spezifiziert.  Eine Menge mit $k+n-1$
-Elementen hat aber genau  
+Elementen hat nach dem, was wir früher bewwiesen haben,  
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds {k+n-1 \choose n-1}$
@@ -919,7 +921,7 @@ Wenn die Anzahl der Würfel wesentlich größer wird als in der letzten Aufgabe, da
 die Anzahl der Fälle zu berechnen, mit denen eine vorgegebene Zahl als Summe gewürfelt werden kann.  Der
 folgende Satz liefert daher eine explizite Formel, mit der diese Anzahl berechnet werden kann.
 
-\begin{Satz}[Würfel-Summen-Satz] \label{satz:wuerfel_anzahl}
+\begin{Satz}[\blue{Würfel-Summen-Satz}] \label{satz:wuerfel_anzahl}
   Es seien $n$ und $s$ positive natürliche Zahlen.  Wir definieren
   \\[0.2cm]
   \hspace*{1.3cm}
