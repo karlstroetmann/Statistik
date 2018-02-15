@@ -579,7 +579,8 @@ $\ds {n \choose k} \cdot x^k \cdot y^{n-k}$.
 Wenn wir diese Terme aufsummieren, erhalten wir den binomischen Lehrsatz.  \qed
 
 
-\begin{Satz}[Vandermonde-Gleichung\label{satz:vandermonde}]
+\begin{Satz}[Vandermonde-Gleichung, Alexandre-Théophile Vandermont, 1735-1796\label{satz:vandermonde}]
+\hspace*{\fill} \\
 Sind $m$, $n$ und $k$ natürliche Zahlen, so gilt
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -617,7 +618,7 @@ Auswahl von Mengen interpretiert werden können.
 \begin{enumerate}
 \item $\ds {n \choose k} = {n \choose n - k}$
 
-      \textbf{Bemerkung}: Diese Gleichung wird als \href{Symmetrie-Eigenschaft} der Binomial-Koeffizienten bezeichnet.
+      \textbf{Bemerkung}: Diese Gleichung wird als \blue{Symmetrie-Eigenschaft} der Binomial-Koeffizienten bezeichnet.
 \item $\ds (n+1) \cdot {n \choose k} = (k+1) \cdot {n+1 \choose k+1}$
 
       \textbf{Hinweis}:  Nehmen Sie an, dass Sie aus einer Gruppe von $n+1$ Personen ein Projektteam von $k+1$
@@ -669,7 +670,7 @@ hat und nicht die Nummer des $k$-ten Herren aus dem Hut zieht.  Es gilt dann
 \hspace*{1.3cm}
 $A_k := \{ L \in \Omega \,|\, L[k] \not= k \}$.
 \\[0.2cm]
-Das Ereignis $E$, für das wir uns interessieren, ist das Ereignis, bei der alle Damen Glück haben, es gilt also
+Das Ereignis $E$, für das wir uns interessieren, ist das Ereignis, bei dem alle Damen Glück haben, es gilt also
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds E = \bigl\{ L \in \Omega \,\bigm|\, \forall k \in \{1,\cdots,n\}: L[k] \not= k \bigr\} = \bigcap\limits_{k=1}^n A_k$.
@@ -721,8 +722,8 @@ Also haben wir
 \hspace*{1.3cm}
 $|B_I| = (n - j)!$ \quad mit $j = |I|$.
 \\[0.2cm]
-Als nächstes müssen wir uns überlegen, wie viele Möglichkeiten es gibt, um ein Menge
-$I \subseteq \{1,\cdots,n\}$ mit $j$ zu bilden:  Dies ist die Anzahl der Teilmengen der Menge $\{1,\cdots,n\}$,
+Als nächstes müssen wir uns überlegen, wie viele Möglichkeiten es gibt, um eine Menge
+$I \subseteq \{1,\cdots,n\}$ mit $|I| = j$ zu bilden:  Dies ist die Anzahl der Teilmengen der Menge $\{1,\cdots,n\}$,
 die aus $j$ verschiedenen Elementen besteht.  Nach dem, was wir in dieser Vorlesung bisher gezeigt haben, gibt
 es dafür ${n \choose j}$ Möglichkeiten.  Da $|\Omega| = n!$ ist, haben wir damit insgesamt:
 \\[0.2cm]
@@ -877,7 +878,7 @@ als \blue{Kombinationen mit Wiederholung} bezeichnet.
       \hspace*{1.3cm}
       $x + y + z = 5$
       \\[0.2cm]
-      gilt?  Schreiben Sie ein \textsc{SetlX}-Programm, dass die Menge dieser Tripel explizit berechnet.
+      gilt?  Schreiben Sie ein Programm, dass die Menge dieser Tripel explizit berechnet.
 \item Es sei $s\in \mathbb{N}$.  Wie viele Möglichkeiten gibt es, $n$ natürliche Zahlen $x_1,x_2,\cdots,x_n$ so
       zu wählen, dass 
       \\[0.2cm]
@@ -913,7 +914,7 @@ können:
 \end{enumerate}
 
 \noindent
-\textbf{Hinweis}:  Sie können ein \textsc{SetlX}-Programm schreiben, dass die Menge aller Tripel
+\textbf{Hinweis}:  Sie können ein Programm schreiben, dass die Menge aller Tripel
 der Form $\langle x, y, z\rangle$ berechnet, für die einerseits $x,y,z \in \{1,\cdots,6\}$ und
 andererseits $x+y+z = 8$ gilt.  \eox
 
@@ -946,7 +947,7 @@ und berechnen zunächst $|V(t)|$.  Das ursprüngliche Problem kann auf dieses Prob
 zwischen den Mengen $V(s-n)$ und $W(s)$ besteht der Zusammenhang
 \\[0.2cm]
 \hspace*{1.3cm}
-$\langle x_1, \cdots, x_n \rangle \in W(s) \;\Leftrightarrow\; \langle x_1-1, \cdots, x_n-n \rangle \in V(s-n)$,
+$\langle x_1, \cdots, x_n \rangle \in W(s) \;\Leftrightarrow\; \langle x_1-1, \cdots, x_n-1 \rangle \in V(s-n)$,
 \\[0.2cm]
 denn wenn wir in dem ursprünglichen Problem von jedem der $n$ Würfel die Zahl 1 abziehen, sind einerseits die Würfel mit den
 Zahlen von $0$ bis $5$ beschriftet und andererseits zeigen die Würfel dann in der Summe die
@@ -985,7 +986,7 @@ Zwischen der gesuchten Menge $V(t)$ und den Mengen $B(t)$ und $A_i(t)$ besteht d
 \hspace*{1.3cm}
 $\ds V(t) = B(t) \backslash \bigcup_{i=1}^n A_i(t)$.
 \\[0.2cm]
-Da die Mengen $A_i(t)$ Teilemengen der Menge $B(t)$ sind, folgt daraus für die Kardinalität von $V(t)$ die Formel  
+Da die Mengen $A_i(t)$ Teilmengen der Menge $B(t)$ sind, folgt daraus für die Kardinalität von $V(t)$ die Formel  
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds|V(t)| = |B(t)| - \biggl|\bigcup_{i=1}^n A_i(t)\biggr|$
@@ -1032,7 +1033,7 @@ Der Name $\mathrm{ite}$ steht hier als Abkürzung für \textsl{if-then-else}.
 \hspace*{1.3cm}
 $
 A_I'(t) := 
-\bigl\{ \langle \mathrm{ite}(i\in I,x_1-6, x_1), \cdots, \mathrm{ite}(n\in I,x_n-6,x_n\rangle 
+\bigl\{ \langle \mathrm{ite}(1\in I,x_1-6, x_1), \cdots, \mathrm{ite}(n\in I,x_n-6,x_n\rangle 
  \bigm| 
         \langle x_1,\cdots,x_n\rangle \in A_I(t) \bigr\}
 $.
