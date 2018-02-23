@@ -5,8 +5,8 @@ def choose(n, k):
     "compute n choose k"
     if k < 0 or n < k:
         return 0
-    if k > n - k:
-        k = n - k
+    if k > n - k:  
+        k = n - k  # use symmetry of n choose k
     result = frc.Fraction(1)
     for i in range(0, k):
         result *= (n - i)
@@ -20,12 +20,13 @@ def probability(k):
 for k in range(20):
     print(k, round(1.0 * probability(k), 6))
 
-probabilites = [1.0 * probability(k) for k in range(15)]
-zeros        = [0.0                  for k in range(15)]
-plt.plot(probabilites, marker = '.', linestyle = 'none')
+probabilites = [1.0 * probability(k) for k in range(20)]
+zeros        = [0.0                  for k in range(20)]
+plt.plot(probabilites, marker = '.', linestyle='none')
 plt.plot(zeros, color = 'r')              
 plt.margins(0.02)
-plt.xlabel("number of marked ants")
-plt.ylabel("probability")
-plt.title("Probability of catching k marked ants")
+plt.xticks(range(0,20))
+plt.xlabel("Anzahl gefangener markierter Ameisen")
+plt.ylabel("Wahrscheinlichkeit")
+#plt.title("Wahrscheinlichkeit, k markierte Ameisen zu fangen.")
 plt.show()

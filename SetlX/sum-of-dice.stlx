@@ -25,7 +25,7 @@ plotProbabilities := procedure(n) {
     plot_exportCanvas(cnvs, "sum-of-dices-$n$");
 };
 
-n := 1;
+n := 3;
 while (n != 0) {
     plotProbabilities(n);
     n := read("Enter the number of dice: ");

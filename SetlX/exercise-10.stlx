@@ -1,0 +1,8 @@
+allTriples := procedure(s) {
+    D := {1 .. 6};
+    T := { [x, y, z] : x in D, y in D, z in D | x + y + z == s };
+    return T;
+};
+print("Menge der Möglichkeiten, mit drei Würfeln in der Summe 8 zu würfeln:");
+print(allTriples(8));
+print(#allTriples(8));

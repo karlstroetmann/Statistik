@@ -1,0 +1,8 @@
+allTriples := procedure(s) {
+    M := {0 .. s};
+    T := { [x, y, z] : x in M, y in M, z in M | x + y + z == s };
+    return T;
+};
+print("Menge der Tripel <x,y,z> mit x+y+z=5:");
+print(allTriples(5));
+print(#allTriples(5));

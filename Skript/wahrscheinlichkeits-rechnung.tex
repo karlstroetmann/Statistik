@@ -879,6 +879,7 @@ als \blue{Kombinationen mit Wiederholung} bezeichnet.
       $x + y + z = 5$
       \\[0.2cm]
       gilt?  Schreiben Sie ein Programm, dass die Menge dieser Tripel explizit berechnet.
+      % {[1, 1, 3], [1, 2, 2], [1, 3, 1], [2, 1, 2], [2, 2, 1], [3, 1, 1]}
 \item Es sei $s\in \mathbb{N}$.  Wie viele Möglichkeiten gibt es, $n$ natürliche Zahlen $x_1,x_2,\cdots,x_n$ so
       zu wählen, dass 
       \\[0.2cm]
@@ -1212,8 +1213,8 @@ mit Farbe markiert worden.  Ein Forscher fängt nun zufällig $200$ dieser Ameisen
 Berechnen Sie die Wahrscheinlichkeit, dass er genau $k$ markierte Tiere fängt.  Gehen Sie
 dabei von einem gleichmäßigen Wahrscheinlichkeits-Maß aus, nehmen Sie also an, dass
 die Wahrscheinlichkeit dafür, dass eine Ameise gefangen wird, unabhängig von der
-farblichen Markierung ist.  Tabellieren Sie die Werte für $k=0,\cdots,20$ und tragen Sie
-die gefundenen Werte in einem Diagramm auf.
+farblichen Markierung für alle Ameisen gleich groß ist.  Tabellieren Sie die Werte für $k=0,\cdots,20$ und
+tragen Sie die gefundenen Werte in einem Diagramm auf.
 
 \solution Wir modellieren die Ameisen-Kolonie durch die Menge $M := \{1,\cdots,40\,000\}$.
 Die Menge der farblich markierten Ameisen bezeichnen wir mit $F$. Wir legen willkürlich
@@ -1301,8 +1302,8 @@ Für $k\geq 17$ sinkt die Wahrscheinlichkeit unter $10^{-5}$ und ist damit vernac
 
 \begin{figure}[!ht]
   \centering
-   \epsfig{file=Abbildungen/ameisen,scale=0.5}
-   \caption{Wahrscheinlichkeits-Maß für die Anzahl der markierten Ameisen}
+   \epsfig{file=Abbildungen/ants.pdf,scale=0.5}
+   \caption{Die Wahrscheinlichkeit, $k$ markierte Ameisen zu fangen.}
   \label{fig:ameisen}
 \end{figure}
 
@@ -1374,7 +1375,7 @@ $
 Damit haben wir für das Wahrscheinlichkeits-Maß die Formel 
 \begin{equation}
   \label{eq:hypergeometrisch}  
- P(\Lambda_k) = \frac{|\Lambda_k|}{|\Omega|} =\frac{{K \choose k} \cdot {N - K \choose n - k}}{{N \choose n}}
+ P(\Lambda_k) = \frac{|\Lambda_k|}{|\Omega|} =\frac{\ds{K \choose k} \cdot {N - K \choose n - k}}{\ds{N \choose n}}
 \end{equation}
 gefunden.  In der Statistik wird das obige Beispiel abstrahiert.  Statt von Bauteilen
 sprechen wir hier von Kugeln in einer Urne.  Von diesen Kugeln sind dann $K$ Kugeln
@@ -1502,7 +1503,7 @@ $\ds \mathrm{Bin}(n,k;p) := {n \choose k} \cdot p^k \cdot (1-p)^{n-k}$.
 
 \section{Zufalls-Variablen}
 Es wird Zeit, dass wir einen Begriff formal definieren, der uns in verschiedenen
-Beispielen schon mehrfach begegnet ist.  Dies ist der Begriff der Zufalls-Variable.
+Beispielen schon mehrfach begegnet ist.  Dies ist der Begriff der \blue{Zufalls-Variable}.
 
 \begin{Definition}[Zufalls-Variable]
 Es sei ein Wahrscheinlichkeits-Raum $\langle \Omega, 2^\Omega, P \rangle$ gegeben. 
