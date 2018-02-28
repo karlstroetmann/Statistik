@@ -1213,8 +1213,8 @@ mit Farbe markiert worden.  Ein Forscher fängt nun zufällig $200$ dieser Ameisen
 Berechnen Sie die Wahrscheinlichkeit, dass er genau $k$ markierte Tiere fängt.  Gehen Sie
 dabei von einem gleichmäßigen Wahrscheinlichkeits-Maß aus, nehmen Sie also an, dass
 die Wahrscheinlichkeit dafür, dass eine Ameise gefangen wird, unabhängig von der
-farblichen Markierung für alle Ameisen gleich groß ist.  Tabellieren Sie die Werte für $k=0,\cdots,20$ und
-tragen Sie die gefundenen Werte in einem Diagramm auf.
+farblichen Markierung für alle Ameisen gleich groß ist.  Tabellieren
+Sie die Werte für  $k=0,\cdots,20$ und  tragen Sie die gefundenen Werte in einem Diagramm auf.
 
 \solution Wir modellieren die Ameisen-Kolonie durch die Menge $M := \{1,\cdots,40\,000\}$.
 Die Menge der farblich markierten Ameisen bezeichnen wir mit $F$. Wir legen willkürlich
@@ -1268,7 +1268,9 @@ $
 Damit haben wir für die Wahrscheinlichkeit des Ereignisses $\Lambda_k$ die Formel 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P(\Lambda_k) = \frac{|\Lambda_k|}{|\Omega|} =\frac{{1000 \choose k} \cdot {39\,000 \choose 200 - k}}{{40\,000 \choose 200}}$
+$\ds P(\Lambda_k) = \frac{|\Lambda_k|}{|\Omega|} =
+     \frac{\ds{1000 \choose k} \cdot {39\,000 \choose 200 - k}}{\ds {40\,000 \choose 200}}
+$
 \\[0.2cm]
 gefunden.  In Tabelle \ref{tab:ameisen} sind die Wahrscheinlichkeiten aufgelistet.
 Für $k\geq 17$ sinkt die Wahrscheinlichkeit unter $10^{-5}$ und ist damit vernachlässigbar.
@@ -1295,7 +1297,7 @@ Für $k\geq 17$ sinkt die Wahrscheinlichkeit unter $10^{-5}$ und ist damit vernac
  15 & 0.0001204896 & 16 & 0.0000353530 & 17 & 0.0000096999 \\
 \hline
   \end{tabular}}
-  \caption{Wie viele bunte Ameisen werden gefangen?}
+  \caption{Wie viele markierte Ameisen werden gefangen?}
   \label{tab:ameisen}
 \end{table}
 
@@ -1477,7 +1479,7 @@ Die Wahrscheinlichkeit, dass wir $k$ markierte Ameisen zählen, ergibt sich jetzt
 $
 \begin{array}[b]{lcll}
  P(k) := P(\Lambda_k) & = & \ds \frac{|\Lambda_k|}{|\Omega|} \\[0.4cm]
- & = & \ds \frac{{n \choose k} \cdot K^k \cdot (N-K)^{n-k}}{N^n} \\[0.4cm]
+ & = & \ds \frac{\ds{n \choose k} \cdot K^k \cdot (N-K)^{n-k}}{N^n} \\[0.4cm]
  & = & \ds {n \choose k} \cdot \frac{K^k}{N^k} \cdot \frac{(N-K)^{n-k}}{N^{n-k}} \\[0.4cm]
  & = & \ds {n \choose k} \cdot \left(\frac{K}{N}\right)^k \cdot \left(1 - \frac{K}{N}\right)^{n-k} \\[0.4cm]
  & = & \ds {n \choose k} \cdot p^k \cdot \left(1 - p\right)^{n-k} & \ds \mbox{mit} \quad p := \frac{K}{N}
@@ -1588,7 +1590,11 @@ $P(S = s) = \left\{
 $
 \\[0.2cm]
 Die Funktion $s \mapsto P(S = s)$ bezeichnen wir als \blue{Wahrscheinlichkeits-Funktion}
-der Zufalls-Variablen $S$. 
+der Zufalls-Variablen $S$.  Wir schreiben diese Funktion als $f_s$, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$f_S(s) = P(S = s)$.
+\\[0.2cm]
 Wir sehen hier, dass die Wahrscheinlichkeit für die verschiedenen möglichen Werte der
 Summe $S$ nicht mehr gleichmäßig verteilt sind, obwohl die Wahrscheinlichkeits-Verteilung
 $P$ auf dem zugrunde liegenden Wahrscheinlichkeits-Raum sehr wohl gleichmäßig ist.
@@ -1715,7 +1721,7 @@ darstellen, wobei das Ergebnis $\mathrm{E}$ für ``Erfolg'' und das Ergebnis $\ma
 steht.  Definieren wir die Zufalls-Variable $X: \Omega \rightarrow \{0,1\}$  durch
 \\[0.2cm]
 \hspace*{1.3cm}
-$X(\mathrm{E}) = 1)$ \quad und \quad $X(\mathrm{M}) = 0$
+$X(\mathrm{E}) = 1$ \quad und \quad $X(\mathrm{M}) = 0$
 \\[0.2cm]
 und definieren wir weiter
 \\[0.2cm]
@@ -1730,7 +1736,8 @@ unabhängig sind, und summieren wir dann die Anzahl der Erfolge,  so ist diese Su
 einer \blue{Binomial-Verteilung} genügt.  Diesen Begriff definieren wir nun formal.
 
 \begin{Definition}[Binomial-Verteilung]
-  Wird ein Bernoulli-Experiment mit Parameter $p$ insgesamt $n$ mal so wiederholt, dass die einzelnen Ausführungen des Experiments
+  Wird ein Bernoulli-Experiment mit Parameter $p$ insgesamt $n$ mal so wiederholt, dass die einzelnen
+  Ausführungen des Experiments 
   voneinander unabhängig sind, und beschreibt die Zufalls-Variable $S$ die Anzahl der Erfolge, die sich bei der
   $n$-maligen Durchführung des Bernoulli-Experiments ergeben, so sagen wir, dass die Zufalls-Variable $S$
   \blue{binomial mit den Parameter $n$ und $p$ verteilt} ist und schreiben
@@ -1860,7 +1867,7 @@ $\frac{1}{6}$, während die Wahrscheinlichkeit, dass beim ersten Wurf keine 6 gew
 wird, offenbar den Wert $\frac{5}{6}$ hat.  Die Wahrscheinlichkeit dafür, dass im zweiten
 Wurf die 6 fällt, ist das Produkt aus der Wahrscheinlichkeit, dass im ersten Wurf keine 6
 fällt und der Wahrscheinlichkeit, dass im zweiten Wurf eine sechs fällt und hat daher den
-Wert $\frac{5}{6} \cdot \frac{1}{6}$.  Allgemein hat die Wahrscheinlichkeit dafür, dass im
+Wert $\frac{5}{6} \cdot \frac{1}{6}$.  Allgemein hat die Wahrscheinlichkeit dafür, dass erst im
 $n+1$-ten Wurf eine 6 fällt, den Wert
 \\[0.2cm]
 \hspace*{1.3cm} $\ds \left(\frac{5}{6}\right)^n \cdot \frac{1}{6}$.
@@ -1872,7 +1879,7 @@ erhalten wir für den Erwartungswert von $N$ die Formel
 $\ds E[N] = \sum\limits_{n=0}^\infty \left(\frac{5}{6}\right)^n \cdot\frac{1}{6} \cdot (n+1) = 
 \frac{1}{6} \cdot \sum\limits_{n=0}^\infty \left(\frac{5}{6}\right)^n \cdot (n+1)$.
 \\[0.2cm]
-Diese Summe können wir mit einem Trick auf die geometrische Reihe zurück führen.
+Diese Summe können wir mit einem Trick auf die \blue{geometrische Reihe} zurück führen.
 Wir haben im letzten Semester gesehen, dass für alle $q \in ]-1,1[$ 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1898,7 +1905,8 @@ $\ds E[N]
  = \frac{1}{6} \cdot \frac{1}{\bigl(1-\frac{5}{6}\bigr)^2} 
  = \frac{1}{6} \cdot \frac{1}{\bigl(\frac{1}{6}\bigr)^2} = 6$.
 \\[0.2cm]
-Das Ergebnis ist intuitiv einleuchtend. \qed
+Wir müssen im Schnitt also 6 mal würfeln bis eine 6 auftritt.  Dieses Ergebnis ist intuitiv einleuchtend.
+\eox 
 
 Der Erwartungswert gibt den mittleren Wert einer Zufalls-Variable wieder. 
 Damit wissen wir aber noch nichts darüber, wie weit die einzelnen Werte der Zufalls-Variable
@@ -1935,7 +1943,7 @@ um diesen Mittelwert streuen.  Darüber gibt die \blue{Varianz} Aufschluss.
   $\sigma(X) := \sqrt{\mathrm{Var}[X]\,}$.
   \\[0.2cm]
   Im Gegensatz zur Varianz hat die Standard-Abweichung dieselbe Einheit wie die Zufalls-Variable $X$.
-  \qed
+  \eox
 \end{Definition}
 
 \example
