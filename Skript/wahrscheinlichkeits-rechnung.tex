@@ -1847,15 +1847,15 @@ $
 \begin{array}[t]{lcl}
   
  E[S] & = & \ds \sum\limits_{s=2}^{12} P(S=s)\cdot s \\[0.5cm]
-      & = & \ds \frac{1}{36} \sum\limits_{s=2}^7 (s-1)\cdot s +
-                          \frac{1}{36} \sum\limits_{s=8}^{12} (13-s)\cdot s \\[0.5cm]
+      & = & \ds \frac{1}{36} \cdot \sum\limits_{s=2}^7 (s-1)\cdot s +
+                \frac{1}{36} \cdot \sum\limits_{s=8}^{12} (13-s)\cdot s \\[0.5cm]
       & = & \ds \frac{252}{36} \;=\; 7 
 \end{array}
 $
 \\[0.2cm]
 Dieses Ergebnis war auch zu erwarten, denn beim Würfeln mit einem Würfel ist der Erwartungswert
 $\frac{7}{2}$ und der Erwartungswert der Augensumme beim Würfeln mit zwei
-Würfeln sollte doppelt so groß sein. \qed
+Würfeln sollte doppelt so groß sein. \eox
 
 \exercise 
 Beim \blue{Mensch-ärger-dich-nicht} müssen Sie am Anfang eine 6 würfeln um das Spiel
@@ -1872,7 +1872,7 @@ $n+1$-ten Wurf eine 6 fällt, den Wert
 \\[0.2cm]
 \hspace*{1.3cm} $\ds \left(\frac{5}{6}\right)^n \cdot \frac{1}{6}$.
 \\[0.2cm]
-Bezeichnen wir die Zufalls-Variable, die die Anzahl der benötigten Würfe angibt, mit $N$, so
+Bezeichnen wir die Zufalls-Variable, welche die Anzahl der benötigten Würfe angibt, mit $N$, so
 erhalten wir für den Erwartungswert von $N$ die Formel 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1947,7 +1947,7 @@ um diesen Mittelwert streuen.  Darüber gibt die \blue{Varianz} Aufschluss.
 \end{Definition}
 
 \example
-Wir berechnen die Varianz der Zufalls-Variable $S$, die die {Augenzahl} beim
+Wir berechnen die Varianz der Zufalls-Variable $S$, welche die {Augenzahl} beim
 Würfeln mit einem Würfel wiedergibt.  Wegen $E[S] = \frac{7}{2}$  gilt \\
 \hspace*{1.3cm}
 $
@@ -1972,8 +1972,8 @@ $
 \begin{array}[t]{lcl}
   
  \textsl{Var}[S] & = & \ds \sum\limits_{s=2}^{12} P(S=s)\cdot (s - 7)^2 \\[0.5cm]
-      & = & \ds \frac{1}{36} \sum\limits_{s=2}^7 (s-1)\cdot (s - 7)^2 +
-                          \frac{1}{36} \sum\limits_{s=8}^{12} (13-s)\cdot (s-7)^2 \\[0.5cm]
+      & = & \ds \frac{1}{36} \cdot \sum\limits_{s=2}^7 (s-1)\cdot (s - 7)^2 +
+                \frac{1}{36} \cdot \sum\limits_{s=8}^{12} (13-s)\cdot (s-7)^2 \\[0.5cm]
       & = & \ds \frac{35}{6}
 \end{array}
 $

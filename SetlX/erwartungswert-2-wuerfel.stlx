@@ -1,0 +1,6 @@
+ES := 1/36* (+/ { (s-1) * s : s in {2..7} } + +/ { (13-s)*s : s in {8..13} });
+print("Der Erwartungswert der Summe der Augenzahlen zweier Würfel ist $ES$.");
+
+Omega := { [i,j] : i in {1..6}, j in {1..6} };
+ES    := +/ [ 1/36 * (i+j) : [i,j] in Omega ];
+print("Der Erwartungswert der Summe der Augenzahlen zweier Würfel ist $ES$.");
