@@ -1,4 +1,4 @@
-\chapter[Berechnung der Binomial-Koeffizienten]{Praktische Berechnung von Fakultät und \\ Binomial-Koeffizienten}
+\chapter[Berechnung der Binomial-Koeffizienten]{Berechnung von Fakultäten und Binomial-Koeffizienten}
 In der Wahrscheinlichkeits-Rechnung verfolgen uns die Fakultät und die 
 Binomial-Koeffizienten auf Schritt und Tritt.  Für kleine Werte von $n$ können wir $n!$
 und ${n \choose k}$ problemlos mit dem Taschenrechner ausrechnen.  Aber schon bei der
@@ -20,20 +20,14 @@ $\ds n! \approx \sqrt{2 \cdot \pi \cdot n\,} \cdot \left(\frac{n}{\mathrm{e}}\ri
 \\[0.1cm]
 Hier bezeichnet $\mathrm{e}$ die \href{https://de.wikipedia.org/wiki/Eulersche_Zahl}{Eulersche Zahl}.
 Genauer ist die Formel des ungarischen Mathematikers 
-\href{https://en.wikipedia.org/wiki/Cornelius_Lanczos}{Cornelius Lanzcos} (1893 - 1974). 
-Diese Formel lautet:  
-\\[0.1cm]
-\hspace*{1.3cm}
-$\ds n! \approx \sqrt{2 \cdot \pi\;} \cdot \left(\frac{n+ \frac{1}{2}}{\mathrm{e}}\right)^{n+\frac{1}{2}}$.
-\\[0.1cm]
-Die Formel auf der rechten Seite approximiert die Fakultät in dem folgenden Sinne: Es gilt
+\href{https://en.wikipedia.org/wiki/Cornelius_Lanczos}{Cornelius Lanczos} (1893 - 1974). 
+Die Stirling-Formel auf der rechten Seite approximiert die Fakultät in dem folgenden Sinne: Es gilt
 \\[0.3cm]
 \hspace*{1.3cm}
-$\ds \lim\limits_{n\rightarrow \infty} \frac{\sqrt{2 \cdot \pi\;} \cdot
-  \left(\frac{n+ \frac{1}{2}}{e}\right)^{n+\frac{1}{2}}}{n!} = 1$.
+$\ds \lim\limits_{n\rightarrow \infty} \frac{\sqrt{2 \cdot \pi \cdot n\;} \cdot \left(\frac{n}{\mathrm{e}}\right)^{n}}{n!} = 1$.
 \\[0.3cm]
 Für eine Herleitung dieser Formeln bleibt uns leider nicht die Zeit.  Oft sind die
-Fakultäten so groß, dass Sie nicht mehr auf dem Taschenrechner dargestellt werden können.
+Fakultäten so groß, dass sie nicht mehr auf dem Taschenrechner dargestellt werden können.
 Sie treten dann meist in Brüchen auf und der zu berechnende Bruch ist durchaus noch
 darstellbar. Dann kann es hilfreich sein, zum Logarithmus überzugehen.   Um beispielsweise
 ${n \choose k}$ zu berechnen, gehen wir wie folgt vor: 
@@ -46,25 +40,25 @@ ${n \choose k}$ zu berechnen, gehen wir wie folgt vor:
                 & = & \ds \exp\Bigl(\ln\bigl(n!\bigr) - \ln\bigl(k!\bigr) - \ln\bigl((n-k)!\bigr)\Bigr) \\[0.3cm]  
 \end{array}
 \end{equation}
-Zu Berechnung der verschiedenen Fakultäten in dieser Formel wenden wir auf die Näherungsformel von Lanzcos den
-Logarithmus an und erhalten 
+Zu Berechnung der verschiedenen Fakultäten in dieser Formel wenden wir auf die Stirling-Formel den
+Logarithmus an.  Das liefert
 \\[0.1cm]
 \hspace*{1.3cm}
-$\ds \ln\bigl(n!\bigr) \approx  \frac{1}{2}\cdot\ln(2\cdot \pi) + \left(n+\frac{1}{2}\right) \cdot \left( \ln\Bigl(n + \frac{1}{2}\Bigr) - 1 \right)$.
+$\ds \ln\bigl(n!\bigr) \approx  \frac{1}{2}\cdot\ln(2\cdot \pi \cdot n) + n \cdot \ln(n) - n$.
 \\[0.1cm]
-Setzen wir diesen Wert in Gleichung (\ref{eq:binappr}) ein, so  können wir den
+Setzen wir $\ln(k!)$, $\ln((n-k)!)$ und $\ln(n!)$ die entsprechenden Wert in Gleichung (\ref{eq:binappr}) ein, so  können wir den
 Binomial-Koeffizienten approximieren.
 Berechnen wir ${100 \choose 50}$ auf diese Weise, so erhalten wir 
 \\[0.1cm]
 \hspace*{1.3cm}
-$\ds {100 \choose 50} \approx 1.007667751 \cdot 10^{29}$.
+$\ds {100 \choose 50} \approx 101\,143\,884\,241\,463\,730\,000\,000\,000\,000$.
 \\[0.1cm]
 Der exakte Wert ist
 \\[0.1cm]
 \hspace*{1.3cm}
 $\ds {100 \choose 50} = 100\,891\,344\,545\,564\,193\,334\,812\,497\,256$
 \\[0.1cm]
-und der relative Fehler liegt bei $1.2$\textperthousand.  Bei der Berechnung von
+und der relative Fehler liegt bei $2.5$\textperthousand.  Bei der Berechnung von
 Wahrscheinlichkeiten sind solche Genauigkeiten meistens ausreichend.
 
 Noch einfacher können Binomial-Koeffizienten über die Formel 
@@ -83,8 +77,7 @@ Berechnen wir mit dieser Formel eine Näherung für ${100 \choose 50}$, so erhalte
 \hspace*{1.3cm}
 $\ds {100 \choose 50} \approx 1.0114388424145895 \cdot 10^{29}$.
 \\[0.1cm]
-Diesmal liegt der relative Fehler bei $2.5$\textperthousand\ und ist damit doppelt so hoch
-wie bei der Verwendung der Formel von Lanzcos.
+Auch diesmal liegt der relative Fehler bei $2.5$\textperthousand.
 
 Der Binomial-Koeffizient tritt oft in Termen der Form 
 \\[0.1cm]
@@ -92,7 +85,7 @@ Der Binomial-Koeffizient tritt oft in Termen der Form
 $\ds {n \choose k} \cdot p^k \cdot (1-p)^{n-k}$ 
 \\[0.1cm]
 auf.  
-Für diesen Fall gibt es noch eine Approximations-Formel, die einfacher zu handhaben
+Für diesen Fall gibt es eine Approximations-Formel, die noch einfacher zu handhaben
 ist.  Die Formel lautet 
 \\[0.1cm]
 \hspace*{1.3cm}

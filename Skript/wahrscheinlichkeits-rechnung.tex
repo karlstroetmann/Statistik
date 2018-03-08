@@ -993,7 +993,7 @@ Da die Mengen $A_i(t)$ Teilmengen der Menge $B(t)$ sind, folgt daraus für die Ka
 $\ds|V(t)| = |B(t)| - \biggl|\bigcup_{i=1}^n A_i(t)\biggr|$
 \\[0.2cm]
 Da die verschiedenen Mengen $A_i(t)$ nicht paarweise disjunkt sind, müssen wir die Siebformel von Poincaré und
-Sylvester verwenden um die Kardinalität der Vereinigungs-Menge zur berechnen.  Es gilt
+Sylvester verwenden, um die Kardinalität der Vereinigungs-Menge zur berechnen.  Es gilt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds\biggl|\bigcup_{i=1}^n A_i(t)\biggr| = 
@@ -1016,12 +1016,12 @@ $x_i$ mit $i \in I$ jeweils 6 abziehen.  Diese Menge können wir am einfachsten f
 wir vorher die Hilfsfunktion 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\mathrm{ite}:\mathbb{B} \times \mathbb{Z} \times \mathbb{Z}$
+$\texttt{ite}:\mathbb{B} \times \mathbb{Z} \times \mathbb{Z}$
 \\[0.2cm]
 wie folgt definieren:
 \\[0.2cm]
 \hspace*{1.3cm}
-$\mathrm{ite}(c,x,y) := \left\{
+$\texttt{ite}(c,x,y) := \left\{
 \begin{array}{ll}
   x & \mbox{falls $c = \mathtt{true}$;} \\
   y & \mbox{falls $c = \mathtt{false}$.} \\
@@ -1029,12 +1029,12 @@ $\mathrm{ite}(c,x,y) := \left\{
 \right.
 $
 \\[0.2cm]
-Der Name $\mathrm{ite}$ steht hier als Abkürzung für \textsl{if-then-else}.
+Der Name $\texttt{ite}$ steht hier als Abkürzung für \textsl{if-then-else}.
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 A_I'(t) := 
-\bigl\{ \langle \mathrm{ite}(1\in I,x_1-6, x_1), \cdots, \mathrm{ite}(n\in I,x_n-6,x_n\rangle 
+\bigl\{ \langle \texttt{ite}(1\in I,x_1-6, x_1), \cdots, \texttt{ite}(n\in I,x_n-6,x_n\rangle 
  \bigm| 
         \langle x_1,\cdots,x_n\rangle \in A_I(t) \bigr\}
 $.
@@ -1050,7 +1050,7 @@ und damit ist klar, dass
 $\ds |A_I(t)| = |B(t - k \cdot 6)| = {t - k \cdot 6 + n - 1 \choose t - k \cdot 6}$
 \\[0.2cm]
 gilt.  Wir sehen, dass die Kardinalität der Menge $|A_I(t)|$ nicht wirklich von der Index-Menge $I$ sondern nur
-von der Mächtigkeit $k$ dieser Menge abhängt.  Da es insgesamt ${n \choose k}$ Möglichkeiten gibt, eine Menge
+von der Mächtigkeit $k = |I|$ der Menge $I$ abhängt.  Da es insgesamt ${n \choose k}$ Möglichkeiten gibt, eine Menge
 $I$ der Mächtigkeit $k$ als Teilmenge der Menge $\{1,\cdots,n\}$ auszuwählen, haben wir jetzt insgesamt
 folgende Formel gefunden:
 \\[0.2cm]
@@ -1820,7 +1820,7 @@ verschiedene Binomial-Verteilungen.
   \hspace*{1.3cm}
   $\ds E[X] = \sum\limits_{n=0}^\infty P(X = x_n) \cdot x_n$
   \\[0.2cm]
-  berechnen.  Eine analoge Formel gilt, wenn die Menge $X(\Omega)$ endlich ist. \qed
+  berechnen.  Eine analoge Formel gilt, wenn die Menge $X(\Omega)$ endlich ist. \eox
 \end{Definition}
 
 Der Erwartungswert einer Zufalls-Variable gibt den durchschnittlichen Wert an, der sich bei
@@ -1906,7 +1906,36 @@ $\ds E[N]
  = \frac{1}{6} \cdot \frac{1}{\bigl(\frac{1}{6}\bigr)^2} = 6$.
 \\[0.2cm]
 Wir müssen im Schnitt also 6 mal würfeln bis eine 6 auftritt.  Dieses Ergebnis ist intuitiv einleuchtend.
-\eox 
+\eoxs
+
+\remark
+Neben dem Erwartungswert gibt es noch den Begriff des \href{https://en.wikipedia.org/wiki/Median}{Medians}
+einer Zufalls-Variable.  Ist $X:\Omega \rightarrow \{x_1,\cdots,x_n\}$ eine Zufalls-Variable so gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+\mbox{$x$ ist Median von $X$ g.d.w.} $\ds P(X \leq x) = \frac{1}{2} \wedge P(X \geq x) = \frac{1}{2}$.
+\\[0.2cm]
+Für diskrete Zufalls-Variablen ist der Median oft nicht eindeutig.  Betrachten wir beispielsweise beim Würfeln
+mit einem Würfel die Zufalls-Variable $X$, die trivial als
+\\[0.2cm]
+\hspace*{1.3cm}
+$X(k) := k$ \quad für alle $k \in \{1,\cdots,6\}$
+\\[0.2cm]
+definiert ist, so gilt beispielsweise
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X \leq 3.1) = \frac{1}{2}$ \quad und \quad $\ds P(X \geq 3.1) = \frac{1}{2}$,
+\\[0.2cm]
+aber genauso gilt auch
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X \leq 3.9) = \frac{1}{2}$ \quad und \quad $\ds P(X \geq 3.9) = \frac{1}{2}$.
+\\[0.2cm]
+Damit ist sowohl die Zahl $3.1$ als auch die Zahl $3.9$ ein Median der Zufalls-Variable $X$.  Offenbar ist jede
+Zahl in dem offenen Intervall $(3, 4)$ ein Median der Zufalls-Variable $X$.  In der deskriptiven Statistik
+spielt der Median eine wichtige Rolle, wenn die Verteilung der Werte sehr unsymmetrisch ist, aber in der
+Wahrscheinlichkeits-Rechnung ist der Median nicht so wichtig.
+\eox
 
 Der Erwartungswert gibt den mittleren Wert einer Zufalls-Variable wieder. 
 Damit wissen wir aber noch nichts darüber, wie weit die einzelnen Werte der Zufalls-Variable
@@ -1943,7 +1972,7 @@ um diesen Mittelwert streuen.  Darüber gibt die \blue{Varianz} Aufschluss.
   $\sigma(X) := \sqrt{\mathrm{Var}[X]\,}$.
   \\[0.2cm]
   Im Gegensatz zur Varianz hat die Standard-Abweichung dieselbe Einheit wie die Zufalls-Variable $X$.
-  \eox
+  \eoxs
 \end{Definition}
 
 \example
@@ -1954,8 +1983,7 @@ $
 \begin{array}[t]{lcl}
  \mathrm{Var}[S] & = & \ds \sum\limits_{s=1}^6 P(S=s) \cdot \left(s - \frac{7}{2}\right)^2 \\[0.5cm]
       & = & \ds \sum\limits_{s=1}^6 \frac{1}{6} \cdot \left(s - \frac{7}{2}\right)^2 
-      \;=\; \ds \frac{1}{6} \cdot \sum\limits_{s=1}^6 \left(s - \frac{7}{2}\right)^2 \\[0.5cm]
-      & = & \ds \frac{35}{12}.
+      \;=\; \ds \frac{1}{6} \cdot \sum\limits_{s=1}^6 \left(s - \frac{7}{2}\right)^2  = \frac{35}{12}.
 \end{array}
 $
 \\[0.2cm]
@@ -1973,8 +2001,8 @@ $
   
  \textsl{Var}[S] & = & \ds \sum\limits_{s=2}^{12} P(S=s)\cdot (s - 7)^2 \\[0.5cm]
       & = & \ds \frac{1}{36} \cdot \sum\limits_{s=2}^7 (s-1)\cdot (s - 7)^2 +
-                \frac{1}{36} \cdot \sum\limits_{s=8}^{12} (13-s)\cdot (s-7)^2 \\[0.5cm]
-      & = & \ds \frac{35}{6}
+                \frac{1}{36} \cdot \sum\limits_{s=8}^{12} (13-s)\cdot (s-7)^2 =  \frac{35}{6}
+ 
 \end{array}
 $
 \\[0.2cm]
