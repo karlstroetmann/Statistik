@@ -28,7 +28,7 @@ $\ds P(A|B) = \frac{1}{2}$. \eox
 
 
 \example
-Aus einer Sterbetafel, in der das Lebensalter von $100\,000$ Frauen
+Aus einer \href{https://de.wikipedia.org/wiki/Sterbetafel}{Sterbetafel}, in der das Lebensalter von $100\,000$ Frauen
 verzeichnet ist,  entnehmen wir die Information, dass $89\,835$
 aller Frauen das Alter von mindestens 60 Jahren erreichen, während $57\,062$ ein
 Alter von mehr als 80 Jahren erreichen.  Angenommen, eine Frau wird 60 Jahre alt.
@@ -121,7 +121,7 @@ $
 \end{array}
 $
 \\[0.2cm]
-Damit hat die gesuchte Wahrscheinlichkeit den Wert $0.\overline{7}$.
+Damit hat die gesuchte Wahrscheinlichkeit den Wert $0.\overline{7}$. \eox
 
 \next
 Die Gleichung (\ref{eq:condProb}) zur Berechnung der bedingten Wahrscheinlichkeit
@@ -183,7 +183,7 @@ P(A) & = & P(A \cap B_1) + \cdots + P(A \cap B_n) \\[0.2cm]
 \end{equation}
 Dies ist die Formel von der \blue{totalen Wahrscheinlichkeit}.
 Eine Familie $B_1$, $\cdots$, $B_n$ von Ereignissen mit den oben angegebenen
-Eigenschaften bezeichnen wir als \blue{Zerlegung} von $\Omega$.
+Eigenschaften bezeichnen wir als \blue{Zerlegung} oder auch \blue{Partition} von $\Omega$.
 
 \exercise
 Erfahrungsgemäß sind etwa $8\%$ aller Männer farbenblind, während nur $0.6\%$ aller
@@ -226,10 +226,11 @@ so gilt nach dem Satz von der totalen Wahrscheinlichkeit
 \hspace*{1.3cm}
 $P(A) = \sum\limits_{i=1}^n P(A|B_i) \cdot P(B_i)$.
 \\[0.2cm]
-Gilt nun  $B = B_k$ für ein $k\in\{1,\cdots,n\}$, so haben wir insgesamt 
+Gilt nun  $B = B_k$ für ein $k\in\{1,\cdots,n\}$, so haben wir insgesamt:
 \begin{equation}
   \label{eq:bayes}
-  \ds P(B_k|A) = \frac{P(A|B_k) \cdot P(B_k)}{\sum\limits_{i=1}^n P(A|B_i) \cdot P(B_i)}.
+  \colorbox{blue}{\framebox{\colorbox{yellow}{
+        $\ds P(B_k|A) = \frac{P(A|B_k) \cdot P(B_k)}{\sum\limits_{i=1}^n P(A|B_i) \cdot P(B_i)}$}}}
 \end{equation}
 Dies ist der \href{https://de.wikipedia.org/wiki/Satz_von_Bayes}{Satz von Bayes}
 (\href{https://de.wikipedia.org/wiki/Thomas_Bayes}{Thomas Bayes, 1701 -- 1761}).  Diese Formel führt
@@ -263,8 +264,8 @@ Nach der Formel von Bayes gilt
 $
 \begin{array}[t]{lcl}  
 P(B_1|A) 
- & = & \ds \frac{P(A|B_1) \cdot P(B_1)}{P(A|B_1) \cdot P(B_1) + P(A|B_2) \cdot P(B_2)} \\[0.3cm]
- & = & \ds \frac{0.999 \cdot 10^{-6}}{0.999 \cdot 10^{-6} + 0.0005 \cdot (1 - 10^{-6})}   \\[0.3cm]
+ & = & \ds \frac{P(A|B_1) \cdot P(B_1)}{P(A|B_1) \cdot P(B_1) + P(A|B_2) \cdot P(B_2)} \\[0.5cm]
+ & = & \ds \frac{0.999 \cdot 10^{-6}}{0.999 \cdot 10^{-6} + 0.0005 \cdot (1 - 10^{-6})}   \\[0.5cm]
  & \approx & 0.001994017946
 \end{array}
 $
@@ -291,6 +292,34 @@ Da es insgesamt $41\,583$ positive Tests gibt, ist das Verhältnis von positiven 
 die korrekt das Vorliegen von Malaria erkennen, zu den positiven Tests, die
 fälschlicherweise das Vorliegen von Malaria behaupten, durch den Bruch 
 $\frac{83}{41\,583}$ geben und das sind etwa $2$ Promille.
+
+\remark
+Ein immer wiederkehrender Fehler in der Statistik besteht darin, die beiden Wahrscheinlichkeiten $P(A|B)$ und
+$P(B|A)$ zu verwechslen.  Leider kommt dieser Fehler auch in der Praxis häufig vor und hat in der Vergangenheit
+schon mehrfach zu Justizirrtümern geführt.  Daher heißt dieser Fehler im Angelsächsischen auch
+\href{https://en.wikipedia.org/wiki/Prosecutor%27s_fallacy}{Prosecutors Fallacy}.
+Am bekanntesten ist der Fall von \href{https://en.wikipedia.org/wiki/Sally_Clark}{Sally Clark}.  Diese hatte
+zwei Kinder durch \href{https://en.wikipedia.org/wiki/Sudden_infant_death_syndrome}{plötzlichen Kindestod}
+verloren.  Die Wahrscheinlichkeit $T$, ein Kind durch plötzlichen Kindestod zu verlieren, beträgt etwa $\frac{1}{8543}$.
+Der Sachverständige in dem Prozeß gab an, dass daher die Wahrscheinlichkeit für einen doppelten plötzlichen
+Kindestod bei etwa $\frac{1}{73\,000\,000}$ läge.  Dies war der erste statistische Fehler in dem Prozeß, denn hier
+wurde fälschlich angenommen, dass die beiden Todesfälle voneinander unabhängig sind, was Unsinn ist.
+
+Der zweite Fehler bestand in der Verwechselung zweier Wahrscheinlichkeiten.  Bezeichnen wir das Ereignis, dass
+eine Mutter zwei Kinder durch doppelten Kindestod verliert, mit $D$ und das Ereignis, dass Ereignis, dass eine
+Mutter ihre Kinder nicht umbringt und unschuldig ist, mit $U$, so würde bei statistischer Unabhängigkeit der Todesfälle
+zwar
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(D|U) = \frac{1}{73\,000\,000}$
+\\[0.2cm]
+gelten, aber die Wahrscheinlichkeit $P(U|D)$, also die Wahrscheinlichkeit, dass eine Mutter unschuldig ist,
+wenn Sie zwei Kinder verliert, ist von der Wahrscheinlichkeit $P(D|U)$ grundverschieden!  In dem ersten Prozeß
+von Sally Clark wurde fälschlicherweise angenommen, dass $P(U|D) = P(U|D)$ ist und dass folglich die
+Wahrscheinlichkeit, dass Sally Clark unschuldig ist, nur $\frac{1}{73\,000\,000}$ beträgt.  Sie wurde daher zu
+einer lebenslänglichen Freiheitsstrafe verurteilt, die erst vier Jahre später aufgehoben wurde.  Sally Clark
+starb vier Jahre später an den Folgen einer akuten Alkohlvergiftung.
+\eox
 
 \exercise 
 Auf einer Insel ist die Tochter des dort amtierenden Königs einem Verbrechen zum Opfer gefallen.  Es gibt
