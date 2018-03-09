@@ -1,8 +1,8 @@
 chooseMoivre := procedure(n, k) {
     pi := mathConst("Pi");
-    return sqrt(2/(pi*n)) * 2**n * exp(-(k-n/2)**2 / (n/2));
+    return sqrt(2/(pi*n)) * 2.0**n * exp(-(k-n/2)**2 / (n/2));
 };
-choose := [n,k] |-> n! / (k! * (n-k)!);
+choose  := [n,k] |-> n! / (k! * (n-k)!);
 
 logNFactorial := procedure(n) {
     pi := mathConst("Pi");
@@ -11,15 +11,16 @@ logNFactorial := procedure(n) {
 chooseStirling := procedure(n, k) {
     return exp(logNFactorial(n) - logNFactorial(k) - logNFactorial(n-k));
 };
-
-approxStirling := chooseStirling(100, 50);
-approxMoivre   := chooseMoivre(100, 50);
-exact          := choose(100, 50);
+n := 1000;
+k :=  500;
+approxStirling := chooseStirling(n, k);
+approxMoivre   := chooseMoivre(n, k);
+exact          := choose(n, k);
 errorStirling  := (approxStirling - exact) / exact;
 errorMoivre    := (approxMoivre   - exact) / exact;
-print("Stirling approximation for (100 choose 50) = ", approxStirling);
-print("Moivre   approximation for (100 choose 50) = ", approxMoivre);
-print("exact                      (100 choose 50) = ", exact);
+print("Stirling approximation for ($n$ choose $k$) = ", approxStirling);
+print("Moivre   approximation for ($n$ choose $k$) = ", approxMoivre);
+print("exact                      ($n$ choose $k$) = ", exact);
 print("relative error for Stirling approximation: ", errorStirling);
 print("relative error for Moivre   approximation: ", errorMoivre);
 
@@ -27,9 +28,9 @@ laplace := procedure(n, k, p) {
     pi := mathConst("Pi");
     return exp(-(k-n*p)**2/(2*n*p*(1-p)))/sqrt(2*pi*n*p*(1-p));
 };
-approx := laplace(100, 50, 0.5);
-exact  := choose(100, 50) * 0.5 ** 100;
+approx := laplace(n, k, 0.5);
+exact  := choose(n, k) * 0.5 ** n;
 error  := (approx - exact) / exact;
-print("approximation for Bin(100, 50, 0.5) = ", approx);
-print("exact             Bin(100, 50, 0.5) = ", exact);
+print("approximation for Bin($n$, $k$, 0.5) = ", approx);
+print("exact             Bin($n$, $k$, 0.5) = ", exact);
 print("relative error: ", error);
