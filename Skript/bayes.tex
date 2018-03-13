@@ -7,7 +7,7 @@ Wahrscheinlichkeit für das Eintreten des Ereignisses $A$?  Die
 Wahrscheinlichkeit für das Eintreten von $A$ unter der Voraussetzung, dass $B$
 bereits eingetreten ist, bezeichnen wir mit
 \\[0.2cm]
-\hspace*{1.3cm} $P(A|B)$.
+\hspace*{1.3cm} $P(A|B)$ \quad (lese: \blue{Wahrscheinlichkeit von $A$ gegeben $B$}).
 
 \example Wir betrachten das Zufalls-Experiment ``\blue{Wurf eines
   Laplace-Würfels}'' mit dem Ergebnis-Raum $\Omega = \{1,\cdots,6\}$.  Es sei $A$
@@ -28,10 +28,12 @@ $\ds P(A|B) = \frac{1}{2}$. \eox
 
 
 \example
-Aus einer \href{https://de.wikipedia.org/wiki/Sterbetafel}{Sterbetafel}, in der das Lebensalter von $100\,000$ Frauen
-verzeichnet ist,  entnehmen wir die Information, dass $89\,835$
-aller Frauen das Alter von mindestens 60 Jahren erreichen, während $57\,062$ ein
-Alter von mehr als 80 Jahren erreichen.  Angenommen, eine Frau wird 60 Jahre alt.
+Aus der bayerischen
+\href{https://www.statistikdaten.bayern.de/genesis/online?language=de&sequenz=tabelleErgebnis&selectionname=12621-002}{Sterbetafel}
+2013/2015, in der das Lebensalter von $100\,000$ verstorbenen Frauen
+verzeichnet ist,  entnehmen wir die Information, dass $95\,132$
+aller Frauen das Alter von mindestens 60 Jahren erreichen, während $72\,885$ ein
+Alter von 80 oder mehr Jahren erreichen.  Angenommen, eine Frau wird 60 Jahre alt.
 Mit welcher Wahrscheinlichkeit erreicht Sie dann ein Alter von 80 Jahren?
 
 Wir bezeichnen das Ereignis, dass eine Frau das Alter von $60$ Jahren erreicht, mit
@@ -41,10 +43,10 @@ der Anteil der sechzigjährigen Frauen, die auch noch das Alter von 80 Jahren
 erreichen, durch den Bruch $\frac{|B|}{|A|}$ gegeben wird.  Also gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P(B|A) = \frac{|B|}{|A|} = \frac{57\,062}{89\,835} \approx 0.63519$. 
+$\ds P(B|A) = \frac{|B|}{|A|} = \frac{72\,885}{95\,132} \approx 76.6 \%$. 
 \\[0.2cm]
 Damit beträgt also die Wahrscheinlichkeit dafür, dass eine sechzigjährige Frau das
-Alter von 80 Jahren erreicht, $63.5\%$.
+Alter von 80 Jahren erreicht, $76.6\%$.
 \eox
 
 \next Wir verallgemeinern die obigen Beispiele.  Wir gehen davon aus, dass ein
@@ -61,7 +63,7 @@ Wir betrachten zwei Ereignisse $A$ und $B$ und berechnen die bedingte
 Wahrscheinlichkeit für das Eintreten von $B$, wenn wir bereits wissen, dass $A$
 eingetreten ist.  Wenn $A$ eingetreten ist, kommen für das Eintreten von $B$ nur
 noch die Ergebnisse in Frage, die in $B \cap A$ liegen.  Nehmen wir an, dass diese
-Ergebnisse nach wie vor dieselbe Wahrscheinlichkeit haben, dann haben wir einen
+Ergebnisse nach wie vor untereinander dieselbe Wahrscheinlichkeit haben, dann haben wir einen 
 neuen Wahrscheinlichkeits-Raum, dessen Ereignis-Raum die Menge $A$ ist.  Folglich
 gilt
 \begin{equation}
@@ -141,7 +143,7 @@ Hinfallen einer Kiste $30\%$ der intakten Glühbirnen zerstört werden.
 Berechnen Sie die Wahrscheinlichkeit dafür, dass eine gelieferte Glühbirne
 funktionsfähig ist. 
 
-\section{Die totale Wahrscheinlichkeit und die Formel von Bayes}
+\section[Die Formel von Bayes]{Die totale Wahrscheinlichkeit und die Formel von Bayes}
 Es sei ein Wahrscheinlichkeits-Raum $\langle \Omega, 2^\Omega, P \rangle$ gegeben.
 Wir betrachten zwei Ereignisse $A$ und $B$. Nach Definition des komplementären
 Ereignisses gilt
@@ -279,7 +281,7 @@ unter der Bedingung $A$!  \eox
 Das bei der letzten Aufgabe erhaltene Ergebnis erscheint zunächst kontraintuitiv.
 Wir beleuchten den Sachverhalt  daher noch aus einer anderen Perspektive.  Wir gehen
 davon aus, dass in Deutschland etwa $83\,000\,000$ Personen leben.  Von diesen
-Personen hat dann $83$ Personen Malaria.  Würden wir nun alle Personen aus 
+Personen haben dann $83$ Personen Malaria.  Würden wir nun alle Personen aus 
 Deutschland testen, so würden wir zwei Gruppen von Personen positiv testen:
 \begin{enumerate}
 \item Die $83$ tatsächlich an Malaria erkrankte Person werden (mit hoher Wahrscheinlichkeit) 
@@ -318,7 +320,7 @@ wenn Sie zwei Kinder verliert, ist von der Wahrscheinlichkeit $P(D|U)$ grundvers
 von Sally Clark wurde fälschlicherweise angenommen, dass $P(U|D) = P(U|D)$ ist und dass folglich die
 Wahrscheinlichkeit, dass Sally Clark unschuldig ist, nur $\frac{1}{73\,000\,000}$ beträgt.  Sie wurde daher zu
 einer lebenslänglichen Freiheitsstrafe verurteilt, die erst vier Jahre später aufgehoben wurde.  Sally Clark
-starb vier Jahre später an den Folgen einer akuten Alkohlvergiftung.
+starb vier Jahre nach ihrer Freilassung an den Folgen einer akuten Alkohlvergiftung.
 \eox
 
 \exercise 
@@ -671,7 +673,7 @@ P(E) & = & P\bigl(\bigl\{ \pair(x,y) \in \Omega_1 \times \Omega_2 \;|\; x \in \w
      & = & \sum\limits_{x \in \widehat{E}, \, y \in \Omega_2} P\bigl(\bigl\{ \pair(x,y) \bigr\}\bigr) \\[0.6cm]
      & = & \sum\limits_{x \in \widehat{E}, \, y \in \Omega_2} P_1\bigl(\bigl\{ x \bigr\}\bigr) \cdot P_2\bigl(\bigl\{ y \bigr\}\bigr) \\[0.6cm]
      & = & \sum\limits_{x \in \widehat{E}} \sum\limits_{y \in \Omega_2} P_1\bigl(\bigl\{ x \bigr\}\bigr) \cdot P_2\bigl(\bigl\{ y \bigr\}\bigr) \\[0.6cm]  
-     & = & \sum\limits_{x \in \widehat{E}} P_1\bigl(\bigl\{ x \bigr\}\bigr) \sum\limits_{y \in \Omega_2} P_2\bigl(\bigl\{ y \bigr\}\bigr) \\[0.6cm]  
+     & = & \sum\limits_{x \in \widehat{E}} P_1\bigl(\bigl\{ x \bigr\}\bigr) \cdot \sum\limits_{y \in \Omega_2} P_2\bigl(\bigl\{ y \bigr\}\bigr) \\[0.6cm]  
      & = & \left(\sum\limits_{x \in \widehat{E}} P_1\bigl(\bigl\{ x \bigr\}\bigr)\right) \cdot \left(\sum\limits_{y \in \Omega_2} P_2\bigl(\bigl\{ y \bigr\}\bigr)\right) \\[0.6cm]
      & = & P_1\bigl(\widehat{E}\bigr) \cdot P_2\bigl(\Omega_2) \\[0.2cm]
      & = & P_1\bigl(\widehat{E}\bigr) \cdot 1 \\[0.2cm]
