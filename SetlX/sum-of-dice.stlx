@@ -1,5 +1,6 @@
 // prop(n, s) is the probability to roll the sum s when throwing n dices.
 prop := cachedProcedure(n, s) {
+    print(n, ",", s);
     if (s < n || 6 * n < s) {
         return 0;
     }
@@ -25,7 +26,7 @@ plotProbabilities := procedure(n) {
     plot_exportCanvas(cnvs, "sum-of-dices-$n$");
 };
 
-n := 3;
+n := 4;
 while (n != 0) {
     plotProbabilities(n);
     n := read("Enter the number of dice: ");
