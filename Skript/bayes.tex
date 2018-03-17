@@ -619,47 +619,47 @@ Beispiel dafür ist das Würfeln mit zwei Würfeln.  Um diese Situation formal
 beschreiben zu können, führen wir das Produkt zweier Wahrscheinlichkeits-Räume ein.
 
 \begin{Definition}[Produkt-Raum]
-  Sind $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$
-  und  $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$
-  zwei Wahr\-scheinlichkeits-Räume, so definieren wir 
-  \\[0.2cm]
-  \hspace*{1.3cm}
-  $\mathcal{W}_1 \times \mathcal{W}_2 := \langle \Omega_1 \times \Omega_2, 2^{\Omega_1 \times \Omega_2}, P \rangle$,
-  \\[0.2cm]
-  wobei die neue Wahrscheinlichkeits-Verteilung $P$ dadurch definiert wird, dass wir
-  die Wahrscheinlichkeiten der Elementar-Ereignisse angeben:
-  \\[0.2cm]
-  \hspace*{1.3cm}
-  $P\bigl(\{\langle x, y \rangle\}\bigr) := P_1(\{x\}) \cdot P_2(\{y\})$ \quad
-  für alle $x \in \Omega_1$ und alle $y \in \Omega_2$.
-  \\[0.2cm]
-  Für beliebige Ereignisse $E$ ist die Wahrscheinlichkeits-Verteilung dann durch 
-  \\[0.2cm]
-  \hspace*{1.3cm}
-  $\ds P(E) = \sum\limits_{\omega \in E} P\bigl(\{\omega\}\bigr)$
-  \\[0.2cm]
-  gegeben.  \eox
+Sind $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$
+und  $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$
+zwei Wahr\-scheinlichkeits-Räume, so definieren wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathcal{W}_1 \times \mathcal{W}_2 := \langle \Omega_1 \times \Omega_2, 2^{\Omega_1 \times \Omega_2}, P \rangle$,
+\\[0.2cm]
+wobei die neue Wahrscheinlichkeits-Verteilung $P$ dadurch definiert wird, dass wir
+die Wahrscheinlichkeiten der Elementar-Ereignisse angeben:
+\\[0.2cm]
+\hspace*{1.3cm}
+$P\bigl(\{\langle x, y \rangle\}\bigr) := P_1(\{x\}) \cdot P_2(\{y\})$ \quad
+für alle $x \in \Omega_1$ und alle $y \in \Omega_2$.
+\\[0.2cm]
+Für beliebige Ereignisse $E$ ist die Wahrscheinlichkeits-Verteilung dann durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(E) = \sum\limits_{\omega \in E} P\bigl(\{\omega\}\bigr)$
+\\[0.2cm]
+gegeben.  \eoxs
 \end{Definition}
 
 \begin{Definition}   Ist
-  \\[0.2cm]
-  \hspace*{1.3cm}
-   $\langle \Omega, 2^\Omega, P \rangle = \mathcal{W}_1 \times \mathcal{W}_2 =
-  \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle \times \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$
-  \\[0.2cm]
-  ein Produkt-Raum, und ist $E$ ein Ereignis aus diesem Raum, so sagen wir,
-  dass $E$ \blue{durch die erste Komponente bestimmt} ist, falls es eine Menge $\widehat{E}$ gibt, so dass
-  \\[0.2cm]
-  \hspace*{1.3cm}
-  $E = \bigl\{ \langle x, y \rangle \;\big|\; x \in \widehat{E} \wedge y \in \Omega_2 \bigr\}$
-  \\[0.2cm]
-  gilt.  Analog sagen wir, dass $E$ \blue{durch die zweite  Komponente bestimmt} ist, wenn  es eine
-  Menge $\widehat{E}$ gibt, so dass 
-  \\[0.2cm]
-  \hspace*{1.3cm}
-  $E = \bigl\{ \langle x, y \rangle \;\big|\; x \in \Omega_1  \wedge y \in \widehat{E} \bigr\}$
-  \\[0.2cm]
-  gilt.  \eox
+\\[0.2cm]
+\hspace*{1.3cm}
+ $\langle \Omega, 2^\Omega, P \rangle = \mathcal{W}_1 \times \mathcal{W}_2 =
+\langle \Omega_1, 2^{\Omega_1}, P_1 \rangle \times \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$
+\\[0.2cm]
+ein Produkt-Raum, und ist $E$ ein Ereignis aus diesem Raum, so sagen wir,
+dass $E$ \blue{durch die erste Komponente bestimmt} ist, falls es eine Menge $\widehat{E}$ gibt, so dass
+\\[0.2cm]
+\hspace*{1.3cm}
+$E = \bigl\{ \langle x, y \rangle \;\big|\; x \in \widehat{E} \wedge y \in \Omega_2 \bigr\} = \widehat{E} \times \Omega_2$
+\\[0.2cm]
+gilt.  Analog sagen wir, dass $E$ \blue{durch die zweite  Komponente bestimmt} ist, wenn  es eine
+Menge $\widehat{E}$ gibt, so dass 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E = \bigl\{ \langle x, y \rangle \;\big|\; x \in \Omega_1  \wedge y \in \widehat{E} \bigr\} = \Omega_1 \times \widehat{E}$
+\\[0.2cm]
+gilt.  \eox
 \end{Definition}
 
 \example
@@ -753,7 +753,7 @@ $
 & = & \ds
   \sum\limits_{x \in \widehat{E}} \sum\limits_{y \in \widehat{F}} P_1\bigl( \{ x \}\bigr) \cdot P_2\bigl(\{y\}\bigr) \\[0.6cm]
 & = & \ds
-  \sum\limits_{x \in \widehat{E}} P_1\bigl( \{ x \}\bigr) \sum\limits_{y \in \widehat{F}} P_2\bigl(\{y\}\bigr) \\[0.6cm]
+  \sum\limits_{x \in \widehat{E}} P_1\bigl( \{ x \}\bigr) \cdot \sum\limits_{y \in \widehat{F}} P_2\bigl(\{y\}\bigr) \\[0.6cm]
 & = & \ds
   \left(\sum\limits_{x \in \widehat{E}} P_1\bigl( \{ x \}\bigr)\right) \cdot \left(\sum\limits_{y \in \widehat{F}} P_2\bigl(\{y\}\bigr)\right) \\[0.6cm]
 & = & \ds
@@ -787,7 +787,7 @@ $P_2(\widehat{F}) =P(F)$ verläuft völlig analog, so dass wir auf die Details ver
 
 Es ist offensichtlich, dass der Begriff des Produkt-Raums auch auf Produkte von mehr als
 zwei Faktoren erweitert werden kann.  Als Anwendung der bisher präsentierten Theorie
-zeigen wir eine alternative Lösung des Ziegen-Problems, bei der wir den zugrunde liegenden
+zeigen wir eine alternative Lösung des Monty-Hall-Problems, bei der wir den zugrunde liegenden
 Wahrscheinlichkeits-Raum nicht explizit angeben.
 Stattdessen können wir uns auf die Betrachtung von Ereignissen beschränken.
 
@@ -864,7 +864,7 @@ entweder die zweite oder die dritte Tür öffnen.  Da diese beiden Wahrscheinlichk
 zusammen den Wert 1 ergeben müssen, folgt
 \\[0.2cm]
 \hspace*{1.3cm}
-$P(O_2|A_1 \cap W_1) = \frac{1}{2}$.
+$\ds P(O_2|A_1 \cap W_1) = \frac{1}{2}$.
 \\[0.2cm]
 Damit haben wir also 
 \\[0.2cm]
@@ -911,9 +911,9 @@ besteht.  Es wird ausgelost, wer als erstes einen Schuß abgeben darf, danach wir
 der Reihenfolge Anton, Bruno, Charlie geschossen, mit der kleinen Einschränkung, dass
 jemand, der tot ist, nicht mehr mitspielen darf.  Wenn jemand einen Schuß abgeben darf, so
 steht es ihm frei, auf welchen Kontrahenten er schießt.  Außerdem hat er auch die
-Möglichkeit, in die Luft zu schießen.  Dies gilt allerdings nicht für Anton, der darf
-nicht in die Luft schießen.  
-Die Bewaffnung der drei Duellanten ist  unterschiedlich.
+Möglichkeit, in die Luft zu schießen.  Wir wissen weiterhin, dass Anton nichts mehr haßt als Munition zu
+verschwenden und daher nie in die Luft schießen wird.  Die Bewaffnung der drei Duellanten ist
+unterschiedlich. 
 \begin{enumerate}
 \item Anton verfügt über eine Maschinen-Pistole vom Typ \href{https://de.wikipedia.org/wiki/Kalaschnikow}{Kalaschnikow}.  Seine
       Trefferwahrscheinlichkeit liegt daher bei $100\%$.
@@ -946,12 +946,13 @@ es zweckmäßig, für dieses Duell die folgenden Abkürzungen einzuführen.
       zurückgeführt werden.
 \end{enumerate}
 Es ist zweckmäßig, für $c(n)$ und $b(n)$ ein System von Rekurrenz-Gleichungen aufzustellen und zu lösen.
-Anschließend können die Grenzwerte dieser Folgen für $n$ gegen Unendlich berechnet werden. Es ergibt sich 
-\\[0.2cm]
-\hspace*{1.3cm}
-$\ds \lim\limits_{n\rightarrow\infty} c(n) = \frac{5}{9}$ \quad und \quad
-$\ds \lim\limits_{n\rightarrow\infty} b(n) = \frac{4}{9}$.
-\\[0.2cm]
+Anschließend können die Grenzwerte dieser Folgen für $n$ gegen Unendlich berechnet werden.
+% Es ergibt sich 
+% \\[0.2cm]
+% \hspace*{1.3cm}
+% $\ds \lim\limits_{n\rightarrow\infty} c(n) = \frac{5}{9}$ \quad und \quad
+% $\ds \lim\limits_{n\rightarrow\infty} b(n) = \frac{4}{9}$.
+% \\[0.2cm]
 Der Rest der Aufgabe ist dann nicht mehr schwer.
 \vspace*{0.3cm}
 
@@ -961,7 +962,7 @@ ausgedehnt werden.  Wir sagen, dass $\{A_1, \cdots, A_n\}$ eine Menge unabhängig
 für jede nicht-leere Teilmenge $I \subseteq \{1,\cdots,n\}$ gilt:
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P\biggl(\bigcap\limits_{i\in I} A_i\biggr) = \prod\limits_{i\in I} P(A_i)$.
+$\ds P\Biggl(\bigcap\limits_{i\in I} A_i\Biggr) = \prod\limits_{i\in I} P(A_i)$.
 
 \section{Unabhängige Zufalls-Variablen}
 Wir verallgemeinern die Begriffsbildung des letzten Abschnitts und betrachten nun
@@ -1098,9 +1099,8 @@ $\widehat{E}_1$ durch
 \hspace*{1.3cm}
 $\widehat{E}_1 := \bigl\{ \omega_1 \in \Omega_1 \;\big|\; \exists \omega_2 \in \Omega_2: X_1(\pair(\omega_1,\omega_2)) = x_1 \}$
 \\[0.2cm]
-und zeigen, dass
-$E_1 = \bigl\{ \pair(\omega_1,\omega_2) \in \Omega \;\big|\; \omega_1 \in \widehat{E}_1 \wedge \omega_2 \in \Omega_2 \bigr\}$
-gilt. Den Nachweis, dass diese beiden Mengen  gleich sind führen wir, indem wir zeigen, dass 
+und zeigen, dass $E_1 = \widehat{E_1} \times \Omega_2$ gilt. Den Nachweis, dass diese beiden Mengen  gleich
+sind führen wir, indem wir zeigen, dass  
 \\[0.2cm]
 \hspace*{1.3cm}
 $\pair(\omega_1,\omega_2) \in \bigl\{ \omega \in \Omega \;\big|\; X_1(\omega) = x_1 \bigr\} \;\Leftrightarrow\;
@@ -1174,17 +1174,19 @@ Der nächsten Satz ist eine unmittelbare Konsequenz aus der Definition des Begrif
 \hspace*{1.3cm}
 $C = \{ c_n \;|\; n \in \mathbb{N} \}$
 \\[0.2cm]
-gegeben, wobei wir stillschweigend voraussetzen, dass die Elemente $c_n$ voneinander verschieden sind,
- und ist weiter $Z$ eine Zufallsgröße auf $\Omega$, so kann die Wahrscheinlichkeit
+gegeben, wobei wir stillschweigend voraussetzen, dass die Elemente $c_n$ paarweise voneinander verschieden
+sind, es gilt also $m \not= n \rightarrow c_m \not= n$,  und ist weiter $Z$ eine Zufallsgröße auf $\Omega$, so kann die Wahrscheinlichkeit
 $P(Z \in C)$ wie folgt berechnet werden:
 \\[0.2cm]
 \hspace*{1.3cm}
 $
-\begin{array}[t]{lcl}
+\begin{array}[t]{lcll}
   P(Z \in C) 
 & = & P\bigl(\{ \omega \in \Omega \;|\; Z(\omega) \in C\}\bigr) \\[0.2cm]
 & = & \ds 
-      P\left(\bigcup\limits_{n=0}^\infty \{ \omega \in \Omega \;|\; Z(\omega) = c_n \}\right) \\[0.5cm]
+      P\left(\biguplus\limits_{n=0}^\infty \{ \omega \in \Omega \;|\; Z(\omega) = c_n \}\right) 
+      & \mbox{denn die $c_n$ sind paarweise verschieden}
+     \\[0.5cm]
 & = & \ds 
       \sum\limits_{n=0}^\infty P\bigl(\{ \omega \in \Omega \;|\; Z(\omega) = c_n \}\bigr) \\[0.5cm]
 & = & \ds 
@@ -1235,7 +1237,7 @@ $\ds P\biggl(\bigwedge\limits_{i\in I} X_i = x_i\biggr) = \prod\limits_{i\in I} 
 
 
 \section{Eigenschaften von Erwartungswert und Varianz}
-Der Erwartungswert hat die folgende Linearitäts-Eigenschaft.
+Der Erwartungswert hat die folgende \blue{Linearitäts-Eigenschaft}.
 \begin{Satz}[Linearität des Erwartungswerts]
 Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und sind $X: \Omega \rightarrow \mathbb{R}$  
 und $Y: \Omega \rightarrow \mathbb{R}$ zwei Zufalls-Variablen, so können wir für beliebige $\alpha,\beta \in \mathbb{R}$ eine Zufallsgröße 
@@ -1275,9 +1277,9 @@ für ein beliebiges $\beta \in \mathbb{R}$ die Zufallsgröße $X:\Omega \rightarrow
 \hspace*{1.3cm} $X(\omega) = \beta$, \\[0.2cm]
 so gilt 
 $E[X] = \beta$. \eox
-\vspace*{0.3cm}
 
-\noindent
+
+
 Im Gegensatz zu dem Erwartungswert ist die Varianz kein linearer Operator.
 Es gilt aber der folgende Satz.
 
@@ -1310,18 +1312,18 @@ $
 \begin{array}[b]{lcl}
   \var[Z] 
 & = & E\bigl[(Z - E[Z])^2\bigr] \\[0.2cm]
-& = & E\bigl[\bigl(\alpha \cdot X + \beta - (\alpha \cdot \mu + \beta)\bigr)^2\bigr] \\[0.2cm]
-& = & E\bigl[\bigl(\alpha \cdot X  - \alpha \cdot \mu\bigr)^2\bigr] \\[0.2cm]
-& = & E\bigl[\bigl(\alpha \cdot (X - \mu)\bigr)^2\bigr] \\[0.2cm]
-& = & E\bigl[\alpha^2 \cdot (X - \mu)^2\bigr] \\[0.2cm]
-& = & \alpha^2 \cdot E\bigl[(X - \mu)^2\bigr] \\[0.2cm]
+& = & E\Bigl[\bigl(\alpha \cdot X + \beta - (\alpha \cdot \mu + \beta)\bigr)^2\Bigr] \\[0.3cm]
+& = & E\Bigl[\bigl(\alpha \cdot X  - \alpha \cdot \mu\bigr)^2\Bigr] \\[0.3cm]
+& = & E\Bigl[\bigl(\alpha \cdot (X - \mu)\bigr)^2\Bigr] \\[0.3cm]
+& = & E\Bigl[\alpha^2 \cdot (X - \mu)^2\Bigr] \\[0.3cm]
+& = & \alpha^2 \cdot E\Bigl[(X - \mu)^2\Bigr] \\[0.3cm]
 & = & \alpha^2 \cdot \var[X] 
 \end{array}
 $ \qed
 
 \noindent
 Um den später folgenden Satz beweisen zu können, benötigen wir einen Satz über den 
-Erwartungswerts des Produktes zweier unabhängiger Zufalls-Variablen.
+Erwartungswerts des Produktes zweier \blue{unabhängiger} Zufalls-Variablen.
 
 \begin{Lemma} \label{lemma:produnabhaengig}
 Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und sind $X: \Omega \rightarrow \mathbb{R}$  und
@@ -1368,12 +1370,12 @@ $
 \exercise
 Zeigen Sie: Sind $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei unabhängige Zufalls-Variablen,
 ist $\alpha \in \mathbb{R}$ und
-ist die Zufallsgröße $Z:\Omega \rightarrow \mathbb{R}$ definiert durch 
+ist die Zufallsgröße $Z:\Omega \rightarrow \mathbb{R}$ durch 
 \\[0.2cm]
 \hspace*{1.3cm}
-$Z(\omega) = X(\omega) + \alpha$,
+$Z(\omega) = X(\omega) + \alpha$
 \\[0.2cm]
-so sind auch die Zufalls-Variablen $Z$ und $Y$ unabhängig. \eox
+definiert, so sind auch die Zufalls-Variablen $Z$ und $Y$ unabhängig. \eox
 
 \noindent
 Der nächste Satz ist für die weitere Theorie von fundamentaler Bedeutung.
@@ -1393,12 +1395,13 @@ $\var\bigl[X + Y\bigr] = \var\bigl[X\bigr] + \var\bigl[Y\bigr]$.
 $
 \begin{array}[b]{lcl}
  \var[X+Y] & = & E\bigl[(X + Y - \mu_X - \mu_Y)^2\bigr] \\[0.2cm] 
-           & = & E\bigl[\bigl((X - \mu_X) + (Y - \mu_Y)\bigr)^2\bigr] \\[0.2cm] 
+           & = & E\Bigl[\bigl((X - \mu_X) + (Y - \mu_Y)\bigr)^2\Bigr] \\[0.3cm] 
            & = & E\bigl[(X - \mu_X)^2 + (Y - \mu_Y)^2 + 2 \cdot (X - \mu_X) \cdot (Y - \mu_Y)\bigr] \\[0.2cm] 
            & = & E\bigl[(X - \mu_X)^2\bigr] + E\bigl[(Y - \mu_Y)^2\bigr] + 2 \cdot E\bigl[(X - \mu_X) \cdot (Y - \mu_Y)\bigr] \\[0.2cm] 
            & = & \var[X] + \var[Y] + 2 \cdot E\bigl[(X - \mu_X) \cdot (Y - \mu_Y)\bigr] \\[0.2cm] 
            & = & \var[X] + \var[Y] + 2 \cdot E\bigl[(X - \mu_X)\bigr] \cdot E\bigl[Y - \mu_Y)\bigr] \\[0.2cm] 
-           &   & \mbox{nach Lemma \ref{lemma:produnabhaengig}, denn $X- \mu_X$ und $Y - \mu_Y$ sind unabhängig nach Aufgabe 19} \\[0.2cm]
+           &   & \mbox{nach Lemma \ref{lemma:produnabhaengig}, denn $X- \mu_X$ und $Y - \mu_Y$ sind unabhängig
+                 nach letzter Aufgabe} \\[0.2cm]
            & = & \var[X] + \var[Y] + 2 \cdot \bigl(E[X] - \mu_X\bigr) \cdot \bigl(E[Y] - \mu_Y\bigr) \\[0.2cm] 
            & = & \var[X] + \var[Y] + 2 \cdot \bigl(\mu_X - \mu_X\bigr) \cdot \bigl(\mu_Y - \mu_Y\bigr) \\[0.2cm] 
            & = & \var[X] + \var[Y]. \hspace*{\fill} \Box
@@ -1414,17 +1417,18 @@ Ist $\{X_1,\cdots,X_n\}$ eine Menge unabhängiger Zufalls-Variablen, so gilt
 $\ds \var\left(\sum\limits_{i=0}^n X_i\right) = \sum\limits_{i=0}^n \var(X_i)$.
 \\[0.2cm]
 In dieser Form hat der Satz eine äußerst wichtige Konsequenz.  Wir gehen aus von einem 
-Zufalls-Experiment, dass durch einen Wahrscheinlichkeits-Raum der Form
+Zufalls-Experiment, das durch einen Wahrscheinlichkeits-Raum der Form
 \\[0.2cm]
 \hspace*{1.3cm}
 $\mathcal{W} = \langle \Omega, 2^\Omega, P\rangle$
 \\[0.2cm]
 beschrieben wird.  Weiter sei $X$ eine Zufallsgröße, die bei diesem Experiment eine Rolle spielt.
-Wiederholen wir das Zufalls-Experiment $n$-mal, so haben wir eine Menge 
-$\{X_1, \cdots, X_n\}$ von $n$ Zufalls-Variablen, die offenbar unabhägig sind.  Wir definieren jetzt die Zufallsgröße
+Wiederholen wir das Zufalls-Experiment $n$-mal so, dass sich die einzelnen Wiederholungen des Experiments nicht
+beeinflussen, dann haben wir eine Menge $\{X_1, \cdots, X_n\}$ von $n$ Zufalls-Variablen, die unabhängig sind.
+Wir definieren jetzt die Zufallsgröße 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \overline{X} := \frac{1}{n} \sum\limits_{k=1}^n X_k$.
+$\ds \overline{X} := \frac{1}{n} \cdot \sum\limits_{k=1}^n X_k$.
 \\[0.2cm]
 $\overline{X}$ ist offenbar das arithmetische Mittel der Zufalls-Variablen $X_1,\cdots,X_n$. Für den Erwartungswert von
 $\overline{X}$ gilt dann 
@@ -1449,7 +1453,7 @@ Es gilt
 \hspace*{1.3cm}
 $
 \begin{array}[t]{lcl}
-\var\bigl[\overline{X}\bigr]  & = & \ds \var\left[ \frac{1}{n} \cdot \sum\limits_{k=1}^n X_i \right] \\[0.6cm]
+\var\Bigl[\overline{X}\Bigr]  & = & \ds \var\left[ \frac{1}{n} \cdot \sum\limits_{k=1}^n X_i \right] \\[0.6cm]
  & = & \ds \left(\frac{1}{n}\right)^2 \cdot \var\left[ \sum\limits_{k=1}^n X_i \right] \\[0.6cm]
  & = & \ds \frac{1}{n^2} \cdot \sum\limits_{k=1}^n \var\left[ X_i \right] \\[0.6cm]
  & = & \ds \frac{1}{n^2} \cdot \sum\limits_{k=1}^n \var\left[ X \right] \\[0.6cm]
@@ -1465,7 +1469,7 @@ Die Standard-Abweichung $\sigma$ ist die Wurzel der Varianz, es gilt also
 \colorbox{blue}{\framebox{\colorbox{yellow}{
 $\ds \sigma\Bigl[\overline{X}\Bigr] = \frac{1}{\sqrt{n}} \cdot \sigma[X]$.}}}
 \\[0.2cm]
-Dieser Zusammenhang wird in der Literatur als das $\sqrt{n}$-Gesetz bezeichnet:
+Dieser Zusammenhang wird in der Literatur als das \blue{$\sqrt{n}$-Gesetz} bezeichnet:
 
 \begin{Satz}[$\sqrt{n}$-Gesetz] Es sei
 \begin{enumerate}
@@ -1498,7 +1502,7 @@ Ein anderes Beispiel ist das Würfeln:  Gibt die Zufallsgröße $X$ die Augenzahl b
 Würfeln an, so haben wir für  Varianz und Standard-Abweichung die Werte
 \\[0.2cm]
 \hspace*{1.3cm}
-$\var[X] = \frac{35}{12}$ \quad und \quad $\sigma[X] = \sqrt{\frac{35}{12}} \approx 1.707825128$.
+$\ds\var[X] = \frac{35}{12}$ \quad und \quad $\ds\sigma[X] = \sqrt{\frac{35}{12}} \approx 1.707825128$.
 \\[0.2cm]
 Würfeln wir hingegen $100$-mal und bilden das arithmetische Mittel $\overline{X}$ aller gewürfelten Augenzahlen,
 so finden wir für die Standard-Abweichung den Wert
@@ -1509,18 +1513,18 @@ $\sigma\Bigl[\overline{X}\Bigr] = 0.1707825128$
 Im nächsten Abschnitt werden wir sehen, welche konkreten Aussagen über die Wahrscheinlichkeit
 aus der Standard-Abweichung abgeleitet werden können.
 
-\section[Das Gesetz der großen Zahlen]{Der Satz von Tschebyschow und das Gesetz  der großen Zahlen}
-Der folgende Satz, der nach 
-\href{https://de.wikipedia.org/wiki/Pafnuti_Lwowitsch_Tschebyschow}{Pafnuti Lwowitsch Tschebyschow} 
+\section[Das Gesetz der großen Zahlen]{Satz von Tschebyscheff und Gesetz  der großen Zahlen}
+Der folgende \href{https://de.wikipedia.org/wiki/Tschebyscheff-Ungleichung}{Satz}, der nach 
+\href{https://de.wikipedia.org/wiki/Pafnuti_Lwowitsch_Tschebyscheff}{Pafnuti Lwowitsch Tschebyscheff} 
 (1821 -- 1894) benannt ist, zeigt uns,  
 welche konkrete Bedeutung die Standard-Abweichung $\sigma[X]$ hat.
 
-\begin{Satz}[Ungleichung von Tschebyschow]
+\begin{Satz}[Ungleichung von Tschebyscheff]
   Es sei
   \begin{enumerate}
   \item $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum,
-  \item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße mit Erwartungswert $\mu = E[X]$ und
-        Standard-Abweichung $\sigma^2 = \var[X]$. 
+  \item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße mit dem Erwartungswert $\mu = E[X]$ und der
+        Varianz $\sigma^2 = \var[X]$. 
   \end{enumerate}
   Dann gilt  für alle $r \in \mathbb{R}_+$ 
   \\[0.2cm]
@@ -1574,7 +1578,7 @@ $
 \sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X - \mu}{\sigma}\right)^2 
       \\[0.7cm]
 & = & \ds
-\frac{1}{\sigma^2} \sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot (X - \mu)^2 
+\frac{1}{\sigma^2} \cdot\sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot (X - \mu)^2 
       \\[0.7cm]
 & = & \ds
      \frac{1}{\sigma^2} \cdot \var[X] \\[0.4cm]
@@ -1586,7 +1590,7 @@ $
 
 \exercise 
 Schätzen Sie mit Hilfe der Ungleichung von
-Tschebyschow ab, 
+Tschebyscheff ab, 
 wie oft Sie würfeln müssen, damit die Wahrscheinlichkeit, dass der arithmetische Mittelwert der Augenzahlen um mehr als 
 $0.1$ vom Erwartungswert abweicht, kleiner als $1\%$ ist?
 
@@ -1601,7 +1605,7 @@ die Beziehung
 \hspace*{1.3cm}
 $\ds P\bigl(|\overline{X} - \mu| \geq 0.1) \leq 0.01$
 \\[0.2cm]
-gilt.  Um diesen Ausdruck auf die Ungleichung von Tschebyschow zurück führen zu können, formen wir den Wert $0.1$ um:
+gilt.  Um diesen Ausdruck auf die Ungleichung von Tschebyscheff zurück führen zu können, formen wir den Wert $0.1$ um:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds 0.1 = 0.1 \cdot \frac{1}{\sigma} \cdot \sigma$ \quad und definieren $\ds r = 0.1 \cdot \frac{1}{\sigma}$
@@ -1611,7 +1615,7 @@ Damit können wir die obige Ungleichung auch in der Form
 \hspace*{1.3cm}
 $\ds P\bigl(|\overline{X} - \mu| \geq r \cdot \sigma) \leq 0.01$
 \\[0.2cm]
-schreiben.  Damit diese Ungleichung aus der Ungleichung von Tschebyschow folgt, muss 
+schreiben.  Damit diese Ungleichung aus der Ungleichung von Tschebyscheff folgt, muss 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \frac{1}{r^2} \leq 0.01$
@@ -1644,17 +1648,17 @@ Wenn wir $29\,167$ mal würfeln, dann weicht der arithmetische Mittelwert um weni
 Erwartungswert ab. \eoxs
 
 \remark
-Die Ungleichung von Tschebyschow ist nicht sehr genau.  Wir werden später noch eine wesentlich bessere
+Die Ungleichung von Tschebyscheff ist nicht sehr genau.  Wir werden später noch eine wesentlich bessere
 Abschätzung finden.  \eoxs
 
 \exercise
 Angenommen, wir würfeln $n$ mal mit einem Laplace-Würfel.  Bestimmen Sie mit Hilfe der Ungleichung von
-Tschebyschow ein $n$ so,  dass Sie mit einer  Wahrscheinlichkeit von $99\%$ davon ausgehen können, 
+Tschebyscheff ein $n$ so,  dass Sie mit einer  Wahrscheinlichkeit von $99\%$ davon ausgehen können, 
 dass mindestens $\frac{n}{7}$ mal eine Sechs  gewürfelt wird? \eoxs
 
 \remark
 Sie können diese Aufgabe auch mit Hilfe der Näherung von Laplace für die (kumulative) Verteilungsfunktion 
-lösen.  Dann ergibt sich ein kleinerer Wert.  Das ist nicht weiter verwunderlich, denn die Tschebyschow-Ungleichung
+lösen.  Dann ergibt sich ein kleinerer Wert.  Das ist nicht weiter verwunderlich, denn die Tschebyscheff-Ungleichung
 gilt für beliebige Verteilungen, während die Näherung von Laplace nur gilt, wenn die Verteilungsfunktion die Form 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1668,10 +1672,11 @@ Wenn wir ein Zufalls-Experiment nur oft genug durchführen und dabei eine Zufalls
 $X$ ermitteln, so wird die Wahrscheinlichkeit, dass der arithmetische Mittelwert, den wir bei $n$ Messungen finden,
 beliebig klein, wenn wir nur $n$ groß genug wählen.  Genauer gilt:
 
-\begin{Satz}[Schwaches Gesetz der großen Zahlen] Es sei 
+\begin{Satz}[\blue{Schwaches Gesetz der großen Zahlen}] Es sei 
 \begin{enumerate}
 \item $\mathcal{W} = \langle \Omega, 2^\Omega, P \rangle$  ein Wahrscheinlichkeits-Raum,
-\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße auf $\mathcal{W}$ mit dem Erwartungswert $\mu = E[X]$ und Standard-Abweichung
+\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße auf $\mathcal{W}$ mit dem Erwartungswert $\mu =
+  E[X]$ und der Standard-Abweichung
       $\sigma := \sqrt{\var[X]\,}$,
 \item $\mathcal{W}^n = \underbrace{\mathcal{W} \times \cdots \times \mathcal{W}}_n$
       sei das $n$-fache kartesisches Produkt von $\mathcal{W}$ mit sich selbst,
@@ -1699,7 +1704,7 @@ Definieren wir nun
 \hspace*{1.3cm}
 $\ds r := \frac{\varepsilon}{\sigma} \cdot \sqrt{n}$, \quad so gilt $\ds \varepsilon = r \cdot \frac{\sigma}{\sqrt{n}}$
 \\[0.2cm]
-und mit nach der Ungleichung von Tschebyschow folgt
+und mit nach der Ungleichung von Tschebyscheff folgt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds P\bigl( |\overline{X} - \mu| \geq \varepsilon\bigr) \leq \frac{1}{\frac{\varepsilon^2}{\sigma^2} \cdot n}$, \quad
