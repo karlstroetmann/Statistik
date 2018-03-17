@@ -510,6 +510,73 @@ $P(A_1|W_1 \cap O_2) = 1 - P(A_3|W_1 \cap O_2) = 1 - \frac{2}{3} = \frac{1}{3}$.
 \\[0.2cm]
 Folglich ist es für den Kandiaten vorteilhaft, seine Entscheidung zu revidieren. \eox
 
+\section{Das Simpson Paradoxon}
+Nun möchte ich Ihnen eine wahre Geschichte erzählen, die sich so oder so ähnlich in einem nur wenige Lichtjahre
+entfernten Paralleluniversum zugetragen hat.  In einem Krankenhaus waren zwei Chirurgen als Chefärzte
+beschäftigt.  Da war zum einen Dr.~Frank Frankenstein und zum anderen Dr.~Jacky Jackall.  Dr.~Frankenstein
+erhielt ein jährliches Salär von einer Millionen Euro, während seine Kollegin sich mit einer kümmerlichen
+halben Millionen begnügen musste.  Da $80\%$ aller von Dr.~Jackall durchgeführten Operationen erfolgreich
+waren, während Ihr Kollege nur in $55\%$ einen Erfolg verzeichnen konnte, fühlte Dr.~Jackall sich diskriminiert
+und reichte eine Klage bei Gericht ein.  Vor Gericht wurden die durchgeführten Operationen genauer
+aufgeschlüsselt.  In Tabelle \ref{tab:simpson} finden Sie die detailierten Zahlen.
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l||r|r||r|r|}
+    \hline
+                          & \multicolumn{2}{|c||}{Dr.~Frankenstein} &\multicolumn{2}{|c|}{Dr.~Jackall} \\
+    \hline
+                          & erfolgreich & nicht erfolgreich & erfolgreich & nicht erfolgreich \\
+    \hline
+    \hline
+    Hirntransplantationen &          45 &                45 &           0 &                10 \\
+    \hline
+    Abtreibungen          &          10 &                 0 &          80 &                10 \\
+    \hline
+    \hline
+    Summe                 &          55 &                45 &          80 &                20 \\
+    \hline
+  \end{tabular}
+  \caption{Behandlungserfolge von Dr.~Frankenstein und Dr.~Jackall}
+  \label{tab:simpson}
+\end{table}
+
+Der Tabelle entnehmen wir, dass Dr.~Frankensteins Spezialgebiet die Neurochirugie ist:  Er hat 90
+Hirntransplantationen durchgeführt, von denen leider nur die Hälfte erfolgreich war.   Angesichts der  
+technischen Herausforderungen einer solchen Operation ist dies schon ein beachtliches Ergebnis.  Zusätzlich hat
+Dr.~Frankenstein noch 10 Abtreibungen zu verbuchen, die alle erfolgreich waren.  Auch Dr.~Jackall hat sich an
+Hirntransplantationen versucht, allerdings waren ihre Bemühungen nicht von Erfolg gekrönt.  Der Schwerpunkt der
+Tätigkeit von Dr.~Jackall waren Abtreibungen.  Von den 90 durchgeführten Abtreibungen waren 80 erfolgreich.
+Wir sehen nun, dass Dr.~Frankenstein sowohl bei Hirntransplantationen, als auch bei Abtreibungen eine bessere
+Bilanz aufzuweisen hat als Dr.~Jackall.  Trotzdem ist seine Gesamtbilanz deutlich schlechter als die seiner
+Kollegin.  Der Grund ist, dass die von Dr.~Frankenstein hauptsächlich durchgeführten Operationen wesentlich
+schwieriger sind als die Operationen, die Dr.~Jackall durchgeführt hat.  Dieses auf den ersten Blick paradoxe
+Phänomen wird als das \href{https://de.wikipedia.org/wiki/Simpson-Paradoxon}{Simpson Paradoxon} bezeichnet.
+
+An der Universität von Californien in Berkeley gab es einen ähnlichen Fall:  Dort hatte eine Studentin geklagt,
+die sich auf einen Master-Studienplatz beworben hatte und abgelehnt worden war.  Die Studentin hatte
+festgestellt, dass die Ablehnungsquote bei weiblichen Studenten wesentlich höher lag als bei männlichen
+Studenten und fühlte sich daher diskriminiert.  Bei der gerichtlichen Untersuchung kam heraus, dass Frauen sich
+bevorzugt auf Studienplätze für Medizin beworben hatten.  Dort ist das Auswahlverfahren sehr selektiv und nur
+wenige Bewerber werden genommen.  Die Männer hatten sich dagegen vor allem auf technische Studienplätze und
+Informatik beworben.  Wie Sie selber aus eigener Erfahrung wissen, wird dort praktisch jeder Bewerber genommen.
+Dadurch waren dann im Endergebnis prozentual mehr Frauen als Männer abgelehnt worden, obwohl in fast allen
+Studiengängen Frauen bevorzugt immatrikuliert wurden.
+
+Die Ursache für das Auftreten des Simpson Paradoxons ist das Vorhandensein einer \blue{verborgenen Variablen}.
+In unserem ersten Beispiel ist die verborgene Variable die Schwierigkeit der Operation, im zweiten Beispiel ist
+es die Fakultät, in der ein Studienplatz gesucht wurde.  Die beiden Beispiele zeigen, dass die Angabe
+summarischer Wahrscheinlichkeiten irreführend sein kann, wenn dort grundsätzlich verschiedene Ereignisse
+zusammen gefasst werden.
+
+\exercise
+Eine Studie, die den Behandlungserfolg von Chefärzten mit dem Behandlungserfolg von Oberärzten
+vergleicht, kommt zu dem Schluss, dass Chefärzte bei den \blue{gleichen Operationen} statistisch einen
+geringeren Behandlungserfolg haben als die Oberärzte.  Überlegen Sie, woran das liegen könnte. 
+\eoxs
+
+
 \section{Unabhängige Ereignisse}
 Es gibt viele Situationen in denen das Wissen, dass ein Ereignis $E$ eingetreten ist,
 die Wahrscheinlichkeit für das Auftreten eines anderen Ereignisses $F$ nicht
