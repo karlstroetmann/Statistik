@@ -1414,7 +1414,7 @@ Der letzte Satz lässt sich auf Mengen von unabhängigen Zufalls-Variablen verallg
 Ist $\{X_1,\cdots,X_n\}$ eine Menge unabhängiger Zufalls-Variablen, so gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \var\left(\sum\limits_{i=0}^n X_i\right) = \sum\limits_{i=0}^n \var(X_i)$.
+$\ds \var\left(\sum\limits_{i=1}^n X_i\right) = \sum\limits_{i=1}^n \var(X_i)$.
 \\[0.2cm]
 In dieser Form hat der Satz eine äußerst wichtige Konsequenz.  Wir gehen aus von einem 
 Zufalls-Experiment, das durch einen Wahrscheinlichkeits-Raum der Form
@@ -1453,9 +1453,9 @@ Es gilt
 \hspace*{1.3cm}
 $
 \begin{array}[t]{lcl}
-\var\Bigl[\overline{X}\Bigr]  & = & \ds \var\left[ \frac{1}{n} \cdot \sum\limits_{k=1}^n X_i \right] \\[0.6cm]
- & = & \ds \left(\frac{1}{n}\right)^2 \cdot \var\left[ \sum\limits_{k=1}^n X_i \right] \\[0.6cm]
- & = & \ds \frac{1}{n^2} \cdot \sum\limits_{k=1}^n \var\left[ X_i \right] \\[0.6cm]
+\var\Bigl[\overline{X}\Bigr]  & = & \ds \var\left[ \frac{1}{n} \cdot \sum\limits_{k=1}^n X_k \right] \\[0.6cm]
+ & = & \ds \left(\frac{1}{n}\right)^2 \cdot \var\left[ \sum\limits_{k=1}^n X_k \right] \\[0.6cm]
+ & = & \ds \frac{1}{n^2} \cdot \sum\limits_{k=1}^n \var\left[ X_k \right] \\[0.6cm]
  & = & \ds \frac{1}{n^2} \cdot \sum\limits_{k=1}^n \var\left[ X \right] \\[0.6cm]
  & = & \ds \frac{1}{n^2} \cdot \var\left[ X \right] \cdot \sum\limits_{k=1}^n 1 \\[0.6cm]
  & = & \ds \frac{1}{n^2} \cdot \var\left[ X \right] \cdot n \\[0.6cm]
@@ -1543,45 +1543,45 @@ $\ds |X(\omega) - \mu| \geq r \cdot \sigma \;\Leftrightarrow\; \bigl(X(\omega) -
 Wir zeigen jetzt zunächst die Ungleichung 
 \\[0.2cm]
 \hspace*{1.3cm}
-$r^2 \cdot P\bigl(|X - \mu| \geq r \cdot \sigma\bigr) \leq 1$.
+$r^2 \cdot P\bigl(|X(\omega) - \mu| \geq r \cdot \sigma\bigr) \leq 1$.
 \\[0.2cm]
 Wenn wir diese Ungleichung durch $r^2$ dividieren, folgt die Behauptung. 
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 \begin{array}[b]{lcl}
- r^2 \cdot P\bigl(|X - \mu| \geq r \cdot \sigma\bigr) 
+ r^2 \cdot P\bigl(|X(\omega) - \mu| \geq r \cdot \sigma\bigr) 
 & = & \ds                           
- r^2 \cdot P\bigl(\,(X - \mu)^2 \geq r^2 \cdot \sigma^2\bigr) \\[0.2cm]
+ r^2 \cdot P\bigl(\,(X(\omega) - \mu)^2 \geq r^2 \cdot \sigma^2\bigr) \\[0.2cm]
 & = & \ds
-r^2 \cdot \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \\[0.7cm]
+r^2 \cdot \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \\[0.7cm]
 & = & \ds
-\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot r^2 \\[0.7cm]
+\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot r^2 \\[0.7cm]
 & \leq & \ds
-         \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2 \right\}} 
-         P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X - \mu}{\sigma}\right)^2 
+         \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2 \right\}} 
+         P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 
 \end{array}
 $
 \\[0.2cm]
-Im letzten Schritt haben wir ausgenutzt, dass die Summe nur über die $\omega$ läuft, für die $\left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2$ gilt, so dass die Summe
-größer wird, wenn wir $r^2$ durch $\left(\frac{X - \mu}{\sigma}\right)^2$ ersetzen.
+Im letzten Schritt haben wir ausgenutzt, dass die Summe nur über die $\omega$ läuft, für die $\left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2$ gilt, so dass die Summe
+größer wird, wenn wir $r^2$ durch $\left(\frac{X(\omega) - \mu}{\sigma}\right)^2$ ersetzen.
 Im nächsten Schritt vergrößern wir die Summe, indem wir über alle $\omega \in \Omega$ summieren:
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 \begin{array}[b]{lcl}
- r^2 \cdot P\bigl(|X - \mu| \geq r \cdot \sigma\bigr) 
+ r^2 \cdot P\bigl(|X(\omega) - \mu| \geq r \cdot \sigma\bigr) 
 & \leq & \ds
-\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X - \mu}{\sigma}\right)^2 
+\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 
       \\[0.7cm]
 & \leq & \ds
-\sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X - \mu}{\sigma}\right)^2 
+\sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 
       \\[0.7cm]
 & = & \ds
-\frac{1}{\sigma^2} \cdot\sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot (X - \mu)^2 
+\frac{1}{\sigma^2} \cdot\sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot (X(\omega) - \mu)^2 
       \\[0.7cm]
 & = & \ds
-     \frac{1}{\sigma^2} \cdot \var[X] \\[0.4cm]
+     \frac{1}{\sigma^2} \cdot \var[X(\omega)] \\[0.4cm]
 & = & \ds
      1
  \end{array}
