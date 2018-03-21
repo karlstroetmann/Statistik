@@ -354,7 +354,7 @@ Evidence'' von Peter Gill \cite{gill:2014}.
 \exercise
 Eine Familie hat zwei Kinder, über die sonst nichts bekannt ist.  Für die restlichen Teilaufgaben sollten Sie
 zur Vereinfachung annehmen, dass gleich viele Jungen wie Mädchen geboren werden.
-\begin{enumerate}
+\begin{enumerate}[(a)]
 \item Angenommen, Sie wissen, dass eines der beiden Kinder ein Junge ist.  
       Wie groß ist dann die Wahrscheinlichkeit, dass beide Kinder Jungen sind?
 \item Angenommen, Sie wissen, dass das ältere der beiden Kinder ein Junge ist.
@@ -926,35 +926,45 @@ Lösen Sie die folgenden Aufgaben:
 \begin{enumerate}[(a)]
 \item Überlegen Sie, welche Strategie für die einzelnen Kontrahenten optimal ist.
 \item Berechnen Sie die Überlebenswahrscheinlichkeit für jeden der Duellanten.
-\item Wie groß ist der Erwartungswert für die Dauer des Duells.
 \end{enumerate}
 
 \noindent
-\textbf{Hinweis}: Die am schwierigsten zu berechnende Situation ist die,
-wenn Bruno den Anton erschossen hat und Charlie und Bruno sich nun abwechselnd beschießen.
-Um die bei diesem Duell auftretenden Wahrscheinlichkeiten berechnen zu können, ist
-es zweckmäßig, für dieses Duell die folgenden Abkürzungen einzuführen.
+\textbf{Hinweis}:  Definieren Sie folgende Ereignisse:
 \begin{enumerate}
-\item $c(n)$ ist die Wahrscheinlichkeit dafür, dass Charlie nach der $n$-ten Runde noch lebt.
-
-      Eine Runde besteht dabei aus dem Schuss von Charlie und dem Schuss von Bruno, falls
-      dieser noch dazu in der Lage ist.
-\item $b(n)$ ist die Wahrscheinlichkeit dafür, dass Bruno nach der $n$-ten Runde noch lebt.
-\item $g(n)$ ist die Wahrscheinlichkeit dafür, dass das Spiel nach der $n$-ten Runde beendet ist.
-
-      Die Wahrscheinlichkeit $g$ kann auf die beiden Wahrscheinlichkeiten $c(n)$ und $b(n)$
-      zurückgeführt werden.
+\item $A_\mathrm{A}$: Anton beginnt,
+\item $A_\mathrm{B}$: Bruno beginnt,
+\item $A_\mathrm{C}$: Charlie beginnt,
+\item $U_\mathrm{A}$: Anton überlebt,
+\item $U_\mathrm{B}$: Bruno überlebt,
+\item $U_\mathrm{C}$: Charlie überlebt.
 \end{enumerate}
-Es ist zweckmäßig, für $c(n)$ und $b(n)$ ein System von Rekurrenz-Gleichungen aufzustellen und zu lösen.
-Anschließend können die Grenzwerte dieser Folgen für $n$ gegen Unendlich berechnet werden.
-% Es ergibt sich 
-% \\[0.2cm]
-% \hspace*{1.3cm}
-% $\ds \lim\limits_{n\rightarrow\infty} c(n) = \frac{5}{9}$ \quad und \quad
-% $\ds \lim\limits_{n\rightarrow\infty} b(n) = \frac{4}{9}$.
-% \\[0.2cm]
-Der Rest der Aufgabe ist dann nicht mehr schwer.
-\vspace*{0.3cm}
+Betrachten Sie die Fälle, dass Anton, Bruno oder Charlie das Duell beginnt, getrennt und benutzen Sie dann den Satz von
+der totalen Wahrscheinlichkeit in der folgenden Form
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(U_\mathrm{A}) = P(U_\mathrm{A} | A_\mathrm{A}) \cdot P(A_\mathrm{A}) + P(U_\mathrm{A} | A_\mathrm{B}) \cdot P(A_\mathrm{B}) + P(U_\mathrm{A} | A_\mathrm{C}) \cdot P(A_\mathrm{C})$.
+\\[0.2cm] 
+Analoge Gleichungen gelten natürlich für $P(U_\mathrm{B})$ und $P(U_\mathrm{C})$.  In dem Fall, dass Bruno
+beginnt, werden Sie feststellen, dass er dann die größten Chancen auf den Endsieg hat, wenn er versucht, Anton zu eliminieren.
+Bezeichnen Sie das Ereignis, dass ihm dies gelingt, mit $E$.  Dann ist es sinnvoll, im zweiten Fall eine weitere
+Fallunterscheidung danach durchzuführen, ob Bruno den Anton eliminiert oder nicht.
+
+Die am schwierigsten zu berechnende Situation ist jetzt die, wenn Bruno den Anton erschossen hat und Charlie
+und Bruno sich abwechselnd beschießen.   Für diesen Fall definieren wir die folgenden Ereignisse: 
+\begin{enumerate}
+\item $B$: Bruno gewinnt das Duell,
+\item $C$: Charlie gewinnt das Duell,
+\item $S$: Charlie trifft bei seinem ersten Schuß,
+\item $T$: Bruno trifft bei seinem ersten Schuß.
+\end{enumerate}
+Beachten Sie, dass wir wieder in der Ausgangssituation angekommen sind, wenn sowohl Bruno als auch Charlie
+ihren ersten Schuß daneben setzen.
+
+Bei der Aufgabe können Sie die folgende Verallgemeinerung des Satzes von der totalen Wahrscheinlichkeit benutzen:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(A|B) = P(A|B \cap C) \cdot P(C) + P(A|B \cap C^\mathrm{c}) \cdot P(C^\mathrm{c})$. \eox
+
 
 \noindent
 Der Begriff der Unabhängigkeit von Ereignissen kann auf mehr als zwei Ereignisse
