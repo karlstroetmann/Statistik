@@ -1284,7 +1284,7 @@ Beweisen Sie:
 Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und definieren wir
 für ein beliebiges $\beta \in \mathbb{R}$ die Zufallsgröße $X:\Omega \rightarrow \mathbb{R}$ als 
 \\[0.2cm]
-\hspace*{1.3cm} $X(\omega) = \beta$, \\[0.2cm]
+\hspace*{1.3cm} $X(\omega) := \beta$, \\[0.2cm]
 so gilt 
 $E[X] = \beta$. \eox
 
@@ -1383,7 +1383,7 @@ ist $\alpha \in \mathbb{R}$ und
 ist die Zufallsgröße $Z:\Omega \rightarrow \mathbb{R}$ durch 
 \\[0.2cm]
 \hspace*{1.3cm}
-$Z(\omega) = X(\omega) + \alpha$
+$Z(\omega) := X(\omega) + \alpha$
 \\[0.2cm]
 definiert, so sind auch die Zufalls-Variablen $Z$ und $Y$ unabhängig. \eox
 
@@ -1417,11 +1417,11 @@ $
            & = & \var[X] + \var[Y]. \hspace*{\fill} \Box
 \end{array}
 $
-\pagebreak
+\vspace*{0.2cm}
 
 \noindent
-Der letzte Satz lässt sich auf Mengen von unabhängigen Zufalls-Variablen verallgemeinern.
-Ist $\{X_1,\cdots,X_n\}$ eine Menge unabhängiger Zufalls-Variablen, so gilt 
+Der letzte Satz lässt sich auf Mengen von unabhängigen Zufalls-Variablen verallgemeinern.  Ist \\
+ $\{X_1,\cdots,X_n\}$ eine Menge unabhängiger Zufalls-Variablen, so gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \var\left(\sum\limits_{i=1}^n X_i\right) = \sum\limits_{i=1}^n \var(X_i)$.
@@ -1661,20 +1661,15 @@ Erwartungswert ab. \eoxs
 Die Ungleichung von Tschebyscheff ist nicht sehr genau.  Wir werden später noch eine wesentlich bessere
 Abschätzung finden.  \eoxs
 
-\exercise
-Angenommen, wir würfeln $n$ mal mit einem Laplace-Würfel.  Bestimmen Sie mit Hilfe der Ungleichung von
-Tschebyscheff ein $n$ so,  dass Sie mit einer  Wahrscheinlichkeit von $99\%$ davon ausgehen können, 
-dass mindestens $\frac{n}{7}$ mal eine Sechs  gewürfelt wird? \eoxs
-
 \remark
-Sie können diese Aufgabe auch mit Hilfe der Näherung von Laplace für die (kumulative) Verteilungsfunktion 
+Sie können die letzte Aufgabe auch mit Hilfe der Näherung von Laplace für die kumulative Verteilungsfunktion 
 lösen.  Dann ergibt sich ein kleinerer Wert.  Das ist nicht weiter verwunderlich, denn die Tschebyscheff-Ungleichung
 gilt für beliebige Verteilungen, während die Näherung von Laplace nur gilt, wenn die Verteilungsfunktion die Form 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \sum\limits_{i=0}^k {n \choose i} \cdot  p^i \cdot (1-p)^{n-i}$
 \\[0.2cm]
-hat.
+hat.  \eox
 \vspace*{0.3cm}
 
 \noindent
@@ -1721,6 +1716,593 @@ $\ds P\bigl( |\overline{X} - \mu| \geq \varepsilon\bigr) \leq \frac{1}{\frac{\va
  also $\ds P\bigl( |\overline{X} - \mu| \geq \varepsilon\bigr) \leq \frac{\sigma^2}{n \cdot \varepsilon^2}$.
 \\[0.2cm]
 Wegen $\ds\lim\limits_{n\rightarrow\infty} \frac{\sigma^2}{n \cdot \varepsilon^2} = 0$ folgt die Behauptung. \qed
+
+\section{Erwartungswert und Varianz der Binomial-Verteilung}
+In diesem Abschnitt wollen wir Erwartungswert und Varianz einer binomial-verteilten 
+Zufalls-Variable berechnen.  Damit dies einfach möglich ist, präsentieren wir zunächst einen
+alternativen Zugang zur Binomial-Verteilung.  Dazu betrachten wir das folgende Beispiel.
+
+\example
+Ein Betrunkener befindet sich in einer Stadt, in der die Straßen ein
+quadratisches Muster bilden.  Dementsprechend lassen sich alle Kreuzungen durch Angabe
+zweier natürlicher Zahlen $k$ und $l$ spezifizieren, die die Koordinaten dieser Kreuzung
+angeben.  Wir nehmen nun an, dass der
+Betrunkene zunächst an der Kreuzung steht, die durch das Paar $\langle 0, 0 \rangle$
+spezifiziert wird.  Der Betrunkene geht jetzt zufällig los, wobei er mit der
+Wahrscheinlichkeit $p$ nach Osten und mit der Wahrscheinlichkeit $1-p$ nach Norden geht.
+Jedes Mal, wenn der Betrunkene wieder an eine Kreuzung kommt, geht er wieder mit der
+Wahrscheinlichkeit $p$ nach Osten und $(1-p)$ nach Norden.  Beträgt der Abstand zwischen
+zwei Kreuzungen eine Längeneinheit, so legt der Betrunkene insgesamt einen Weg von 
+$n$ Längeneinheiten zurück.
+Wir stellen uns die Frage, mit welcher Wahrscheinlichkeit der Betrunkene dann an der
+Kreuzung mit den Koordinaten $\langle k, n - k \rangle$ ankommt.  
+
+Um die Kreuzung $\langle k, n - k \rangle$ zu erreichen muss der Betrunkene $k$-mal nach
+Osten und $n-k$-mal nach Norden gegangen sein. Da wir davon ausgehen, dass die einzelnen
+Entscheidungen, die der Betrunkene an den Kreuzungen trifft, voneinander unabhängig sind,
+hat ein bestimmter Weg zur Kreuzung $\langle k, n - k \rangle$ die Wahrscheinlichkeit 
+\\[0.2cm]
+\hspace*{1.3cm}
+$p^k \cdot (1-p)^{n-k}$.
+\\[0.2cm]
+Das Problem ist, dass es im Normalfall mehrere Wege gibt, die von der Kreuzung 
+$\langle 0, 0 \rangle$ starten, bei der Kreuzung $\langle k, n - k \rangle$ enden und
+insgesamt eine Länge von $n$ haben.  Um die Gesamt-Wahrscheinlichkeit zu berechnen, müssen
+wir die Wahrscheinlichkeit aller Wege aufsummieren.  Da die Wahrscheinlichkeit für jeden
+Weg dieselbe ist, reicht es aus, wenn wir die Anzahl der Wege der Länge $n$ bestimmten, die von
+$\langle 0, 0 \rangle$ nach $\langle k, n - k \rangle$ führen.  Wir definieren 
+\\[0.2cm]
+\hspace*{1.3cm}
+$s(n,k) := \mbox{Anzahl der Wege der Länge $n$ von $\langle 0, 0 \rangle$ nach $\langle k, n - k \rangle$}$.
+\\[0.2cm]
+Wir berechnen die Funktion $s(n,k)$ durch Induktion über $n$.
+\begin{enumerate}
+\item[I.A.:] $n=0$.  Es gibt genau einen Weg (der Länge $0$) von $\langle 0, 0 \rangle$
+             nach $\langle 0, 0 \rangle$.  Also gilt
+             \\[0.2cm]
+             \hspace*{1.3cm}
+             $s(0,0) := 1$.
+\item[I.S.:] $n \mapsto n + 1$.  Die Kreuzung $\langle k, n + 1 - k \rangle$ kann der
+             Betrunkene auf zwei Arten erreichen.  Entweder er kommt von der Kreuzung
+             $\pair(k, n - k)$ und geht von da aus nach Norden, oder er kommt von der Kreuzung
+             $\pair(k-1, n + 1 - k)$ und geht von da aus nach Osten.   Die Gesamtzahl
+             aller Wege ergibt sich, wenn wir zu der Anzahl der Wege, die nach 
+             $\pair(k,n)$ führen, die Anzahl der Wege, die nach $\pair(k-1,n+1-k)$ führen,
+             hinzu addieren. Wegen
+             $\pair(k-1, n + 1 - k) = \langle k-1, n - (k - 1)\rangle$ gilt also
+             \\[0.2cm]
+             \hspace*{1.3cm}
+             $s(n+1,k) = s(n,k) + s(n,k-1)$.  
+\end{enumerate}
+Wir werden zeigen, dass für alle $k,n \in \mathbb{N}$
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds s(n,k) = {n \choose k}$
+\\[0.2cm]
+gilt.  Dazu benötigen wir den folgenden Hilfssatz.
+
+\begin{Lemma}[Pascal'sche Regel] Die durch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {n \choose k} := \frac{n!}{k! \cdot (n-k)!}$
+\\[0.2cm]
+definierten Binomial-Koeffizienten genügen der Rekurrenz-Gleichung
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds {n + 1 \choose k} = {n \choose k - 1} + {n \choose k}$.  
+\end{Lemma}
+
+\noindent
+\textbf{Beweis}:  Der Beweis ergibt sich durch eine einfache Expansion der Definition. 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[b]{lcl}  
+\ds {n \choose k - 1} + {n \choose k}
+& = & \ds \frac{n!}{(k-1)!\cdot (n-(k-1))!} + \frac{n!}{k!\cdot (n-k)!} \\[0.5cm]
+& = & \ds \frac{n!}{(k-1)!\cdot (n+1-k))!} + \frac{n!}{k!\cdot (n-k)!} \\[0.5cm]
+& = & \ds n!\cdot \left(\frac{k}{k!\cdot (n+1-k)!} + \frac{n+1-k}{k!\cdot (n+1-k)!}\right)\\[0.5cm]
+& = & \ds n!\cdot \frac{k + n + 1  - k}{k!\cdot (n+1-k)!} \\[0.5cm]
+& = & \ds n!\cdot \frac{n + 1}{k!\cdot (n+1-k)!} \\[0.5cm]
+& = & \ds \frac{(n + 1)!}{k!\cdot (n+1-k)!} \\[0.5cm]
+& = & \ds {n+1 \choose k} 
+\end{array}
+$
+\qed
+\vspace*{0.3cm}
+
+\noindent
+Damit können wir jetzt das obige Beispiel zu Ende führen und zeigen, dass für die Anzahl
+der Wege 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds s(n,k) = \frac{n!}{k! \cdot (n-k)!}$ \\ 
+\\[0.2cm]
+gilt.  Wir führen den Nachweis durch Induktion nach $n$.
+\begin{enumerate}
+\item[I.A.:] $n = 0$.  Der einzige mögliche Wert für $k$ ist $k= 0$, folglich gilt 
+             \\[0.2cm]
+             \hspace*{1.3cm}
+             $\ds s(0,0) = 1$.
+             \\[0.2cm]
+             Andererseits haben wir 
+             \\[0.2cm]
+             \hspace*{1.3cm}
+             $\ds {0 \choose 0} = \frac{0!}{0! \cdot 0!} = \frac{1}{1 \cdot 1} = 1$.
+\item[I.S.:] $n \mapsto n + 1$.  Es gilt 
+             \\[0.2cm]
+             \hspace*{1.3cm}
+             $
+             \begin{array}[b]{lcll}
+               s(n+1,k) & = & s(n,k) + s(n,k-1) \\[0.2cm]
+             & \stackrel{IV}{=} & \ds
+               {n \choose k} + {n \choose k - 1} \\[0.4cm]
+             & = & \ds
+               {n+1 \choose k} & \mbox{nach der Pascal'schen Regel} 
+             \end{array}
+             $
+              \qed
+\end{enumerate}
+Damit gilt für die Wahrscheinlichkeit $P\bigl(\{\langle k, n-k\rangle\}\bigr)$, dass der Betrunkene nach
+einem Weg der Länge $n$ an der Kreuzung $\langle k, n-k\rangle$ landet, die Formel 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl(\{\langle k, n-k\rangle\}\bigr) = {n \choose k} \cdot p^k \cdot (1-p)^{n-k} = B(n,p;k)$.
+\vspace*{0.3cm}
+
+Wir abstrahieren jetzt von dem Alkohol und destillieren die mathematische Essenz des
+Beispiels.  Dazu definieren wir zunächst den Begriff des \blue{Bernoulli-Experiments}
+(Jakob Bernoulli; 1654 - 1705).
+
+\begin{Definition}[Bernoulli-Experiment] \hspace*{\fill} \\
+  Wir nennen ein Zufalls-Experiment ein 
+  \blue{Bernoulli}-\blue{Experiment} (\href{https://de.wikipedia.org/wiki/Jakob_I._Bernoulli}{Jacob Bernoulli},
+    1655--1705)
+wenn es nur zwei mögliche Ergebnisse des Experiments gibt.
+  Der Wahrscheinlichkeits-Raum kann dann in der Form 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathcal{W} = \bigl\langle \{0, 1\}, 2^{\{0,1\}}, P\bigr\rangle$
+\\[0.2cm] 
+geschrieben werden.  Dann setzen wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+ $p:= P\bigl(\{1\}\bigr)$
+\\[0.2cm]
+  und nennen $p$ den \blue{Parameter} des Bernoulli-Experiments. \qed
+\end{Definition}
+
+Wird ein Bernoulli-Experiment $n$-mal durchgeführt, so sprechen wir von einer
+\blue{Bernoulli-Kette}.  Ist $\mathcal{W}_B$ der Wahrscheinlichkeits-Raum des einzelnen
+Bernoulli-Experiments, so ist das $n$-fache Produkt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\mathcal{W} = \mathcal{W}_B^n$
+\\[0.2cm]
+der Wahrscheinlichkeits-Raum der Bernoulli-Kette.  
+Definieren wir für das $i$-te
+Bernoulli-Experiment eine Zufalls-Variable 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X_i: \{0,1\} \rightarrow \mathbb{R}$ \quad durch \quad $X_i(\omega) := \omega$,
+\\[0.2cm]
+so können wir den Erwartungswert und die Varianz von $X_i$ sehr einfach berechnen.
+Es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+E[X_i] & = & \ds \sum\limits_{\omega \in \{0,1\}} X_i(\omega) \cdot P\bigl(\{\omega\}\bigr) \\[0.5cm]
+       & = & \ds X_i(0) \cdot P\bigl(\{0\}\bigr) + X_i(1) \cdot P\bigl(\{1\}\bigr)           \\[0.2cm]
+       & = & \ds 0 \cdot (1-p) + 1 \cdot p \\[0.2cm]
+       & = & \ds p \\[0.2cm]
+\end{array}
+$
+\\[0.2cm]
+Für die Varianz finden wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ \var[X_i] & = & \ds E\Bigl[\bigl(X_i - E[X_i]\bigr)^2\Bigr] \\[0.3cm]
+           & = & \ds E\Bigl[\bigl(X_i - p\bigr)^2\Bigr] \\[0.3cm]
+           & = & \ds \sum\limits_{\omega \in \{0,1\}} (X_i(\omega) - p)^2 \cdot P\bigl(\{\omega\}\bigr) \\[0.5cm]
+           & = & \ds (X_i(0) - p)^2 \cdot P\bigl(\{0\}\bigr) + (X_i(1) - p)^2 \cdot P\bigl(\{1\}\bigr)    \\[0.2cm]
+           & = & \ds (0 - p)^2 \cdot (1 - p) + (1 - p)^2 \cdot p    \\[0.2cm]
+           & = & \ds \bigl(p + (1 - p) \bigr) \cdot p \cdot (1 - p)    \\[0.2cm]
+           & = & \ds p \cdot (1 - p)    
+\end{array}
+$
+\\[0.2cm]
+Als nächstes definieren wir für die Bernoulli-Kette die Zufalls-Variable 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X: \{0,1\}^n \rightarrow \mathbb{R}$ \quad durch \quad
+$\ds X\bigl([\omega_1,\cdots,\omega_n]\bigr) = \sum\limits_{i=1}^n X_i(\omega_i)$.
+\\[0.2cm]
+Das Beispiel oben zeigt, dass die Zufalls-Variable $X$ binomial-verteilt ist, es gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(X = k) = B(n,p;k)$.
+\\[0.2cm]
+Da $X$ die Summe von $n$ Zufalls-Variablen ist, gilt für den Erwartungswert 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds E[X] = \sum\limits_{i=1}^n E[X_i] = \sum\limits_{i=1}^n p = n \cdot p$.
+\\[0.2cm]
+Da diese Zufalls-Variablen unabhängig sind, haben wir im letzten Abschnitt gesehen, dass wir
+auch die Varianz als Summe der Varianzen der einzelnen Zufalls-Variablen berechnen können.
+Also gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \var[X] = \sum\limits_{i=1}^n \var[X_i] = \sum\limits_{i=1}^n p \cdot (1 -p) = n \cdot p \cdot (1-p)$.
+
+\exercise
+Die Augenfarbe wird durch ein einzelnes Paar von Genen vererbt.  Jeder Mensch hat zwei
+dieser Gene.  Die Augenfarbe braun ist dominant, d.h.~wenn Sie auch nur ein Gen für braune Augen
+haben, dann sind ihre Augen braun.  Nur wenn Sie zwei Gene für blaue Augen haben, haben
+Sie blaue Augen.  Nehmen Sie nun an, dass eine Familie 6 Kinder hat und dass der
+älteste Sohn blaue Augen hat, während die Eltern beide braune Augen haben.  Wir groß ist
+die Wahrscheinlichkeit, dass insgesamt genau drei Kinder blaue Augen haben?
+
+
+\section{Die Poisson-Verteilung}
+In diesem Abschnitt betrachten wir einen Spezialfall der Binomial-Verteilung, der in der
+Praxis häufig auftritt.  Dieser Spezialfall ist dadurch gekennzeichnet, dass in der Formel
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X = k) = {n \choose k} \cdot p^k \cdot (1-p)^{n-k}$
+\\[0.2cm]
+einerseits der Wert von $n$ sehr groß wird, andererseits aber der Wert von $p$ sehr klein
+ist.  Wir illustrieren diesen Spezialfall durch ein Beispiel.
+
+\example
+Die (hypothetische) Firma \blue{Diamond-Connections} habe 10 Millionen Kunden.  In einem
+vorgegebenen Zeitintervall von, sagen wir mal,  drei Minuten ruft jeder dieser Kunden mit einer
+Wahrscheinlichkeit $p$ im Call-Center der Firma an.  Da die meisten Kunden etwas anderes
+zu tun haben als im Call-Center anzurufen, kommen im Schnitt pro Zeitintervall fünf Anrufe an,
+die Wahrscheinlichkeit $p$ hat also den Wert 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds p = \frac{5}{10\,000\,000} = \frac{1}{2\,000\,000}$
+\\[0.2cm]
+Unser Ziel ist es zu berechnen, wieviele Mitarbeiter die Firma \blue{Diamond-Connections}
+einstellen muss, damit sicher gestellt ist, dass die Wahrscheinlichkeit, dass bei einem eingehenden Anruf kein
+Platz des Call-Centers mehr frei ist, kleiner als $1\%$ ist.  Wir wollen zur Vereinfachung weiter
+voraussetzen, dass alle Gespräche genau ein Zeitintervall andauern und dass zusätzlich
+alle Gespräche am Anfang eines Zeitintervalls beginnen.  
+
+Wir berechnen zunächst die Wahrscheinlichkeit, dass in einem gegebenen Zeitintervalls $k$
+Teilnehmer anrufen.  Setzen wir voraus, dass verschiedene Teilnehmer unabhängig sind, so
+ist die Zufalls-Variable $K$, die die Anzahl der Teilnehmer angibt, binomial-verteilt, es
+gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ P(K = k) 
+& = & \ds 
+      B(n,p;k) \\[0.2cm]
+& = & \ds 
+      {n \choose k} \cdot p^k \cdot (1-p)^{n-k} \\[0.5cm]
+& = & \ds 
+      \frac{n!}{k! \cdot (n-k)!} \cdot p^k \cdot (1-p)^{n-k} \\[0.5cm]
+  
+\end{array}
+$
+\\[0.2cm]
+Für die Werte von $n$, die in der Praxis in Frage kommen, können wir die Formel in der
+oben angegebenen Form nicht auswerten.  Auch die Approximations-Formel von Laplace bringt
+uns an dieser Stelle nicht weiter, denn diese Formel liefert nur dann brauchbare
+Ergebnisse, wenn die Bedingung
+\\[0.2cm]
+\hspace*{1.3cm}
+$n \cdot p \cdot (1 - p) > 9$ 
+\\[0.2cm]
+erfüllt ist.  Um hier weiterzukommen, führen wir die Abkürzung $\lambda = n \cdot p$ ein, $\lambda$ ist
+also der Erwartungswert der Zufalls-Variable $K$.  Dann gilt $p = \frac{\lambda}{n}$ und wenn
+wir diesen Wert in die obere Formel einsetzen, erhalten wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+ P(K = k) 
+& = & \ds 
+      \frac{n!}{k! \cdot (n-k)!} \cdot p^k \cdot (1-p)^{n-k} \\[0.5cm]
+& = & \ds 
+      \frac{n!}{k! \cdot (n-k)!} \cdot \left(\frac{\lambda}{n}\right)^k \cdot \left(1-\frac{\lambda}{n}\right)^{n-k} \\[0.5cm]
+& = & \ds 
+      \frac{1}{k!} \cdot \frac{n \cdot (n-1) \cdot \dots \cdot \bigl(n-(k-1)\bigr)}{n^k} \cdot \lambda^k \cdot 
+      \left(1-\frac{\lambda}{n}\right)^{n} \cdot \left(1-\frac{\lambda}{n}\right)^{-k} \\[0.5cm]
+& = & \ds 
+      \frac{1}{k!} \cdot 1 \cdot \left(1-\frac{1}{n}\right) \cdot \dots \cdot \left(1-\frac{k-1}{n}\right) \cdot 
+      \lambda^k \cdot \left(1-\frac{\lambda}{n}\right)^{n} \cdot \left(1-\frac{\lambda}{n}\right)^{-k} \\[0.5cm]
+\end{array}
+$
+\\[0.2cm]
+Wir überlegen uns nun, wie sich dieser Ausdruck für einen festen Wert von $k$ verhält, wenn $n$ sehr große Werte
+annimmt.  Zunächst haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n\rightarrow\infty} 1 - \frac{i}{n} = 1$ \quad für alle $i=1,\cdots,k-1$, also auch
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n\rightarrow\infty} 1 \cdot \left(1-\frac{1}{n}\right) \cdot \dots \cdot \left(1-\frac{k-1}{n}\right) = 1$.
+\\[0.2cm]
+Weiter gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n\rightarrow\infty} \left(1 - \frac{\lambda}{n}\right)^n = \mathrm{e}^{-\lambda}$.
+\\[0.2cm]
+Diese Gleichung haben wir im zweiten Semester gezeigt, indem wir die Umformungen
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \left(1 - \frac{\lambda}{n}\right)^n = \exp\left( \ln\left(1 - \frac{\lambda}{n} \right)^n \right)
+   = \exp\left( n \cdot \ln\left(1 - \frac{\lambda}{n} \right) \right) = \exp\left(\frac{\ln\left(1 - \frac{\lambda}{n} \right)}{\frac{1}{n}}\right)$
+\\[0.2cm]
+benutzt haben.  Anschließend konnten wir den Grenzwert mit Hilfe der Regel von L'Hospital berechnen.
+Schließlich gilt auch 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n\rightarrow\infty} 1 - \frac{\lambda}{n} = 1$ \quad und also für festes $k$ auch \quad
+$\ds \lim\limits_{n\rightarrow\infty} \left(1 - \frac{\lambda}{n}\right)^{-k} = 1$.
+\\[0.2cm]
+Damit haben wir für große $n$ und  $p = \frac{\lambda}{n}$ jetzt die Näherung 
+\begin{equation}
+  \label{eq:poisson}
+\ds P(K = k) = B\Bigl(n,\frac{\lambda}{n};k\Bigr) \approx \frac{\lambda^k}{k!} \cdot \mathrm{e}^{-\lambda}  
+\end{equation}
+gefunden.  Die durch Gleichung (\ref{eq:poisson}) definierte
+Wahrscheinlichkeits-Verteilung heißt
+\href{https://de.wikipedia.org/wiki/Poisson-Verteilung}{Poisson-Verteilung} nach 
+\href{https://de.wikipedia.org/wiki/Siméon_Denis_Poisson}{Sim\'on Denis Poisson}
+(1781 - 1840).
+
+Jetzt können wir die eingangs gestellte Frage nach der Anzahl der Mitarbeiter des
+Call-Centers beantworten.  Hat das Call-Center $m$ Mitarbeiter, so können auch nur $m$
+Anrufer bedient werden. Wir müssen daher $m$ so groß wählen, dass die Wahrscheinlichkeit,
+dass mehr als $m$ Kunden in einem Zeitintervall anrufen, kleiner als $1\%$ ist. Es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(K > m) = 1 - P(K \leq m) = 1 - \sum\limits_{k=0}^m \frac{\lambda^k}{k!}\cdot \mathrm{e}^{-\lambda} 
+  = 1 - \mathrm{e}^{-\lambda} \cdot \sum\limits_{k=0}^m \frac{\lambda^k}{k!}$
+\\[0.2cm]
+Für $\lambda = n \cdot p = 10\,000\,000 \cdot \frac{5}{10\,000\,000} = 5$ finden wir folgende Zahlen:
+\\[0.2cm]
+\hspace*{1.3cm}
+$P(K > 10) \approx 0.0136952688$, \quad aber $P(K > 11) \approx 0.0054530920$.
+\\[0.2cm]
+Die Wahrscheinlichkeit, dass mehr als 11 Kunden in einem Zeitintervall anrufen, liegt also
+bei $0.5\%$ und damit reichen 11 Mitarbeiter aus. \qed
+
+Die obigen Betrachtungen des Call-Centers sind aus mehreren Gründen unrealistisch.
+Das größte Problem in unserer Modellierung des Call-Centers ist die Annahme, dass die
+einzelnen Kunden ihre Anrufe unabhängig von einander tätigen.  Das ist zum Beispiel dann
+sicher nicht mehr der Fall, wenn beispielsweise durch einen Fehler in der Software zur
+Erstellung von Rechnungen ein Fehler auftritt, denn in einer solchen Situation werden
+schlagartig sehr viele Kunden im Call-Center anrufen.
+Phänomene wie die oben beschriebenen werden in der \href{https://de.wikipedia.org/wiki/Warteschlangentheorie}{Theorie der Warteschlangen}
+genauer untersucht, siehe z.B. \cite{gross:1985}. 
+
+\exercise 
+In Singapur gibt es pro Monat durchschnittlich drei Exekutionen.  Aus tiefer Reue über
+ihre Missetaten stellen alle Delinquenten ihre Organe zur Verfügung.
+Bestimmen Sie die Wahrscheinlichkeit, dass der örtlichen Organhändler 
+seinem amerikanischen Geschäftspartner im nächsten Monat mindestens drei Sätze Innereien
+anbieten kann. 
+
+
+\subsection{Erwartungswert und Varianz einer Poisson-verteilten Zufalls-Variable}
+Es sei $\langle\Omega, 2^\Omega, P \rangle$ ein diskreter Wahrscheinlichkeits-Raum 
+$K:\Omega \rightarrow \mathbb{N}$ eine Zufalls-Variable, die Poisson-verteilt ist, für die also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(K = k) = \frac{\lambda^k}{k!}\cdot \mathrm{e}^{-\lambda}$
+\\[0.2cm]
+gilt.  Wir wollen nun den Erwartungswert und die Varianz von $K$ berechnen.  Am
+einfachsten geht das, wenn wir uns erinnern, wie wir die Poisson-Verteilung hergeleitet
+haben:  Die Poisson-Verteilung ist aus der Binomial-Verteilung hergeleitet worden, indem
+wir dort $\lambda = n \cdot p$ gesetzt und dann $n$ gegen Unendlich laufen gelassen haben.
+Dann gilt $p = \frac{\lambda}{n}$ und wir haben 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \lim\limits_{n\rightarrow\infty} B\Bigl(n, \frac{\lambda}{n};k\Bigr) = \frac{\lambda^k}{k!}\cdot \mathrm{e}^{-\lambda}$.
+\\[0.2cm]
+Definieren wir also binomial-verteilte Zufalls-Variablen $X_n$ so, dass
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X_n = k) = B\Bigl(n, \frac{\lambda}{n};k\Bigr)$,
+\\[0.2cm]
+dann sollte gelten 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E[K] = \ds \lim\limits_{n\rightarrow\infty} E[X_n]$ \quad und \quad
+$\var[K] = \ds \lim\limits_{n\rightarrow\infty} \var[X_n]$.
+\\[0.2cm]
+Erwartungswert und Varianz einer binomial-verteilten Zufalls-Variable $X$ haben wir im letzen
+Abschnitt berechnet und $E[X] = n \cdot p$ und $\var[X] = n \cdot p \cdot (1 - q)$
+gefunden.  Also haben wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$E[K] = \ds \lim\limits_{n\rightarrow\infty} E[X_n] = \lim\limits_{n\rightarrow\infty} n \cdot \frac{\lambda}{n} = \lambda$.
+\\[0.2cm]
+Für die Varianz finden wir 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\var[K] = \ds \lim\limits_{n\rightarrow\infty} \var[X_n] 
+           = \lim\limits_{n\rightarrow\infty} n \cdot \frac{\lambda}{n} \cdot \left(1 - \frac{\lambda}{n}\right)
+           = \lambda \cdot \left(1 - \lim\limits_{n\rightarrow\infty} \frac{\lambda}{n}\right) 
+           = \lambda$
+\\[0.2cm]
+Also haben sowohl der Erwartungswert als auch die Varianz einer Poisson-verteilten
+Zufalls-Variable den Wert $\lambda$.
+
+\exercise 
+Berechnen Sie den Erwartungswert und die Varianz einer Poisson-verteilten
+Zufalls-Variable durch direkte Anwendung der Definition von Erwartungswert und Varianz ohne
+auf die Binomial-Verteilung zurückzugreifen.
+
+\subsection{Die Summe Poisson-verteilter Zufalls-Variablen}
+Wir betrachten zwei \underline{unabhän}g\underline{i}g\underline{e} Zufalls-Variablen $X_1$ und $X_2$, die beide Poisson-verteilt sind mit den
+Parametern $\lambda_1$ und $\lambda_2$, es gilt also 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X_1 = k) = \frac{\lambda_1^k}{k!}\cdot \mathrm{e}^{-\lambda_1}$ \quad und \quad
+$\ds P(X_2 = k) = \frac{\lambda_2^k}{k!}\cdot \mathrm{e}^{-\lambda_2}$.
+\\[0.2cm]
+Wir berechnen die Verteilung der Zufalls-Variable $Z := X_1 + X_2$. Es gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$
+\begin{array}[t]{lcl}
+P(Z = k) & = & P(X_1 + X_2 = k) \\[0.2cm]
+         & = & \ds \sum\limits_{i=0}^k P(X_1 = i \wedge X_2 = k - i) \\[0.5cm]
+         & = & \ds \sum\limits_{i=0}^k P(X_1 = i) \cdot P(X_2 = k - i) \\[0.5cm]
+         &   & \mbox{wegen der Unabhängigkeit von $X_1$ und $X_2$} \\[0.2cm]
+         & = & \ds \sum\limits_{i=0}^k \frac{\lambda_1^i}{i!}\cdot \mathrm{e}^{-\lambda_1} \cdot \frac{\lambda_2^{k-i}}{(k-i)!}\cdot \mathrm{e}^{-\lambda_2} \\[0.5cm]
+         & = & \ds \mathrm{e}^{-(\lambda_1 + \lambda_2)} \cdot \sum\limits_{i=0}^k \frac{\lambda_1^i}{i!}\cdot \frac{\lambda_2^{k-i}}{(k-i)!} \\[0.5cm]
+         & = & \ds \mathrm{e}^{-(\lambda_1 + \lambda_2)} \cdot \frac{1}{k!} \cdot
+               \sum\limits_{i=0}^k \frac{k!}{i! \cdot (k-i)!} \cdot \lambda_1^i \cdot \lambda_2^{k-i} \\[0.5cm]
+         & = & \ds \mathrm{e}^{-(\lambda_1 + \lambda_2)} \cdot \frac{1}{k!} \cdot
+               \sum\limits_{i=0}^k {k \choose i} \cdot \lambda_1^i \cdot \lambda_2^{k-i} \\[0.5cm]
+         & = & \ds \mathrm{e}^{-(\lambda_1 + \lambda_2)} \cdot \frac{1}{k!} \cdot
+               (\lambda_1 + \lambda_2)^k \\[0.5cm]
+\end{array}
+$
+\\[0.2cm]
+Dabei haben wir im letzten Schritt den Binomischen Lehrsatz
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds (x+y)^n = \sum\limits_{i=0}^n {n \choose i} \cdot x^i \cdot y^{n-i}$
+\\[0.2cm]
+verwendet.  Unsere Herleitung zeigt, dass für unabhängige Poisson-verteilte Zufalls-Variablen mit den
+Parametern $\lambda_1$ und $\lambda_2$ auch die Summe $X_1 + X_2$ Poisson-verteilt ist und zwar mit dem Parameter $\lambda_1 + \lambda_2$.
+
+
+\section{Kovarianz}
+Die folgende Definition verallgemeinert den Begriff der Varianz.
+\begin{Definition}[Kovarianz] \hspace*{\fill} \\
+  Ist $\langle \Omega, 2^\Omega, P \rangle$ ein diskreter Wahrscheinlichkeits-Raum und sind
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $X: \Omega \rightarrow \mathbb{R}$ \quad und \quad
+  $Y: \Omega \rightarrow \mathbb{R}$
+  \\[0.3cm]
+  zwei Zufallsgrößen, so definieren wir die \blue{Kovarianz} $\mathrm{Cov}[X,Y]$ 
+  der Zufallsgrößen   $X$ und $Y$  als   den Erwartungswert der Zufallsgröße 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\omega \mapsto \bigl(X(\omega) - E[X]\bigr) \cdot \bigl(Y(\omega) - E[Y]\bigr)$, 
+  \\[0.3cm] 
+  es gilt also
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\ds \mathrm{Cov}[X,Y] := E\bigl[(X - E[X]) \cdot (Y - E[Y])\bigr]$.
+  \\[0.3cm]
+  Haben die Wertebereiche von $X$ und $Y$ die Form 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $X(\Omega) = \{ X(\omega) \;|\; \omega\in \Omega \} = \{ x_n \;|\; n\in\mathbb{N} \}$
+  \quad und \quad
+  $Y(\Omega) = \{ Y(\omega) \;|\; \omega\in \Omega \} = \{ y_n \;|\; n\in\mathbb{N} \}$
+  \\[0.3cm]
+  und setzen wir zur Abkürzung $\mu_X = E[X]$ und $\mu_Y = E[Y]$,
+  so können wir die Kovarianz auch durch die Formel 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\ds \mathrm{Cov}[X,Y] = 
+   \sum\limits_{m=0}^\infty \sum\limits_{n=0}^\infty 
+   P(X = x_n \wedge Y = y_n) \cdot (x_n - \mu_X) \cdot (y_n - \mu_Y)
+  $
+  \\[0.3cm]
+  berechnen.  
+  \qed
+\end{Definition}
+
+\begin{Satz}
+  Ist $\langle \Omega, 2^\Omega, P \rangle$ ein diskreter Wahrscheinlichkeits-Raum und sind
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $X: \Omega \rightarrow \mathbb{R}$ \quad und \quad
+  $Y: \Omega \rightarrow \mathbb{R}$
+  \\[0.3cm]
+  zwei \red{unabhängige} Zufallsgrößen, so gilt 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\mathrm{Cov}(X,Y) = 0$.  \eoxs
+\end{Satz}
+
+\exercise
+Beweisen Sie den letzten Satz. \eox
+
+Der folgende Satz liefert eine alternative Möglichkeit die Varianz zu berechnen.
+
+\begin{Satz}[Verschiebungs-Satz]
+  Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und sind
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $X: \Omega \rightarrow \mathbb{R}$ \quad und \quad
+  $Y: \Omega \rightarrow \mathbb{R}$
+  \\[0.3cm]
+  zwei Zufallsgrößen, so gilt 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\mathrm{Cov}(X,Y) = E[X \cdot Y] - E[X] \cdot E[Y]$.    
+\end{Satz}
+
+\exercise
+Beweisen Sie den letzten Satz. \eox
+
+\begin{Satz}
+  Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und sind
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $X: \Omega \rightarrow \mathbb{R}$ \quad und \quad
+  $Y: \Omega \rightarrow \mathbb{R}$
+  \\[0.3cm]
+  zwei Zufallsgrößen, sind weiter $a, b \in \mathbb{R}$, so lässt sich die
+  Varianz der Zufallsgröße 
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $Z := a \cdot X + b \cdot Y$
+  \\[0.3cm]
+  nach der Formel
+  \\[0.3cm]
+  \hspace*{1.3cm}
+  $\mathrm{Var}[a \cdot X + b \cdot Y] = 
+   a^2 \cdot \mathrm{Var}[X] + b^2 \cdot \mathrm{Var}[Y] + 2 \cdot a \cdot b \cdot \mathrm{Cov}(X,Y)$
+  \\[0.3cm]
+  berechnen.
+\end{Satz}
+
+\noindent
+\textbf{Beweis}:  Dieser Beweis lässt sich durch einfaches Nachrechnen führen:
+\\[0.3cm]
+\hspace*{0.3cm}
+$
+\begin{array}[t]{cl}
+    & \mathrm{Var}[a \cdot X + b \cdot Y] 
+      \\[0.2cm]
+  = &
+      E[(a \cdot X + b \cdot Y)^2] - (E[a \cdot X + b \cdot Y])^2 
+      \\[0.2cm]
+  = &
+      a^2 \cdot E[X^2] + 2 \cdot a \cdot b \cdot E[X \cdot Y] + b^2 \cdot E[Y^2] 
+      - (a \cdot E[X] + b \cdot E[Y])^2 
+      \\[0.2cm]
+  = &
+      a^2 \cdot E[X^2] + 2 \cdot a \cdot b \cdot E[X \cdot Y] + b^2 \cdot E[Y^2] 
+      - a^2 \cdot E[X]^2 - 2 \cdot a \cdot b \cdot E[X] \cdot E[Y] - b^2 \cdot E[Y]^2 
+      \\[0.2cm]
+  = &
+      a^2 \cdot (E[X^2] - E[X]^2) + b^2 \cdot (E[Y^2] - E[Y]^2) + 
+      2 \cdot a \cdot b \cdot (E[X \cdot Y] - E[X] \cdot E[Y])
+      \\[0.2cm]
+  = &
+      a^2 \cdot \mathrm{Var}[X] + b^2 \cdot \mathrm{Var}[Y] + 
+      2 \cdot a \cdot b \cdot \mathrm{Cov}(X,Y). \hspace*{\fill} \Box 
+\end{array}
+$
 
 
 
