@@ -51,7 +51,7 @@ Die Komponenten dieses Tripels haben dabei die folgenden Eigenschaften:
       \item $0 \leq P(A) \leq 1$ \quad für alle $A \subseteq \frak{A}$.
       \item $P(\emptyset) = 0$.
       \item $P(\Omega) = 1$.
-      \item Ist $(A_n)_{n\in\mathbb{N}}$ eine Folge paarweise disjunkter von Mengen aus
+      \item Ist $(A_n)_{n\in\mathbb{N}}$ eine Folge paarweise disjunkter Mengen aus
             $\frak{A}$, gilt also 
             \\[0.2cm]
             \hspace*{1.3cm} 
@@ -135,6 +135,18 @@ Damit ergibt sich die Wahrscheinlichkeits-Dichte $p_X$ der Zufalls-Variable $X$ 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds p_X(x) = \frac{\dx F_X}{\dx x} = \frac{\dx}{\dx x} \left(\frac{x-a}{b-a}\right) = \frac{1}{b-a}$.
+\\[0.2cm]
+Sind $a,b \in \mathbb{R}$ mit $a < b$ und ist $X:\Omega \rightarrow \{a,b\}$ eine Zufalls-Variable, für die
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds F_X(x) = \frac{x - a}{b-a}$
+\\[0.2cm]
+gilt, so schreiben wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$X \sim \mathtt{Unif}(a, b)$
+\\[0.2cm]
+und sagen, dass die Zufalls-Variable $X$ auf dem Intervall $[a,b]$ \blue{gleichverteilt} ist.
 
 \exercise
 In einer fremden Stadt kommen Sie zu einem zufälligen Zeitpunkt an eine Bushaltestelle, an
@@ -240,7 +252,7 @@ $\ds \lim\limits_{x \rightarrow R_{\max}} p_R(x) = \infty$.
 
 \noindent
 Der nächste Satz  verallgemeinert das obige Beispiel.  
-\begin{Satz}[Variablen-Transformation] \label{satz:vartrans} Es sei
+\begin{Satz}[\blue{Variablen-Transformation}] \label{satz:vartrans} Es sei
   \begin{enumerate}
   \item $\mathcal{W}= \langle \Omega, \frak{A}, P \rangle$ ein Wahrscheinlichkeits-Raum,
   \item $X:\Omega \rightarrow [a,b]$ eine stetige Zufalls-Variable,
@@ -257,7 +269,7 @@ Der nächste Satz  verallgemeinert das obige Beispiel.
   Dann gilt für die Wahrscheinlichkeits-Dichten $p_X$ und $p_Y$ die Beziehung 
   \\[0.2cm]
   \hspace*{1.3cm}
-  $\ds p_Y(t) = p_X\bigl(\psi(t)\bigr) \cdot \frac{\dx \psi}{\dx t}$
+  $\ds p_Y(t) = p_X\bigl(\psi(t)\bigr) \cdot \frac{\mathrm{d} \psi}{\mathrm{d} t}$.
 \end{Satz}
 
 \proof Wir betrachten die Verteilungs-Funktion der Zufalls-Variable $Y$. Es gilt
@@ -340,7 +352,7 @@ des \blue{Erwartungswerts} einer stetigen Zufalls-Variable $X$ durch die Formel
 $\ds E[X] := \int_c^d x \cdot p_X(x) \dx x$.
 \\[0.2cm]
 Hier bezeichnen $c$ und $d$ den minimalen bzw.~maximalen Wert, den die Zufalls-Variable $X$ annehmen kann.
-Die Varianz einer stetigen Zufalls-Variable wird nun wie früher durch 
+Die \blue{Varianz} einer stetigen Zufalls-Variable wird nun wie früher durch 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \var[X] := E\Bigl[(X - E[X])^2\Bigr]$
@@ -351,7 +363,7 @@ definiert.  Setzen wir $\mu := E[X]$, so heißt dies
 $\ds \var[X] = \int_c^d (x - \mu)^2 \cdot p_X(x) \dx x$. 
 
 \exercise
-Berechnen Sie Varianz und Erwartungswert der Zufalls-Variable $X$, falls für die Verteilungs-Funktion
+Berechnen Sie Erwartungswert und Varianz der Zufalls-Variable $X$, falls für die Verteilungs-Funktion
 $F_X$ gilt
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -411,6 +423,25 @@ $
 \end{array}
 $ 
 \qed
+
+\remark
+Ein Zufalls-Variable $X:\Omega \rightarrow \mathbb{R}$, deren Verteilungs-Funktion die Form
+\\[0.2cm]
+\hspace*{1.3cm}
+$F_X(t) = \left\{
+\begin{array}[c]{ll}
+ \ds 1 - \mathrm{e}^{-\lambda \cdot t} & \mbox{falls $t \geq 0$,} \\[0.2cm]
+               0                        & \mbox{sonst}
+\end{array}
+\right.
+$
+\\[0.2cm]
+hat, nennen wir eine \href{https://de.wikipedia.org/wiki/Exponentialverteilung}{exponential-verteilte}
+Zufalls-Variable mit Parameter $\lambda$ und schreiben
+\\[0.2cm]
+\hspace*{1.3cm}
+$X \sim \mathrm{Exp}(\lambda)$.
+\eoxs
 
 \begin{Satz} \label{satz:varianz}
   Es sei $X:\Omega \rightarrow [a,b]$ eine Zufalls-Variable mit Wahrscheinlichkeits-Dichte $p_X(t)$. 
