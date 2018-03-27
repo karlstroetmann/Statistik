@@ -1060,14 +1060,14 @@ Es seien
 \item $\mathcal{W}_1 = \langle \Omega_1, 2^{\Omega_1}, P_1 \rangle$ und
       $\mathcal{W}_2 = \langle \Omega_2, 2^{\Omega_2}, P_2 \rangle$ Wahrscheinlichkeits-Räume.
 \item $\mathcal{W} = \mathcal{W}_1 \times \mathcal{W}_2 = \langle \Omega, 2^\Omega, P\rangle$ der aus $\mathcal{W}_1$ und $\mathcal{W}_2$ gebildete Produkt-Raum.
-\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße auf $\mathcal{W}$.
+\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufalls-Variable auf $\mathcal{W}$.
 \end{enumerate}
 Dann \blue{wird $X$ durch die erste Komponente bestimmt}, falls 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\forall \omega_1 \in \Omega_1: \forall \omega_2,\omega_3 \in \Omega_2: X\bigl(\pair(\omega_1,\omega_2)\bigr) = X\bigl(\pair(\omega_1,\omega_3)\bigr)$
 \\[0.2cm]
-gilt. Bei der Auswertung der Zufallsgröße $X$ spielt also die zweite Komponente keine Rolle.
+gilt. Bei der Auswertung der Zufalls-Variable $X$ spielt also die zweite Komponente keine Rolle.
 Analog sagen wir, dass \blue{$X$ durch die zweite Komponente bestimmt wird}, wenn die erste Komponente
 bei der Auswertung von $X$ keine Rolle spielt, wenn also gilt: 
 \\[0.2cm]
@@ -1185,7 +1185,7 @@ Der nächsten Satz ist eine unmittelbare Konsequenz aus der Definition des Begrif
 $C = \{ c_n \;|\; n \in \mathbb{N} \}$
 \\[0.2cm]
 gegeben, wobei wir stillschweigend voraussetzen, dass die Elemente $c_n$ paarweise voneinander verschieden
-sind, es gilt also $m \not= n \rightarrow c_m \not= n$,  und ist weiter $Z$ eine Zufallsgröße auf $\Omega$, so kann die Wahrscheinlichkeit
+sind, es gilt also $m \not= n \rightarrow c_m \not= n$,  und ist weiter $Z$ eine Zufalls-Variable auf $\Omega$, so kann die Wahrscheinlichkeit
 $P(Z \in C)$ wie folgt berechnet werden:
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1250,13 +1250,13 @@ $\ds P\biggl(\bigwedge\limits_{i\in I} X_i = x_i\biggr) = \prod\limits_{i\in I} 
 Der Erwartungswert hat die folgende \blue{Linearitäts-Eigenschaft}.
 \begin{Satz}[Linearität des Erwartungswerts]
 Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und sind $X: \Omega \rightarrow \mathbb{R}$  
-und $Y: \Omega \rightarrow \mathbb{R}$ zwei Zufalls-Variablen, so können wir für beliebige $\alpha,\beta \in \mathbb{R}$ eine Zufallsgröße 
+und $Y: \Omega \rightarrow \mathbb{R}$ zwei Zufalls-Variablen, so können wir für beliebige $\alpha,\beta \in \mathbb{R}$ eine Zufalls-Variable 
 $Z:\Omega \rightarrow \mathbb{R}$ durch 
 \\[0.2cm]
 \hspace*{1.3cm}
 $Z(\omega) := \alpha \cdot X(\omega) + \beta \cdot Y(\omega)$
 \\[0.2cm]
-definieren.  Für den Erwartungswert dieser Zufallsgröße gilt: 
+definieren.  Für den Erwartungswert dieser Zufalls-Variable gilt: 
 \\[0.2cm]
 \hspace*{1.3cm}
 $E\bigl[Z\bigr] = \alpha \cdot E\bigl[X\bigr] + \beta \cdot E\bigl[Y\bigr]$.
@@ -1282,7 +1282,7 @@ $ \qed
 \exercise
 Beweisen Sie:
 Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und definieren wir
-für ein beliebiges $\beta \in \mathbb{R}$ die Zufallsgröße $X:\Omega \rightarrow \mathbb{R}$ als 
+für ein beliebiges $\beta \in \mathbb{R}$ die Zufalls-Variable $X:\Omega \rightarrow \mathbb{R}$ als 
 \\[0.2cm]
 \hspace*{1.3cm} $X(\omega) := \beta$, \\[0.2cm]
 so gilt 
@@ -1295,13 +1295,13 @@ Es gilt aber der folgende Satz.
 
 \begin{Satz}[Verschiebungs-Satz]
 Ist $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum und ist $X: \Omega \rightarrow \mathbb{R}$  
-ein Zufallsgröße, so können wir für beliebige $\alpha,\beta \in \mathbb{R}$ eine Zufallsgröße 
+ein Zufalls-Variable, so können wir für beliebige $\alpha,\beta \in \mathbb{R}$ eine Zufalls-Variable 
 $Z:\Omega \rightarrow \mathbb{R}$ durch 
 \\[0.2cm]
 \hspace*{1.3cm}
 $Z(\omega) = \alpha \cdot X(\omega) + \beta$
 \\[0.2cm]
-definieren.  Für die Varianz dieser Zufallsgröße gilt: 
+definieren.  Für die Varianz dieser Zufalls-Variable gilt: 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\var\bigl[Z\bigr] = \alpha^2 \cdot \var\bigl[X\bigr]$.
@@ -1350,7 +1350,7 @@ $E[X \cdot Y\bigr] = E\bigl[X\bigr] \cdot E\bigl[Y\bigr]$.
 $X(\Omega) = \{ x_n \;|\; n \in \mathbb{N}\}$ \quad und \quad
 $Y(\Omega) = \{ y_n \;|\; n \in \mathbb{N}\}$
 \\[0.2cm]
-gegeben.  Dann ist der Wertebereich der Zufallsgröße $Z:\Omega \rightarrow \mathbb{R}$, die durch 
+gegeben.  Dann ist der Wertebereich der Zufalls-Variable $Z:\Omega \rightarrow \mathbb{R}$, die durch 
 \\[0.2cm]
 \hspace*{1.3cm}
 $Z(\omega) = X(\omega) \cdot Y(\omega)$
@@ -1380,7 +1380,7 @@ $
 \exercise
 Zeigen Sie: Sind $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei unabhängige Zufalls-Variablen,
 ist $\alpha \in \mathbb{R}$ und
-ist die Zufallsgröße $Z:\Omega \rightarrow \mathbb{R}$ durch 
+ist die Zufalls-Variable $Z:\Omega \rightarrow \mathbb{R}$ durch 
 \\[0.2cm]
 \hspace*{1.3cm}
 $Z(\omega) := X(\omega) + \alpha$
@@ -1432,10 +1432,10 @@ Zufalls-Experiment, das durch einen Wahrscheinlichkeits-Raum der Form
 \hspace*{1.3cm}
 $\mathcal{W} = \langle \Omega, 2^\Omega, P\rangle$
 \\[0.2cm]
-beschrieben wird.  Weiter sei $X$ eine Zufallsgröße, die bei diesem Experiment eine Rolle spielt.
+beschrieben wird.  Weiter sei $X$ eine Zufalls-Variable, die bei diesem Experiment eine Rolle spielt.
 Wiederholen wir das Zufalls-Experiment $n$-mal so, dass sich die einzelnen Wiederholungen des Experiments nicht
 beeinflussen, dann haben wir eine Menge $\{X_1, \cdots, X_n\}$ von $n$ Zufalls-Variablen, die unabhängig sind.
-Wir definieren jetzt die Zufallsgröße 
+Wir definieren jetzt die Zufalls-Variable 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \overline{X} := \frac{1}{n} \cdot \sum\limits_{k=1}^n X_k$.
@@ -1457,7 +1457,7 @@ $
 \\[0.2cm]
 Dabei haben wir ausgenutzt, dass die Zufalls-Variablen $X_i$ alle den selben Erwartungswert $E[X]$ haben.
 Natürlich ist es nicht weiter verwunderlich, dass das arithmetische Mittel dann ebenfalls den Erwartungswert $E[X]$ hat.
-Wesentlich interessanter ist die Frage nach der Varianz der Zufallsgröße $\overline{X}$. 
+Wesentlich interessanter ist die Frage nach der Varianz der Zufalls-Variable $\overline{X}$. 
 Es gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1484,7 +1484,7 @@ Dieser Zusammenhang wird in der Literatur als das \blue{$\sqrt{n}$-Gesetz} bezei
 \begin{Satz}[$\sqrt{n}$-Gesetz] Es sei
 \begin{enumerate}
 \item $\mathcal{W} = \langle \Omega, 2^\Omega, P \rangle$  ein Wahrscheinlichkeits-Raum,
-\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße auf $\mathcal{W}$,
+\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufalls-Variable auf $\mathcal{W}$,
 \item $\mathcal{W}^n = \underbrace{\mathcal{W} \times \cdots \times \mathcal{W}}_n$
       sei das $n$-fache kartesisches Produkt von $\mathcal{W}$ mit sich selbst,
 \item $X_i: \Omega^n \rightarrow \mathbb{R}$ sei für $i=1,\cdots,n$ definiert durch 
@@ -1508,7 +1508,7 @@ ist dann der tatsächliche Wert, während die Standard-Abweichung als die ungefähr
 interpretiert werden kann.  Das $\sqrt{n}$-Gesetz zeigt uns eine Möglichkeit, um die Genauigkeit
 unserer Messung zu verbessern:  Führen wir dieselbe Messung $n$-mal durch und bilden den Mittelwert unserer 
 Ergebnisse, so wird die Mess-Genauigkeit um den Faktor $\sqrt{n}$ gesteigert. 
-Ein anderes Beispiel ist das Würfeln:  Gibt die Zufallsgröße $X$ die Augenzahl beim einmaligen
+Ein anderes Beispiel ist das Würfeln:  Gibt die Zufalls-Variable $X$ die Augenzahl beim einmaligen
 Würfeln an, so haben wir für  Varianz und Standard-Abweichung die Werte
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1523,17 +1523,17 @@ $\sigma\Bigl[\overline{X}\Bigr] = 0.1707825128$
 Im nächsten Abschnitt werden wir sehen, welche konkreten Aussagen über die Wahrscheinlichkeit
 aus der Standard-Abweichung abgeleitet werden können.
 
-\section[Das Gesetz der großen Zahlen]{Satz von Tschebyscheff und Gesetz  der großen Zahlen}
-Der folgende \href{https://de.wikipedia.org/wiki/Tschebyscheff-Ungleichung}{Satz}, der nach 
-\href{https://de.wikipedia.org/wiki/Pafnuti_Lwowitsch_Tschebyscheff}{Pafnuti Lwowitsch Tschebyscheff} 
-(1821 -- 1894) benannt ist, zeigt uns,  
+\section[Das Gesetz der großen Zahlen]{Satz von Tschebyschow und Gesetz  der großen Zahlen}
+Der folgende Satz, der nach 
+\href{https://de.wikipedia.org/wiki/Pafnuti_Lwowitsch_Tschebyschow}{Pafnuti Lwowitsch Tschebyschow} 
+(1821 -- 1894) benannt ist, zeigt uns,   
 welche konkrete Bedeutung die Standard-Abweichung $\sigma[X]$ hat.
 
-\begin{Satz}[Ungleichung von Tschebyscheff]
+\begin{Satz}[\href{https://de.wikipedia.org/wiki/Tschebyscheff-Ungleichung}{Ungleichung von Tschebyschow}]
   Es sei
   \begin{enumerate}
   \item $\langle \Omega, 2^\Omega, P \rangle$ ein Wahrscheinlichkeits-Raum,
-  \item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße mit dem Erwartungswert $\mu = E[X]$ und der
+  \item $X: \Omega \rightarrow \mathbb{R}$ eine Zufalls-Variable mit dem Erwartungswert $\mu = E[X]$ und der
         Varianz $\sigma^2 = \var[X]$. 
   \end{enumerate}
   Dann gilt  für alle $r \in \mathbb{R}_+$ 
@@ -1544,7 +1544,7 @@ welche konkrete Bedeutung die Standard-Abweichung $\sigma[X]$ hat.
 
 \noindent
 \textbf{Beweis}:
-Zunächst formen wir die Bedingung $|X - \mu| \geq r \cdot \sigma$ um.  Es gilt offenbar für beliebige $\omega \in \Omega$
+Zunächst formen wir die Bedingung $|X - \mu| \geq r \cdot \sigma$ um.  Es gilt offenbar für beliebige $\omega \in \Omega$:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds |X(\omega) - \mu| \geq r \cdot \sigma \;\Leftrightarrow\; \bigl(X(\omega) - \mu\bigr)^2 \geq r^2 \cdot \sigma^2
@@ -1562,13 +1562,13 @@ $
 \begin{array}[b]{lcl}
  r^2 \cdot P\bigl(|X(\omega) - \mu| \geq r \cdot \sigma\bigr) 
 & = & \ds                           
- r^2 \cdot P\bigl(\,(X(\omega) - \mu)^2 \geq r^2 \cdot \sigma^2\bigr) \\[0.2cm]
+ r^2 \cdot P\biggl(\,\Bigl(\frac{X(\omega) - \mu}{\sigma}\Bigr)^2 \geq r^2 \biggr) \\[0.5cm]
 & = & \ds
-r^2 \cdot \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \\[0.7cm]
+r^2 \cdot \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq\, r^2 \right\}} P\bigl(\{\omega\}\bigr) \\[0.8cm]
 & = & \ds
-\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot r^2 \\[0.7cm]
+\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq\, r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot r^2 \\[0.7cm]
 & \leq & \ds
-         \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2 \right\}} 
+         \sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq\, r^2 \right\}} 
          P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 
 \end{array}
 $
@@ -1582,8 +1582,8 @@ $
 \begin{array}[b]{lcl}
  r^2 \cdot P\bigl(|X(\omega) - \mu| \geq r \cdot \sigma\bigr) 
 & \leq & \ds
-\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 
-      \\[0.7cm]
+\sum\limits_{\left\{ \omega \in \Omega \,\big|\, \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 \geq\, r^2 \right\}} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 
+      \\[0.8cm]
 & \leq & \ds
 \sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot \left(\frac{X(\omega) - \mu}{\sigma}\right)^2 
       \\[0.7cm]
@@ -1591,7 +1591,7 @@ $
 \frac{1}{\sigma^2} \cdot\sum\limits_{\omega \in \Omega} P\bigl(\{\omega\}\bigr) \cdot (X(\omega) - \mu)^2 
       \\[0.7cm]
 & = & \ds
-     \frac{1}{\sigma^2} \cdot \var[X(\omega)] \\[0.4cm]
+     \frac{1}{\sigma^2} \cdot \var[X] \\[0.4cm]
 & = & \ds
      1
  \end{array}
@@ -1600,7 +1600,7 @@ $
 
 \exercise 
 Schätzen Sie mit Hilfe der Ungleichung von
-Tschebyscheff ab, 
+Tschebyschow ab, 
 wie oft Sie würfeln müssen, damit die Wahrscheinlichkeit, dass der arithmetische Mittelwert der Augenzahlen um mehr als 
 $0.1$ vom Erwartungswert abweicht, kleiner als $1\%$ ist?
 
@@ -1608,14 +1608,14 @@ $0.1$ vom Erwartungswert abweicht, kleiner als $1\%$ ist?
 Zunächst formalisieren wir die Aufgabenstellung. Gesucht ist ein $n$, so dass für den arithmetischen Mittelwert
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \overline{X} = \frac{1}{n} \sum\limits_{k=1}^n X_i$
+$\ds \overline{X}_n := \frac{1}{n} \cdot\sum\limits_{k=1}^n X_i$
 \\[0.2cm]
 die Beziehung 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P\bigl(|\overline{X} - \mu| \geq 0.1) \leq 0.01$
+$\ds P\bigl(|\overline{X}_n - \mu| \geq 0.1) \leq 0.01$
 \\[0.2cm]
-gilt.  Um diesen Ausdruck auf die Ungleichung von Tschebyscheff zurück führen zu können, formen wir den Wert $0.1$ um:
+gilt.  Um diesen Ausdruck auf die Ungleichung von Tschebyschow zurück führen zu können, formen wir den Wert $0.1$ um:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds 0.1 = 0.1 \cdot \frac{1}{\sigma} \cdot \sigma$ \quad und definieren $\ds r = 0.1 \cdot \frac{1}{\sigma}$
@@ -1623,9 +1623,9 @@ $\ds 0.1 = 0.1 \cdot \frac{1}{\sigma} \cdot \sigma$ \quad und definieren $\ds r 
 Damit können wir die obige Ungleichung auch in der Form 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P\bigl(|\overline{X} - \mu| \geq r \cdot \sigma) \leq 0.01$
+$\ds P\bigl(|\overline{X}_n - \mu| \geq r \cdot \sigma) \leq 0.01$
 \\[0.2cm]
-schreiben.  Damit diese Ungleichung aus der Ungleichung von Tschebyscheff folgt, muss 
+schreiben.  Damit diese Ungleichung aus der Ungleichung von Tschebyschow folgt, muss 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \frac{1}{r^2} \leq 0.01$
@@ -1635,12 +1635,12 @@ gelten.  Setzen wir hier den Wert für $r$ ein, so haben wir
 \hspace*{1.3cm}
 $\ds 10^2 \cdot \sigma^2 \leq 0.01$, \quad also \quad $10 \cdot \sigma \leq 0.1$, \quad also \quad  $\sigma \leq \frac{1}{100}$.
 \\[0.2cm]
-Die Standard-Abweichung $\sigma$ können wir aus dem $\sqrt{n}$-Gesetz bestimmen, denn da
+Die Standard-Abweichung $\sigma = \sigma\bigl(\overline{X}_n\bigr)$ können wir aus dem $\sqrt{n}$-Gesetz bestimmen, denn da
 die Augenzahl beim Würfeln mit einem Würfel die Varianz $\frac{35}{12}$ hat,  gilt für die
 Varianz beim $n$-maligen Würfeln
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \sigma = \sqrt{\frac{1}{n} \cdot \frac{35}{12}}$
+$\ds \sigma\bigl(\overline{X}_n\bigr) = \sqrt{\frac{1}{n} \cdot \frac{35}{12}}$
 \\[0.2cm]
 Also haben wir die Ungleichung 
 \\[0.2cm]
@@ -1658,12 +1658,12 @@ Wenn wir $29\,167$ mal würfeln, dann weicht der arithmetische Mittelwert um weni
 Erwartungswert ab. \eoxs
 
 \remark
-Die Ungleichung von Tschebyscheff ist nicht sehr genau.  Wir werden später noch eine wesentlich bessere
+Die Ungleichung von Tschebyschow ist nicht sehr genau.  Wir werden später noch eine wesentlich bessere
 Abschätzung finden.  \eoxs
 
 \remark
 Sie können die letzte Aufgabe auch mit Hilfe der Näherung von Laplace für die kumulative Verteilungsfunktion 
-lösen.  Dann ergibt sich ein kleinerer Wert.  Das ist nicht weiter verwunderlich, denn die Tschebyscheff-Ungleichung
+lösen.  Dann ergibt sich ein kleinerer Wert.  Das ist nicht weiter verwunderlich, denn die Tschebyschow-Ungleichung
 gilt für beliebige Verteilungen, während die Näherung von Laplace nur gilt, wenn die Verteilungsfunktion die Form 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1673,14 +1673,14 @@ hat.  \eox
 \vspace*{0.3cm}
 
 \noindent
-Wenn wir ein Zufalls-Experiment nur oft genug durchführen und dabei eine Zufallsgröße 
+Wenn wir ein Zufalls-Experiment nur oft genug durchführen und dabei eine Zufalls-Variable 
 $X$ ermitteln, so wird die Wahrscheinlichkeit, dass der arithmetische Mittelwert, den wir bei $n$ Messungen finden,
 beliebig klein, wenn wir nur $n$ groß genug wählen.  Genauer gilt:
 
 \begin{Satz}[\blue{Schwaches Gesetz der großen Zahlen}] Es sei 
 \begin{enumerate}
 \item $\mathcal{W} = \langle \Omega, 2^\Omega, P \rangle$  ein Wahrscheinlichkeits-Raum,
-\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsgröße auf $\mathcal{W}$ mit dem Erwartungswert $\mu =
+\item $X: \Omega \rightarrow \mathbb{R}$ eine Zufalls-Variable auf $\mathcal{W}$ mit dem Erwartungswert $\mu =
   E[X]$ und der Standard-Abweichung
       $\sigma := \sqrt{\var[X]\,}$,
 \item $\mathcal{W}^n = \underbrace{\mathcal{W} \times \cdots \times \mathcal{W}}_n$
@@ -1688,34 +1688,42 @@ beliebig klein, wenn wir nur $n$ groß genug wählen.  Genauer gilt:
 \item $X_i: \Omega^n \rightarrow \mathbb{R}$ sei für $i=1,\cdots,n$ definiert durch 
       \\[0.2cm]
       \hspace*{1.3cm} $X_i\bigl(\langle\omega_1, \cdots, \omega_n\rangle\bigr):= X(\omega_i)$
-\item $\overline{X}: \Omega^n \rightarrow \mathbb{R}$ sei definiert durch 
+\item $\overline{X}_n: \Omega^n \rightarrow \mathbb{R}$ sei definiert durch 
       \\[0.2cm]
-      \hspace*{1.3cm} $\ds \overline{X}(\omega):= \frac{1}{n} \cdot \sum\limits_{i=1}^n X_i(\omega)$
+      \hspace*{1.3cm} $\ds \overline{X}_n(\omega):= \frac{1}{n} \cdot \sum\limits_{i=1}^n X_i(\omega)$
 \end{enumerate}
 Dann gilt für alle $\varepsilon > 0$: \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \lim\limits_{n\rightarrow\infty} P\bigl( |\overline{X} - \mu| \geq \varepsilon) = 0$.
+$\ds \lim\limits_{n\rightarrow\infty} P\bigl( |\overline{X}_n - \mu| \geq \varepsilon) = 0$.
 \end{Satz}
 
 \noindent
-\textbf{Beweis}: Nach dem $\sqrt{n}$-Gesetz haben wir für die Zufallsgröße $\overline{X}$:
+\textbf{Beweis}: Nach dem $\sqrt{n}$-Gesetz haben wir für die Zufalls-Variable $\overline{X}_n$:
 \\[0.2cm]
 \hspace*{1.3cm}
-$E\Bigl[\overline{X}\Bigr] = \mu$ \quad und \quad $\ds \var\Bigl[\overline{X}\Bigr] = \frac{\sigma^2}{n}$, \quad 
-also $\ds\sigma\Bigl[\overline{X}\Bigr] = \frac{\sigma}{\sqrt{n}}$.
+$E\Bigl[\overline{X}_n\Bigr] = \mu$ \quad und \quad $\ds \var\Bigl[\overline{X}_n\Bigr] = \frac{\sigma^2}{n}$, \quad 
+also $\ds\sigma\Bigl[\overline{X}_n\Bigr] = \frac{\sigma}{\sqrt{n}}$.
 \\[0.2cm]
 Definieren wir nun 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds r := \frac{\varepsilon}{\sigma} \cdot \sqrt{n}$, \quad so gilt $\ds \varepsilon = r \cdot \frac{\sigma}{\sqrt{n}}$
+$\ds r := \frac{\varepsilon}{\sigma} \cdot \sqrt{n}$, 
 \\[0.2cm]
-und mit nach der Ungleichung von Tschebyscheff folgt
+so gilt
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P\bigl( |\overline{X} - \mu| \geq \varepsilon\bigr) \leq \frac{1}{\frac{\varepsilon^2}{\sigma^2} \cdot n}$, \quad
- also $\ds P\bigl( |\overline{X} - \mu| \geq \varepsilon\bigr) \leq \frac{\sigma^2}{n \cdot \varepsilon^2}$.
+$\ds r \cdot \sigma\Bigl[\overline{X}_n\Bigr] = r \cdot \frac{\sigma}{\sqrt{n}} = \frac{\varepsilon}{\sigma}\cdot \sqrt{n} \cdot \frac{\sigma}{\sqrt{n}} = \varepsilon$
+\\[0.2cm]
+und mit nach der Ungleichung von Tschebyschow folgt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P\bigl( |\overline{X}_n - \mu| \geq \varepsilon\bigr) \leq \frac{1}{\frac{\varepsilon^2}{\sigma^2} \cdot n}$, \quad
+ also $\ds P\bigl( |\overline{X}_n - \mu| \geq \varepsilon\bigr) \leq \frac{\sigma^2}{n \cdot \varepsilon^2}$.
 \\[0.2cm]
 Wegen $\ds\lim\limits_{n\rightarrow\infty} \frac{\sigma^2}{n \cdot \varepsilon^2} = 0$ folgt die Behauptung. \qed
+
+Das schwache Gesetz der großen Zahlen zeigt uns, dass der Erwartungswert und das arithmetische Mittel einer
+Zufalls-Variable eng miteinander verknüpft sind.
 
 \section{Erwartungswert und Varianz der Binomial-Verteilung}
 In diesem Abschnitt wollen wir Erwartungswert und Varianz einer binomial-verteilten 
@@ -1858,18 +1866,26 @@ Beispiels.  Dazu definieren wir zunächst den Begriff des \blue{Bernoulli-Experim
   Wir nennen ein Zufalls-Experiment ein 
   \blue{Bernoulli}-\blue{Experiment} (\href{https://de.wikipedia.org/wiki/Jakob_I._Bernoulli}{Jacob Bernoulli},
     1655--1705)
-wenn es nur zwei mögliche Ergebnisse des Experiments gibt.
-  Der Wahrscheinlichkeits-Raum kann dann in der Form 
+wenn es nur zwei mögliche Ergebnisse des Experiments gibt.  Der Wahrscheinlichkeits-Raum kann dann in der Form 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\mathcal{W} = \bigl\langle \{0, 1\}, 2^{\{0,1\}}, P\bigr\rangle$
+$\mathcal{W} = \bigl\langle \{a, b\}, 2^{\{a,b\}}, P\bigr\rangle$
 \\[0.2cm] 
 geschrieben werden.  Dann setzen wir 
 \\[0.2cm]
 \hspace*{1.3cm}
  $p:= P\bigl(\{1\}\bigr)$
 \\[0.2cm]
-  und nennen $p$ den \blue{Parameter} des Bernoulli-Experiments. \qed
+und nennen $p$ den \blue{Parameter} des Bernoulli-Experiments.   Ist die Zufalls-Variable  $X:\{a,b\} \rightarrow \{0,1\}$ durch
+\\[0.2cm]
+\hspace*{1.3cm}
+$X(a) := 0$ \quad und \quad $X(b) := 1$
+\\[0.2cm]
+definiert, so sagen wir, dass $X$ eine \blue{Bernoulli-verteilte Zufalls-Variable mit Parameter $p$} ist und schreiben
+\\[0.2cm]
+\hspace*{1.3cm}
+$X \sim \mathtt{Bern}(p)$. 
+\eoxs
 \end{Definition}
 
 Wird ein Bernoulli-Experiment $n$-mal durchgeführt, so sprechen wir von einer
@@ -1880,20 +1896,19 @@ Bernoulli-Experiments, so ist das $n$-fache Produkt
 $\mathcal{W} = \mathcal{W}_B^n$
 \\[0.2cm]
 der Wahrscheinlichkeits-Raum der Bernoulli-Kette.  
-Definieren wir für das $i$-te
-Bernoulli-Experiment eine Zufalls-Variable 
+Definieren wir für das $i$-te Bernoulli-Experiment eine Zufalls-Variable 
 \\[0.2cm]
 \hspace*{1.3cm}
-$X_i: \{0,1\} \rightarrow \mathbb{R}$ \quad durch \quad $X_i(\omega) := \omega$,
+$X_i: \{a,b\} \rightarrow \mathbb{R}$ \quad durch \quad $X_i(a) := 0$ \quad und \quad $X_i(b) := 1$,
 \\[0.2cm]
-so können wir den Erwartungswert und die Varianz von $X_i$ sehr einfach berechnen.
-Es gilt 
+so gilt $X_i \sim \mathtt{Bern}(p)$ und wir können den Erwartungswert und die Varianz von $X_i$ sehr einfach
+berechnen, denn es gilt:
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 \begin{array}[t]{lcl}
-E[X_i] & = & \ds \sum\limits_{\omega \in \{0,1\}} X_i(\omega) \cdot P\bigl(\{\omega\}\bigr) \\[0.5cm]
-       & = & \ds X_i(0) \cdot P\bigl(\{0\}\bigr) + X_i(1) \cdot P\bigl(\{1\}\bigr)           \\[0.2cm]
+E[X_i] & = & \ds \sum\limits_{\omega \in \{a,b\}} X_i(\omega) \cdot P\bigl(\{\omega\}\bigr) \\[0.5cm]
+       & = & \ds X_i(a) \cdot P\bigl(\{a\}\bigr) + X_i(b) \cdot P\bigl(\{b\}\bigr)           \\[0.2cm]
        & = & \ds 0 \cdot (1-p) + 1 \cdot p \\[0.2cm]
        & = & \ds p \\[0.2cm]
 \end{array}
@@ -1906,8 +1921,8 @@ $
 \begin{array}[t]{lcl}
  \var[X_i] & = & \ds E\Bigl[\bigl(X_i - E[X_i]\bigr)^2\Bigr] \\[0.3cm]
            & = & \ds E\Bigl[\bigl(X_i - p\bigr)^2\Bigr] \\[0.3cm]
-           & = & \ds \sum\limits_{\omega \in \{0,1\}} (X_i(\omega) - p)^2 \cdot P\bigl(\{\omega\}\bigr) \\[0.5cm]
-           & = & \ds (X_i(0) - p)^2 \cdot P\bigl(\{0\}\bigr) + (X_i(1) - p)^2 \cdot P\bigl(\{1\}\bigr)    \\[0.2cm]
+           & = & \ds \sum\limits_{\omega \in \{a,b\}} (X_i(\omega) - p)^2 \cdot P\bigl(\{\omega\}\bigr) \\[0.5cm]
+           & = & \ds \bigl(X_i(a) - p\bigr)^2 \cdot P\bigl(\{a\}\bigr) + \bigl(X_i(b) - p\bigr)^2 \cdot P\bigl(\{b\}\bigr)    \\[0.2cm]
            & = & \ds (0 - p)^2 \cdot (1 - p) + (1 - p)^2 \cdot p    \\[0.2cm]
            & = & \ds \bigl(p + (1 - p) \bigr) \cdot p \cdot (1 - p)    \\[0.2cm]
            & = & \ds p \cdot (1 - p)    
@@ -1917,21 +1932,44 @@ $
 Als nächstes definieren wir für die Bernoulli-Kette die Zufalls-Variable 
 \\[0.2cm]
 \hspace*{1.3cm}
-$X: \{0,1\}^n \rightarrow \mathbb{R}$ \quad durch \quad
+$X: \{a,b\}^n \rightarrow \mathbb{R}$ \quad durch \quad
 $\ds X\bigl([\omega_1,\cdots,\omega_n]\bigr) = \sum\limits_{i=1}^n X_i(\omega_i)$.
 \\[0.2cm]
-Das Beispiel oben zeigt, dass die Zufalls-Variable $X$ binomial-verteilt ist, es gilt
+Es gilt genau dann
 \\[0.2cm]
 \hspace*{1.3cm}
-$P(X = k) = B(n,p;k)$.
+$X\bigl([\omega_1,\cdots,\omega_n]\bigr) = k$,
+\\[0.2cm]
+wenn die Menge
+\\[0.2cm]
+\hspace*{1.3cm}
+$I := \bigl\{ i \in \{1,\cdots,n\} \bigm| \omega_i = b \bigr\}$
+\\[0.2cm]
+aus genau $k$ Elementen besteht.  Da es genau ${n \choose k}$ Möglichkeiten gibt, eine Teilmenge $I$
+mit $k$ Elementen aus der Menge $\{1,\cdots,n\}$ auszuwählen und jede einzelne Kombination, in denen $k$ mal
+das Ergebnis $b$ und $n-k$ mal das Ergebnis $a$ auftritt, 
+die Wahrscheinlichkeit 
+\\[0.2cm]
+\hspace*{1.3cm}
+$p^k \cdot (1-p)^{n-k}$
+\\[0.2cm]
+hat, gilt insgesamt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X = k) = {n \choose k} \cdot p^k \cdot (1-p)^{n-k}$.
+\\[0.2cm]
+Also ist die Zufalls-Variable $X$ binomial-verteilt, wir haben
+\\[0.2cm]
+\hspace*{1.3cm}
+$X \sim \mathtt{Bin}(n, p)$.
 \\[0.2cm]
 Da $X$ die Summe von $n$ Zufalls-Variablen ist, gilt für den Erwartungswert 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds E[X] = \sum\limits_{i=1}^n E[X_i] = \sum\limits_{i=1}^n p = n \cdot p$.
 \\[0.2cm]
-Da diese Zufalls-Variablen unabhängig sind, haben wir im letzten Abschnitt gesehen, dass wir
-auch die Varianz als Summe der Varianzen der einzelnen Zufalls-Variablen berechnen können.
+Da die Menge der Zufalls-Variablen $\{X_1, \cdots, X_n\}$ unabhängig ist, haben wir im letzten Abschnitt
+gesehen, dass wir auch die Varianz als Summe der Varianzen der einzelnen Zufalls-Variablen berechnen können. 
 Also gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -2056,7 +2094,17 @@ gefunden.  Die durch Gleichung (\ref{eq:poisson}) definierte
 Wahrscheinlichkeits-Verteilung heißt
 \href{https://de.wikipedia.org/wiki/Poisson-Verteilung}{Poisson-Verteilung} nach 
 \href{https://de.wikipedia.org/wiki/Siméon_Denis_Poisson}{Sim\'on Denis Poisson}
-(1781 - 1840).
+(1781 - 1840).  Wir schreiben
+\\[0.2cm]
+\hspace*{1.3cm}
+$X \sim \mathtt{Pois}(\lambda)$,
+\\[0.2cm]
+wenn für die Zufalls-Variable $X$ die Gleichung
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(X = k) = \mathrm{e}^{-\lambda} \cdot \frac{\lambda^k}{k!}$
+\\[0.2cm]
+gilt.
 
 Jetzt können wir die eingangs gestellte Frage nach der Anzahl der Mitarbeiter des
 Call-Centers beantworten.  Hat das Call-Center $m$ Mitarbeiter, so können auch nur $m$
@@ -2083,13 +2131,16 @@ Erstellung von Rechnungen ein Fehler auftritt, denn in einer solchen Situation w
 schlagartig sehr viele Kunden im Call-Center anrufen.
 Phänomene wie die oben beschriebenen werden in der \href{https://de.wikipedia.org/wiki/Warteschlangentheorie}{Theorie der Warteschlangen}
 genauer untersucht, siehe z.B. \cite{gross:1985}. 
+\pagebreak
 
 \exercise 
-In Singapur gibt es pro Monat durchschnittlich drei Exekutionen.  Aus tiefer Reue über
-ihre Missetaten stellen alle Delinquenten ihre Organe zur Verfügung.
-Bestimmen Sie die Wahrscheinlichkeit, dass der örtlichen Organhändler 
-seinem amerikanischen Geschäftspartner im nächsten Monat mindestens drei Sätze Innereien
-anbieten kann. 
+In Singapur gab es im Jahre 1996 insgesamt $76$
+\href{https://en.wikipedia.org/wiki/Capital_punishment_in_Singapore}{Exekutionen}.  Aus tiefer Reue über 
+ihre Missetaten haben alle Delinquenten ihre Organe zur Verfügung gestellt.  
+Bestimmen Sie die Wahrscheinlichkeit, dass der örtliche Organhändler 
+seinem amerikanischen Geschäftspartner in einem zufällig ausgewählten Monat des Jahres 1996 mindestens drei
+Sätze Innereien feilbieten konnte.   Nehmen Sie dazu an, dass die Zufalls-Variable $X$, welche die Anzahl der
+Exekutionen in einem Monat angibt, Poisson-verteilt ist.
 
 
 \subsection{Erwartungswert und Varianz einer Poisson-verteilten Zufalls-Variable}
@@ -2188,8 +2239,8 @@ Die folgende Definition verallgemeinert den Begriff der Varianz.
   $X: \Omega \rightarrow \mathbb{R}$ \quad und \quad
   $Y: \Omega \rightarrow \mathbb{R}$
   \\[0.3cm]
-  zwei Zufallsgrößen, so definieren wir die \blue{Kovarianz} $\mathrm{Cov}[X,Y]$ 
-  der Zufallsgrößen   $X$ und $Y$  als   den Erwartungswert der Zufallsgröße 
+  zwei Zufalls-Variablen, so definieren wir die \blue{Kovarianz} $\mathrm{Cov}[X,Y]$ 
+  der Zufalls-Variablen   $X$ und $Y$  als   den Erwartungswert der Zufalls-Variable 
   \\[0.3cm]
   \hspace*{1.3cm}
   $\omega \mapsto \bigl(X(\omega) - E[X]\bigr) \cdot \bigl(Y(\omega) - E[Y]\bigr)$, 
@@ -2226,7 +2277,7 @@ Die folgende Definition verallgemeinert den Begriff der Varianz.
   $X: \Omega \rightarrow \mathbb{R}$ \quad und \quad
   $Y: \Omega \rightarrow \mathbb{R}$
   \\[0.3cm]
-  zwei \red{unabhängige} Zufallsgrößen, so gilt 
+  zwei \red{unabhängige} Zufalls-Variablen, so gilt 
   \\[0.3cm]
   \hspace*{1.3cm}
   $\mathrm{Cov}(X,Y) = 0$.  \eoxs
@@ -2244,7 +2295,7 @@ Der folgende Satz liefert eine alternative Möglichkeit die Varianz zu berechnen.
   $X: \Omega \rightarrow \mathbb{R}$ \quad und \quad
   $Y: \Omega \rightarrow \mathbb{R}$
   \\[0.3cm]
-  zwei Zufallsgrößen, so gilt 
+  zwei Zufalls-Variablen, so gilt 
   \\[0.3cm]
   \hspace*{1.3cm}
   $\mathrm{Cov}(X,Y) = E[X \cdot Y] - E[X] \cdot E[Y]$.    
@@ -2260,8 +2311,8 @@ Beweisen Sie den letzten Satz. \eox
   $X: \Omega \rightarrow \mathbb{R}$ \quad und \quad
   $Y: \Omega \rightarrow \mathbb{R}$
   \\[0.3cm]
-  zwei Zufallsgrößen, sind weiter $a, b \in \mathbb{R}$, so lässt sich die
-  Varianz der Zufallsgröße 
+  zwei Zufalls-Variablen, sind weiter $a, b \in \mathbb{R}$, so lässt sich die
+  Varianz der Zufalls-Variable 
   \\[0.3cm]
   \hspace*{1.3cm}
   $Z := a \cdot X + b \cdot Y$
