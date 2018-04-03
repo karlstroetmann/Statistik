@@ -289,7 +289,7 @@ erhalten wir die Behauptung mit Hilfe der Ketten-Regel:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds p_Y(t) = \frac{\dx}{\dx t}F_Y(t) = \frac{\dx}{\dx t}F_X\bigl(\psi(t)\bigr) = 
-   \frac{\dx F_X}{\dx t}\bigl(\psi(t)\bigr)\cdot \frac{\dx \psi}{\dx t} = p_X\bigl(\psi(t)\bigr)\cdot \frac{\dx \psi}{\dx t}$. 
+   \frac{\dx F_X}{\dx \psi}\bigl(\psi(t)\bigr)\cdot \frac{\dx \psi}{\dx t} = p_X\bigl(\psi(t)\bigr)\cdot \frac{\dx \psi}{\dx t}$. 
 \qed
 
 \section{Erwartungswert und Varianz stetiger Zufalls-Variablen}
@@ -340,7 +340,7 @@ $\ds E[X] \approx \sum\limits_{k=1}^n x_k \cdot \int_{x_{k-1}}^{x_k} p_X(x)\, \d
 \\[0.2cm]
 Hier können wir die Konstante $x_k$ in das Intergral hineinziehen und durch die Variable
 $x$ ersetzen, denn innerhalb eines Intervalls $[x_{k-1},x_k]$ ändert sich $x$ kaum, wenn
-$n$ groß ist.  Dann haben wir 
+$n$ groß und damit die Intervall-Länge $x_{k} - x_{k-1} = \frac{d-c}{n}$ klein ist.  Dann haben wir 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds E[X] \approx \sum\limits_{k=1}^n  \int_{x_{k-1}}^{x_k} x \cdot p_X(x)\, \dx x = \int_{c}^{d} x \cdot p_X(x)\, \dx x$
