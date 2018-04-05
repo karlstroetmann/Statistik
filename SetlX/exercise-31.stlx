@@ -1,0 +1,8 @@
+lambda := 10.0;
+m := 0;
+p := 0;
+while (p < 0.99) {
+    m += 1;
+    p := +/ [ exp(-lambda) * lambda ** k / k! : k in [0..m] ];
+    print("Wahrscheinlichkeit p = $p$ falls m = $m$.");
+}
