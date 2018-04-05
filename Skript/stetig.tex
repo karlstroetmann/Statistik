@@ -390,11 +390,11 @@ $
 E[X] 
 & = & \ds  \int_0^\infty x \cdot \lambda \cdot \mathrm{e}^{-\lambda \cdot x} \dx x \\[0.3cm]
 &   & \mbox{partielle Integration: $u(x) = x$ und $v'(x) = \lambda \cdot \mathrm{e}^{-\lambda \cdot x}$} \\
-&   & \mbox{also:  \hspace*{2.4cm} $u'(x) = 1$ und $v(x) = - \mathrm{e}^{-\lambda \cdot x}$} \\[0.2cm]
+&   & \mbox{also:  \hspace*{2.2cm} $u'(x) = 1$ und $v(x) = - \mathrm{e}^{-\lambda \cdot x}$} \\[0.2cm]
 & = & \ds \underbrace{-x \cdot \mathrm{e}^{-\lambda \cdot x}\Big|_0^\infty}_0 + 
       \int_0^\infty \mathrm{e}^{-\lambda \cdot x} \dx x                     \\[0.7cm]
 &   & \mbox{denn $\lim\limits_{x \rightarrow \infty} x \cdot \mathrm{e}^{-\lambda \cdot x} = 0$} \\[0.3cm]
-& = & \ds \frac{-1}{\lambda} \cdot \mathrm{e}^{-\lambda \cdot x} \Big|_0^\infty         \\[0.4cm]
+& = & \ds -\frac{1}{\lambda} \cdot \mathrm{e}^{-\lambda \cdot x} \Big|_0^\infty         \\[0.4cm]
 & = & \ds \frac{1}{\lambda} 
 \end{array}
 $
@@ -407,12 +407,12 @@ $
 \var[X] 
 & = & \ds  \int_0^\infty \Bigl(x - \frac{1}{\lambda}\Bigr)^2  \cdot \lambda \cdot \mathrm{e}^{-\lambda \cdot x} \dx x \\[0.3cm]
 &   & \mbox{partielle Integration: $u(x) = (x-\frac{1}{\lambda})^2$ und $v'(x) = \lambda \cdot \mathrm{e}^{-\lambda \cdot x}$} \\
-&   & \mbox{also  \hspace*{2.5cm}  $u'(x) = 2\cdot(x - \frac{1}{\lambda})$ und $v(x) = - \mathrm{e}^{-\lambda \cdot x}$} \\[0.4cm]
+&   & \mbox{also  \hspace*{2.3cm}  $u'(x) = 2\cdot(x - \frac{1}{\lambda})$ und $v(x) = - \mathrm{e}^{-\lambda \cdot x}$} \\[0.4cm]
 & = & \ds - \Bigl(x - \frac{1}{\lambda}\Bigr)^2 \cdot \mathrm{e}^{-\lambda \cdot x}\Big|_0^\infty + 
       2 \cdot \int_0^\infty \Bigl(x - \frac{1}{\lambda}\Bigr) \cdot \mathrm{e}^{-\lambda \cdot x} \dx x                     \\[0.4cm]
 & = & \ds \frac{1}{\lambda^2} + 2 \cdot \int_0^\infty \Bigl(x - \frac{1}{\lambda}\Bigr) \cdot \mathrm{e}^{-\lambda \cdot x} \dx x \\[0.4cm]
 &   & \mbox{partielle Integration: $u(x) = x-\frac{1}{\lambda}$ und $v'(x) = \mathrm{e}^{-\lambda \cdot x}$} \\
-&   & \mbox{also  \hspace*{2.5cm}  $u'(x) = 1$ und $v(x) = - \frac{1}{\lambda} \cdot \mathrm{e}^{-\lambda \cdot x}$} \\[0.4cm]
+&   & \mbox{also  \hspace*{2.3cm}  $u'(x) = 1$ und $v(x) = - \frac{1}{\lambda} \cdot \mathrm{e}^{-\lambda \cdot x}$} \\[0.4cm]
 & = & \ds \frac{1}{\lambda^2} - \left(2 \cdot \Bigl(x-\frac{1}{\lambda}\Bigr) \cdot \frac{1}{\lambda} \cdot \mathrm{e}^{-\lambda \cdot x} \Big|_0^\infty\right) +
       \frac{2}{\lambda} \cdot \int_0^\infty \mathrm{e}^{-\lambda \cdot x} \dx x \\[0.4cm]
 & = & \ds \frac{1}{\lambda^2} - \frac{2}{\lambda^2}  -
@@ -443,7 +443,7 @@ Zufalls-Variable mit Parameter $\lambda$ und schreiben
 $X \sim \mathrm{Exp}(\lambda)$.
 \eoxs
 
-\begin{Definition}[Logistische Verteilung]
+\begin{Definition}[\href{https://de.wikipedia.org/wiki/Logistische_Verteilung}{Logistische Verteilung}]
   Eine Zufalls-Variable $X$ ist \blue{logistisch mit den Parametern $\mu$ und $\sigma$ verteilt}, falls die
   Verteilungs-Funktion $F_X$ die Form
   \\[0.2cm]
@@ -461,6 +461,32 @@ und als \blue{Aktivierungsfunktion} bei den \href{https://de.wikipedia.org/wiki/
 
 \exercise
 Berechnen Sie den Erwartungswert und die Varianz einer logistisch verteilten Zufalls-Variable.
+
+\noindent
+\textbf{Hinweis}:
+Die Berechnung des Erwartungswerts der logistischen Verteilung verläuft ohne Komplikationen.  Bei der
+Berechnung der Varianz sollten Sie sich an die Formel für die geometrische Reihe erinnern:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds\sum\limits_{n=0}^\infty q^n = \frac{1}{1-q}$  \quad falls $|q| < 1$ ist.   
+\\[0.2cm]
+Leiten wir diese Formel auf beiden Seiten nach $q$ ab, so erhalten wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds\sum\limits_{n=1}^\infty n \cdot q^{n-1} = \frac{1}{(1-q)^2}$  \quad falls $|q| < 1$ ist.   
+\\[0.2cm]
+Diese Formel müssen Sie an geeigneter Stelle rückwärts, also von rechts nach links, anwenden.  Schließlich
+sollten Sie sich daran erinnern, dass wir am Ende des zweiten Semesters die Formel
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{n=1}^\infty \frac{1}{n^2} = \frac{\;\pi^2}{6\,}$
+\\[0.2cm]
+bewiesen haben.  Aus dieser Formel lässt sich die Summenformel
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{n=1}^\infty \frac{(-1)^{n+1}}{n^2} = \frac{\;\pi^2}{12\;}$
+\\[0.2cm]
+herleiten und die Varianz der logistischen Verteilung können Sie auf diese Summe zurück führen.
 \eoxs
 
 \begin{Satz} \label{satz:varianz}
@@ -470,7 +496,7 @@ Berechnen Sie den Erwartungswert und die Varianz einer logistisch verteilten Zuf
   \hspace*{1.3cm}
   $\var[X] = E\bigl[X^2\bigr] - \bigl(E[X]\bigr)^2$.
 \end{Satz}
-\proof  Es sei $\mu := E[X] = \int_a^b x \cdot p_X(x)\,\dx x$.  Dann gilt 
+\proof  Es sei $\ds\mu := E[X] = \int_a^b x \cdot p_X(x)\,\dx x$.  Dann gilt 
 \\[0.2cm]
 \hspace*{0.8cm}
 $
@@ -543,7 +569,7 @@ $
 Im allgemeinen Fall kann der Beweis dadurch geführt werden,
 dass wir das Intervall $[a,b]$ in Intervalle zerlegen, in denen die Funktion
 $\varphi$ streng monoton ist.
-\qed
+\qeds
 
 \section{Moment-erzeugende Funktion}
 In diesem Abschnitt führen wir ein Hilfsmittel ein, mit dem wir später die Wahrscheinlichkeits-Dichte für eine
@@ -552,9 +578,9 @@ Reihe wichtiger Zufalls-Variablen berechnen können.  Dieses Hilfsmittel ist die
 Zufalls-Variable $X$.  Der Begriff der moment-erzeugenden Funktion wird außerdem zum Beweis des 
 \blue{zentralen Grenzwert-Satzes} benötigt.
 
-\begin{Definition}[Moment-erzeugende Funktion]
+\begin{Definition}[\href{https://de.wikipedia.org/wiki/Momenterzeugende_Funktion}{Moment-erzeugende Funktion}]
 Es sei $X: [a,b] \rightarrow [c,d]$ eine stetige Zufalls-Variable.
-Dann definieren wir die moment-erzeugende Funktion 
+Dann definieren wir die \blue{moment-erzeugende Funktion}
 \\[0.2cm]
 \hspace*{1.3cm}
 $M_X: \mathbb{R} \rightarrow \mathbb{R}$
@@ -565,7 +591,7 @@ für alle $t \in \mathbb{R}$ als den folgenden Erwartungswert:
 $\ds M_X(t) := E\bigl[\exp(t \cdot X)\bigr] = \int_c^d \exp\bigl(t\cdot x\bigr) \cdot p_X(x)\, \dx x$.
 \\[0.2cm]  
 Dabei haben wir bei der letzten Gleichung Gebrauch von Satz \ref{satz:vartranserw} gemacht.
-\eox
+\eoxs
 \end{Definition}
 
 \begin{Satz}[Verschiebungs-Satz für moment-erzeugende Funktionen]
@@ -590,12 +616,17 @@ Beweisen Sie den Verschiebungs-Satz für moment-erzeugende Funktionen.
 
 \example
 Es sei $\mu\in\mathbb{R}$ und $\sigma\in \mathbb{R}_+$.
-Die Zufalls-Variable $N_{\mu,\sigma}: \Omega \rightarrow \mathbb{R}$ habe die Wahrscheinlichkeits-Dichte
+Die Zufalls-Variable $X: \Omega \rightarrow \mathbb{R}$ habe die Wahrscheinlichkeits-Dichte
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds p_{\Nms}(x) = \frac{1}{\sqrt{2\cdot\pi\;}\!\cdot \sigma} \cdot \exp\left(- \frac{(x-\mu)^2}{2\cdot\sigma^2}\right)$ \quad mit $\sigma > 0$.
+$\ds p_X(x) = \frac{1}{\sqrt{2\cdot\pi\;}\!\cdot \sigma} \cdot \exp\left(- \frac{(x-\mu)^2}{2\cdot\sigma^2}\right)$ \quad mit $\sigma > 0$.
 \\[0.2cm]
-Eine solche Zufalls-Variable heißt \blue{normal-verteilt} mit Parametern $\mu$ und $\sigma$.  
+Eine solche Zufalls-Variable heißt \href{https://de.wikipedia.org/wiki/Normalverteilung}{normal-verteilt} mit
+Parametern $\mu$ und $\sigma$, wir schreiben 
+\\[0.2cm]
+\hspace*{1.3cm}
+$X \sim \mathcal{N}(\mu, \sigma)$ \quad oder auch \quad $X = N_{\mu,\sigma}$.
+\\[0.2cm]
 Wir werden später sehen, dass $\mu$ der Erwartungswert von $N_{\mu,\sigma}$ ist.  Den
 Parameter $\sigma$ werden wir als die Standard-Abweichung von $N_{\mu,\sigma}$ erkennen.
 Wir definieren eine lineare Funktion $\varphi: \mathbb{R} \rightarrow \mathbb{R}$ durch
@@ -673,7 +704,7 @@ M_{\Nms}(t) & = & \ds
 & = & \ds \exp\left( \frac{1}{2} \cdot t^2 \cdot \sigma^2 + \mu \cdot t\right)
 \end{array}
 $
-\qed 
+\qeds
 
 \exercise
 Beweisen Sie die beiden folgenden Eigenschaften einer normal-verteilten Zufalls-Variablen:
@@ -734,7 +765,7 @@ des Produkts unabhängiger Zufallsgrößen $X$ und $Y$ die Gleichung
 \\[0.2cm]
 \hspace*{1.3cm}
 $E[X\cdot Y] = E[X] \cdot E[Y]$.
-\qed
+\qeds
 
 \begin{Satz}
   Ist $f(t) = M_X(t)$ die moment-erzeugende Funktion der Zufallsgröße $X$, und ist
@@ -742,8 +773,8 @@ $E[X\cdot Y] = E[X] \cdot E[Y]$.
   so lassen sich Erwartungswert und Varianz der Zufallsgröße $X$ wie folgt berechnen:
   \\[0.2cm]
   \hspace*{1.3cm}
-  $\ds E[X] = \frac{\dx f}{\dx x}(0)$ \quad und \quad
-  $\ds \var[X] = \frac{\dx^2 f}{\dx x^2}(0) - \bigl(E[X]\bigr)^2$.
+  $\ds E[X] = \frac{\mathrm{d} f}{\mathrm{d} x}(0)$ \quad und \quad
+  $\ds \var[X] = \frac{\mathrm{d}^2 f}{\mathrm{d} x^2}(0) - \bigl(E[X]\bigr)^2$.
 \end{Satz}
 
 \proof Es gilt 
@@ -756,8 +787,8 @@ $
       \int_a^b \exp(t\cdot x) \cdot p_X(t)\, \dx x 
       \\[0.5cm]
 & = & \ds 
-      \int_a^b \sum\limits_{n=0}^\infty \frac{(t\cdot x)^n}{n!} \cdot p_X(t)\, \dx x &
-      \mbox{Taylor-Reihe: $\exp(x) = \sum\limits_{n=0}^\infty \frac{x^n}{n!}$}
+      \int_a^b \sum\limits_{n=0}^\infty \frac{(t\cdot x)^n}{n!} \cdot p_X(t)\, \dx x & \quad
+      \mbox{denn $\ds\exp(x) = \sum\limits_{n=0}^\infty \frac{x^n}{n!}$}
       \\[0.5cm]
 & = & \ds 
       \sum\limits_{n=0}^\infty \frac{t^n}{n!} \cdot \int_a^b x^n \cdot p_X(t)\, \dx x 
@@ -921,12 +952,12 @@ die Summe dieser Faktoren doch annähernd normal-verteilt.
 \exercise
 Die Zufallsgrößen $X_1$ und $X_2$ seien normal-verteilt mit den Erwartungswerten  $\mu_1$ und $\mu_2$ und den Varianzen
 $\sigma_1^2$ und $\sigma_2^2$.  Außerdem seien $X_1$ und $X_2$ unabhängig. 
-Berechnen Sie die Wahrscheinlichkeits-Dichte der Zufallsgröße $X_1 + X_2$.
+Berechnen Sie die Wahrschein\-lichkeits-Dichte der Zufallsgröße $X_1 + X_2$.
 \vspace*{0.2cm}
 
 \noindent
 \textbf{Hinweis}:
-Orientieren Sie sich am Beweis des zentralen Grenzwertsatzes.
+Orientieren Sie sich am Beweis des zentralen Grenzwertsatzes. \eoxs
 
 \section{Die $\chi^2$-Verteilung}
 In diesem Abschnitt gehen wir davon aus, dass $X_1$, $X_2$, $\cdots$, $X_n$  unabhängige 
@@ -934,7 +965,7 @@ Zufalls-Variablen sind, die alle einer standardisierten Normalverteilung genügen
 $X_i$ gilt also 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P(X_i \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x \exp\biggl(-\frac{t^2}{2}\biggr)\dx t$
+$\ds P(X_i \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x \exp\biggl(-\frac{t^2}{2}\biggr)\mathrm{d} t$.
 \\[0.2cm]
 Die Zufalls-Variable $Z$ ist dann als 
 \\[0.2cm]
@@ -1056,7 +1087,7 @@ benötigen wir zwei Definitionen.
 das folgende Integral definiert:
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \Gamma(x) := \int_0^\infty t^{x-1} \cdot \mathrm{e}^{-t} \, \dx t$. \eox
+$\ds \Gamma(x) := \int_0^\infty t^{x-1} \cdot \mathrm{e}^{-t} \, \dx t$. \eoxs
 \end{Definition}
 
 \exercise
@@ -1081,27 +1112,27 @@ Weisen Sie die folgenden Eigenschaften der Gamma-Funktion nach:
 
       Die letzte Eigenschaft zeigt, dass die Gamma-Funktion als eine Erweiterung
       der Fakultäts-Funktion auf die positiven reellen Zahlen aufgefasst werden kann. 
-      \eox
+      \eoxs
 \end{enumerate}
 \renewcommand{\labelenumi}{\arabic{enumi}.}
 
 \begin{Definition}[Gamma-Verteilung]
   Eine Zufalls-Variable $Y$ genügt einer \blue{Gamma-Verteilung mit Parametern $\alpha$ und $\beta$},
-  falls für die Wahrscheinlichkeits-Dichte $p_Y$ gilt 
+  falls für die Wahrscheinlichkeits-Dichte $p_Y$ gilt: 
   \\[0.2cm]
   \hspace*{1.3cm}
   $p_Y(x) = \left\{
   \begin{array}[c]{ll}
      \ds 
        \frac{x^{\alpha-1} \cdot \exp\left(\ds -\frac{x}{\beta}\right)}{\beta^\alpha \cdot \Gamma(\alpha)} 
-     & \mbox{für $x>0$}; \\[0.2cm]
-     0 & \mbox{für $x \leq 0$}
+     & \mbox{für $x>0$}; \\[0.5cm]
+     0 & \mbox{für $x \leq 0$.}
   \end{array}\right.
   $ 
   \\[0.2cm]
   Die Parameter $\alpha$ und $\beta$ sind dabei positive reelle Zahlen.  
   In diesem Fall schreiben wir $Y \sim \Gamma(\alpha,\beta)$.
-\eox
+  \eoxs
 \end{Definition}
 
 \exercise
@@ -1163,11 +1194,8 @@ Also hat die moment-erzeugende Funktion für eine Zufalls-Variable $Y$, die einer
 Parametern $\alpha$ und $\beta$ genügt, die Form
 \begin{equation}
   \label{eq:chi-square3}
-  M_Y(t) = (1 - \beta \cdot t)^{-\alpha}
+  M_Y(t) = (1 - \beta \cdot t)^{-\alpha}.
 \end{equation}
-
-
-\noindent
 Wir lösen nun unser eigentliches Problem, nämlich die Berechnung der Wahrscheinlichkeits-Dichte
 einer Zufalls-Variable $Z$, die aus $n$ unabhängigen, standard-normal-verteilten Zufalls-Variablen
 $X_i$ nach der Formel
@@ -1248,7 +1276,7 @@ t)^{\textstyle -\frac{n}{2}} = (1- 2 \cdot t)^{\textstyle -\frac{m+n}{2}}$.
 Dies ist aber genau die moment-erzeugende Funktion einer Zufalls-Variable, die einer
 $\chi^2$-Verteilung mit $m+n$ Freiheitsgraden genügt.   Daher folgt die Behauptung nun aus
 dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig}. \qed
-\vspace*{0.3cm}
+
 
 \noindent
 \textbf{Bemerkung}:  Der obige Satz lässt sich leicht auf die Summe von mehr als zwei
@@ -1307,17 +1335,17 @@ $M_V(t) = (1- 2 \cdot t)^{\textstyle -\frac{n}{2}}$.
 Dies ist aber genau die moment-erzeugende Funktion einer $\chi^2$-verteilten
 Zufalls-Variable.  Nach dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig} hat die
 Zufalls-Variable $V$ also eine $\chi^2$-Verteilung mit $n$ Freiheitsgraden.
-\qed 
-\vspace*{0.3cm}
+\qeds
 
 \exercise
 Nehmen Sie an, dass die Zufalls-Variable $X$ einer $\chi^2$-Verteilung mit $n$ Freiheitsgraden genügt.
 Berechnen Sie Erwartungswert und Varianz von $X$.
-\vspace*{0.3cm}
+\eoxs
 
 \exercise
 Es sei $X$ eine Zufalls-Variable, die einer $\chi^2$-Verteilung mit $4$ Freiheitsgraden
 genügt.  Berechnen Sie die Verteilungs-Funktion $F_X$.
+\eoxs
 
 %%% Local Variables: 
 %%% mode: latex
