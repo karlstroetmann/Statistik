@@ -443,6 +443,26 @@ Zufalls-Variable mit Parameter $\lambda$ und schreiben
 $X \sim \mathrm{Exp}(\lambda)$.
 \eoxs
 
+\begin{Definition}[Logistische Verteilung]
+  Eine Zufalls-Variable $X$ ist \blue{logistisch mit den Parametern $\mu$ und $\sigma$ verteilt}, falls die
+  Verteilungs-Funktion $F_X$ die Form
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds F_X(x) = \frac{1}{\ds 1 + \exp\Bigl(-\frac{x-\mu}{\sigma}\Bigr)}$
+  \\[0.2cm]
+  hat.  In diesem Fall schreiben wir
+  $X \sim \mathrm{Log}(\mu, \sigma)$.  \eox
+\end{Definition}
+
+\remark
+Die logistische Verteilung spielt später in der \href{https://de.wikipedia.org/wiki/Logistische_Regression}{logistischen Regression}
+und als \blue{Aktivierungsfunktion} bei den \href{https://de.wikipedia.org/wiki/Künstliches_Neuron}{Neuronen} eines
+\blue{neuronalen Netzes} eine wichtige Rolle. \eoxs
+
+\exercise
+Berechnen Sie den Erwartungswert und die Varianz einer logistisch verteilten Zufalls-Variable.
+\eoxs
+
 \begin{Satz} \label{satz:varianz}
   Es sei $X:\Omega \rightarrow [a,b]$ eine Zufalls-Variable mit Wahrscheinlichkeits-Dichte $p_X(t)$. 
   Dann kann die Varianz $\var[X]$ wie folgt berechnet werden: 
