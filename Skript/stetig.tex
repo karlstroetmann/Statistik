@@ -448,10 +448,10 @@ $X \sim \mathrm{Exp}(\lambda)$.
   Verteilungs-Funktion $F_X$ die Form
   \\[0.2cm]
   \hspace*{1.3cm}
-  $\ds F_X(x) = \frac{1}{\ds 1 + \exp\Bigl(-\frac{x-\mu}{\sigma}\Bigr)}$
+  $\ds F_X(x) = \frac{1}{\ds 1 + \exp\Bigl(-\frac{x-\mu}{s}\Bigr)}$
   \\[0.2cm]
   hat.  In diesem Fall schreiben wir
-  $X \sim \mathrm{Log}(\mu, \sigma)$.  \eox
+  $X \sim \mathrm{Log}(\mu, s)$.  \eox
 \end{Definition}
 
 \remark
@@ -461,33 +461,58 @@ und als \blue{Aktivierungsfunktion} bei den \href{https://de.wikipedia.org/wiki/
 
 \exercise
 Berechnen Sie den Erwartungswert und die Varianz einer logistisch verteilten Zufalls-Variable.
-
-\noindent
-\textbf{Hinweis}:
-Die Berechnung des Erwartungswerts der logistischen Verteilung verläuft ohne Komplikationen.  Bei der
-Berechnung der Varianz sollten Sie sich an die Formel für die geometrische Reihe erinnern:
-\\[0.2cm]
-\hspace*{1.3cm}
-$\ds\sum\limits_{n=0}^\infty q^n = \frac{1}{1-q}$  \quad falls $|q| < 1$ ist.   
-\\[0.2cm]
-Leiten wir diese Formel auf beiden Seiten nach $q$ ab, so erhalten wir
-\\[0.2cm]
-\hspace*{1.3cm}
-$\ds\sum\limits_{n=1}^\infty n \cdot q^{n-1} = \frac{1}{(1-q)^2}$  \quad falls $|q| < 1$ ist.   
-\\[0.2cm]
-Diese Formel müssen Sie an geeigneter Stelle rückwärts, also von rechts nach links, anwenden.  Schließlich
-sollten Sie sich daran erinnern, dass wir am Ende des zweiten Semesters die Formel
-\\[0.2cm]
-\hspace*{1.3cm}
-$\ds \sum\limits_{n=1}^\infty \frac{1}{n^2} = \frac{\;\pi^2}{6\,}$
-\\[0.2cm]
-bewiesen haben.  Aus dieser Formel lässt sich die Summenformel
-\\[0.2cm]
-\hspace*{1.3cm}
-$\ds \sum\limits_{n=1}^\infty \frac{(-1)^{n+1}}{n^2} = \frac{\;\pi^2}{12\;}$
-\\[0.2cm]
-herleiten und die Varianz der logistischen Verteilung können Sie auf diese Summe zurück führen.
-\eoxs
+Beachten Sie dabei die folgenden \textbf{Hinweise}.
+\begin{enumerate}[(a)]
+\item Es ist am einfachsten, wenn Sie zunächst den Erwartungs-Wert und die Varianz einer Zufalls-Variable $X$
+      berechnen, für die $X \sim \mathrm{Log}(0,1)$ gilt.  Ist $Y$ dann eine Zufalls-Variable, für die
+      $Y \sim \mathrm{Log}(\mu, s)$ gilt, so zeigt der Satz \ref{satz:vartrans}, dass $Y = \varphi \circ X$
+      ist, falls Sie 
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\varphi(x) := s \cdot x + \mu$
+      \\[0.2cm]
+      definieren.  Mit Hilfe des Verschiebungs-Satzes können Sie anschließend $E[Y]$ und $\mathrm{Var}[Y]$ bestimmen.
+\item Bei der Berechnung von Erwartungs-Wert und Varianz der Zufalls-Variable $X$ sollten Sie ausnutzen, dass die Funktion
+      $p_X$ eine \blue{gerade Funktion} ist, es gilt also
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $p_X(-x) = p_X(x)$.
+      \\[0.2cm]
+      In der Analysis hatten wir gesehen, dass
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds \int\limits_{-a}^a f(x) \mathrm{d}x = 2 \cdot \int\limits_0^a f(x) \mathrm{d}x$
+      \\[0.2cm]
+      ist, falls die Funktion $f$ gerade ist.  Ist die Funktion $f$ hingegen ungerade, gilt also $f(-x) = -f(x)$, 
+      so haben wir
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds \int\limits_{-a}^a f(x) \mathrm{d}x = 0$.
+\item Die Berechnung des Erwartungswerts $E[X]$ verläuft ohne Komplikationen.  Bei der
+      Berechnung der Varianz sollten Sie sich an die Formel für die geometrische Reihe erinnern:
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds\sum\limits_{n=0}^\infty q^n = \frac{1}{1-q}$  \quad falls $|q| < 1$ ist.   
+      \\[0.2cm]
+      Leiten wir diese Formel auf beiden Seiten nach $q$ ab, so erhalten wir
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds\sum\limits_{n=1}^\infty n \cdot q^{n-1} = \frac{1}{(1-q)^2}$  \quad falls $|q| < 1$ ist.   
+      \\[0.2cm]
+      Diese Formel müssen Sie an geeigneter Stelle rückwärts, also von rechts nach links, anwenden.  
+\item Schließlich sollten Sie sich daran erinnern, dass wir am Ende des zweiten Semesters die Formel
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds \sum\limits_{n=1}^\infty \frac{1}{n^2} = \frac{\;\pi^2}{6\,}$
+      \\[0.2cm]
+      bewiesen haben.  Aus dieser Formel lässt sich die Summenformel
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\ds \sum\limits_{n=1}^\infty \frac{(-1)^{n+1}}{n^2} = \frac{\;\pi^2}{12\;}$
+      \\[0.2cm]
+      herleiten und $\mathrm{Var}[X]$ kann auf diese Summe zurück geführt werden.
+      \eoxs
+\end{enumerate}
 
 \begin{Satz} \label{satz:varianz}
   Es sei $X:\Omega \rightarrow [a,b]$ eine Zufalls-Variable mit Wahrscheinlichkeits-Dichte $p_X(t)$. 
@@ -599,7 +624,7 @@ Es sei $X:\Omega \rightarrow \mathbb{R}$ eine Zufalls-Variable, $a \in \mathbb{R
 Definieren wir die Zufalls-Variable $Y:\Omega \rightarrow \mathbb{R}$ als
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds Y(\omega) = \frac{X + a}{b}$,
+$\ds Y(\omega) = \frac{X(\omega) + a}{b}$,
 \\[0.2cm]
 so gilt 
 \\[0.2cm]
@@ -639,8 +664,8 @@ Die Umkehrfunktion $\psi$ von $\varphi$ ist dann
 \hspace*{1.3cm}
 $\ds \psi(y) = y\cdot \sigma + \mu$.
 \\[0.2cm]
-Definieren  wir die Zufallsgröße $N_{0,1}$ durch $N_{0,1} = \varphi \circ N_{\mu,\sigma}$ so folgt nach Satz \ref{satz:vartrans}
-für die Wahrscheinlichkeits-Dichte $p_N$:
+Definieren  wir die Zufallsgröße $N_{0,1}$ durch $N_{0,1} := \varphi \circ N_{\mu,\sigma}$ so folgt nach Satz \ref{satz:vartrans}
+für die Wahrschein\-lichkeits-Dichte $p_N$:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds p_{N_{0,1}}(y) = p_{\Nms}(y\cdot \sigma + \mu) \cdot \sigma =  \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(- \frac{y^2}{2}\right)$.
@@ -704,7 +729,7 @@ M_{\Nms}(t) & = & \ds
 & = & \ds \exp\left( \frac{1}{2} \cdot t^2 \cdot \sigma^2 + \mu \cdot t\right)
 \end{array}
 $
-\qeds
+\eoxs
 
 \exercise
 Beweisen Sie die beiden folgenden Eigenschaften einer normal-verteilten Zufalls-Variablen:
@@ -777,21 +802,21 @@ $E[X\cdot Y] = E[X] \cdot E[Y]$.
   $\ds \var[X] = \frac{\mathrm{d}^2 f}{\mathrm{d} x^2}(0) - \bigl(E[X]\bigr)^2$.
 \end{Satz}
 
-\proof Es gilt 
+\proof Es sei $X:\Omega \rightarrow [a,b]$.  Dann gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 \begin{array}[b]{lcll}
       M_X(t) 
 & = & \ds 
-      \int_a^b \exp(t\cdot x) \cdot p_X(t)\, \dx x 
+      \int_a^b \exp(t\cdot x) \cdot p_X(x)\, \dx x 
       \\[0.5cm]
 & = & \ds 
-      \int_a^b \sum\limits_{n=0}^\infty \frac{(t\cdot x)^n}{n!} \cdot p_X(t)\, \dx x & \quad
+      \int_a^b \sum\limits_{n=0}^\infty \frac{(t\cdot x)^n}{n!} \cdot p_X(x)\, \dx x & \quad
       \mbox{denn $\ds\exp(x) = \sum\limits_{n=0}^\infty \frac{x^n}{n!}$}
       \\[0.5cm]
 & = & \ds 
-      \sum\limits_{n=0}^\infty \frac{t^n}{n!} \cdot \int_a^b x^n \cdot p_X(t)\, \dx x 
+      \sum\limits_{n=0}^\infty \frac{t^n}{n!} \cdot \int_a^b x^n \cdot p_X(x)\, \dx x 
       \\[0.5cm]
 & = & \ds 
       \sum\limits_{n=0}^\infty \frac{t^n}{n!} \cdot E\bigl[X^n\bigr] 
@@ -836,14 +861,14 @@ $\forall m,n\in\mathbb{N}: p_{X_m}(t) = p_{X_n}(t)$.
 Weiter gelte 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\mu = E[X_n]$ \quad und \quad $\sigma^2 = \var[X_n]$.
+$\mu = E[X_n]$ \quad und \quad $\sigma^2 = \var[X_n]$ \quad für alle $n \in \mathbb{N}$.
 \\[0.2cm]
-Definieren wir die Zufallsgrößen $S_n$ durch 
+Definieren wir für $n \in \mathbb{N}$ die Zufallsgrößen $S_n$ durch 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds S_n = \frac{1}{\sigma \cdot \sqrt{n}} \cdot \sum\limits_{k=1}^n \left(X_k - \mu\right)$,
 \\[0.2cm]
-so konvergieren die Wahrscheinlichkeits-Dichten $p_{S_n}$ der Zufallsgrößen $S_n$ gegen die Normal-Verteilung, es gilt 
+so konvergieren die Wahrscheinlichkeits-Dichten $p_{S_n}$ der Zufallsgrößen $S_n$ gegen die Normal-Verteilung, es gilt also
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \lim\limits_{n \rightarrow \infty} p_{S_n}(t) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\left(-\frac{1}{2} \cdot t^2\right)$.
