@@ -759,6 +759,7 @@ in der Analysis nicht mehr behandelt haben, können wir hier die Details dieses B
 diskutieren.  Trotzdem ist der Satz für unsere weitere Arbeit ein wichtiges Hilfsmittel,
 denn er gestattet uns, die Wahrscheinlichkeits-Dichten bestimmter Zufallsgrößen durch Berechnung 
 der moment-erzeugenden Funktion zu berechnen.
+\pagebreak
 
 \begin{Satz} \label{satz:moment-unabhaengig}
 Es seien  $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei \red{unabhängige} Zufallsgrößen.
@@ -884,11 +885,21 @@ Es sei $f_k$ die moment-erzeugende Funktion der Zufallsgröße
  $\ds Y_k := \frac{X_k - \mu}{\sigma \cdot \sqrt{n}}$, \quad also
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds f_k(t) = M_{Y_k}(t) = E\left[\exp\left(t \cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot (X_k - \mu)\right)\right]$.
+$\ds f_k(t) := M_{Y_k}(t) = E\left[\exp\left(t \cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot (X_k - \mu)\right)\right]$.
 \\[0.2cm]
 Da die Zufallsgrößen $X_n$ alle dieselbe Wahrscheinlichkeits-Dichte haben, sind auch die 
-moment-erzeugenden Funktionen $M_{Y_k}$ für alle $k$ gleich, so dass wir den Index $k$ bei der 
-Funktion $f_k$ weglassen können.  Für die moment-erzeugende Funktion $M_{S_n}$ finden wir jetzt
+moment-erzeugenden Funktionen $M_{Y_k}$ für alle $k$ gleich:
+\\[0.2cm]
+\hspace*{1.3cm}
+$\forall k,l \in \mathbb{N}: f_k = f_l$.
+\\[0.2cm]
+Daher können wir den Index $k$ bei der 
+Funktion $f_k$ weglassen und 
+\\[0.2cm]
+\hspace*{1.3cm}
+$f := f_k$
+\\[0.2cm]
+definieren.  Für die moment-erzeugende Funktion $M_{S_n}$ finden wir jetzt das Folgende:
 \\[0.2cm]
 \hspace*{1.3cm}
 $
@@ -908,7 +919,7 @@ $
 \end{array}
 $
 \\[0.2cm]
-In der Definition der Funktion $f$ ersetzen wir die Exponential-Funktion durch die Taylor-Reihe 
+In der Definition der moment-erzeugenden Funktion $f$ ersetzen wir die Exponential-Funktion durch die Taylor-Reihe 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \exp(x) = \sum\limits_{i=0}^\infty \frac{x^i}{i!}$
@@ -930,7 +941,7 @@ $
       \;+\; \frac{1}{2} \cdot \frac{t^2}{\sigma^2 \cdot n} \cdot E\bigl[(X_k - \mu)^2\bigr] \\[0.6cm]
 &   & \ds+\; \frac{1}{6} \cdot \frac{t^3}{\sigma^3 \cdot n \cdot \sqrt{n}} \cdot E\bigl[(X_k - \mu)^3\bigr] \;+\; \cdots
       \\[0.5cm]
-& \approx & \ds
+& \xrightarrow{\scriptsize n \rightarrow \infty} & \ds
       1 \;+\; \frac{1}{2} \cdot \frac{t^2}{\sigma^2 \cdot n} \cdot E\bigl[(X_k - \mu)^2\bigr] 
       \\[0.5cm]
 & = & \ds
@@ -953,11 +964,21 @@ $
 & = & \ds \lim\limits_{n \rightarrow \infty} 
       \left(1 \;+\; \frac{1}{2} \cdot \frac{t^2}{n}\right)^n \\[0.3cm] 
 & = & \ds 
-      \exp\left(\frac{1}{2} \cdot t^2\right) \\[0.3cm] 
+      \exp\left(\frac{1}{2} \cdot t^2\right), \\[0.3cm] 
 \end{array}
 $
 \\[0.2cm]
-Das ist aber gerade die moment-erzeugende Funktion einer Zufallsgröße mit der Wahrscheinlichkeits-Dichte
+denn wir erinnern uns, dass wir in der Analysis gezeigt haben, dass
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds\lim\limits_{n \rightarrow \infty} \Bigl(1 + \frac{x}{n}\Bigr)^n = \exp(x)$
+\\[0.2cm]
+gilt.  Die Funktion
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds x \mapsto \exp\Bigl(\frac{1}{2} \cdot t^2\Bigr)$
+\\[0.2cm]
+ist aber gerade die moment-erzeugende Funktion einer Zufallsgröße mit der Wahrscheinlichkeits-Dichte
 $N(0,1)$.  Aus dem Eindeutigkeits-Satz für die moment-erzeugenden Funktionen folgt nun 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -977,7 +998,7 @@ die Summe dieser Faktoren doch annähernd normal-verteilt.
 
 \exercise
 Die Zufallsgrößen $X_1$ und $X_2$ seien normal-verteilt mit den Erwartungswerten  $\mu_1$ und $\mu_2$ und den Varianzen
-$\sigma_1^2$ und $\sigma_2^2$.  Außerdem seien $X_1$ und $X_2$ unabhängig. 
+$\sigma_1^2$ und $\sigma_2^2$.  Außerdem seien $X_1$ und $X_2$ \red{unabhängig}. 
 Berechnen Sie die Wahrschein\-lichkeits-Dichte der Zufallsgröße $X_1 + X_2$.
 \vspace*{0.2cm}
 
@@ -985,21 +1006,26 @@ Berechnen Sie die Wahrschein\-lichkeits-Dichte der Zufallsgröße $X_1 + X_2$.
 \textbf{Hinweis}:
 Orientieren Sie sich am Beweis des zentralen Grenzwertsatzes. \eoxs
 
-\section{Die $\chi^2$-Verteilung}
+\section{Die \href{https://de.wikipedia.org/wiki/Chi-Quadrat-Verteilung}{Chi-Quadrat-Verteilung}}
 In diesem Abschnitt gehen wir davon aus, dass $X_1$, $X_2$, $\cdots$, $X_n$  unabhängige 
 Zufalls-Variablen sind, die alle einer standardisierten Normalverteilung genügen, für die einzelnen
-$X_i$ gilt also 
+Zufalls-Variablen $X_k$ gilt also $X_k \sim \mathcal{N}(0, 1)$ für alle $k=1,\cdots,n$.  Diesen Sachverhalt können wir auch als
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P(X_i \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x \exp\biggl(-\frac{t^2}{2}\biggr)\mathrm{d} t$.
+$\ds P(X_i \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x
+\exp\biggl(-\frac{t^2}{2}\biggr)\mathrm{d} t$ \quad für alle $k=1,\cdots,n$
 \\[0.2cm]
-Die Zufalls-Variable $Z$ ist dann als 
+schreiben.  Die Zufalls-Variable $Z$ ist dann als 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds Z(\omega) = \sum\limits_{i=1}^n X_i^2(\omega)$
 \\[0.2cm]
-definiert und hat eine \href{https://de.wikipedia.org/wiki/Chi-Quadrat-Verteilung}{$\chi^2$-Verteilung}.  Die
-Zahl $n$ wird auch als der \blue{Freiheitsgrad} der $\chi^2$-Verteilung bezeichnet. 
+definiert und hat eine \href{https://de.wikipedia.org/wiki/Chi-Quadrat-Verteilung}{$\chi^2$-Verteilung mit dem
+Freiheitsgrad $n$}, wir schreiben
+\\[0.2cm]
+\hspace*{1.3cm}
+$Z \sim \chi^2(n)$.
+\\[0.2cm] 
 Unser Ziel ist es, die Wahrscheinlichkeits-Dichte $p_Z$ für die Zufalls-Variable $Z$
 zu berechnen.  Wir beginnen mit dem Spezialfall $n=1$.
 
@@ -1046,7 +1072,7 @@ $F_{X^2}(x) = 2 \cdot \Phi\bigl(\sqrt{x}\bigr) - 1$.
 Verteilungs-Funktion nach $x$ differenzieren.  Wegen
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \frac{\mathrm{d} \Phi}{\mathrm{d}x}(x) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\bigl(-x^2/2\bigr)$
+$\ds \frac{\mathrm{d} \Phi}{\mathrm{d}x} = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\bigl(-x^2/2\bigr)$
 \\[0.2cm]
 finden wir:
 \\[0.2cm]
@@ -1109,8 +1135,8 @@ Wir halten das Ergebnis fest:
 Um unser eigentliches Problem lösen zu können,
 benötigen wir zwei Definitionen.
 
-\begin{Definition}[Gamma-Funktion] Die Gamma-Funktion ist für positive reelle Zahlen $x$ als
-das folgende Integral definiert:
+\begin{Definition}[\href{https://de.wikipedia.org/wiki/Gammafunktion}{Gamma-Funktion}] 
+Die \blue{Gamma-Funktion} ist für positive reelle Zahlen $x$ als das folgende Integral definiert:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \Gamma(x) := \int_0^\infty t^{x-1} \cdot \mathrm{e}^{-t} \, \dx t$. \eoxs
@@ -1142,7 +1168,7 @@ Weisen Sie die folgenden Eigenschaften der Gamma-Funktion nach:
 \end{enumerate}
 \renewcommand{\labelenumi}{\arabic{enumi}.}
 
-\begin{Definition}[Gamma-Verteilung]
+\begin{Definition}[\href{https://de.wikipedia.org/wiki/Gammaverteilung}{Gamma-Verteilung}]
   Eine Zufalls-Variable $Y$ genügt einer \blue{Gamma-Verteilung mit Parametern $\alpha$ und $\beta$},
   falls für die Wahrscheinlichkeits-Dichte $p_Y$ gilt: 
   \\[0.2cm]
@@ -1267,8 +1293,10 @@ Wir formulieren dieses Ergebnis als Satz.  Vorher benötigen wir noch eine Defini
   $\ds p_Z(x) = \frac{1}{A_n} \cdot x^{n/2-1} \cdot \exp\left( -\frac{x}{2}\right)$ \quad mit
   $\ds A_n = 2^{n/2} \cdot \Gamma\left(\frac{n}{2}\right)$.
   \\[0.2cm]
-  Eine Zufalls-Variable mit dieser Wahrscheinlichkeits-Dichte heißt
-  \blue{$\chi^2$-verteilt mit $n$ Freiheitsgraden}. \eox
+Zusammenfassend können wir auch sagen: Ist $Z$ eine Zufalls-Variable, so gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds Z \sim \chi^2(n) \;\Rightarrow\; Z \sim \Gamma\Bigl(\frac{n}{2},2\Bigr)$. \eox
 \end{Satz}
 
 \noindent
