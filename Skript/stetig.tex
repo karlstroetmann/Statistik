@@ -650,10 +650,10 @@ Eine solche Zufalls-Variable heißt \href{https://de.wikipedia.org/wiki/Normalver
 Parametern $\mu$ und $\sigma$, wir schreiben 
 \\[0.2cm]
 \hspace*{1.3cm}
-$X \sim \mathcal{N}(\mu, \sigma)$ \quad oder auch \quad $X = N_{\mu,\sigma}$.
+$X \sim \mathcal{N}(\mu, \sigma)$.
 \\[0.2cm]
-Wir werden später sehen, dass $\mu$ der Erwartungswert von $N_{\mu,\sigma}$ ist.  Den
-Parameter $\sigma$ werden wir als die Standard-Abweichung von $N_{\mu,\sigma}$ erkennen.
+Wir werden später sehen, dass $\mu$ der Erwartungswert von $X$ ist.  Den
+Parameter $\sigma$ werden wir als die Standard-Abweichung von $X$ erkennen.
 Wir definieren eine lineare Funktion $\varphi: \mathbb{R} \rightarrow \mathbb{R}$ durch
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -664,18 +664,18 @@ Die Umkehrfunktion $\psi$ von $\varphi$ ist dann
 \hspace*{1.3cm}
 $\ds \psi(y) = y\cdot \sigma + \mu$.
 \\[0.2cm]
-Definieren  wir die Zufallsgröße $N_{0,1}$ durch $N_{0,1} := \varphi \circ N_{\mu,\sigma}$ so folgt nach Satz \ref{satz:vartrans}
-für die Wahrschein\-lichkeits-Dichte $p_N$:
+Definieren  wir die Zufalls-Variable $Y$ durch $Y := \varphi \circ X$ so folgt nach Satz \ref{satz:vartrans}
+für die Wahrschein\-lichkeits-Dichte $p_Y$:
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds p_{N_{0,1}}(y) = p_{\Nms}(y\cdot \sigma + \mu) \cdot \sigma =  \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(- \frac{y^2}{2}\right)$.
+$\ds p_Y(y) = p_X(y\cdot \sigma + \mu) \cdot \sigma =  \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(- \frac{y^2}{2}\right)$.
 \\[0.2cm]
-Die moment-erzeugende Funktion von $N_{0,1}$ erhalten wir wie folgt:
+Die moment-erzeugende Funktion von $Y$ erhalten wir wie folgt:
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 \begin{array}[t]{lcl}
- M_{N_{0,1}}(t) 
+ M_{Y}(t) 
 & = & \ds
       \int_{-\infty}^\infty \exp(t\cdot x) \cdot \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(- \frac{x^2}{2}\right)\, \dx x 
       \\[0.5cm]
@@ -712,19 +712,19 @@ $
 \end{array}
 $
 \\[0.2cm]
-Zwischen der Zufallsgröße $N_{\mu,\sigma}$ und der Zufallsgröße $N_{0,1}$ besteht der Zusammenhang 
+Zwischen der Zufalls-Variable $X$ und der Zufalls-Variable $Y$ besteht der Zusammenhang 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds N_{\mu,\sigma} = \psi \circ N_{0,1} = N_{0,1} \cdot \sigma + \mu = \left(N_{0,1} + \frac{\mu}{\sigma}\right)\cdot \sigma = 
-   \left(N_{0,1} + \frac{\mu}{\sigma}\right)\cdot \frac{1}{\textstyle \frac{1}{\sigma}}$
+$\ds X = \psi \circ Y = Y \cdot \sigma + \mu = \left(Y + \frac{\mu}{\sigma}\right)\cdot \sigma = 
+   \left(Y + \frac{\mu}{\sigma}\right)\cdot \frac{1}{\textstyle \frac{1}{\sigma}}$
 \\[0.2cm]
 Nach dem Verschiebungs-Satz für moment-erzeugende Funktionen gilt daher 
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 \begin{array}[b]{lcl} 
-M_{\Nms}(t) & = & \ds 
-\exp(\mu \cdot t) \cdot M_{N_{0,1}}\bigl(t \cdot \sigma\bigr) \\[0.3cm]
+M_X(t) & = & \ds 
+\exp(\mu \cdot t) \cdot M_{Y}\bigl(t \cdot \sigma\bigr) \\[0.3cm]
 & = & \ds \exp(\mu \cdot t ) \cdot \exp\left( \frac{1}{2} \cdot t^2 \cdot \sigma^2\right) \\[0.3cm]
 & = & \ds \exp\left( \frac{1}{2} \cdot t^2 \cdot \sigma^2 + \mu \cdot t\right)
 \end{array}
@@ -732,15 +732,15 @@ $
 \eoxs
 
 \exercise
-Beweisen Sie die beiden folgenden Eigenschaften einer normal-verteilten Zufalls-Variablen:
+Beweisen Sie die beiden folgenden Eigenschaften einer normal-verteilten Zufalls-Variablen
+$X\sim\mathcal{N}(\mu,\sigma)$: 
 \\[0.2cm]
 \hspace*{1.3cm}
-$E\bigl[N_{\mu,\sigma}\bigr] = \mu$ \quad und \quad
-$\var\bigl[N_{\mu,\sigma}\bigr] = \sigma^2$.  \eoxs
+$E\bigl[X\bigr] = \mu$ \quad und \quad $\var\bigl[X\bigr] = \sigma^2$.  \eoxs
 
 
 \begin{Satz}[Eindeutigkeits-Satz] \label{satz:moment-eindeutig}
-Es seien $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei Zufallsgrößen und
+Es seien $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei Zufalls-Variablen und
 für die moment-erzeugenden Funktionen $M_X$ und $M_Y$ gelte 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -753,17 +753,17 @@ $p_X(t) = p_Y(t)$ \quad für alle $t \in \mathbb{R}$. \eox
 \end{Satz}
 
 \noindent
-Der Beweis dieses Satzes gelingt, indem die moment-erzeugende Funktion einer Zufallsgröße
+Der Beweis dieses Satzes gelingt, indem die moment-erzeugende Funktion einer Zufalls-Variable
 auf die Fourier-Transformierte zurückgeführt wird.  Da wir die Fourier-Transformation
 in der Analysis nicht mehr behandelt haben, können wir hier die Details dieses Beweises nicht 
 diskutieren.  Trotzdem ist der Satz für unsere weitere Arbeit ein wichtiges Hilfsmittel,
-denn er gestattet uns, die Wahrscheinlichkeits-Dichten bestimmter Zufallsgrößen durch Berechnung 
+denn er gestattet uns, die Wahrscheinlichkeits-Dichten bestimmter Zufalls-Variablen durch Berechnung 
 der moment-erzeugenden Funktion zu berechnen.
 \pagebreak
 
 \begin{Satz} \label{satz:moment-unabhaengig}
-Es seien  $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei \red{unabhängige} Zufallsgrößen.
-Dann lässt sich die moment-erzeugende Funktion der Zufallsgröße $X + Y$ als Produkt der
+Es seien  $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei \red{unabhängige} Zufalls-Variablen.
+Dann lässt sich die moment-erzeugende Funktion der Zufalls-Variable $X + Y$ als Produkt der
 moment-erzeugenden Funktionen von $X$ und $Y$ schreiben:
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -785,22 +785,45 @@ $
 \end{array}
 $
 \\[0.2cm]
-Hier haben wir im vorletzten Schritt ausgenutzt, dass mit $X$ und $Y$ auch die Zufallsgrößen
+Hier haben wir im vorletzten Schritt ausgenutzt, dass mit $X$ und $Y$ auch die Zufalls-Variablen
 $\exp(t\cdot X)$ und $\exp(t\cdot Y)$ unabhängig sind.  Genau wir im diskreten Fall auch gilt für den Erwartungswert
-des Produkts unabhängiger Zufallsgrößen $X$ und $Y$ die Gleichung 
+des Produkts unabhängiger Zufalls-Variablen $X$ und $Y$ die Gleichung 
 \\[0.2cm]
 \hspace*{1.3cm}
 $E[X\cdot Y] = E[X] \cdot E[Y]$.
 \qeds
 
-\begin{Satz}
-  Ist $f(t) = M_X(t)$ die moment-erzeugende Funktion der Zufallsgröße $X$, und ist
-  die Funktion $f$ zweimal differenzierbar,
-  so lassen sich Erwartungswert und Varianz der Zufallsgröße $X$ wie folgt berechnen:
+\begin{Definition}[\href{https://de.wikipedia.org/wiki/Moment_(Stochastik)}{Moment}]
+  Es sei $X$ eine Zufalls-Variable.  Das \blue{$n$-te Moment} von $X$ ist als
   \\[0.2cm]
   \hspace*{1.3cm}
-  $\ds E[X] = \frac{\mathrm{d} f}{\mathrm{d} t}(0)$ \quad und \quad
-  $\ds \var[X] = \frac{\mathrm{d}^2 f}{\mathrm{d} t^2}(0) - \bigl(E[X]\bigr)^2$.
+  $\mathrm{Mt}(X,n) := E[X^n]$
+  \\[0.2cm]
+  definiert.  Gilt $\mu := E[X]$, so ist das \blue{$n$-te zentrale Moment} von $X$ als
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\mathrm{ZM}(X,n) := E\bigl[(X-\mu)^n\bigr]$
+  \\[0.2cm]
+  definiert. \qed
+\end{Definition}
+
+\begin{Definition}[\href{https://de.wikipedia.org/wiki/Schiefe_(Statistik)}{Schiefe}]
+  Es sei $X$ eine Zufalls-Variable mit der Standard-Abweichung $\sigma$.  Die \blue{Schiefe} von $X$ ist dann
+  als 
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds v(X) := \frac{\mathrm{ZM}(X, 3)}{\sigma^3} = \frac{E\bigl[(X-\mu)^3\bigr]}{\sigma^3}$
+  \\[0.2cm]
+  definiert.  Die Schiefe misst, wie unsymmetrisch die Verteilung der Zufalls-Variable $X$ ist.
+\end{Definition}
+
+
+\begin{Satz}
+  Ist $f(t) = M_X(t)$ die moment-erzeugende Funktion der Zufalls-Variable $X$ und die Funktion sei $f$ in einer
+  \href{https://de.wikipedia.org/wiki/Taylorreihe}{Taylor-Reihe} um $0$ entwickelbar.  Dann gilt
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $\ds \mathrm{Mt}(X,n) = \frac{\mathrm{d}^n f}{\mathrm{d} t^n}(0)$.
 \end{Satz}
 
 \proof Es sei $X:\Omega \rightarrow [a,b]$.  Dann gilt 
@@ -833,28 +856,32 @@ $\ds f(t) = \sum\limits_{n=0}^\infty \frac{t^n}{n!} \cdot f^{(n)}(0)$
 Durch einen Koeffizienten-Vergleich der beiden Reihen erkennen wir, dass 
 \\[0.2cm]
 \hspace*{1.3cm}
-$E[X^n] = f^{(n)}(0)$ \quad für alle $n \in \mathbb{N}$ gilt.
-\\[0.2cm]
-Wir haben in Satz \ref{satz:varianz} gezeigt, dass für die Varianz
-\\[0.2cm]
-\hspace*{1.3cm}
-$\var[X] = E\bigl[X^2\bigr] - \bigl(E[X]\bigr)^2$
-\\[0.2cm]
-gilt.  Daraus folgt nun die Behauptung. \qed
-\vspace*{0.2cm}
-\pagebreak
+$E[X^n] = f^{(n)}(0)$ \quad für alle $n \in \mathbb{N}$ gilt.  \qeds
 
-\noindent
-\textbf{Bemerkung}:
-Der Ausdruck $E\bigl[X^n\bigr]$ wird auch als das $n$-te \blue{Moment} der Zufallsgröße $X$
-bezeichnet.  Der Beweis des letzten Satzes zeigt, dass das $n$-te Moment gerade die $n$-te Ableitung
-der moment-erzeugenden Funktion an der Stelle $t=0$ ist.
-Dieser Umstand erklärt den Namen der moment-erzeugenden Funktion.
+\remark
+An dieser Stelle sehen wir, wie nützlich die Kenntnis der Moment-erzeugenden Funktion einer Zufalls-Variable
+$X$ ist, denn der Erwartungswert, die Varianz und die Schiefe von $X$ lassen sich aus den Momenten berechnen,
+genauer es gilt:
+\begin{enumerate}[(a)]
+\item $E[X] = \mathrm{Mt}(X, 1)$,
+\item $\mathrm{Var}[X] = \mathrm{Mt}(X, 2) - \mathrm{Mt}(X, 1)^2$,
+\item $\ds v(X) = \frac{\mathrm{ZM}(X,3)}{\mathrm{Var}[X]^{3/2}}$.
+
+      Dabei kann das dritte zentrale Moment $\mathtt{ZM}(X,3)$ wie folgt aus dem ersten, zweiten und dritten
+      Moment berechnet werden:
+      \\[0.2cm]
+      \hspace*{1.3cm}
+      $\mathrm{ZM}(X,3) = \mathrm{Mt}(X,3)- 3 \cdot \mathrm{Mt}(X,2) \cdot \mathrm{Mt}(X,1) + 2 \cdot \mathrm{Mt}(X,1)^3$.
+      \eoxs
+
+      \exercise
+      Beweisen Sie diese Formel.
+\end{enumerate}
 
 \section{Der zentrale Grenzwert-Satz}
 Wir kommen nun zu dem wichtigsten Ergebnis der Wahrscheinlichkeits-Rechnung.
 \begin{Satz}[Zentraler Grenzwertsatz]  
-Es sei $(X_n)_{n\in\mathbb{N}}$ eine Folge unabhängiger stetiger Zufallsgrößen, die alle dieselbe Wahrscheinlichkeits-Dichte haben,
+Es sei $(X_n)_{n\in\mathbb{N}}$ eine Folge unabhängiger stetiger Zufalls-Variablen, die alle dieselbe Wahrscheinlichkeits-Dichte haben,
 es gilt also 
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -865,21 +892,21 @@ Weiter gelte
 \hspace*{1.3cm}
 $\mu = E[X_n]$ \quad und \quad $\sigma^2 = \var[X_n]$ \quad für alle $n \in \mathbb{N}$.
 \\[0.2cm]
-Definieren wir für $n \in \mathbb{N}$ die Zufallsgrößen $S_n$ durch 
+Definieren wir für $n \in \mathbb{N}$ die Zufalls-Variablen $S_n$ durch 
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds S_n = \frac{1}{\sigma \cdot \sqrt{n}} \cdot \sum\limits_{k=1}^n \left(X_k - \mu\right)$,
 \\[0.2cm]
-so konvergieren die Wahrscheinlichkeits-Dichten $p_{S_n}$ der Zufallsgrößen $S_n$ gegen die Normal-Verteilung, es gilt also
+so konvergieren die Wahrscheinlichkeits-Dichten $p_{S_n}$ der Zufalls-Variablen $S_n$ gegen die Normal-Verteilung, es gilt also
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \lim\limits_{n \rightarrow \infty} p_{S_n}(t) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\left(-\frac{1}{2} \cdot t^2\right)$.
 \end{Satz}
 
 \proof Wir führen den Beweis, indem wir zeigen, dass die moment-erzeugenden Funktionen 
-$M_{S_n}$ der Zufallsgrößen $S_n$ gegen die moment-erzeugende Funktion einer normal-verteilten Zufallsgröße mit Mittelwert 
-$0$ und Varianz $1$ konvergieren.  Die Behauptung folgt dann aus dem Eindeutigkeits-Satz. 
-Es sei $f_k$ die moment-erzeugende Funktion der Zufallsgröße
+$M_{S_n}$ der Zufalls-Variablen $S_n$ gegen die moment-erzeugende Funktion einer normal-verteilten Zufalls-Variable mit Mittelwert 
+$0$ und Varianz $1$ konvergieren.  Die Behauptung folgt dann aus dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig}. 
+Es sei $f_k$ die moment-erzeugende Funktion der Zufalls-Variable
 \\[0.2cm]
 \hspace*{1.3cm}
  $\ds Y_k := \frac{X_k - \mu}{\sigma \cdot \sqrt{n}}$, \quad also
@@ -887,7 +914,7 @@ Es sei $f_k$ die moment-erzeugende Funktion der Zufallsgröße
 \hspace*{1.3cm}
 $\ds f_k(t) := M_{Y_k}(t) = E\left[\exp\left(t \cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot (X_k - \mu)\right)\right]$.
 \\[0.2cm]
-Da die Zufallsgrößen $X_n$ alle dieselbe Wahrscheinlichkeits-Dichte haben, sind auch die 
+Da die Zufalls-Variablen $X_n$ alle dieselbe Wahrscheinlichkeits-Dichte haben, sind auch die 
 moment-erzeugenden Funktionen $M_{Y_k}$ für alle $k$ gleich:
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -911,7 +938,7 @@ $
       E\left[ \prod\limits_{k=1}^n \exp\left(t\cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot \left(X_k - \mu\right)\right) \right] \\[0.5cm]
 & = & \ds
       \prod\limits_{k=1}^n E\left[ \exp\left(t\cdot \frac{1}{\sigma \cdot \sqrt{n}} \cdot \left(X_k - \mu\right)\right) \right] \\[0.5cm]
-&   & \mbox{denn die Zufallsgrößen $X_k$ sind unabhängig} \\[0.2cm]
+&   & \mbox{denn die Zufalls-Variablen $X_k$ sind unabhängig} \\[0.2cm]
 & = & \ds
       \prod\limits_{k=1}^n f(t) \\[0.5cm]
 & = & \ds
@@ -978,28 +1005,33 @@ gilt.  Die Funktion
 \hspace*{1.3cm}
 $\ds x \mapsto \exp\Bigl(\frac{1}{2} \cdot t^2\Bigr)$
 \\[0.2cm]
-ist aber gerade die moment-erzeugende Funktion einer Zufallsgröße mit der Wahrscheinlichkeits-Dichte
-$N(0,1)$.  Aus dem Eindeutigkeits-Satz für die moment-erzeugenden Funktionen folgt nun 
+ist aber gerade die moment-erzeugende Funktion einer Zufalls-Variable $X$, für die $X \sim \mathcal{N}(0,1)$
+gilt.  Aus dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig} für die moment-erzeugenden Funktionen folgt nun 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \lim\limits_{n \rightarrow \infty} p_{S_n}(x) = p_{N(0,1)}(x) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\left(-\frac{1}{2}\cdot x^2\right)$.
+$\ds \lim\limits_{n \rightarrow \infty} p_{S_n}(x) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \exp\left(-\frac{1}{2}\cdot x^2\right)$.
 \qed
 \vspace*{0.3cm}
 
 \noindent
 Die Voraussetzungen des zentralen Grenzwertsatzes können noch abgeschwächt werden.
-Es ist nicht erforderlich, dass die einzelnen Zufallsgrößen $X_k$ alle dieselbe Wahrscheinlichkeits-Dichte 
+Es ist nicht erforderlich, dass die einzelnen Zufalls-Variablen $X_k$ alle dieselbe Wahrscheinlichkeits-Dichte 
 haben.  Im wesentlichen reicht es aus, wenn die Erwartungswerte und die Varianzen dieser 
-Zufallsgrößen beschränkt sind. Darüber hinaus muss dann noch eine weitere recht technische Bedingung erfüllt sein.
-Der zentrale Grenzwertsatz ist der Grund dafür, dass in der Praxis viele Zufallsgrößen normal-verteilt sind.
+Zufalls-Variablen beschränkt sind. Darüber hinaus muss dann noch eine weitere recht technische Bedingung erfüllt sein.
+Der zentrale Grenzwertsatz ist der Grund dafür, dass in der Praxis viele Zufalls-Variablen normal-verteilt sind.
 Diese liegt einfach daran, dass viele Größen, die wir  beobachten, durch eine große Zahl 
 von Faktoren bestimmt werden.  Auch wenn die einzelnen Faktoren beliebig verteilt sind, so ist 
 die Summe dieser Faktoren doch annähernd normal-verteilt.
 
 \exercise
-Die Zufallsgrößen $X_1$ und $X_2$ seien normal-verteilt mit den Erwartungswerten  $\mu_1$ und $\mu_2$ und den Varianzen
-$\sigma_1^2$ und $\sigma_2^2$.  Außerdem seien $X_1$ und $X_2$ \red{unabhängig}. 
-Berechnen Sie die Wahrschein\-lichkeits-Dichte der Zufallsgröße $X_1 + X_2$.
+Die Zufalls-Variablen $X_1$ und $X_2$ seien normal-verteilt mit den Erwartungswerten  $\mu_1$ und $\mu_2$ und den Varianzen
+$\sigma_1^2$ und $\sigma_2^2$, es gilt also
+\\[0.2cm]
+\hspace*{1.3cm}
+$X_1 \sim \mathcal{N}(\mu_1, \sigma_1)$ \quad und \quad $X_2 \sim \mathcal{N}(\mu_2, \sigma_2)$.
+\\[0.2cm]  
+Außerdem seien $X_1$ und $X_2$ \red{unabhängig}. 
+Berechnen Sie die Wahrschein\-lichkeits-Dichte der Zufalls-Variable $X_1 + X_2$.
 \vspace*{0.2cm}
 
 \noindent
@@ -1012,7 +1044,7 @@ Zufalls-Variablen sind, die alle einer standardisierten Normalverteilung genügen
 Zufalls-Variablen $X_k$ gilt also $X_k \sim \mathcal{N}(0, 1)$ für alle $k=1,\cdots,n$.  Diesen Sachverhalt können wir auch als
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P(X_i \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x
+$\ds P(X_k \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x
 \exp\biggl(-\frac{t^2}{2}\biggr)\mathrm{d} t$ \quad für alle $k=1,\cdots,n$
 \\[0.2cm]
 schreiben.  Die Zufalls-Variable $Z$ ist dann als 
@@ -1053,10 +1085,11 @@ $
 \end{array}
 $
 \\[0.2cm]
-denn die Verteilungs-Funktion einer Zufalls-Variable mit Normalverteilung ist die Gaußsche Integral-Funktion
+denn die Verteilungs-Funktion einer Zufalls-Variable mit Normalverteilung ist das
+\href{https://de.wikipedia.org/wiki/Fehlerintegral}{gaußsche Fehlerintegral}
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds \Phi(x) = \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{-\infty}^x \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t$.
+$\ds \Phi(x) := \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{-\infty}^x \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t$.
 \\[0.2cm]
 Berücksichtigen wir noch, dass auf Grund der Symmetrie des Integranden die Gleichung
 \\[0.2cm]
@@ -1086,6 +1119,15 @@ $
             & = & \ds \frac{1}{\sqrt{2\cdot\pi\cdot x\,}} \cdot \exp(-x/2) 
 \end{array}
 $
+\\[0.2cm]
+Abbildung \ref{fig:chiSquare1} auf Seite \pageref{fig:chiSquare1} zeigt diese Funktion.
+
+\begin{figure}[t]
+  \centering
+   \epsfig{file=Abbildungen/chiSquare1.pdf,scale=1.0}
+   \caption{Die $\chi^2$-Verteilung mit einem Freiheitsgrad.}
+  \label{fig:chiSquare1}
+\end{figure}
 
 \exercise
 Berechnen Sie die moment-erzeugende Funktion der Zufalls-Variable $X^2$.
@@ -1144,8 +1186,7 @@ $\ds \Gamma(x) := \int_0^\infty t^{x-1} \cdot \mathrm{e}^{-t} \, \dx t$. \eoxs
 
 \exercise
 Weisen Sie die folgenden Eigenschaften der Gamma-Funktion nach:
-\renewcommand{\labelenumi}{(\alph{enumi})}
-\begin{enumerate}
+\begin{enumerate}[(a)]
 \item $\Gamma(1) = 1$.
 \item $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$      .
 
@@ -1166,7 +1207,7 @@ Weisen Sie die folgenden Eigenschaften der Gamma-Funktion nach:
       der Fakultäts-Funktion auf die positiven reellen Zahlen aufgefasst werden kann. 
       \eoxs
 \end{enumerate}
-\renewcommand{\labelenumi}{\arabic{enumi}.}
+
 
 \begin{Definition}[\href{https://de.wikipedia.org/wiki/Gammaverteilung}{Gamma-Verteilung}]
   Eine Zufalls-Variable $Y$ genügt einer \blue{Gamma-Verteilung mit Parametern $\alpha$ und $\beta$},
@@ -1176,7 +1217,7 @@ Weisen Sie die folgenden Eigenschaften der Gamma-Funktion nach:
   $p_Y(x) = \left\{
   \begin{array}[c]{ll}
      \ds 
-       \frac{x^{\alpha-1} \cdot \exp\left(\ds -\frac{x}{\beta}\right)}{\beta^\alpha \cdot \Gamma(\alpha)} 
+       \frac{1}{\beta^\alpha \cdot \Gamma(\alpha)} \cdot x^{\alpha-1} \cdot \exp\Bigl(\ds -\frac{x}{\beta}\Bigr)
      & \mbox{für $x>0$}; \\[0.5cm]
      0 & \mbox{für $x \leq 0$.}
   \end{array}\right.
@@ -1299,9 +1340,22 @@ Zusammenfassend können wir auch sagen: Ist $Z$ eine Zufalls-Variable, so gilt
 $\ds Z \sim \chi^2(n) \;\Rightarrow\; Z \sim \Gamma\Bigl(\frac{n}{2},2\Bigr)$. \eox
 \end{Satz}
 
-\noindent
-Bei der Diskussion des $\chi^2$-Tests im nächsten Kapitel benötigen wir die beiden
+Abbildung \ref{fig:chiSquare} auf Seite \pageref{fig:chiSquare} zeigt die Wahrscheinlichkeits-Dichten der
+$\chi^2$-Verteilungen für die Freiheitsgrade $3$, $4$, $5$, $10$ und $30$.  Wir sehen, dass sich diese
+Wahrscheinlichkeits-Dichten mit wachsender Zahl von Freiheitsgraden an die Wahrscheinlichkeits-Dichte einer
+Normalverteilung annähern. Bei der Diskussion des $\chi^2$-Tests im nächsten Kapitel benötigen wir die beiden
 folgenden Sätze.
+
+
+\begin{figure}[t]
+  \centering
+   \epsfig{file=Abbildungen/chiSquare.pdf,scale=1.0}
+   \caption{Die $\chi^2$-Verteilung mit einem Freiheitsgrad.}
+  \label{fig:chiSquare}
+\end{figure}
+
+
+
 
 \begin{Satz} \label{satz:chi-square-sum}
 Es seien $U$, $V$ und $W$ Zufalls-Variablen mit folgenden Eigenschaften:
@@ -1393,13 +1447,19 @@ Zufalls-Variable $V$ also eine $\chi^2$-Verteilung mit $n$ Freiheitsgraden.
 
 \exercise
 Nehmen Sie an, dass die Zufalls-Variable $X$ einer $\chi^2$-Verteilung mit $n$ Freiheitsgraden genügt.
-Berechnen Sie Erwartungswert und Varianz von $X$.
+Berechnen Sie den Erwartungswert und die Varianz von $X$.
 \eoxs
+
+\exercise
+Es sei $X$ eine Zufalls-Variable, für die $X \sim \chi^2(n)$ gilt.  An welcher Stelle nimmt die
+Wahrscheinlichkeits-Dichte $p_X(x)$ ihren maximalen Wert an? 
 
 \exercise
 Es sei $X$ eine Zufalls-Variable, die einer $\chi^2$-Verteilung mit $4$ Freiheitsgraden
 genügt.  Berechnen Sie die Verteilungs-Funktion $F_X$.
 \eoxs
+
+
 
 %%% Local Variables: 
 %%% mode: latex

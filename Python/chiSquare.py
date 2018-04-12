@@ -22,7 +22,9 @@ def plotChiSquare(l, w):
     plt.xlabel("x")
     plt.ylabel("y")
     plt.title("ChiSquare Distributions: n = " + str(l))
+#    plt.title("ChiSquare Distribution with 1 degree of freedom.")
     plt.show()
-    
+
+plotChiSquare([1], 5)
 plotChiSquare([2,3,4,5,10], 6)
 plotChiSquare([3,4,5,10,30], 12)
