@@ -241,12 +241,16 @@ An der rechten Intervall-Grenze divergiert die Wahrscheinlichkeits-Dichte, es gi
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \lim\limits_{x \rightarrow R_{\max}} p_R(x) = \infty$.
+\\[0.2cm]
+Abbildung \ref{fig:reichweite} zeigt die Verteilungs-Funktion und die Wahrscheinlichkeits-Dichte der
+Zufalls-Variable $R$.
 \vspace*{0.3cm}
 
 \begin{figure}[t]
   \centering
-   \epsfig{file=schussweite,scale=0.5}
-   \caption{Wahrscheinlichkeits-Dichte der Schussweite.}
+   \epsfig{file=Abbildungen/schussweite-verteilung.pdf,scale=0.6}\\
+   \epsfig{file=Abbildungen/schussweite-dichte.pdf,scale=0.6}
+   \caption{Verteilungs-Funktion und Wahrscheinlichkeits-Dichte der SchussWeite.}
   \label{fig:reichweite}
 \end{figure}
 
@@ -423,6 +427,7 @@ $
 \end{array}
 $ 
 \qed
+\pagebreak
 
 \remark
 Ein Zufalls-Variable $X:\Omega \rightarrow \mathbb{R}$, deren Verteilungs-Funktion die Form
@@ -458,6 +463,13 @@ $X \sim \mathrm{Exp}(\lambda)$.
 Die logistische Verteilung spielt später in der \href{https://de.wikipedia.org/wiki/Logistische_Regression}{logistischen Regression}
 und als \blue{Aktivierungsfunktion} bei den \href{https://de.wikipedia.org/wiki/Künstliches_Neuron}{Neuronen} eines
 \blue{neuronalen Netzes} eine wichtige Rolle. \eoxs
+
+\begin{figure}[t]
+  \centering
+   \epsfig{file=Abbildungen/logistic,scale=1.0}
+   \caption{Verteilungs-Funktion und Wahrscheinlichkeits-Dichte einer logistisch verteilten Zufalls-Variable.}
+  \label{fig:logistic}
+\end{figure}
 
 \exercise
 Berechnen Sie den Erwartungswert und die Varianz einer logistisch verteilten Zufalls-Variable.
@@ -654,6 +666,14 @@ $X \sim \mathcal{N}(\mu, \sigma)$.
 \\[0.2cm]
 Wir werden später sehen, dass $\mu$ der Erwartungswert von $X$ ist.  Den
 Parameter $\sigma$ werden wir als die Standard-Abweichung von $X$ erkennen.
+
+\begin{figure}[t]
+  \centering
+   \epsfig{file=Abbildungen/gaussian.pdf,scale=1.0}
+   \caption{Wahrscheinlichkeits-Dichte einer $\mathcal{N}(0,1)$ verteilten Zufalls-Variable.}
+  \label{fig:gaussian}
+\end{figure}
+
 Wir definieren eine lineare Funktion $\varphi: \mathbb{R} \rightarrow \mathbb{R}$ durch
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -759,7 +779,6 @@ in der Analysis nicht mehr behandelt haben, können wir hier die Details dieses B
 diskutieren.  Trotzdem ist der Satz für unsere weitere Arbeit ein wichtiges Hilfsmittel,
 denn er gestattet uns, die Wahrscheinlichkeits-Dichten bestimmter Zufalls-Variablen durch Berechnung 
 der moment-erzeugenden Funktion zu berechnen.
-\pagebreak
 
 \begin{Satz} \label{satz:moment-unabhaengig}
 Es seien  $X:\Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ zwei \red{unabhängige} Zufalls-Variablen.
@@ -1383,11 +1402,10 @@ t)^{\textstyle -\frac{n}{2}} = (1- 2 \cdot t)^{\textstyle -\frac{m+n}{2}}$.
 \\[0.2cm]
 Dies ist aber genau die moment-erzeugende Funktion einer Zufalls-Variable, die einer
 $\chi^2$-Verteilung mit $m+n$ Freiheitsgraden genügt.   Daher folgt die Behauptung nun aus
-dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig}. \qed
+dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig}. \qeds
 
-
-\noindent
-\textbf{Bemerkung}:  Der obige Satz lässt sich leicht auf die Summe von mehr als zwei
+\remark
+Der obige Satz lässt sich leicht auf die Summe von mehr als zwei
 $\chi^2$-verteilten Zufalls-Variablen verallgemeinern.
 Sind $U_1$, $\cdots$, $U_k$ unabhängige Zufalls-Variablen, so dass für alle $i=1,\cdots,k$
 die Zufalls-Variable $U_i$  einer $\chi^2$-Verteilung mit $m_i$ Freiheitsgraden genügt, dann
