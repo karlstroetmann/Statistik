@@ -880,7 +880,7 @@ $E[X^n] = f^{(n)}(0)$ \quad für alle $n \in \mathbb{N}$ gilt.  \qeds
 \remark
 An dieser Stelle sehen wir, wie nützlich die Kenntnis der Moment-erzeugenden Funktion einer Zufalls-Variable
 $X$ ist, denn der Erwartungswert, die Varianz und die Schiefe von $X$ lassen sich aus den Momenten berechnen,
-genauer es gilt:
+genauer gilt:
 \begin{enumerate}[(a)]
 \item $E[X] = \mathrm{Mt}(X, 1)$,
 \item $\mathrm{Var}[X] = \mathrm{Mt}(X, 2) - \mathrm{Mt}(X, 1)^2$,
@@ -896,6 +896,60 @@ genauer es gilt:
       \exercise
       Beweisen Sie diese Formel.
 \end{enumerate}
+\pagebreak
+
+\begin{Satz}[Momente der Standard-Normal-Verteilung] \hspace*{\fill} \linebreak
+  Es sei $X:\Omega \rightarrow \mathbb{R}$ eine standard-normal-verteilte Zufalls-Variable, es gelte also
+  $X\sim\mathcal{N}(0,1)$.  Dann können die Momente von $X$ wie folgt berechnet werden:
+  \begin{enumerate}
+   \item $\mathrm{Mt}(X,2\cdot n + 1) = 0$ \quad für alle $n\in\mathbb{N}$.
+   \item $\mathrm{Mt}(X,2\cdot n) = (2\cdot n-1)!!$ \quad für alle $n\in\mathbb{N}$ mit $n > 0$.
+
+         Dabei ist für eine ungerade Zahl $2 \cdot m + 1$ der Ausdruck $(2\cdot m+1)!!$ als
+         \\[0.2cm]
+         \hspace*{1.3cm}
+         $\ds (2\cdot m + 1)!! := 1 \cdot 3 \cdot 5 \cdot {\dots} \cdot (2\cdot m - 1) \cdot (2\cdot m + 1)
+                                = \prod\limits_{k=0}^m (2 \cdot k + 1)
+         $
+         \\[0.2cm]
+         definiert.  Dieser Ausdruck wird auch als \href{https://en.wikipedia.org/wiki/Double_factorial}{Doppel-Fakultät} bezeichnet.
+ \end{enumerate}
+\end{Satz}
+
+\proof
+Wir haben früher für die Moment-erzeugende Funktion $M_X(t)$ einer standard-normal-verteilten Zufalls-Variable
+$X$ den Ausdruck
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds M_X(t) = \exp\biggl(\frac{t^2}{2}\biggr)$
+\\[0.2cm]
+gefunden.  Wir wissen, dass sich die Exponential-Funktion als
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds\exp(x) = \sum\limits_{n=0}^\infty \frac{x^n}{n!}$
+\\[0.2cm]
+schreiben lässt.  Setzen wir hier für $x$ den Ausdruck $t^2/2$ ein, so erhalten wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds M_X(t) = \sum\limits_{n=0}^\infty \frac{t^{2\cdot n}}{n! \cdot 2^n} 
+            = \sum\limits_{n=0}^\infty \frac{t^{2\cdot n}}{(2\cdot n)!} \cdot \frac{(2\cdot n)!}{n! \cdot 2^n}
+            = \sum\limits_{n=0}^\infty \frac{t^{2\cdot n}}{(2\cdot n)!} \cdot (2\cdot n - 1)!! 
+$,
+\\[0.2cm]
+denn Sie können durch eine elementare vollständige Induktion zeigen, dass
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \frac{(2\cdot n)!}{n! \cdot 2^n} =  (2\cdot n - 1)!!$
+\\[0.2cm]
+gilt.  Der Beweis des letzten Satzes zeigt, dass das $n$-te Moment einer Zufalls-Variable $X$ gerade der
+Koeffizient von $t^n/n!$ in der Taylor-Reihe von $M_X(t)$ ist.  Daraus folgt die Behauptung, denn in der Reihe
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds \sum\limits_{n=0}^\infty \frac{t^{2\cdot n}}{(2\cdot n)!} \cdot (2\cdot n - 1)!! $ 
+\\[0.2cm]
+gibt es keine ungeraden Koeffizienten und der Koeffizient von $t^{2\cdot n}/(2\cdot n)!$ ist
+offenbar $(2\cdot n - 1)!!$.
+\qed
 
 \section{Der zentrale Grenzwert-Satz}
 Wir kommen nun zu dem wichtigsten Ergebnis der Wahrscheinlichkeits-Rechnung.
@@ -1215,7 +1269,7 @@ Weisen Sie die folgenden Eigenschaften der Gamma-Funktion nach:
       \hspace*{1.3cm} $\ds \int_0^\infty \exp\left(-\frac{1}{2}\cdot t^2\right)\, \dx t$ 
       \\[0.2cm]
       zurück.
-\item $\Gamma(x + 1) = x \cdot \Gamma(x)$. 
+\item $\Gamma(x + 1) = x \cdot \Gamma(x)$ \quad falls $x > 0$ ist. 
 
       \textbf{Hinweis}: Partielle Integration.
 \item $\Gamma(n+1) = n!$ \quad für alle $n\in\mathbb{N}$.
@@ -1419,6 +1473,7 @@ mit Hilfe des letzten Satzes durch eine triviale Induktion nach $k$ gezeigt werd
 \qed
 
 Der nächste Satz zeigt, dass sich der letzte Satz auch umkehren lässt.
+\pagebreak
 
 \begin{Satz} \label{satz:chi-square4}
 Es seien $U$, $V$ und $W$ Zufalls-Variablen mit folgenden Eigenschaften:
