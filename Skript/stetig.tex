@@ -913,7 +913,6 @@ genauer gilt:
       \exercise
       Beweisen Sie diese Formel.
 \end{enumerate}
-\pagebreak
 
 \begin{Satz}[Momente der Standard-Normal-Verteilung] \hspace*{\fill} \linebreak
   Es sei $X:\Omega \rightarrow \mathbb{R}$ eine standard-normal-verteilte Zufalls-Variable, es gelte also
@@ -1444,20 +1443,41 @@ Zusammenfassend können wir auch sagen: Ist $Z$ eine Zufalls-Variable, so gilt
 $\ds Z \sim \chi^2(n) \;\Rightarrow\; Z \sim \Gamma\Bigl(\frac{n}{2},2\Bigr)$. \eox
 \end{Satz}
 
-Abbildung \ref{fig:chiSquare} auf Seite \pageref{fig:chiSquare} zeigt die Wahrscheinlichkeits-Dichten der
-$\chi^2$-Verteilungen für die Freiheitsgrade $3$, $4$, $5$, $10$ und $30$.  Wir sehen, dass sich diese
+Die Abbildungen \ref{fig:chiSquare1.png}, \ref{fig:chiSquare2.png}, \ref{fig:chiSquare34510.png} und \ref{fig:chiSquare30.png} auf den folgenden
+Seiten zeigen die Wahrscheinlichkeits-Dichten der
+$\chi^2$-Verteilungen für die Freiheitsgrade $1$, $2$, $3$, $4$, $5$, $10$ und $30$.  Wir sehen, dass sich diese
 Wahrscheinlichkeits-Dichten mit wachsender Zahl von Freiheitsgraden an die Wahrscheinlichkeits-Dichte einer
 Normalverteilung annähern. Bei der Diskussion des $\chi^2$-Tests im nächsten Kapitel benötigen wir die beiden
 folgenden Sätze.
 
-
-\begin{figure}[t]
+\begin{figure}[!ht]
   \centering
-   \epsfig{file=Abbildungen/chiSquare.pdf,scale=1.0}
-   \caption{Die $\chi^2$-Verteilung mit einem Freiheitsgrad.}
-  \label{fig:chiSquare}
+   \epsfig{file=Abbildungen/chiSquare1.png,scale=0.9}
+   \caption{Die $\chi^2$-Verteilungen mit dem Freiheitsgrade Eins.}
+  \label{fig:chiSquare1.png}
 \end{figure}
 
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/chiSquare2.png,scale=0.9}
+   \caption{Die $\chi^2$-Verteilungen mit dem Freiheitsgrade Zwei.}
+  \label{fig:chiSquare2.png}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/chiSquare34510.png,scale=0.9}
+   \caption{Die $\chi^2$-Verteilungen mit den Freiheitsgraden 3, 4, 5 und 10.}
+  \label{fig:chiSquare34510.png}
+\end{figure}
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/chiSquare30.png,scale=0.9}
+   \caption{Die $\chi^2$-Verteilungen mit dem Freiheitsgrad 30.}
+  \label{fig:chiSquare30.png}
+\end{figure}
 
 
 
@@ -1504,7 +1524,6 @@ mit Hilfe des letzten Satzes durch eine triviale Induktion nach $k$ gezeigt werd
 \qed
 
 Der nächste Satz zeigt, dass sich der letzte Satz auch umkehren lässt.
-\pagebreak
 
 \begin{Satz} \label{satz:chi-square4}
 Es seien $U$, $V$ und $W$ Zufalls-Variablen mit folgenden Eigenschaften:

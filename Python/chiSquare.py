@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 import numpy             as np
 from scipy.special import gamma
 
-def Gamma(a, l, x):
+def chiSquare(n, x):
     """
     compute the gamma distribution Gamma(a, l)
 
     Since lambda is a keyword in Python, it had to be abbreviated as l
     """
-    return l / gamma(a) * (l * x) ** (a-1) * np.exp(-l * x) 
+    An = 2 ** (n / 2) * gamma(n/2)
+    return 1 / An * x ** (n/2-1) * np.exp(-x/2) 
 
 def plotChiSquare(l, w):
     n = 1000
@@ -17,7 +18,7 @@ def plotChiSquare(l, w):
     plt.margins(0.02)
     plt.plot(x, z)
     for f in l:
-        y = Gamma(f/2, 2, x)
+        y = chiSquare(f, x)
         plt.plot(x, y)
     plt.xlabel("x")
     plt.ylabel("y")
@@ -25,6 +26,7 @@ def plotChiSquare(l, w):
 #    plt.title("ChiSquare Distribution with 1 degree of freedom.")
     plt.show()
 
-plotChiSquare([1], 5)
-plotChiSquare([2,3,4,5,10], 6)
-plotChiSquare([3,4,5,10,30], 12)
+plotChiSquare([1], 6)
+plotChiSquare([2], 10)
+plotChiSquare([3,4,5,10], 18)
+plotChiSquare([30], 62)
