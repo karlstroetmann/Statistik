@@ -674,7 +674,20 @@ Parameter $\sigma$ werden wir als die Standard-Abweichung von $X$ erkennen.
   \label{fig:gaussian}
 \end{figure}
 
-Wir definieren eine lineare Funktion $\varphi: \mathbb{R} \rightarrow \mathbb{R}$ durch
+Abbildung \ref{fig:gaussian} auf Seite \pageref{fig:gaussian} zeigt die Wahrscheinlichkeits-Dichte einer Standard-Normal-Verteilung.  Abbildung
+\ref{fig:zehn-deutsche-mark.png} auf Seite \pageref{fig:zehn-deutsche-mark.png} zeigt eine Banknote mit dem Portrait von
+\href{https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss}{Carl Friederich Gauss}, auf
+dem diese Wahrscheinlichkeits-Dichte ebenfalls abgebildet ist.
+
+\begin{figure}[!ht]
+  \centering
+   \epsfig{file=Abbildungen/zehn-deutsche-mark.png, scale=1.0}
+   \caption{Vorderseite eines Zehn-Mark-Scheins.}
+  \label{fig:zehn-deutsche-mark.png}
+\end{figure}
+
+Falls $Y$ eine Zufalls-Variable mit $Y \sim \mathcal{N}(0,1)$ ist, sprechen wir von einer \blue{standard-normal-verteilten} Zufalls-Variable.
+Um $X$ und $Y$ in Beziehung zu setzen, definieren wir eine lineare Funktion $\varphi: \mathbb{R} \rightarrow \mathbb{R}$ durch
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \varphi(x) = \frac{x - \mu}{\sigma}$.
@@ -684,15 +697,19 @@ Die Umkehrfunktion $\psi$ von $\varphi$ ist dann
 \hspace*{1.3cm}
 $\ds \psi(y) = y\cdot \sigma + \mu$.
 \\[0.2cm]
-Definieren  wir die Zufalls-Variable $Y$ durch $Y := \varphi \circ X$ so folgt nach Satz \ref{satz:vartrans}
-für die Wahrschein\-lichkeits-Dichte $p_Y$:
+Dann gilt $Y := \varphi \circ X$, denn nach Satz \ref{satz:vartrans}
+haben wir für die Wahrschein\-lichkeits-Dichte $p_Y$:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds p_Y(y) = p_X(y\cdot \sigma + \mu) \cdot \sigma =  \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(- \frac{y^2}{2}\right)$.
-\\[0.2cm]
+\pagebreak
+\vspace*{\fill}
+
+\pagebreak
 Die moment-erzeugende Funktion von $Y$ erhalten wir wie folgt:
 \\[0.2cm]
 \hspace*{1.3cm}
+
 $
 \begin{array}[t]{lcl}
  M_{Y}(t) 
@@ -1112,7 +1129,7 @@ Berechnen Sie die Wahrschein\-lichkeits-Dichte der Zufalls-Variable $X_1 + X_2$.
 Orientieren Sie sich am Beweis des zentralen Grenzwertsatzes. \eoxs
 
 \section{Die \href{https://de.wikipedia.org/wiki/Chi-Quadrat-Verteilung}{Chi-Quadrat-Verteilung}}
-In diesem Abschnitt gehen wir davon aus, dass $X_1$, $X_2$, $\cdots$, $X_n$  unabhängige 
+In diesem Abschnitt gehen wir davon aus, dass $X_1$, $X_2$, $\cdots$, $X_n$  \red{unabhängige} 
 Zufalls-Variablen sind, die alle einer standardisierten Normalverteilung genügen, für die einzelnen
 Zufalls-Variablen $X_k$ gilt also $X_k \sim \mathcal{N}(0, 1)$ für alle $k=1,\cdots,n$.  Diesen Sachverhalt können wir auch als
 \\[0.2cm]
@@ -1120,12 +1137,12 @@ Zufalls-Variablen $X_k$ gilt also $X_k \sim \mathcal{N}(0, 1)$ für alle $k=1,\cd
 $\ds P(X_k \leq x) = \frac{1}{\sqrt{2\,\pi\,}} \cdot \int_{-\infty}^x
 \exp\biggl(-\frac{t^2}{2}\biggr)\mathrm{d} t$ \quad für alle $k=1,\cdots,n$
 \\[0.2cm]
-schreiben.  Die Zufalls-Variable $Z$ ist dann als 
+schreiben.  Definieren wir die Zufalls-Variable $Z$ als 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds Z(\omega) = \sum\limits_{i=1}^n X_i^2(\omega)$
+$\ds Z(\omega) = \sum\limits_{i=1}^n X_i^2(\omega)$,
 \\[0.2cm]
-definiert und hat eine \href{https://de.wikipedia.org/wiki/Chi-Quadrat-Verteilung}{$\chi^2$-Verteilung mit dem
+so hat $Z$ eine \href{https://de.wikipedia.org/wiki/Chi-Quadrat-Verteilung}{$\chi^2$-Verteilung mit dem
 Freiheitsgrad $n$}, wir schreiben
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -1134,7 +1151,7 @@ $Z \sim \chi^2(n)$.
 Unser Ziel ist es, die Wahrscheinlichkeits-Dichte $p_Z$ für die Zufalls-Variable $Z$
 zu berechnen.  Wir beginnen mit dem Spezialfall $n=1$.
 
-\subsection{Die $\chi^2$-Verteilung mit einem Freiheitsgrad}
+\subsection{Die Chi-Quadrat-Verteilung mit dem Freiheitsgrad Eins}
 Es sei $X$ eine Zufalls-Variable,
 die der Standard-Normal-Verteilung genügt, für die Wahrscheinlichkeits-Dichte $p_X(x)$
 gilt also
@@ -1160,19 +1177,33 @@ $
 \\[0.2cm]
 denn die Verteilungs-Funktion einer Zufalls-Variable mit Normalverteilung ist das
 \href{https://de.wikipedia.org/wiki/Fehlerintegral}{gaußsche Fehlerintegral}
+(benannt nach \href{https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss}{Carl Friederich Gauss})
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds \Phi(x) := \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{-\infty}^x \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t$.
 \\[0.2cm]
-Berücksichtigen wir noch, dass auf Grund der Symmetrie des Integranden die Gleichung
+Auf Grund der Symmetrie des Integranden gilt die Gleichung
 \\[0.2cm]
 \hspace*{1.3cm}
-$\Phi(x) + \Phi(-x) = 1$ \quad gilt, wir also \quad $\Phi(-x) = 1 - \Phi(x)$
+$\Phi(x) + \Phi(-x) = 1$,
 \\[0.2cm]
-haben, so ergibt sich 
+denn wir haben
 \\[0.2cm]
 \hspace*{1.3cm}
-$F_{X^2}(x) = 2 \cdot \Phi\bigl(\sqrt{x}\bigr) - 1$.
+$\begin{array}[t]{lcl}
+   1 & = & \ds \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{-\infty}^\infty \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t \\[0.6cm]
+     & = & \ds \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{-\infty}^x \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t +
+               \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{x}^{\infty} \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t    \\[0.6cm]
+     & = & \ds \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{-\infty}^x \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t +
+               \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int\limits_{-\infty}^{-x} \exp\bigl(-t^2/2\bigr)\, \mathrm{d}t    \\[0.6cm]
+     & = & \ds \Phi(x) + \Phi(-x).       
+\end{array}
+$
+\\[0.2cm]
+Aus $\Phi(x) + \Phi(-x)$ folgt  $\Phi(-x) = 1 - \Phi(x)$ und damit finden wir für die Verteilungs-Funktion von $X^2$ die Gleichung 
+\\[0.2cm]
+\hspace*{1.3cm}
+$F_{X^2}(x) = \Phi\bigl(\sqrt{x}\bigr) - \Phi\bigl(-\sqrt{x}\bigr) = \Phi\bigl(\sqrt{x}\bigr) - \bigl(1 -\Phi\bigl(\sqrt{x}\bigr) \bigr)  = 2 \cdot \Phi\bigl(\sqrt{x}\bigr) - 1$.
 \\[0.2cm]
  Die Wahrscheinlichkeits-Dichte $p_{X^2}$ der Zufalls-Variable $X^2$ erhalten wir, indem wir die
 Verteilungs-Funktion nach $x$ differenzieren.  Wegen
