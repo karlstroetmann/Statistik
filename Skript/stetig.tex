@@ -1453,7 +1453,7 @@ folgenden Sätze.
 \begin{figure}[!ht]
   \centering
    \epsfig{file=Abbildungen/chiSquare1.png,scale=0.9}
-   \caption{Die $\chi^2$-Verteilungen mit dem Freiheitsgrade Eins.}
+   \caption{Die $\chi^2$-Verteilungen mit dem Freiheitsgrad Eins.}
   \label{fig:chiSquare1.png}
 \end{figure}
 
@@ -1461,7 +1461,7 @@ folgenden Sätze.
 \begin{figure}[!ht]
   \centering
    \epsfig{file=Abbildungen/chiSquare2.png,scale=0.9}
-   \caption{Die $\chi^2$-Verteilungen mit dem Freiheitsgrade Zwei.}
+   \caption{Die $\chi^2$-Verteilungen mit dem Freiheitsgrad Zwei.}
   \label{fig:chiSquare2.png}
 \end{figure}
 
@@ -1506,7 +1506,7 @@ $\ds M_W(t) = M_U(t) \cdot M_V(t) = (1- 2 \cdot t)^{\textstyle -\frac{m}{2}} \cd
 t)^{\textstyle -\frac{n}{2}} = (1- 2 \cdot t)^{\textstyle -\frac{m+n}{2}}$.
 \\[0.2cm]
 Dies ist aber genau die moment-erzeugende Funktion einer Zufalls-Variable, die einer
-$\chi^2$-Verteilung mit $m+n$ Freiheitsgraden genügt.   Daher folgt die Behauptung nun aus
+$\chi^2$-Verteilung mit $m+n$ Freiheitsgraden genügt.   Daher folgt die Behauptung aus
 dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig}. \qeds
 
 \remark
@@ -1558,19 +1558,23 @@ Setzen wir hier die obigen Werte ein, so folgt
 \hspace*{1.3cm}
 $(1- 2 \cdot t)^{\textstyle -\frac{m+n}{2}} = (1- 2 \cdot t)^{\textstyle -\frac{m}{2}}\cdot M_V(t)$
 \\[0.2cm]
-und daraus folgt sofort 
+und das impliziert
 \\[0.2cm]
 \hspace*{1.3cm}
 $M_V(t) = (1- 2 \cdot t)^{\textstyle -\frac{n}{2}}$.
 \\[0.2cm]
 Dies ist aber genau die moment-erzeugende Funktion einer $\chi^2$-verteilten
-Zufalls-Variable.  Nach dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig} hat die
-Zufalls-Variable $V$ also eine $\chi^2$-Verteilung mit $n$ Freiheitsgraden.
+Zufalls-Variable vom Freiheitsgrad $n$.  Nach dem Eindeutigkeits-Satz \ref{satz:moment-eindeutig} hat die
+Zufalls-Variable $V$ also eine $\chi^2$-Verteilung mit dem Freiheitsgrad $n$.
 \qeds
 
 \exercise
-Nehmen Sie an, dass die Zufalls-Variable $X$ einer $\chi^2$-Verteilung mit $n$ Freiheitsgraden genügt.
+Nehmen Sie an, dass die Zufalls-Variable $Z$ einer $\chi^2$-Verteilung mit $n$ Freiheitsgraden genügt.
 Berechnen Sie den Erwartungswert und die Varianz von $X$.
+
+\noindent
+\textbf{Hinweis}: Berechnen Sie zunächst den Erwartungswert und die Varianz einer Zufalls-Variable $Z$, für die
+$Z \sim \chi^2(1)$ gilt.
 \eoxs
 
 \exercise
