@@ -159,7 +159,7 @@ $
      \sum\limits_{i=1}^{n} \bigl(X_i - \mu + \mu - \overline{X}\bigr)^2 
      \\[0.5cm]
  = & \ds
-     \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 + \bigl(\mu - \overline{X}\bigr)^2 + 2 \cdot (\mu - \overline{X}) \cdot (X_i - \mu)
+     \sum\limits_{i=1}^{n}\Bigl(\bigl(X_i - \mu\bigr)^2 + \bigl(\mu - \overline{X}\bigr)^2 + 2 \cdot (\mu - \overline{X}) \cdot (X_i - \mu)\Bigr)
      \\[0.5cm]
  = & \ds
      \sum\limits_{i=1}^{n} \bigl(X_i - \mu\bigr)^2 + 
@@ -311,22 +311,30 @@ $W = U + V$
 gilt.  Wir untersuchen jetzt, wie die Zufalls-Variablen $U$, $V$ und $W$ verteilt sind.
 Wir beginnen mit der Zufalls-Variable $W$.
 Zunächst ist mit $X_i$ auch $X_i - \mu$ normal verteilt und die Zufalls-Variable
-$\frac{1}{\sigma} \cdot (X_i - \mu)$ ist normal verteilt mit Erwartungswert
-$0$ und Varianz $1$, also standard-normal-verteilt.
+$(X_i - \mu)/\sigma$ ist normal verteilt mit Erwartungswert $0$ und Varianz $1$, also standard-normal-verteilt.
 Nach Satz \ref{satz:chi-square-normal} hat die Zufalls-Variable $W$ daher eine
 $\chi^2$-Verteilung mit $n$ Freiheitsgraden.  
 
 Als nächstes untersuchen wir die Verteilung der Zufalls-Variable $U$.
-Nach Aufgabe 29 ist die Summe zweier normal verteilter Zufalls-Variablen normal verteilt.
+Nach Aufgabe 40 ist die Summe zweier normal verteilter Zufalls-Variablen selber wieder normal verteilt.
 Damit ist dann auch die Summe von $n$ Zufalls-Variablen normal verteilt.  Also ist die Zufalls-Variable
 $\overline{X} = \frac{1}{n} \cdot \sum_{i=1}^{n} X_i$ normal verteilt.  Also ist auch $\overline{X} - \mu$ normal verteilt.
 Der Erwartungswert von $\overline{X} - \mu$ ist 0 und die Varianz ist nach dem $\sqrt{n}$-Gesetz
-$\frac{1}{n} \cdot \sigma^2$.  Also hat die Zufalls-Variable $\frac{\sqrt{n}}{\sigma} \cdot (\overline{X} - \mu)$ den Erwartungswert 0 und die Varianz
+$\sigma^2/n$.  Also hat die Zufalls-Variable
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds\frac{\sqrt{n}}{\sigma} \cdot \bigl(\overline{X} - \mu\bigr)$
+\\[0.2cm]
+den Erwartungswert 0 und die Varianz
 $1$.  Wenn wir nun Satz \ref{satz:chi-square-normal} für den Fall $n=1$ anwenden, sehen wir,
 dass die Zufalls-Variable $U$, die ja das Quadrat der Zufalls-Variable $\frac{\sqrt{n}}{\sigma} \cdot (\overline{X} - \mu)$ ist,
 einer $\chi^2$-Verteilung mit Freiheitsgrad $n=1$ genügt.
 
-Ohne Beweis teilen wir mit, dass die Zufalls-Variablen U und V unabhängig sind.
+Leider können wir an dieser Stelle den folgenden Sachverhalt nicht beweisen:  
+\\[0.2cm]
+\hspace*{1.3cm}
+\colorbox{red}{\framebox{\colorbox{orange}{Die Zufalls-Variablen U und V sind unabhängig.}}}
+\\[0.2cm]
 Damit können wir jetzt Satz \ref{satz:chi-square4} auf die Zufalls-Variablen $U$, $V$ und $W$ 
 anwenden und folgern, dass die Zufalls-Variable $V$ einer $\chi^2$-Verteilung mit
 $n-1$ Freiheitsgraden genügt. \qed
@@ -411,11 +419,11 @@ Wenn $X_0$ aber ein Normal-Verteilung hat, so hat die Zufalls-Variable
 $\ds Y := \frac{X_0 - n \cdot \frac{1}{2}}{\sqrt{n \cdot \frac{1}{2} \cdot (1-\frac{1}{2})}}$
 \\[0.2cm]
 eine Standard-Normal-Verteilung $N_{0,1}$.  Im letzten Kapitel haben wir gesehen, dass
-dann $Y^2$ eine $\chi^2$-Verteilung mit einem Freiheitsgrad genügt.  Die Zufalls-Variable
+dann $Y^2$ eine $\chi^2$-Verteilung mit dem Freiheitsgrad $1$ genügt.  Die Zufalls-Variable
 $Y^2$ ist aber gleich $C$, so dass wir damit die Verteilung von $C$ gefunden haben.
 Daher können wir jetzt die Wahrscheinlichkeit, dass $C$ einen Wert größer oder gleich
 $25$ annimmt, berechnen.  Für die Wahrscheinlichkeits-Dichte einer $\chi^2$-Verteilung
-mit einem Freiheitsgrad hatten wir im letzten Kapitel den Ausdruck
+mit dem Freiheitsgrad $1$ hatten wir im letzten Kapitel den Ausdruck
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds p_{\chi^2,1}(x) = \frac{1}{A_1} \cdot \frac{1}{\sqrt{x}} \cdot \exp\left(-\frac{x}{2}\right)$ 
@@ -423,51 +431,64 @@ $\ds p_{\chi^2,1}(x) = \frac{1}{A_1} \cdot \frac{1}{\sqrt{x}} \cdot \exp\left(-\
 \\[0.2cm]
 gefunden. Wir setzen zur Abkürzung $z=25$ und rechnen wie folgt:
 \\[0.2cm]
-\hspace*{1.3cm}
+\hspace*{0.3cm}
 $
 \begin{array}[t]{lcl}
       P(C \geq 25) 
 & = & 1 - P(C < 25) \\[0.2cm] 
 & \approx & \ds
-      1 - \int_0^z p_{\chi^2,1}(x)\, \dx x
+      1 - \int_0^z p_{\chi^2(1)}(x)\, \dx x
       \\[0.5cm]
 & = & \ds
-      1 - \int_0^z \frac{1}{\sqrt{2\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
+      1 - \int_0^z \frac{1}{\sqrt{2\cdot\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
       \\[0.5cm]
-&   & \mbox{Substitution $x = 2\,y^2$, also $\dx x = 4 \cdot y\, \dx y$}
+&   & \mbox{Substitution $x = y^2$, also $\dx x = 2 \cdot y\, \dx y$}
       \\[0.2cm]
 & = & \ds
-      1 - \int_0^{\sqrt{z/2}} \frac{1}{\sqrt{4\pi\;} \cdot y} \cdot
-      \exp\left(-y^2\right)\cdot 4 \cdot y \, \dx y
+      1 - \int_0^{\sqrt{z}} \frac{1}{\sqrt{2 \cdot\pi\;} \cdot y} \cdot
+      \exp\left(-y^2/2\right)\cdot 2 \cdot y \, \dx y
       \\[0.5cm]
 & = & \ds
-      1 - \frac{2}{\sqrt{\pi\,}} \cdot \int_0^{\sqrt{z/2}} \cdot \exp\left(-y^2\right)\,\dx y
+      1 - 2 \cdot \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_0^{\sqrt{z}} \cdot \exp\left(-y^2/2\right)\,\dx y
       \\[0.5cm]
 & = & \ds
-      1 - \textsl{erf}\left(\sqrt{\frac{z}{2}}\right)
- = 
-      1 - \textsl{erf}\left(\frac{5}{\sqrt{2\,}}\right)
-\approx 
-      5.7 \cdot 10^{-7}
+      1 - 2 \cdot \left( \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \cdot \exp\left(-y^2/2\right)\,\dx y
+                        -\frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{0} \cdot \exp\left(-y^2/2\right)\,\dx y\right)
+      \\[0.5cm]
+& = & \ds
+      1 - 2 \cdot \left( \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \cdot \exp\left(-y^2/2\right)\,\dx y
+                        -\frac{1}{2}
+                  \right)
+      \\[0.5cm]
+& = & \ds
+      2 - 2 \cdot  \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \cdot \exp\left(-y^2/2\right)\,\dx y
+      \\[0.5cm]
+  & = & 2 - 2 \cdot \Phi\bigl(\sqrt{z}\bigr) \\[0.2cm]
+  & = & 2 - 2 \cdot (1 - \Phi\bigl(-\sqrt{z}\bigr) \\[0.2cm]
+  & = & 2 \cdot \Phi\bigl(-\sqrt{z}\bigr) = 2 \cdot \Phi(-5) \approx 5.7 \cdot 10^{-7}
 \end{array}
 $
 \\[0.2cm]
+Wir können den Wert der Funktion $\Phi(x)$ mit \textsc{SetlX} berechnen, denn es gilt
+\\[0.2cm]
+\hspace*{1.3cm}
+$\Phi(x) = \texttt{stat\_normalCDF(x, 0, 1)}$.
+\\[0.2cm]
 Wenn die Null-Hypothese zutrifft, dann ist die Wahrscheinlichkeit, dass die 
-Zufalls-Variable $C$ einen Wert größergleich $25$ annimmt, 
-verschwindend gering.  Daher verwenden wir die Null-Hypothese verwerfen.
-\qed
+Zufalls-Variable $C$ einen Wert größer oder gleich $25$ annimmt, 
+verschwindend gering.  Daher werden wir die Null-Hypothese verwerfen.
+\eox
 
 
-\noindent
 Wir verallgemeinern das letzte Beispiel und betrachten nun eine Anwendung der Statistik
 aus dem wirklichen Leben.
 
 \example
-Die Würfel, die an der Berufsakademie zur Notenfindung eingesetzt werden, werden jedes
+Die Würfel, die an der DHBW zur Notenfindung eingesetzt werden, werden jedes
 Jahr in einem aufwendigen Prozess\footnote{
-Unter den Studenten ist dieser Prozess als die sogenannte \blue{Assistenten-Prüfung} bekannt.} 
+Unter den Studenten ist dieser Prozess als die sogenannte \blue{T2000-Prüfung} gefürchtet.} 
 geeicht.  Dazu wird mit dem zu eichenden Würfel 100 mal gewürfelt und die Häufigkeit der
-einzelnen Ziffern wird notiert.  Da bei der BA nur Noten von $1$ bis $5$ vergeben werden,
+einzelnen Ziffern wird notiert.  Da an der DHBW nur Noten von $1$ bis $5$ vergeben werden,
 handelt es sich bei den verwendeten Würfeln um kostspielige Spezialanfertigungen, mit
 denen sich nur Zahlen aus der Menge $\{1,\cdots,5\}$ würfeln lassen.
 Bei meinem Würfel ergab sich die dabei die folgenden Verteilung der Häufigkeiten:
@@ -481,11 +502,11 @@ Bei meinem Würfel ergab sich die dabei die folgenden Verteilung der Häufigkeiten
 \hline
 \end{tabular}
 \end{center}
-Wir würden erwarten, dass jede Zahl mit einer durschnittlichen Häufigkeit von $100 \cdot \frac{1}{5} = 20$
+Wir würden erwarten, dass jede Zahl mit einer durchschnittlichen Häufigkeit von $100 \cdot \frac{1}{5} = 20$
 in der Tabelle erscheint, aber es ist auch klar, dass es statistische Schwankungen dieser
 Häufigkeiten geben wird.  Für $i=1,\cdots,5$ bezeichnen wir die Häufigkeit des Auftretens
 der Zahl $i$ mit $X_i$. 
-Als ein Mass für die Abweichung der oben gezeigten Häufigkeiten
+Als ein Maß für die Abweichung der oben gezeigten Häufigkeiten
 von dem Erwartungswert verwenden wir die Zufalls-Variable $C$, die wir in Analogie zu dem
 letzten Beispiel als 
 \\[0.2cm]
@@ -601,8 +622,8 @@ $
 Diese Wahrscheinlichkeit ist sehr klein.  Dies deutet mit hoher Sicherheit darauf
 hin, dass die Null-Hypothese falsch ist.  Wir müssen daher die Null-Hypothese verwerfen und
 davon ausgehen, dass sich die Wahrscheinlichkeit der einzelnen
-Zahlen bei meinem Würfel deutlich von dem Wert $\frac{1}{5}$ unterscheidet.  
-Also sollte ich mir von den Studiengebühren einen neuen Würfel beschaffen. \qed
+Zahlen bei meinem Würfel deutlich von dem Wert $\frac{1}{5}$ unterscheidet.  Daher muss mein Würfel neu geeicht
+werden.  \eoxs
 \vspace*{0.3cm}
 
 \noindent
@@ -728,15 +749,16 @@ Ursachen haben:
       Intelligenz-Quotient nicht erhöhen.  Das einzige was sich erhöhen würde, wäre das
       Risiko an Aids zu erkanken.
 
-      Einer der größten Statistiker des letzten Jahrhunderts, Sir Ronald Fisher (1890 -
-      1962), war tatsächlich der Ansicht, dass die
+      Einer der größten Statistiker des letzten Jahrhunderts,
+      \href{https://de.wikipedia.org/wiki/Ronald_Aylmer_Fisher}{Sir Ronald Aylmer Fisher}
+      (1890 - 1962), war tatsächlich der Ansicht, dass die
       Korrelation zwischen dem Rauchen und dem Auftreten von Lungenkrebs 
       genetisch bedingt ist.  Der Fairness halber soll erwähnt werden, dass zu dem
-      Zeitraum, an dem Sir Ronald diese Hypothese aufstellte, der medizinische
+      Zeitpunkt, an dem Sir Ronald diese Hypothese aufstellte, der medizinische
       Wissensstand noch keine klare Aussage zuließ.  Der Vollständigkeit halber soll 
       allerdings auch erwähnt werden, dass Sir Ronald bei der Tabak-Industrie unter
       Vertrag stand und selber ein leidenschaftlicher Zigarren-Raucher war.
-      Und um die Geschichte abzuschließen, bemerken wir noch, dass Sir Ronald
+      Um die Geschichte abzuschließen, bemerken wir noch, dass Sir Ronald
       dann auch nicht an Lungenkrebs gestorben ist, sondern an Kehlkopfkrebs.
       Dies ist die bevorzugte Krebsart bei Zigarren-Rauchern und hat in etwa den selben
       Spaßfaktor wie Lungenkrebs. \qed
@@ -779,13 +801,13 @@ beweisen können.
 Besuchen Sie im Internet die Seite 
 \\[0.2cm]
 \hspace*{1.3cm}
-\texttt{http://www.cemetery.org/alphaindex.html}
+\href{http://www.virtualgrave.eu/html_core/ksiega_zmarlych/}{\texttt{http://www.virtualgrave.eu/html\_core/ksiega\_zmarlych/}}
 \\[0.2cm]
 Bei dieser Seite handelt es sich um einen virtuellen Friedhof.  Notieren Sie 
 die Wochentage des Ablebens der Verblichenen.  Überprüfen Sie die Hypothese,
 dass für den Todestag eines Menschen alle Wochentage dieselbe Wahrscheinlichkeit haben
 mit Hilfe des $\chi^2$-Tests und interpretieren Sie das Ergebnis.
-\qed
+\eoxs
 
 \section{Die Verteilung des Mittelwerts für endliche Populationen}
 Wir betrachten das folgende Problem: Gegeben ist eine Population
