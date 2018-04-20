@@ -412,13 +412,18 @@ dem Erwartungswert $\mu = n \cdot \frac{1}{2}$ und der Varianz
  $\sigma^2 = n \cdot \frac{1}{2} \cdot (1-\frac{1}{2})$.  Für große Werte von $n$ kann diese Verteilung 
 durch eine Normal-Verteilung $N_{\mu,\sigma}$ mit Mittelwert $\mu$ und Varianz $\sigma$
 approximiert werden.  Brauchbare Werte erhalten wir, sobald $\sigma^2 > 9$ gilt.
-Für $n = 100$  haben wir $\sigma^2 = 25$, so dass diese Bedingung erfüllt ist.
-Wenn $X_0$ aber ein Normal-Verteilung hat, so hat die Zufalls-Variable
+Für $n = 100$  haben wir
+\\[0.2cm]
+\hspace*{1.3cm}
+$\sigma^2 = n \cdot \frac{1}{2} \cdot \bigl(1 - \frac{1}{2}\bigr) = 100 \cdot \frac{1}{4} = 25$,
+\\[0.2cm]
+so dass diese Bedingung erfüllt ist.
+Wenn $X_0$ aber ein Normal-Verteilung hat, dann hat die Zufalls-Variable
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds Y := \frac{X_0 - n \cdot \frac{1}{2}}{\sqrt{n \cdot \frac{1}{2} \cdot (1-\frac{1}{2})}}$
 \\[0.2cm]
-eine Standard-Normal-Verteilung $N_{0,1}$.  Im letzten Kapitel haben wir gesehen, dass
+eine Standard-Normal-Verteilung, es gilt also $Y \sim \mathcal{N}(0,1)$.  Im letzten Kapitel haben wir gesehen, dass
 dann $Y^2$ eine $\chi^2$-Verteilung mit dem Freiheitsgrad $1$ genügt.  Die Zufalls-Variable
 $Y^2$ ist aber gleich $C$, so dass wir damit die Verteilung von $C$ gefunden haben.
 Daher können wir jetzt die Wahrscheinlichkeit, dass $C$ einen Wert größer oder gleich
@@ -469,7 +474,7 @@ $
 \end{array}
 $
 \\[0.2cm]
-Wir können den Wert der Funktion $\Phi(x)$ mit \textsc{SetlX} berechnen, denn es gilt
+Wir können den Wert des gaußschen Fehlerintegrals $\Phi(x)$ mit \textsc{SetlX} berechnen, denn es gilt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\Phi(x) = \texttt{stat\_normalCDF(x, 0, 1)}$.
@@ -477,8 +482,17 @@ $\Phi(x) = \texttt{stat\_normalCDF(x, 0, 1)}$.
 Wenn die Null-Hypothese zutrifft, dann ist die Wahrscheinlichkeit, dass die 
 Zufalls-Variable $C$ einen Wert größer oder gleich $25$ annimmt, 
 verschwindend gering.  Daher werden wir die Null-Hypothese verwerfen.
-\eox
+\eoxs
 
+\remark
+Eventuell fragen Sie sich, warum ich oben den Ausdruck $2 - 2 \cdot \Phi\bigl(\sqrt{z}\bigr)$
+in den äquivalenten Ausdruck $2 \cdot \Phi\bigl(-\sqrt{z}\bigr)$ umgeformt habe.  Der Grund ist, dass der erste Ausdruck
+\href{https://de.wikipedia.org/wiki/Stabilität_(Numerik)}{numerisch instabil} ist:  Für große Werte von
+$\sqrt{z}$ hat $\Phi\bigl(\sqrt{z}\bigr)$ annähernd den Wert 1 und die Subtraktion führt dann zu einer
+\href{https://de.wikipedia.org/wiki/Auslöschung_(numerische_Mathematik)}{Auslöschung}.  Setzen wir
+beispielsweise $z:=100$, so liefert \textsc{SetlX} für den Ausdruck $\Phi(10)$ das Ergebnis $1.0$, so dass
+$2 - 2 \cdot \Phi(10)$ dann den Wert $0$ hat.  Dem gegenüber liefert der Ausdruck $2 \cdot \Phi(-10)$ das Ergebnis
+$\texttt{1.523970604832111E-23}$, das zwar sehr klein, aber eben nicht exakt $0$ ist.  \eox
 
 Wir verallgemeinern das letzte Beispiel und betrachten nun eine Anwendung der Statistik
 aus dem wirklichen Leben.
