@@ -368,8 +368,14 @@ das Ereignis ``Wappen'' eintritt ist, mit $X_0$ und die Häufigkeit, mit der das 
 \hspace*{1.3cm}
 $\ds C := \frac{(X_0 - n \cdot \frac{1}{2})^2}{n \cdot \frac{1}{2}} + \frac{(X_1 - n \cdot \frac{1}{2})^2}{n \cdot \frac{1}{2}}$
 \\[0.2cm]
-wie stark $X_0$ und $X_1$ von dem Erwartungswert $n \cdot \frac{1}{2}$ abweichen.  
-Eine solche Zufalls-Variable wird auch als eine \blue{Statistik} bezeichnet.
+wie stark $X_0$ und $X_1$ von dem Erwartungswert $n \cdot \frac{1}{2}$ abweichen.  Wir teilen hier die
+Quadrate durch $n \cdot \frac{1}{2}$, weil wir später zeigen wollen, dass die Zufalls-Variable
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds 2 \cdot \frac{(X_0 - n \cdot \frac{1}{2})^2}{n \cdot \frac{1}{2}} = \frac{(X_0 - n \cdot \frac{1}{2})^2}{n \cdot \frac{1}{4}}$
+\\[0.2cm]
+eine Chi-Quadrat-Verteilung mit dem Freiheitsgrad $1$ hat. 
+Die Zufalls-Variable $C$ bezeichnen wir als eine \blue{Statistik}.
 \index{Statistik}
 Für die oben genannten Werte von $X_0 = 75$ und $X_1 = 25$ ergibt sich für die Statistik $C$
 \\[0.2cm]
@@ -418,7 +424,8 @@ Für $n = 100$  haben wir
 $\sigma^2 = n \cdot \frac{1}{2} \cdot \bigl(1 - \frac{1}{2}\bigr) = 100 \cdot \frac{1}{4} = 25$,
 \\[0.2cm]
 so dass diese Bedingung erfüllt ist.
-Wenn $X_0$ aber ein Normal-Verteilung hat, dann hat die Zufalls-Variable
+Wenn $X_0$ aber ein Normal-Verteilung mit Mittelwert $n \cdot \frac{1}{2}$ und Varianz $n\cdot\frac{1}{2}\cdot(1 - \frac{1}{2})$
+hat, dann hat die Zufalls-Variable
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds Y := \frac{X_0 - n \cdot \frac{1}{2}}{\sqrt{n \cdot \frac{1}{2} \cdot (1-\frac{1}{2})}}$
@@ -442,7 +449,7 @@ gefunden. Wir setzen zur Abkürzung $z=25$ und rechnen wie folgt:
 \\[0.2cm]
 \hspace*{0.3cm}
 $
-\begin{array}[t]{lcl}
+\begin{array}[t]{lcll}
       P(C \geq 25) 
 & = & 1 - P(C < 25) \\[0.2cm] 
 & \approx & \ds
@@ -466,14 +473,18 @@ $
       \\[0.5cm]
 & = & \ds
       1 - 2 \cdot \left( \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \exp\left(-y^2/2\right)\,\dx y
-                        -\frac{1}{2}
+                        -\frac{1}{\sqrt{2\cdot\pi\,}} \cdot \frac{1}{2}\cdot\int_{-\infty}^{\infty} \exp\left(-y^2/2\right)\,\dx y\right)
+      \\[0.5cm]
+& = & \ds
+      1 - 2 \cdot \left( \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \exp\left(-y^2/2\right)\,\dx y
+                        -\frac{1}{2} \cdot 1
                   \right)
       \\[0.5cm]
 & = & \ds
       2 - 2 \cdot  \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \exp\left(-y^2/2\right)\,\dx y
       \\[0.5cm]
   & = & 2 - 2 \cdot \Phi\bigl(\sqrt{z}\bigr) \\[0.2cm]
-  & = & 2 - 2 \cdot (1 - \Phi\bigl(-\sqrt{z}\bigr) \\[0.2cm]
+  & = & 2 - 2 \cdot \bigl(1 - \Phi\bigl(-\sqrt{z}\bigr)\bigr) \quad \mbox{denn $\Phi(x) + \Phi(-x) = 1$}\\[0.2cm]
   & = & 2 \cdot \Phi\bigl(-\sqrt{z}\bigr) = 2 \cdot \Phi(-5) \approx 5.7 \cdot 10^{-7}
 \end{array}
 $
@@ -621,7 +632,7 @@ $
      - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) + \int_0^{z/2}  \exp\left(-y\right)\, \dx y
      \\[0.5cm]
  = & \ds
-     - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) - \left( -\exp(-y)\Big|_0^{z/2} \right) 
+     - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) + \left( -\exp(-y)\Big|_0^{z/2} \right) 
      \\[0.5cm]
  = & \ds
      - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) - \exp\left(-\frac{z}{2}\right) + 1 
@@ -669,11 +680,11 @@ folgenden Ergebnisse:
                    &   Raucher & Nichtraucher &    Gesamt \\
 \hline
 \hline
-  Lungenkrebs      &      $62$ &         $14$ &      $76$ \\   
+  Lungenkrebs      &      $62$  &           $14$ &      $76$ \\   
 \hline
-  kein Lungenkrebs &  $9\,938$ &    $19\,986$ & $29\,924$ \\
+  kein Lungenkrebs &    $9\,938$ &        $19\,986$ &   $29\,924$ \\
 \hline
-  Gesamt           & $10\,000$ &    $20\,000$ & $30\,000$ \\
+  Gesamt           &   $10\,000$ &        $20\,000$ &   $30\,000$ \\
 \hline
   \end{tabular}
 \end{center}
@@ -747,11 +758,17 @@ $
 \end{array}
 $
 \\[0.2cm]
-Das Integral, das hier auftritt, haben wir bereits zu Beginn dieses Abschnitts berechnet.
-Es gilt also 
+Das Integral, das hier auftritt, haben wir bereits zu Beginn dieses Abschnitts berechnet.  Wir hatten damals die Formel
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P(C \geq z) \approx 1 - \textsl{erf}\left(\sqrt{\frac{z}{2}}\right) \approx 0.41 \cdot 10^{-18}$
+$P(C \geq z) = 1 - \int_0^z \frac{1}{\sqrt{2\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
+             = 2 \cdot \Phi\bigl(-\sqrt{z}\bigr)
+$
+\\[0.2cm]
+Mit $z = 79.81$ gilt 
+\\[0.2cm]
+\hspace*{1.3cm}
+$\ds P(C \geq z) \approx 2 \cdot \Phi\bigl(\sqrt{79.81}\bigr) \approx \texttt{4.1220121535273025E-19}$.
 \\[0.2cm]
 Dieser Wert ist so klein, dass der Zufall als Ursache für die höhere Zahl der
 Lungenkrebs-Erkrankungen bei den Rauchern praktisch ausgeschlossen werden kann.  Das heißt
@@ -779,7 +796,7 @@ Ursachen haben:
       (1890 - 1962), war tatsächlich der Ansicht, dass die
       Korrelation zwischen dem Rauchen und dem Auftreten von Lungenkrebs 
       genetisch bedingt ist.  Der Fairness halber soll erwähnt werden, dass zu dem
-      Zeitpunkt, an dem Sir Ronald diese Hypothese aufstellte, der medizinische
+      Zeitpunkt, an dem Sir Ronald diese steile Hypothese aufstellte, der medizinische
       Wissensstand noch keine klare Aussage zuließ.  Der Vollständigkeit halber soll 
       allerdings auch erwähnt werden, dass Sir Ronald bei der Tabak-Industrie unter
       Vertrag stand und selber ein leidenschaftlicher Zigarren-Raucher war.
@@ -819,7 +836,7 @@ beweisen können.
   (in der Praxis nimmt man oft $\alpha = 0.05$, $\alpha = 0.01$ oder $\alpha = 0.001$),
   so sagen wir, dass die Null-Hypothese auf dem Signifikanz-Niveau $\alpha$ verworfen
   werden kann.
-  \qed
+  \qeds
 \end{Satz}
 
 \exercise
@@ -834,126 +851,126 @@ dass für den Todestag eines Menschen alle Wochentage dieselbe Wahrscheinlichkeit
 mit Hilfe des $\chi^2$-Tests und interpretieren Sie das Ergebnis.
 \eoxs
 
-\section{Die Verteilung des Mittelwerts für endliche Populationen}
-Wir betrachten das folgende Problem: Gegeben ist eine Population
-\\[0.3cm]
-\hspace*{1.3cm}
-$\Omega := \{\omega_1, \cdots, \omega_N\}$
-\\[0.3cm]
-mit $N$ Elementen, der eine zufällige Stichprobe vom Umfang $n \leq N$
-entnommen wird.  Auf $\Omega$ sei ein Merkmal $X$ definiert.  Mit $X_i$ bezeichnen
-wir dann den Wert, den dieses Merkmal für das $i$-te Element der Stichprobe annimmt.
-Wir wollen den
-Erwartungswert des arithmetischen Mittelwert 
-\\[0.3cm]
-\hspace*{1.3cm}
-$\overline{X} := \frac{1}{n} \sum\limits_{i=1}^n X_i$
-\\[0.3cm]
-und die Varianz des arithmetischen Mittelwerts berechnen.
-Wir setzen 
-\\[0.3cm]
-\hspace*{1.3cm}
-$\ds \mu := \frac{1}{N} \cdot \sum\limits_{i=1}^N X(\omega_i)$ \quad und \quad
-$\ds \sigma^2 := \frac{1}{N} \cdot \sum\limits_{i=1}^N \bigl(X(\omega_i) - \mu\bigr)^2$.
-\\[0.3cm]
-Entnehmen wir der Menge $\Omega$ eine Stichprobe vom Umfang $n$, so bezeichnen
-wir das $i$-te entnommene Element mit $O_i$.  Der Ergebnisraum für das Zufalls-Experiment
-``Entnahme einer Liste $[O_1,\cdots,O_n]$'' aus der Menge $\Omega$
-besteht dann aus allen Listen der Länge $n$, in denen jedes Element von $\Omega$ höchstens
-einmal vorkommt. Die Zahl der möglichen Listen ist dann durch 
-\\[0.3cm]
-\hspace*{1.3cm}
-$\ds N \cdot (N-1) \cdot \dots \cdot (N-n+1) = \frac{N!}{(N-n)!}$
-\\[0.3cm]
-gegeben.  Eine zufällige Stichprobe ist dadurch gekennzeichnet, dass alle diese Listen
-dieselbe Wahrscheinlichkeit haben.  Damit hat die Wahrscheinlichkeit, dass eine bestimmte
-Liste gewählt wird, den Wert 
-\\[0.3cm]
-\hspace*{1.3cm}
-$\ds \frac{(N-n)!}{N!}$
-\\[0.3cm]
-Für das Folgende benötigen wir die Wahrscheinlichkeit  dafür, dass das $i$-te Element
-der Liste einen bestimmten Wert $a \in \Omega$ und das  $j$-te Element
-der Liste einen anderen Wert $b \in \Omega$ hat.  Diese Wahrscheinlichkeit schreibt sich
-\\[0.3cm]
-\hspace*{1.3cm}
-$P(O_i = a \wedge O_j = b)$
-\\[0.3cm] 
-Es sei $\Lambda$ die Menge aller Listen, der Länge $n$ mit Elementen aus $\Omega$, deren
-$i$-tes  Element $a$ ist, deren $j$-tes  Element $b$ ist und deren Elemente alle
-verschieden sind.  Offenbar hat die Anzahl der Elemente von $\Lambda$ den Wert 
-\\[0.3cm]
-\hspace*{1.3cm}
-$\ds
- |\Lambda| = (N - 2) \cdot (N - 3) \cdot \dots \cdot ((N-2)- (n-2) + 1) = \frac{(N-2)!}{(N-n)!}$
-\\[0.3cm]
-Damit gilt 
-\\[0.3cm]
-\hspace*{1.3cm}
-$\ds P(O_i = a \wedge O_j = b) = \frac{|\Lambda|}{\frac{N!}{(N-n)!}} = 
-  \frac{(N-2)!}{(N-n)!} \cdot \frac{(N-n)!}{N!} = \frac{1}{N \cdot (N - 1)}$
-\\[0.3cm]
-Damit können wir jetzt die Kovarianz der Zufalls-Variablen $X_i$ und $X_j$ für $i\not=j$
-berechnen.  Da der Erwartungswert von $X_i$ und $X_j$ offenbar den Wert $\mu$ hat, gilt
-\\[0.3cm]
-\hspace*{1.3cm}
-$
-\begin{array}[t]{lcl}
-      \mathtt{Cov}(X_i,X_j) 
-& = & \ds
-      E[(X_i - \mu) \cdot (X_j - \mu)]
-      \\[0.2cm]
-& = & \ds
-      \sum\limits_{a=1}^N \sum\limits_{b=1 \atop b \not = a}^N 
-      P(O_i = \omega_a \wedge O_i = \omega_b) \cdot 
-      \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_b) - \mu\bigr)
-      \\[0.2cm]
-& = & \ds
-      \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N \sum\limits_{b=1 \atop b \not = a}^N 
-      \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_b) - \mu\bigr)
-      \\[0.2cm]
-& = & \ds
-      \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N  
-      \bigl(X(\omega_a) - \mu\bigr) \cdot 
-      \sum\limits_{b=1 \atop b \not = a}^N \bigl(X(\omega_b) - \mu\bigr)
-      \\[0.2cm]
-& = & \ds
-      - \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N  
-      \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_a) - \mu\bigr)
-      \\[0.2cm]
-& = & \ds
-      - \frac{1}{N - 1} \cdot \sigma^2
-\end{array}
-$
-\\[0.3cm]
-Dabei haben wir im vorletzten Schritt ausgenutzt, dass gilt
-\\[0.3cm]
-\hspace*{1.3cm}
-$\sum\limits_{b=1 \atop b \not = a}^N \bigl(X(\omega_b) - \mu\bigr) =
- \sum\limits_{b=1}^N \bigl(X(\omega_b) - \mu\bigr) - \bigl(X(\omega_a) - \mu\bigr) = 
- - \bigl(X(\omega_a) - \mu\bigr)$.
-\\[0.3cm]
+% \section{Die Verteilung des Mittelwerts für endliche Populationen}
+% Wir betrachten das folgende Problem: Gegeben ist eine Population
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\Omega := \{\omega_1, \cdots, \omega_N\}$
+% \\[0.3cm]
+% mit $N$ Elementen, der eine zufällige Stichprobe vom Umfang $n \leq N$
+% entnommen wird.  Auf $\Omega$ sei ein Merkmal $X$ definiert.  Mit $X_i$ bezeichnen
+% wir dann den Wert, den dieses Merkmal für das $i$-te Element der Stichprobe annimmt.
+% Wir wollen den
+% Erwartungswert des arithmetischen Mittelwert 
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\ds\overline{X} := \frac{1}{n} \cdot\sum\limits_{i=1}^n X_i$
+% \\[0.3cm]
+% und die Varianz des arithmetischen Mittelwerts berechnen.
+% Wir setzen 
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\ds \mu := \frac{1}{N} \cdot \sum\limits_{i=1}^N X(\omega_i)$ \quad und \quad
+% $\ds \sigma^2 := \frac{1}{N} \cdot \sum\limits_{i=1}^N \bigl(X(\omega_i) - \mu\bigr)^2$.
+% \\[0.3cm]
+% Entnehmen wir der Menge $\Omega$ eine Stichprobe vom Umfang $n$, so bezeichnen
+% wir das $i$-te entnommene Element mit $O_i$.  Der Ergebnisraum für das Zufalls-Experiment
+% ``Entnahme einer Liste $[O_1,\cdots,O_n]$'' aus der Menge $\Omega$
+% besteht dann aus allen Listen der Länge $n$, in denen jedes Element von $\Omega$ höchstens
+% einmal vorkommt. Die Zahl der möglichen Listen ist dann durch 
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\ds N \cdot (N-1) \cdot \dots \cdot (N-n+1) = \frac{N!}{(N-n)!}$
+% \\[0.3cm]
+% gegeben.  Eine zufällige Stichprobe ist dadurch gekennzeichnet, dass alle diese Listen
+% dieselbe Wahrscheinlichkeit haben.  Damit hat die Wahrscheinlichkeit, dass eine bestimmte
+% Liste gewählt wird, den Wert 
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\ds \frac{(N-n)!}{N!}$
+% \\[0.3cm]
+% Für das Folgende benötigen wir die Wahrscheinlichkeit  dafür, dass das $i$-te Element
+% der Liste einen bestimmten Wert $a \in \Omega$ und das  $j$-te Element
+% der Liste einen anderen Wert $b \in \Omega$ hat.  Diese Wahrscheinlichkeit schreibt sich
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $P(O_i = a \wedge O_j = b)$
+% \\[0.3cm] 
+% Es sei $\Lambda$ die Menge aller Listen, der Länge $n$ mit Elementen aus $\Omega$, deren
+% $i$-tes  Element $a$ ist, deren $j$-tes  Element $b$ ist und deren Elemente alle
+% verschieden sind.  Offenbar hat die Anzahl der Elemente von $\Lambda$ den Wert 
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\ds
+%  |\Lambda| = (N - 2) \cdot (N - 3) \cdot \dots \cdot ((N-2)- (n-2) + 1) = \frac{(N-2)!}{(N-n)!}$
+% \\[0.3cm]
+% Damit gilt 
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\ds P(O_i = a \wedge O_j = b) = \frac{|\Lambda|}{\frac{N!}{(N-n)!}} = 
+%   \frac{(N-2)!}{(N-n)!} \cdot \frac{(N-n)!}{N!} = \frac{1}{N \cdot (N - 1)}$
+% \\[0.3cm]
+% Damit können wir jetzt die Kovarianz der Zufalls-Variablen $X_i$ und $X_j$ für $i\not=j$
+% berechnen.  Da der Erwartungswert von $X_i$ und $X_j$ offenbar den Wert $\mu$ hat, gilt
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $
+% \begin{array}[t]{lcl}
+%       \mathtt{Cov}(X_i,X_j) 
+% & = & \ds
+%       E[(X_i - \mu) \cdot (X_j - \mu)]
+%       \\[0.2cm]
+% & = & \ds
+%       \sum\limits_{a=1}^N \sum\limits_{b=1 \atop b \not = a}^N 
+%       P(O_i = \omega_a \wedge O_i = \omega_b) \cdot 
+%       \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_b) - \mu\bigr)
+%       \\[0.2cm]
+% & = & \ds
+%       \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N \sum\limits_{b=1 \atop b \not = a}^N 
+%       \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_b) - \mu\bigr)
+%       \\[0.2cm]
+% & = & \ds
+%       \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N  
+%       \bigl(X(\omega_a) - \mu\bigr) \cdot 
+%       \sum\limits_{b=1 \atop b \not = a}^N \bigl(X(\omega_b) - \mu\bigr)
+%       \\[0.2cm]
+% & = & \ds
+%       - \frac{1}{N \cdot (N - 1)} \cdot \sum\limits_{a=1}^N  
+%       \bigl(X(\omega_a) - \mu\bigr) \cdot \bigl(X(\omega_a) - \mu\bigr)
+%       \\[0.2cm]
+% & = & \ds
+%       - \frac{1}{N - 1} \cdot \sigma^2
+% \end{array}
+% $
+% \\[0.3cm]
+% Dabei haben wir im vorletzten Schritt ausgenutzt, dass gilt
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\sum\limits_{b=1 \atop b \not = a}^N \bigl(X(\omega_b) - \mu\bigr) =
+%  \sum\limits_{b=1}^N \bigl(X(\omega_b) - \mu\bigr) - \bigl(X(\omega_a) - \mu\bigr) = 
+%  - \bigl(X(\omega_a) - \mu\bigr)$.
+% \\[0.3cm]
 
-\begin{Satz}
-  Wird einer Population der Größe $N$ eine Stichprobe vom Umfang $n$ entnommen,
-  so gilt für den arithmetischen Mittelwert $\overline{X}$:
-\\[0.3cm]
-\hspace*{1.3cm}
-  $E[\overline{X}] = \mu$ \quad und \quad
-  $\ds \mathrm{Var}[\overline{X}] = \frac{\sigma^2}{n} \cdot \frac{N - n}{N - 1}$ .
-\end{Satz}
+% \begin{Satz}
+%   Wird einer Population der Größe $N$ eine Stichprobe vom Umfang $n$ entnommen,
+%   so gilt für den arithmetischen Mittelwert $\overline{X}$:
+% \\[0.3cm]
+% \hspace*{1.3cm}
+%   $E[\overline{X}] = \mu$ \quad und \quad
+%   $\ds \mathrm{Var}[\overline{X}] = \frac{\sigma^2}{n} \cdot \frac{N - n}{N - 1}$ .
+% \end{Satz}
 
-\noindent
-\textbf{Beweis}: Nachrechnen. \qed
+% \noindent
+% \textbf{Beweis}: Nachrechnen. \qed
 
-\exercise
-Es sei $\Omega = \{ 1, \cdots, N \}$ und das Merkmal $X$ sei definiert als $X( i) := i$.
-Zeigen Sie, dass gilt:
-\\[0.3cm]
-\hspace*{1.3cm}
-$\ds E[\overline{X}] = \frac{1}{2} \cdot (N + 1)$ \quad und \quad
-$\ds \mathrm{Var}[\overline{X}] = \frac{1}{12} \cdot \frac{(N+1) \cdot (N - n)}{n}$.
-\\[0.3cm]
+% \exercise
+% Es sei $\Omega = \{ 1, \cdots, N \}$ und das Merkmal $X$ sei definiert als $X( i) := i$.
+% Zeigen Sie, dass gilt:
+% \\[0.3cm]
+% \hspace*{1.3cm}
+% $\ds E[\overline{X}] = \frac{1}{2} \cdot (N + 1)$ \quad und \quad
+% $\ds \mathrm{Var}[\overline{X}] = \frac{1}{12} \cdot \frac{(N+1) \cdot (N - n)}{n}$.
+% \\[0.3cm]
 
 %%% Local Variables: 
 %%% mode: latex
