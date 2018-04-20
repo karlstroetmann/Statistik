@@ -425,14 +425,18 @@ $\ds Y := \frac{X_0 - n \cdot \frac{1}{2}}{\sqrt{n \cdot \frac{1}{2} \cdot (1-\f
 \\[0.2cm]
 eine Standard-Normal-Verteilung, es gilt also $Y \sim \mathcal{N}(0,1)$.  Im letzten Kapitel haben wir gesehen, dass
 dann $Y^2$ eine $\chi^2$-Verteilung mit dem Freiheitsgrad $1$ genügt.  Die Zufalls-Variable
-$Y^2$ ist aber gleich $C$, so dass wir damit die Verteilung von $C$ gefunden haben.
+$Y^2$ ist aber gleich $C$,  so dass wir damit die Verteilung von $C$ gefunden haben.
+\\[0.2cm]
+\hspace*{1.3cm}
+$C = Y^2 \sim \chi^2(1)$.
+\\[0.2cm]  
 Daher können wir jetzt die Wahrscheinlichkeit, dass $C$ einen Wert größer oder gleich
 $25$ annimmt, berechnen.  Für die Wahrscheinlichkeits-Dichte einer $\chi^2$-Verteilung
 mit dem Freiheitsgrad $1$ hatten wir im letzten Kapitel den Ausdruck
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds p_{\chi^2,1}(x) = \frac{1}{A_1} \cdot \frac{1}{\sqrt{x}} \cdot \exp\left(-\frac{x}{2}\right)$ 
-\quad mit $\ds A_1 = \sqrt{2\;} \cdot \Gamma\left(\frac{1}{2}\right) = \sqrt{2\pi\;}$
+\quad mit $\ds A_1 = \sqrt{2\;} \cdot \Gamma\left(\frac{1}{2}\right) = \sqrt{2\cdot\pi\;}$
 \\[0.2cm]
 gefunden. Wir setzen zur Abkürzung $z=25$ und rechnen wie folgt:
 \\[0.2cm]
@@ -454,19 +458,19 @@ $
       \exp\left(-y^2/2\right)\cdot 2 \cdot y \, \dx y
       \\[0.5cm]
 & = & \ds
-      1 - 2 \cdot \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_0^{\sqrt{z}} \cdot \exp\left(-y^2/2\right)\,\dx y
+      1 - 2 \cdot \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_0^{\sqrt{z}} \exp\left(-y^2/2\right)\,\dx y
       \\[0.5cm]
 & = & \ds
-      1 - 2 \cdot \left( \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \cdot \exp\left(-y^2/2\right)\,\dx y
-                        -\frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{0} \cdot \exp\left(-y^2/2\right)\,\dx y\right)
+      1 - 2 \cdot \left( \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \exp\left(-y^2/2\right)\,\dx y
+                        -\frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{0} \exp\left(-y^2/2\right)\,\dx y\right)
       \\[0.5cm]
 & = & \ds
-      1 - 2 \cdot \left( \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \cdot \exp\left(-y^2/2\right)\,\dx y
+      1 - 2 \cdot \left( \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \exp\left(-y^2/2\right)\,\dx y
                         -\frac{1}{2}
                   \right)
       \\[0.5cm]
 & = & \ds
-      2 - 2 \cdot  \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \cdot \exp\left(-y^2/2\right)\,\dx y
+      2 - 2 \cdot  \frac{1}{\sqrt{2\cdot\pi\,}} \cdot \int_{-\infty}^{\sqrt{z}} \exp\left(-y^2/2\right)\,\dx y
       \\[0.5cm]
   & = & 2 - 2 \cdot \Phi\bigl(\sqrt{z}\bigr) \\[0.2cm]
   & = & 2 - 2 \cdot (1 - \Phi\bigl(-\sqrt{z}\bigr) \\[0.2cm]
@@ -491,21 +495,28 @@ in den äquivalenten Ausdruck $2 \cdot \Phi\bigl(-\sqrt{z}\bigr)$ umgeformt habe.
 $\sqrt{z}$ hat $\Phi\bigl(\sqrt{z}\bigr)$ annähernd den Wert 1 und die Subtraktion führt dann zu einer
 \href{https://de.wikipedia.org/wiki/Auslöschung_(numerische_Mathematik)}{Auslöschung}.  Setzen wir
 beispielsweise $z:=100$, so liefert \textsc{SetlX} für den Ausdruck $\Phi(10)$ das Ergebnis $1.0$, so dass
-$2 - 2 \cdot \Phi(10)$ dann den Wert $0$ hat.  Dem gegenüber liefert der Ausdruck $2 \cdot \Phi(-10)$ das Ergebnis
-$\texttt{1.523970604832111E-23}$, das zwar sehr klein, aber eben nicht exakt $0$ ist.  \eox
+$2 - 2 \cdot \Phi(10)$ dann den Wert $\texttt{0.0}$ hat.  Dem gegenüber liefert der Ausdruck $2 \cdot \Phi(-10)$ das Ergebnis
+$\texttt{1.523970604832111E-23}$, das zwar sehr klein, aber eben nicht exakt $0$ ist.  \eoxs
 
-Wir verallgemeinern das letzte Beispiel und betrachten nun eine Anwendung der Statistik
-aus dem wirklichen Leben.
+\exercise
+Berechnen Sie die Wahrscheinlichkeit, dass beim Werfen einer fairen Münze das Ergebnis ``Wappen''
+mindestens 75 mal.  Benutzen Sie zur Lösung dieser Aufgabe die Binomial-Verteilung und berechnen Sie die Summe,
+die bei der Lösung dieser Aufgabe auftritt, mit einem geeigneten Programm.
+Das Ergebnis, das Sie erhalten werden, ist etwa halb so groß wie der Wert, den wir mit Hilfe der
+$\chi^2$-Quadrat-Verteilung erhalten haben.  Der Grund ist, dass die Normal-Verteilung nur für solche Werte,
+die nicht zu weit vom Mittelwert entfernt sind, eine gute Näherung für die Binomial-Verteilung ist.
+\eoxs
 
 \example
-Die Würfel, die an der DHBW zur Notenfindung eingesetzt werden, werden jedes
+Wir verallgemeinern das letzte Beispiel und betrachten nun eine Anwendung der Statistik
+aus dem wirklichen Leben: Die Würfel, die an der DHBW zur Notenfindung eingesetzt werden, werden jedes 
 Jahr in einem aufwendigen Prozess\footnote{
-Unter den Studenten ist dieser Prozess als die sogenannte \blue{T2000-Prüfung} gefürchtet.} 
-geeicht.  Dazu wird mit dem zu eichenden Würfel 100 mal gewürfelt und die Häufigkeit der
-einzelnen Ziffern wird notiert.  Da an der DHBW nur Noten von $1$ bis $5$ vergeben werden,
-handelt es sich bei den verwendeten Würfeln um kostspielige Spezialanfertigungen, mit
-denen sich nur Zahlen aus der Menge $\{1,\cdots,5\}$ würfeln lassen.
-Bei meinem Würfel ergab sich die dabei die folgenden Verteilung der Häufigkeiten:
+Unter den Studenten ist dieser Prozess als die sogenannte \blue{T2000-Prüfung} gefürchtet.
+} 
+geeicht.  Dazu wird mit dem zu eichenden Würfel 100 mal gewürfelt und die Häufigkeit der einzelnen Ziffern wird
+notiert.  Da an der DHBW nur Noten von $1$ bis $5$ vergeben werden,  handelt es sich bei den verwendeten
+Würfeln um kostspielige Spezialanfertigungen, mit denen sich nur Zahlen aus der Menge $\{1,\cdots,5\}$ würfeln
+lassen.  Bei meinem Würfel ergab sich die dabei die folgenden Verteilung der Häufigkeiten:
 \begin{center}
 \begin{tabular}[t]{|l|r|r|r|r|r|}
 \hline
