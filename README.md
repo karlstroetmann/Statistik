@@ -1,4 +1,4 @@
-Statstik
+Statistik
 ===============
 
 In diesem Repository befinden sich verschiedene Unterlagen zu meiner Vorlesung zur Statistik.
