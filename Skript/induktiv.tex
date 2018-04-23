@@ -442,7 +442,7 @@ $25$ annimmt, berechnen.  Für die Wahrscheinlichkeits-Dichte einer $\chi^2$-Vert
 mit dem Freiheitsgrad $1$ hatten wir im letzten Kapitel den Ausdruck
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds p_{\chi^2,1}(x) = \frac{1}{A_1} \cdot \frac{1}{\sqrt{x}} \cdot \exp\left(-\frac{x}{2}\right)$ 
+$\ds p_{C}(x) = \frac{1}{A_1} \cdot \frac{1}{\sqrt{x}} \cdot \exp\left(-\frac{x}{2}\right)$ 
 \quad mit $\ds A_1 = \sqrt{2\;} \cdot \Gamma\left(\frac{1}{2}\right) = \sqrt{2\cdot\pi\;}$
 \\[0.2cm]
 gefunden. Wir setzen zur Abkürzung $z=25$ und rechnen wie folgt:
@@ -453,7 +453,7 @@ $
       P(C \geq 25) 
 & = & 1 - P(C < 25) \\[0.2cm] 
 & \approx & \ds
-      1 - \int_0^z p_{\chi^2(1)}(x)\, \dx x
+      1 - \int_0^z p_{C}(x)\, \dx x
       \\[0.5cm]
 & = & \ds
       1 - \int_0^z \frac{1}{\sqrt{2\cdot\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
@@ -667,6 +667,8 @@ werden.  \eoxs
 wird als $\chi^2$-Test bezeichnet.  Die nächste Aufgabe zeigt, wie dieser Test in der Medizin
 angewendet wird.
 \vspace*{0.3cm}
+\pagebreak
+
 
 \exercise
 Zur Untersuchung der Frage, ob ein Zusammenhang zwischen Zigaretten-Rauchen und dem Auftreten
@@ -751,7 +753,7 @@ $
 & = & P(C \geq z)   \\[0.2cm]
 & = & 1 - P(C < z)   \\[0.2cm]
 & \approx & \ds
-      1 - \int_0^z p_{\chi^2,1}(x)\, \dx x
+      1 - \int_0^z p_{C}(x)\, \dx x
       \\[0.5cm]
 & = & \ds
       1 - \int_0^z \frac{1}{\sqrt{2\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
@@ -768,7 +770,7 @@ $
 Mit $z = 79.81$ gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P(C \geq z) \approx 2 \cdot \Phi\bigl(\sqrt{79.81}\bigr) \approx \texttt{4.1220121535273025E-19}$.
+$\ds P(C \geq z) \approx 2 \cdot \Phi\bigl(-\sqrt{79.81}\bigr) \approx \texttt{4.1220121535273025E-19}$.
 \\[0.2cm]
 Dieser Wert ist so klein, dass der Zufall als Ursache für die höhere Zahl der
 Lungenkrebs-Erkrankungen bei den Rauchern praktisch ausgeschlossen werden kann.  Das heißt
@@ -828,11 +830,16 @@ Beweis dieses Satzes außerhalb unserer Möglichkeiten.
   \hspace*{1.3cm}
   $\ds C = \sum\limits_{i=1}^n \frac{(X_i - E[X_i])^2}{E[X_i]}$
   \\[0.2cm]
-  einer $\chi^2$-Verteilung mit $n - k$ Freiheitsgraden.  Nimmt die Zufalls-Variable also
+  einer $\chi^2$-Verteilung mit $n - k$ Freiheitsgraden:
+  \\[0.2cm]
+  \hspace*{1.3cm}
+  $C \sim \chi^2(n-k)$.
+  \\[0.2cm]  
+  Nimmt die Zufalls-Variable also
   einen bestimmen Wert $z$ an, so gilt für die Wahrscheinlichkeit, dass $C \geq z$ ist
   \\[0.2cm]
   \hspace*{1.3cm}
-  $\ds P(C \geq z) = 1 - \int_0^z p_{\chi^2_{n-k}}(x)\,\dx x$. 
+  $\ds P(C \geq z) = 1 - \int_0^z p_{C}(x)\,\dx x$. 
   \\[0.2cm]
   Ist diese Wahrscheinlichkeit kleiner als ein vorgegebener Wert $\alpha$
   (in der Praxis nimmt man oft $\alpha = 0.05$, $\alpha = 0.01$ oder $\alpha = 0.001$),
