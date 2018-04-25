@@ -421,7 +421,7 @@ approximiert werden.  Brauchbare Werte erhalten wir, sobald $\sigma^2 > 9$ gilt.
 Für $n = 100$  haben wir
 \\[0.2cm]
 \hspace*{1.3cm}
-$\sigma^2 = n \cdot \frac{1}{2} \cdot \bigl(1 - \frac{1}{2}\bigr) = 100 \cdot \frac{1}{4} = 25$,
+$\ds\sigma^2 = n \cdot \frac{1}{2} \cdot \Bigl(1 - \frac{1}{2}\Bigr) = 100 \cdot \frac{1}{4} = 25$,
 \\[0.2cm]
 so dass diese Bedingung erfüllt ist.
 Wenn $X_0$ aber ein Normal-Verteilung mit Mittelwert $n \cdot \frac{1}{2}$ und Varianz $n\cdot\frac{1}{2}\cdot(1 - \frac{1}{2})$
@@ -498,6 +498,7 @@ Wenn die Null-Hypothese zutrifft, dann ist die Wahrscheinlichkeit, dass die
 Zufalls-Variable $C$ einen Wert größer oder gleich $25$ annimmt, 
 verschwindend gering.  Daher werden wir die Null-Hypothese verwerfen.
 \eoxs
+\pagebreak
 
 \remark
 Eventuell fragen Sie sich, warum ich oben den Ausdruck $2 - 2 \cdot \Phi\bigl(\sqrt{z}\bigr)$
@@ -553,14 +554,14 @@ $\ds C = \sum\limits_{i=1}^{5} \frac{(X_i - 20)^2}{100 \cdot \frac{1}{5}} =
 definieren.  Für meinen Würfel ergibt sich dabei ganz konkret der Wert 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds C = \frac{1}{20} \cdot (10^2 + 4^2 + 6^2 + 15^2 + 5^2)  = \frac{402}{20} = 20.1$
+$\ds C = \frac{1}{20} \cdot (10^2 + 4^2 + 6^2 + 15^2 + 5^2)  = \frac{402}{20} = 20,\!1$.
 \\[0.2cm]
 Wir fassen $C$ nun als Zufalls-Variable auf und überlegen uns, wie wahrscheinlich es ist,
-dass die Zufalls-Variable $C$ einen Wert  größer oder gleich $20.1$ annimmt, wir berechnen
+dass die Zufalls-Variable $C$ einen Wert  größer oder gleich $20,\!1$ annimmt, wir berechnen
 also die Wahrscheinlichkeit 
 \\[0.2cm]
 \hspace*{1.3cm}
-$P(C \geq 20.1)$.
+$P(C \geq 20,\!1)$.
 \\[0.2cm]
 Um diese Wahrscheinlichkeit berechnen zu können, müssen wir zunächst eine Annahme machen,
 die uns zeigt, wie die Zufalls-Variablen $X_i$ verteilt sind.  Wir machen die Annahme, dass
@@ -598,11 +599,11 @@ sondern nur darauf hinweisen, dass die Situation ganz ähnlich ist wie im Satz \r
 \hspace*{1.3cm}
 $
 \begin{array}[t]{lcl}
-      P(C \geq 20.1) 
-& = & 1 - P(C < 20.1) \\[0.2cm]
+      P(C \geq 20,\!1) 
+& = & 1 - P(C < 20,\!1) \\[0.2cm]
 & = & \ds
       1 - P\left(C \leq z \right)
-      \quad \mbox{mit $\ds z := 20.1$}
+      \quad \mbox{mit $\ds z := 20,\!1$}
       \\[0.4cm]
 & = & \ds
       1 - \int_0^{z} \frac{1}{A_4} \cdot x \cdot \exp\left(-\frac{x}{2}\right)\, \dx x
@@ -618,7 +619,7 @@ $
 \begin{array}[t]{cll}
    & \ds
      \int_0^z \frac{1}{4} \cdot x \cdot \exp\left(-\frac{x}{2}\right)\, \dx x
-     \quad \mbox{mit der Substitution $y = \frac{x}{2}$ wird daraus} 
+     \quad \mbox{mit der Substitution $\ds y = \frac{x}{2}$ wird daraus} 
      \\[0.5cm]
  = & \ds
      \int_0^{z/2} y \cdot \exp\left(-y\right)\, \dx y
@@ -635,18 +636,20 @@ $
      - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) + \left( -\exp(-y)\Big|_0^{z/2} \right) 
      \\[0.5cm]
  = & \ds
-     - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) - \exp\left(-\frac{z}{2}\right) + 1 
+     - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) - \exp\left(-\frac{z}{2}\right) + 1 \\[0.5cm]
+ = & \ds
+     1 - \Bigl(\frac{z}{2} + 1\Bigr) \cdot \exp\left(-\frac{z}{2}\right)
 \end{array}
 $
 \\[0.2cm]
-Damit finden wir für die gesuchte Wahrscheinlichkeit $P(C \geq 20.1)$ 
+Damit finden wir für die gesuchte Wahrscheinlichkeit $P(C \geq 20,\!1)$ 
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 \begin{array}[t]{lcl}
-  P(C \geq 20.1) 
+  P(C \geq 20,\!1) 
 & = & \ds
-      1 - \left( - \frac{z}{2} \cdot \exp\left(-\frac{z}{2}\right) - \exp\left(-\frac{z}{2}\right) + 1 \right)
+      1 - \left(1 - \Bigl(\frac{z}{2} + 1\Bigr) \cdot \exp\left(-\frac{z}{2}\right)\right)
       \\[0.3cm]
 & = & \ds
       \left(\frac{z}{2} + 1\right) \cdot \exp\left(-\frac{z}{2}\right)
@@ -656,10 +659,9 @@ $
 $
 \\[0.2cm]
 Diese Wahrscheinlichkeit ist sehr klein.  Dies deutet mit hoher Sicherheit darauf
-hin, dass die Null-Hypothese falsch ist.  Wir müssen daher die Null-Hypothese verwerfen und
-davon ausgehen, dass sich die Wahrscheinlichkeit der einzelnen
-Zahlen bei meinem Würfel deutlich von dem Wert $\frac{1}{5}$ unterscheidet.  Daher muss mein Würfel neu geeicht
-werden.  \eoxs
+hin, dass die Null-Hypothese falsch ist.  Wir verwerfen daher die Null-Hypothese und
+sehen, dass sich die Wahrscheinlichkeit der einzelnen
+Zahlen bei meinem Würfel deutet von dem Wert $\frac{1}{5}$ unterscheidet. \eoxs
 \vspace*{0.3cm}
 
 \noindent
@@ -667,8 +669,6 @@ werden.  \eoxs
 wird als $\chi^2$-Test bezeichnet.  Die nächste Aufgabe zeigt, wie dieser Test in der Medizin
 angewendet wird.
 \vspace*{0.3cm}
-\pagebreak
-
 
 \exercise
 Zur Untersuchung der Frage, ob ein Zusammenhang zwischen Zigaretten-Rauchen und dem Auftreten
@@ -713,8 +713,8 @@ wiederfinden.
 
 \solution
 Wir bezeichnen die Anzahl der an Lungenkrebs erkrankten Rauchern mit $X_{1,1}$, die Anzahl der
-Raucher, die nicht erkrankt sind mit $X_{1,2}$, die Anzahl
-der erkrankten Nichtraucher mit $X_{2,1}$ und die Anzahl der Nichtraucher, die nicht erkrankt sind, mit
+Raucher, die nicht erkrankt sind mit $X_{2,1}$, die Anzahl
+der erkrankten Nichtraucher mit $X_{1,2}$ und die Anzahl der Nichtraucher, die nicht erkrankt sind, mit
 $X_{2,2}$.  Weiter sei $N_1$ die Anzahl der Raucher und $N_2$ 
 sei die Anzahl der Nichtraucher, es gilt also 
 \\[0.2cm]
@@ -724,32 +724,32 @@ $N_1 = 10\,000$ \quad und \quad $N_2 = 20\,000$.
 In Analogie zu den vorigen Beispielen definieren wir die Zufalls-Variable $C$ als 
 \\[0.2cm]
 \hspace*{0.3cm}
-$\ds C = \frac{\bigl(X_{1,1} - N_1 \cdot p\bigr)^2}{N_1 \cdot p} + \frac{\bigl(X_{1,2} - N_1 \cdot (1-p)\bigr)^2}{N_1 \cdot (1 - p)} + 
-                     \frac{\bigl(X_{2,1} - N_2 \cdot p\bigr)^2}{N_2 \cdot p} + \frac{\bigl(X_{2,2} - N_2 \cdot (1-p)\bigr)^2}{N_2 \cdot (1 - p)}$
+$\ds C = \frac{\bigl(X_{1,1} - N_1 \cdot p\bigr)^2}{N_1 \cdot p} + \frac{\bigl(X_{2,1} - N_1 \cdot (1-p)\bigr)^2}{N_1 \cdot (1 - p)} + 
+         \frac{\bigl(X_{1,2} - N_2 \cdot p\bigr)^2}{N_2 \cdot p} + \frac{\bigl(X_{2,2} - N_2 \cdot (1-p)\bigr)^2}{N_2 \cdot (1 - p)}$
 \\[0.2cm]
 Setzen wir die konkreten Werte ein, so erhalten wir 
 \\[0.2cm]
 \hspace*{1.3cm}
-$C \approx 79.81$
+$C \approx 79,\!81$
 \\[0.2cm]
 Wie in den vorherigen Beispielen auch hat $C$ eine $\chi^2$-Verteilung, wir müssen aber noch die 
 Anzahl der Freiheitsgrade bestimmen.
 \begin{enumerate}
-\item Wir haben vier Zufalls-Variablen $X_{1,1}$, $X_{1,2}$, $X_{2,1}$ und $X_{2,2}$.
+\item Wir haben vier Zufalls-Variablen $X_{1,1}$, $X_{2,1}$, $X_{1,2}$ und $X_{2,2}$.
 \item Zwischen diesen vier Zufalls-Variablen gibt es drei verschiedene Beziehungen:
       \begin{enumerate}
-      \item $X_{1,1} + X_{1,2} = N_1$
-      \item $X_{2,1} + X_{2,2} = N_2$
-      \item $\ds\frac{X_{1,1} + X_{2,1}}{N_1 + N_2} = p$
+      \item $X_{1,1} + X_{2,1} = N_1$
+      \item $X_{1,2} + X_{2,2} = N_2$
+      \item $\ds\frac{X_{1,1} + X_{1,2}}{N_1 + N_2} = p$
       \end{enumerate}
 \end{enumerate}
 Daher hat die $\chi^2$-Verteilung nur $4-3 = 1$ Freiheitsgrad!
-Setzen wir $z:= 79.81$ so gilt also 
+Setzen wir $z:= 79,\!81$ so gilt also 
 \\[0.2cm]
 \hspace*{1.3cm}
 $
 \begin{array}[t]{lcl}
-      P(C \geq 79.81) 
+      P(C \geq 79,\!81) 
 & = & P(C \geq z)   \\[0.2cm]
 & = & 1 - P(C < z)   \\[0.2cm]
 & \approx & \ds
@@ -763,19 +763,19 @@ $
 Das Integral, das hier auftritt, haben wir bereits zu Beginn dieses Abschnitts berechnet.  Wir hatten damals die Formel
 \\[0.2cm]
 \hspace*{1.3cm}
-$P(C \geq z) = 1 - \int_0^z \frac{1}{\sqrt{2\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
-             = 2 \cdot \Phi\bigl(-\sqrt{z}\bigr)
+$\ds P(C \geq z) = 1 - \int_0^z \frac{1}{\sqrt{2\pi\cdot x\;}} \cdot \exp\left(-\frac{x}{2}\right) \, \dx x
+                 = 2 \cdot \Phi\bigl(-\sqrt{z}\bigr)
 $
 \\[0.2cm]
-Mit $z = 79.81$ gilt 
+gefunden.  Mit $z = 79,\!81$ gilt 
 \\[0.2cm]
 \hspace*{1.3cm}
-$\ds P(C \geq z) \approx 2 \cdot \Phi\bigl(-\sqrt{79.81}\bigr) \approx \texttt{4.1220121535273025E-19}$.
+$\ds P(C \geq z) \approx 2 \cdot \Phi\bigl(-\sqrt{79,\!81}\bigr) \approx \texttt{4,\!1220121535273025E-19}$.
 \\[0.2cm]
 Dieser Wert ist so klein, dass der Zufall als Ursache für die höhere Zahl der
 Lungenkrebs-Erkrankungen bei den Rauchern praktisch ausgeschlossen werden kann.  Das heißt
 natürlich noch lange nicht, dass zwischen dem Rauchen und dem Auftreten von Lungenkrebs
-eine kausale Beziehung besteht, denn die beobachtete Korrelation könnte auch andere
+eine \blue{kausale} Beziehung besteht, denn die beobachtete \blue{Korrelation} könnte auch andere
 Ursachen haben:
 \begin{enumerate}
 \item Nehmen wir einmal an, dass Rauchen vor Aids schützt\footnote{
@@ -805,7 +805,7 @@ Ursachen haben:
       Um die Geschichte abzuschließen, bemerken wir noch, dass Sir Ronald
       dann auch nicht an Lungenkrebs gestorben ist, sondern an Kehlkopfkrebs.
       Dies ist die bevorzugte Krebsart bei Zigarren-Rauchern und hat in etwa den selben
-      Spaßfaktor wie Lungenkrebs. \qed
+      Spaßfaktor wie Lungenkrebs. \eoxs
 \end{enumerate}
 
 \noindent
