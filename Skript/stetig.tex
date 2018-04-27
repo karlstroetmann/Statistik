@@ -63,8 +63,8 @@ Die Komponenten dieses Tripels haben dabei die folgenden Eigenschaften:
       Die Funktion $P$ bezeichnen wir als die \blue{Wahrscheinlichkeits-Maß}.
 \end{enumerate}
 Um Zufalls-Experimente beschreiben zu können,  führen wir den Begriff der
-\blue{stetigen Zufalls-Variable} ein, wobei wir uns auf den eindimensionalen Fall
-beschränken.  Eine  \blue{stetige Zufalls-Variable} $X$ ist eine Abbildung 
+\blue{Zufalls-Variable} ein, wobei wir uns auf den eindimensionalen Fall
+beschränken.  Eine  \blue{Zufalls-Variable} $X$ ist eine Abbildung 
 \\[0.2cm]
 \hspace*{1.3cm}
 $X: \Omega \rightarrow \mathbb{R}$.
@@ -82,6 +82,7 @@ $F_X$ der Zufalls-Variable $X$  definiert als
 \hspace*{1.3cm}
 $F_X : [a,b] \rightarrow [0,1]$ \quad mit $F_X(x) := P(X \leq x)$.
 \\[0.2cm]
+Wenn die Verteilungs-Funktion $F_X$ \blue{differenzierbar} ist, dann nennen wir $X$ eine \blue{stetige} Zufalls-Variable.
 Aus der Verteilungs-Funktion lässt sich sofort die Wahrscheinlichkeit eines Ereignisses der
 Form 
 \\[0.2cm]
@@ -456,19 +457,31 @@ $X \sim \mathrm{Exp}(\lambda)$.
   $\ds F_X(x) = \frac{1}{\ds 1 + \exp\Bigl(-\frac{x-\mu}{s}\Bigr)}$
   \\[0.2cm]
   hat.  In diesem Fall schreiben wir
-  $X \sim \mathrm{Log}(\mu, s)$.  \eox
+  $X \sim \mathrm{Log}(\mu, s)$.  \eoxs
 \end{Definition}
 
 \remark
 Die logistische Verteilung spielt später in der \href{https://de.wikipedia.org/wiki/Logistische_Regression}{logistischen Regression}
 und als \blue{Aktivierungsfunktion} bei den \href{https://de.wikipedia.org/wiki/Künstliches_Neuron}{Neuronen} eines
-\blue{neuronalen Netzes} eine wichtige Rolle. \eoxs
+\blue{neuronalen Netzes} eine wichtige Rolle. 
+Abbildung \ref{fig:logistic-distribution.png} auf Seite \pageref{fig:logistic-distribution.png} zeigt die
+Verteilungs-Funktion $F_X$ einer Zufalls-Variable $X$  mit $X \sim \mathrm{Log(1,0}$, die zugehörige
+Wahrscheinlichkeits-Dichte $p_X$ ist Abbildung \ref{fig:logistic-distribution.png} auf Seite
+\pageref{fig:logistic-distribution.png} geplottet.
+\eoxs
 
 \begin{figure}[t]
   \centering
-   \epsfig{file=Abbildungen/logistic,scale=1.0}
+   \epsfig{file=Abbildungen/logistic-distribution.png,scale=1.0}
    \caption{Verteilungs-Funktion und Wahrscheinlichkeits-Dichte einer logistisch verteilten Zufalls-Variable.}
-  \label{fig:logistic}
+  \label{fig:logistic-distribution.png}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+   \epsfig{file=Abbildungen/logistic-density.png,scale=1.0}
+   \caption{Verteilungs-Funktion und Wahrscheinlichkeits-Dichte einer logistisch verteilten Zufalls-Variable.}
+  \label{fig:logistic-distribution.png}
 \end{figure}
 
 \exercise
@@ -555,6 +568,7 @@ $
       E\bigl[X^2\bigr] - \bigl(E[X]\bigr)^2  
 \end{array}
 $ \qed
+\pagebreak
 
 \begin{Satz}[Verhalten des Erwartungswerts bei Variablen-Transformation] 
 \label{satz:vartranserw} Es sei
@@ -702,10 +716,7 @@ haben wir für die Wahrschein\-lichkeits-Dichte $p_Y$:
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds p_Y(y) = p_X(y\cdot \sigma + \mu) \cdot \sigma =  \frac{1}{\sqrt{2\cdot\pi\;}} \cdot \exp\left(- \frac{y^2}{2}\right)$.
-\pagebreak
-\vspace*{\fill}
-
-\pagebreak
+\\[0.2cm]
 Die moment-erzeugende Funktion von $Y$ erhalten wir wie folgt:
 \\[0.2cm]
 \hspace*{1.3cm}
