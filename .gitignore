@@ -18,3 +18,6 @@ Skript/lineare-algebra.prv
 Skript/texput.log
 Skript/_region_.*
 Skript/_region_.prv/
+Java/*.class
+__pycache__/
+SetlX/sum-of-dices-4.png
