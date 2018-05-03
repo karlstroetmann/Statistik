@@ -1,6 +1,5 @@
 // prop(n, s) is the probability to roll the sum s when throwing n dices.
 prop := cachedProcedure(n, s) {
-    print(n, ",", s);
     if (s < n || 6 * n < s) {
         return 0;
     }

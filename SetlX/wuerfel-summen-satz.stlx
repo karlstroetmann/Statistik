@@ -1,0 +1,16 @@
+choose := procedure(n, k) {
+    if (k < 0 || n < k || n < 0) {
+        return 0;
+    }
+    return n! / (k! * (n-k)!);
+};
+numberRolls := procedure(n, s) {
+    return 0 +/ [ (-1)**k*choose(n,k)*choose(s-6*k-1, s-6*k-n) : k in [0..n] ];
+};
+
+main := procedure(n) {
+    for (s in [n..n*6]) {
+        print("number of ways to roll $s$ with $n$ dice: $numberRolls(n, s)$");
+    }
+};
+main(10);
