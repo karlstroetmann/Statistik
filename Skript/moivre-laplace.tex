@@ -40,7 +40,7 @@ ${n \choose k}$ zu berechnen, gehen wir wie folgt vor:
                 & = & \ds \exp\Bigl(\ln\bigl(n!\bigr) - \ln\bigl(k!\bigr) - \ln\bigl((n-k)!\bigr)\Bigr) \\[0.3cm]  
 \end{array}
 \end{equation}
-Zu Berechnung der verschiedenen Fakultäten in dieser Formel wenden wir auf die Stirling-Formel den
+Zur Berechnung der verschiedenen Fakultäten in dieser Formel wenden wir auf die Stirling-Formel den
 Logarithmus an.  Das liefert
 \\[0.1cm]
 \hspace*{1.3cm}
@@ -115,7 +115,7 @@ $\ds \sum\limits_{i=0}^k {n \choose i} \cdot p^i \cdot (1 - p)^{n-i}$
 \\[0.1cm]
 annimmt, denn dieser Ausdruck gibt die Wahrscheinlichkeit dafür an, dass bei einer
 Binomial-Verteilung bei einer $n$-fachen Durchführung eines Experiments 
-ein Ergeignis höchstens $k$-mal auftritt.  Wir wollen daher jetzt eine Näherung für diese
+ein Ereignis höchstens $k$-mal auftritt.  Wir wollen daher jetzt eine Näherung für diese
 Summe herleiten.  Dazu definieren wir zunächst 
 \\[0.1cm]
 \hspace*{1.3cm}
@@ -172,13 +172,13 @@ $
 \end{array}
 $
 \\[0.1cm]
-Um an dieser Stelle weiter zu kommen, benötigen wir die Gauß'sche Integralfunktion
+Um an dieser Stelle weiterzukommen, benötigen wir die Gauß'sche Integralfunktion
 $\Phi(x)$.  Diese Funktion wird wie folgt definiert: 
 \\[0.1cm]
 \hspace*{1.3cm}
 $\ds \Phi(x) = \frac{1}{\sqrt{2\,\pi}} \cdot \int_{-\infty}^x \exp\left(-\frac{t^2}{2}\right)\dx t$
 \\[0.1cm]
-Damit haben für die Verteilungsfunktion $F^n_p(k)$ die Näherung
+Damit haben wir für die Verteilungsfunktion $F^n_p(k)$ die Näherung
 \\[0.1cm]
 \hspace*{1.3cm}
 $\ds  F^n_p(k) = \Phi\Biggl(\frac{k+\frac{1}{2}-\mu}{\sigma}\Biggr) -   \Phi\Biggl(\frac{-\frac{1}{2}-\mu}{\sigma}\Biggr)$
@@ -198,7 +198,7 @@ $\ds F^n_p(k) \approx \Phi\Biggl(\frac{k+\frac{1}{2}- n\,p}{\sqrt{n\,p\,q\,}}\Bi
 \\[0.1cm]
 In dieser Formel wird häufig die sogenannte \emph{Stetigkeits-Korrektur} $\frac{1}{2}$
 weggelassen, denn gegenüber dem Term $n\,p$ fällt diese kaum ins Gewicht.
-Wir werden also im folgenden die Näherung
+Wir werden also im Folgenden die Näherung
 \\[0.3cm]
 \hspace*{1.3cm}
 \framebox{$\ds F^n_p(k) \approx \Phi\Biggl(\frac{k- n\,p}{\sqrt{n\,p\,q\,}}\Biggr)$}
@@ -213,7 +213,7 @@ Damit sind wir jetzt in der Lage, auch interessantere Aufgaben aus der
 Wahrscheinlichkeits-Rechnung numerisch zu lösen. 
 
 \exercise
-Angenommen, wir würfeln $n$ mal mit einem Laplace-Würfel.  Wie gross muss $n$ gewählt
+Angenommen, wir würfeln $n$ mal mit einem Laplace-Würfel.  Wie groß muss $n$ gewählt
 werden, damit wir mit einer  Wahrscheinlichkeit von $99\%$ davon ausgehen können, 
 dass mindestens $\frac{n}{7}$ mal eine Sechs  gewürfelt wird?
 
