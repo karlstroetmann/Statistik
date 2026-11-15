@@ -3,8 +3,8 @@ Das Leben ist voller Unwägbarkeiten und Risiken.  Schon die Kelten wussten, dass
 den Kopf fallen konnte.  Glücklicherweise passiert so etwas nicht sehr häufig.  Trotzdem stellt sich die Frage,
 wie \blue{wahrscheinlich} ein solches Ereignis ist.  Zur Beantwortung dieser Frage ist zunächst der Begriff der
 \blue{Wahrscheinlichkeit} festzulegen.  Intuitiv sagen wir, dass ein Ereignis $A$ mit einer Wahrscheinlichkeit
-$p$ eintritt, wenn bei $n$-maliger Wiederholung des Experiments das Ereignis $A$ in etwa mit der Häufikeit
-$p \cdot N$ auftritt.  Um der Wahrscheinlichkeits-Begriff genauer festzulegen,  definieren wir den
+$p$ eintritt, wenn bei $n$-maliger Wiederholung des Experiments das Ereignis $A$ in etwa mit der Häufigkeit
+$p \cdot n$ auftritt.  Um den Wahrscheinlichkeits-Begriff genauer festzulegen,  definieren wir den
 Begriff des \blue{Zufalls-Experiments}.  Darunter verstehen wir ein Experiment, dessen Ausgang nicht
 eindeutig vorbestimmt ist.  Ein Beispiel für ein solches Experiment wäre der Wurf einer
 Münze, bei dem als \blue{Ergebnis} entweder \textsl{Wappen} oder \textsl{Zahl} auftritt.  Ein
@@ -12,7 +12,7 @@ anderes Zufalls-Experiment wäre der Wurf eines Würfels, dessen Seiten mit den Za
 sind.  Hier können als Ergebnisse die natürlichen Zahlen $1$ bis $6$ auftreten.  Mathematisch werden solche
 Zufalls-Experimente durch den Begriff des \blue{Wahrscheinlichkeits-Raums} erfasst.  Wir betrachten zunächst
 den Fall, dass die Menge der Ergebnisse endlich oder abzählbar unendlich ist.  In diesem Fall wollen wir von 
-einen \blue{diskreten Wahrscheinlichkeits-Raum} sprechen.  Später werden wir noch den allgemeinen Fall
+einem \blue{diskreten Wahrscheinlichkeits-Raum} sprechen.  Später werden wir noch den allgemeinen Fall
 untersuchen, bei dem die Menge der Ergebnisse überabzählbar ist.  Dieser Fall tritt meistens dann auf, wenn es
 sich bei den Ergebnissen des Zufalls-Experiments um reelle Zahlen handelt.
 
@@ -112,7 +112,7 @@ Symmetrie-Gründen naheliegend.  In diesem Fall nennen wir das
 Wahrscheinlichkeits-Maß $P$ auch \blue{gleich\-mäßig},  das zugehörige
 Zufalls-Experiment heißt dann ein \blue{Laplace-Experiment}
 (\href{https://de.wikipedia.org/wiki/Pierre-Simon_Laplace}{Pierre Simon Laplace}; 1749 -- 1827).
-Falls die Wahrscheinlichkeit für alle Seiten eines Würfels den selben Wert hat, so
+Falls die Wahrscheinlichkeit für alle Seiten eines Würfels denselben Wert hat, so
 sprechen wir von einem Laplace-Würfel. \eox
 
 \begin{Definition}[Laplace-Experiment]
@@ -229,7 +229,7 @@ $
 $
 \\[0.2cm]
 In ähnlicher Weise lässt sich eine Formel herleiten, die die Wahrscheinlichkeit einer
-Vereinigung von $n$ Ereignissen angeben.  
+Vereinigung von $n$ Ereignissen angibt.
 
 \begin{Satz}[Siebformel von Poincaré und Sylvester]
 Ist $\bigl[A_1, A_2, \cdots, A_n\bigr]$ eine Liste von Ereignissen, so gilt
@@ -267,7 +267,7 @@ Diese Gesetze lassen sich wie folgt verallgemeinern:
 $\ds \biggl(\bigcup\limits_{i=1}^n A_i \biggr)^\mathrm{c} = \bigcap\limits_{i=1}^n A_i^\mathrm{c}$ \quad und \quad
 $\ds \biggl(\bigcap\limits_{i=1}^n A_i \biggr)^\mathrm{c} = \bigcup\limits_{i=1}^n A_i^\mathrm{c}$
 \\[0.2cm]
-Gelegentlich ist es so, dass es schwer fällt, die Wahrscheinlichkeit für ein gegebenes Ereignis $A$ unmittelbar
+Gelegentlich ist es so, dass es schwerfällt, die Wahrscheinlichkeit für ein gegebenes Ereignis $A$ unmittelbar
 zu berechnen.  Manchmal ist es in solchen Fällen möglich, stattdessen die Wahrscheinlichkeit für das Ereignis
 $A^\mathrm{c}$ zu berechnen.  Die gesuchte Wahrscheinlichkeit $P(A)$ ergibt sich dann nach der Formel $P(A) = 1 - P(A^\mathrm{c})$.
 Die nächste Aufgabe liefert ein Beispiel für eine solche Situation.
@@ -290,10 +290,10 @@ Wie groß ist der Prozentsatz der Schüler, die überhaupt keine Fremdsprache lerne
 \solution
 Wir führen folgende Bezeichnungen ein.
 \begin{enumerate}
-\item $S$: Menge der Schüler, die Spanisch lernt.
-\item $F$: Menge der Schüler, die Französisch lernt.
-\item $E$: Menge der Schüler, die Englisch lernt.
-\item $K$: Menge der Schüler, die keine Fremdsprache lernt.
+\item $S$: Menge der Schüler, die Spanisch lernen.
+\item $F$: Menge der Schüler, die Französisch lernen.
+\item $E$: Menge der Schüler, die Englisch lernen.
+\item $K$: Menge der Schüler, die keine Fremdsprache lernen.
 \end{enumerate}
 Dann gilt 
 \\[0.2cm]
@@ -394,7 +394,7 @@ Wahrscheinlichkeiten für das Auftreten dieser Ereignisse.
 
 \section{Kombinatorik}
 Die letzten beiden Aufgaben zeigen, dass die Berechnung von Wahrscheinlichkeiten oft auf
-die Berechnung der Anzahl der Elemente einer Menge zurück geführt werden kann.  Dies liegt daran, dass es sich
+die Berechnung der Anzahl der Elemente einer Menge zurückgeführt werden kann.  Dies liegt daran, dass es sich
 bei den zu Grunde liegenden Zufalls-Experimenten jeweils um ein Laplace-Experiment handelt.  Bei allen
 Laplace-Experimenten läuft die Berechnung der Wahrscheinlichkeiten auf die Bestimmung der Anzahl der Elemente
 einer Menge heraus.  Diese Anzahl nennen wir auch die \blue{Kardinalitäten} der Menge.  Wir werden jetzt
@@ -597,14 +597,14 @@ um Frauen handelt.  Zur Vereinfachung betrachten wir zunächst nur den Fall, dass
 mindestens so groß wie $k$ ist.  Das Team aus $k$ Personen, das wir auswählen, enthält $i$ Männer, wobei $i$
 eine Zahl von $0$ bis maximal $k$ ist.  Nehmen wir an das Team besteht aus $i$ Männern und folglich $k - i$ 
 Frauen.  Dann gibt es ${m \choose i}$ Möglichkeiten, die $i$ Männer aus der Menge von insgesamt $m$ Männern
-auswählen und außerdem ${n \choose k-i}$ Möglichkeiten, um die $k-i$ Frauen aus den insgesamt $n$ Frauen auszuwählen.
+auszuwählen und außerdem ${n \choose k-i}$ Möglichkeiten, um die $k-i$ Frauen aus den insgesamt $n$ Frauen auszuwählen.
 Das Produkt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds {m \choose i} \cdot {n \choose k-i}$
 \\[0.2cm]
 gibt also an, wie viele Möglichkeiten es gibt, aus einer Gruppe, die aus $m$ Männern und $n$ Frauen besteht,
-ein Team zusammen zu stellen, dass aus $i$ Männern und $k - i$ Frauen besteht.  Summieren wir diese
+ein Team zusammenzustellen, das aus $i$ Männern und $k - i$ Frauen besteht.  Summieren wir diese
 Möglichkeiten für alle in Betracht kommenden Werte von $i$ auf, so haben wir insgesamt die Anzahl der
 Möglichkeiten, aus $m + n$ Personen ein Team von $k$ Personen zu bilden.
 
@@ -622,7 +622,7 @@ Auswahl von Mengen interpretiert werden können.
 \item $\ds (n+1) \cdot {n \choose k} = (k+1) \cdot {n+1 \choose k+1}$
 
       \textbf{Hinweis}:  Nehmen Sie an, dass Sie aus einer Gruppe von $n+1$ Personen ein Projektteam von $k+1$
-      Personen zusammen stellen sollen.  Zusätzlich müssen Sie eines der Teammitglieder zum Projekleiter
+      Personen zusammenstellen sollen.  Zusätzlich müssen Sie eines der Teammitglieder zum Projektleiter
       ernennen.
 \item $\ds \sum\limits_{i=1}^n i = {n + 1 \choose 2}$
 
@@ -635,8 +635,8 @@ Auswahl von Mengen interpretiert werden können.
 In einem Swinger-Club besuchen $n$ Paare eine Veranstaltung.  Die $n$ Herren werden nummeriert und für jeden
 Herren wird ein Chip mit der Nummer dieses Herren in einen Hut gelegt.  Anschließend ziehen die Damen eine
 Nummer aus dem Hut.  Diese Nummer legt fest, mit welchem der Herren die Damen den Rest des Abends verbringen.
-Die Damen wären sehr enttäuscht, wenn Sie die Nummer Ihres Gemahls ziehen würden, denn dann hätten Sie ja auch
-gleich zu Hause bleiben können.  Wie groß ist die Wahrscheinlichkeit, dass keine der Damen die Nummer Ihres
+Die Damen wären sehr enttäuscht, wenn sie die Nummer ihres Gemahls ziehen würden, denn dann hätten sie ja auch
+gleich zu Hause bleiben können.  Wie groß ist die Wahrscheinlichkeit, dass keine der Damen die Nummer ihres
 Gemahls zieht?  Untersuchen Sie außerdem, ob diese Zahl für große $n$ gegen einen Grenzwert strebt.
 \vspace*{0.2cm}
 
@@ -708,7 +708,7 @@ Ist $I$ eine Teilmenge der Menge $\{1,\cdots,n\}$, so ist die Menge
 \hspace*{1.3cm}
 $\ds\bigcap\limits_{k \in I}A_k^\mathrm{c}$
 \\[0.2cm]
-gerade das Ereignis, bei dem alle Damen aus der Menge $I$ die Nummer Ihres Gemahls aus dem Hut ziehen, es gilt
+gerade das Ereignis, bei dem alle Damen aus der Menge $I$ die Nummer ihres Gemahls aus dem Hut ziehen, es gilt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds\bigcap\limits_{k \in I}A_k^\mathrm{c} = \bigl\{ L \in \Omega \,\bigm|\, \forall k \in I: L[k] = k \bigr\} =: B_I$.
@@ -777,7 +777,7 @@ der \href{https://de.wikipedia.org/wiki/Multimenge}{Multimenge} müssen wir zunäc
         \emph{In dieser Hinsicht unterscheiden sich Multimengen also nicht von Mengen.}
   \item In einer Multimenge können Objekte auch mehrfach auftreten.
 
-        \emph{Dieser Aspekt ist der wesentliche Unterschied zwischen Mengen und Multimengen, den eine Menge
+        \emph{Dieser Aspekt ist der wesentliche Unterschied zwischen Mengen und Multimengen, denn eine Menge
         enthält jedes Objekt höchstens einmal.} \eox
   \end{enumerate}
 \end{Definition}
@@ -851,7 +851,7 @@ denn an den anderen $k$ Positionen müssen dann ja Sternchen stehen.  Die Positio
 sind Zahlen aus der Menge $\{1, \cdots, k + n - 1\}$, denn der String hat ja insgesamt die Länge $k+n-1$.  Der
 String ist also dann eindeutig festgelegt, wenn wir eine Teilmenge der Menge $\{1, \cdots, k + n - 1\}$ mit genau
 $n-1$ Elementen festlegen, welche die Positionen der senkrechten Striche spezifiziert.  Eine Menge mit $k+n-1$
-Elementen hat nach dem, was wir früher bewwiesen haben,  
+Elementen hat nach dem, was wir früher bewiesen haben,  
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds {k+n-1 \choose n-1}$
@@ -872,13 +872,13 @@ als \blue{Kombinationen mit Wiederholung} bezeichnet.
 
 \exercise
 \begin{enumerate}[(a)]
-\item Wie viele Möglichkeiten gibt es, ein Tripel natürliche Zahlen $\langle x, y,z \rangle$ zu wählen,
+\item Wie viele Möglichkeiten gibt es, ein Tripel natürlicher Zahlen $\langle x, y,z \rangle$ zu wählen,
       so dass
       \\[0.2cm]
       \hspace*{1.3cm}
       $x + y + z = 5$
       \\[0.2cm]
-      gilt?  Schreiben Sie ein Programm, dass die Menge dieser Tripel explizit berechnet.
+      gilt?  Schreiben Sie ein Programm, das die Menge dieser Tripel explizit berechnet.
       % {[1, 1, 3], [1, 2, 2], [1, 3, 1], [2, 1, 2], [2, 2, 1], [3, 1, 1]}
 \item Es sei $s\in \mathbb{N}$.  Wie viele Möglichkeiten gibt es, $n$ natürliche Zahlen $x_1,x_2,\cdots,x_n$ so
       zu wählen, dass 
@@ -915,7 +915,7 @@ können:
 \end{enumerate}
 
 \noindent
-\textbf{Hinweis}:  Sie können ein Programm schreiben, dass die Menge aller Tripel
+\textbf{Hinweis}:  Sie können ein Programm schreiben, das die Menge aller Tripel
 der Form $\langle x, y, z\rangle$ berechnet, für die einerseits $x,y,z \in \{1,\cdots,6\}$ und
 andererseits $x+y+z = 8$ gilt.  \eox
 
@@ -944,7 +944,7 @@ Wir definieren dazu die Menge
 \hspace*{1.3cm}
 $V(t) := \bigl\{\langle x_1, \cdots, x_n \rangle \in \{0,\cdots,5\}^n \bigm| x_1+\cdots+x_n = t \bigr\}$
 \\[0.2cm]
-und berechnen zunächst $|V(t)|$.  Das ursprüngliche Problem kann auf dieses Problem zurück geführt werden, denn
+und berechnen zunächst $|V(t)|$.  Das ursprüngliche Problem kann auf dieses Problem zurückgeführt werden, denn
 zwischen den Mengen $V(s-n)$ und $W(s)$ besteht der Zusammenhang
 \\[0.2cm]
 \hspace*{1.3cm}
@@ -970,7 +970,7 @@ dass die Summe $x_1 + x_2 + \cdots + x_n = t$ ist, es gilt also
 \hspace*{1.3cm}
 $\ds |B(t)| = {t + n - 1 \choose t}$.
 \\[0.2cm]
-Setzen wir hier für $t$ den Wert $s-n$ ein, so sehen wir, dass die Anzahl $|B(t)|$ gerade dem Summand mit dem
+Setzen wir hier für $t$ den Wert $s-n$ ein, so sehen wir, dass die Anzahl $|B(t)|$ gerade dem Summanden mit dem
 Index $k=0$ in der zu beweisenden Summen-Formel entspricht.
 Die Menge $B(t)$ kann im Allgemeinen auch solche Tupel $\langle x_1,\cdots,x_n \rangle$ enthalten, bei denen ein $x_i$ größer als $5$ ist.
 Wir müssen nun die Anzahl der Möglichkeiten berechnen, bei denen die Summe $x_1 + \cdots + x_n = t$ ist,
@@ -993,7 +993,7 @@ Da die Mengen $A_i(t)$ Teilmengen der Menge $B(t)$ sind, folgt daraus für die Ka
 $\ds|V(t)| = |B(t)| - \biggl|\bigcup_{i=1}^n A_i(t)\biggr|$
 \\[0.2cm]
 Da die verschiedenen Mengen $A_i(t)$ nicht paarweise disjunkt sind, müssen wir die Siebformel von Poincaré und
-Sylvester verwenden, um die Kardinalität der Vereinigungs-Menge zur berechnen.  Es gilt
+Sylvester verwenden, um die Kardinalität der Vereinigungs-Menge zu berechnen.  Es gilt
 \\[0.2cm]
 \hspace*{1.3cm}
 $\ds\biggl|\bigcup_{i=1}^n A_i(t)\biggr| = 
@@ -1011,7 +1011,7 @@ die Ungleichung $x_i \geq 6$ gilt, wir haben also
 \hspace*{1.3cm}
 $A_I(t) := \bigl\{ \langle x_1, \cdots, x_n \rangle \in B(t) \bigm| \forall i \in I: x_i \geq 6 \bigr\}$.
 \\[0.2cm]
-Diese Menge transformieren wir in die Menge $A_I'(t)$ bei der wir von den Tupel aus $A_I(t)$ in den Komponenten
+Diese Menge transformieren wir in die Menge $A_I'(t)$ bei der wir von den Tupeln aus $A_I(t)$ in den Komponenten
 $x_i$ mit $i \in I$ jeweils 6 abziehen.  Diese Menge können wir am einfachsten formal definieren, wenn
 wir vorher die Hilfsfunktion 
 \\[0.2cm]
@@ -1034,7 +1034,7 @@ Der Name $\texttt{ite}$ steht hier als Abkürzung für \textsl{if-then-else}.
 \hspace*{1.3cm}
 $
 A_I'(t) := 
-\bigl\{ \langle \texttt{ite}(1\in I,x_1-6, x_1), \cdots, \texttt{ite}(n\in I,x_n-6,x_n\rangle 
+\bigl\{ \langle \texttt{ite}(1\in I,x_1-6, x_1), \cdots, \texttt{ite}(n\in I,x_n-6,x_n)\rangle 
  \bigm| 
         \langle x_1,\cdots,x_n\rangle \in A_I(t) \bigr\}
 $.
@@ -1094,7 +1094,7 @@ Zur Vereinfachung dürfen Sie folgendes annehmen:
       Personen kein Zwillings-Paar.
 \end{enumerate}
 Wie groß muss die Zahl $n$ sein, damit es sich lohnt darauf zu wetten, dass wenigstens
-zwei Personen am selben Tag Geburtstag haben.
+zwei Personen am selben Tag Geburtstag haben?
 
 \solution
 Wir definieren $T := \{1,\cdots, 365\}$.  Unser Zufalls-Experiment besteht
@@ -1104,7 +1104,7 @@ $\Omega$ ist also durch
 \hspace*{1.3cm}
 $\Omega = \bigl\{ [x_1,\cdots,x_n] \;\big|\; \forall i\in\{1,\cdots,n\}: x_i \in T \bigr\} = T^n$
 \\[0.2cm]
-gegeben. Nach dem oben gezeigten gilt also 
+gegeben. Nach dem oben Gezeigten gilt also 
 \\[0.2cm]
 \hspace*{1.3cm}
 $|\Omega| = |T|^n = 365^n$.
@@ -1115,7 +1115,7 @@ komplementäre Ereignis $A_n^\mathrm{c}$, das ausdrückt, dass alle $n$ Personen a
 Geburtstag haben.  Es gilt 
 \\[0.2cm]
 \hspace*{0.3cm}
-$A_n^\mathrm{c} = \bigl\{ [x_1,\cdots,x_n] \;\big|\; \forall i\in\{1,\cdots,n\}: x_i \in T\bigr) \;\wedge\; 
+$A_n^\mathrm{c} = \bigl\{ [x_1,\cdots,x_n] \;\big|\; \forall i\in\{1,\cdots,n\}: x_i \in T \;\wedge\; 
                                           \forall i,j\in\{1,\cdots,n\}: \bigl(i\not=j \rightarrow x_i \not=x_j \bigr) \bigr\}$
 \\[0.2cm]
 Bei der Menge $A_n^\mathrm{c}$ handelt es sich gerade um die Menge aller $n$-Permutationen der Menge
@@ -1323,7 +1323,7 @@ Aufgabe:
 \begin{enumerate}
 \item Die Gesamtzahl $N$ entspricht der Anzahl aller Ameisen.
 \item Die Anzahl $K$ der defekten Bauteile entspricht der Zahl der markierten Ameisen.
-\item Die Umfang $n$ der Stichprobe entspricht der Zahl der gefangenen  Ameisen.
+\item Der Umfang $n$ der Stichprobe entspricht der Zahl der gefangenen  Ameisen.
 \item Die Anzahl $k$ der defekten Bauteile in der Stichprobe entspricht der Anzahl
       der gefangenen Ameisen, die markiert sind.
 \end{enumerate}
@@ -1404,7 +1404,7 @@ modifizieren es mit dem Ziel, die Durchführung zu vereinfachen:
       Also ändern wir das Experiment so ab, dass wir nacheinander $200$ Ameisen
       untersuchen und jedes Mal überprüfen, ob die Ameise markiert ist.  
 \end{enumerate}
-Am zweiten Tag kann es jetzt durchaus passieren, dass wir dieselbe Ameise mehrmal zählen.
+Am zweiten Tag kann es jetzt durchaus passieren, dass wir dieselbe Ameise mehrmals zählen.
 Dadurch ändert sich natürlich auch das Wahrscheinlichkeits-Maß.  Wenn wir berechnen
 wollen, mit welcher Wahrscheinlichkeit wir nun $k$ markierte Ameisen finden, 
 werden die Dinge erfreulicherweise einfacher.  Wir behandeln gleich den allgemeinen Fall
@@ -1590,13 +1590,13 @@ $P(S = s) = \left\{
 $
 \\[0.2cm]
 Die Funktion $s \mapsto P(S = s)$ bezeichnen wir als \blue{Wahrscheinlichkeits-Funktion}
-der Zufalls-Variablen $S$.  Wir schreiben diese Funktion als $f_s$, es gilt also
+der Zufalls-Variablen $S$.  Wir schreiben diese Funktion als $f_S$, es gilt also
 \\[0.2cm]
 \hspace*{1.3cm}
 $f_S(s) = P(S = s)$.
 \\[0.2cm]
 Wir sehen hier, dass die Wahrscheinlichkeit für die verschiedenen möglichen Werte der
-Summe $S$ nicht mehr gleichmäßig verteilt sind, obwohl die Wahrscheinlichkeits-Verteilung
+Summe $S$ nicht mehr gleichmäßig verteilt ist, obwohl die Wahrscheinlichkeits-Verteilung
 $P$ auf dem zugrunde liegenden Wahrscheinlichkeits-Raum sehr wohl gleichmäßig ist.
 Die Ursache hierfür ist einfach einzusehen: Es gibt beispielsweise 6 Möglichkeiten, in der
 Summe eine 6 zu würfeln, aber es gibt nur eine einzige Möglichkeit um in der Summe eine 12
@@ -1611,7 +1611,7 @@ zu würfeln.
 
 \begin{Definition}[Wahrscheinlichkeits-Funktion]
   Ist $\langle \Omega, 2^\Omega, P \rangle$ ein diskreter Wahrscheinlichkeits-Raum und ist $X:\Omega \rightarrow \mathbb{R}$ 
-  eine Zufalls-Variablen, so bezeichnen wir die Funktion
+  eine Zufalls-Variable, so bezeichnen wir die Funktion
   \\[0.2cm]
   \hspace*{1.3cm}
   $f_X:\mathrm{range}(X) \rightarrow [0,1]$,
@@ -1671,7 +1671,7 @@ $\{1,\cdots,6\}$:
 \\[0.2cm]
 \hspace*{1.3cm} $\ds \Omega = \{ 1,\cdots,6 \}^n$
 \\[0.2cm]
-Berechnen Sie mit Hilfe eines geeigneten Programms (in einer Programmiersprache ihrer
+Berechnen Sie mit Hilfe eines geeigneten Programms (in einer Programmiersprache Ihrer
 Wahl) die Wahrscheinlichkeit dafür, dass die Augensumme aller Würfel den Wert $s$ hat und
 erstellen Sie den Graphen der Funktion
 \\[0.2cm]
@@ -1740,7 +1740,7 @@ einer \blue{Binomial-Verteilung} genügt.  Diesen Begriff definieren wir nun form
   Ausführungen des Experiments 
   voneinander unabhängig sind, und beschreibt die Zufalls-Variable $S$ die Anzahl der Erfolge, die sich bei der
   $n$-maligen Durchführung des Bernoulli-Experiments ergeben, so sagen wir, dass die Zufalls-Variable $S$
-  \blue{binomial mit den Parameter $n$ und $p$ verteilt} ist und schreiben
+  \blue{binomial mit den Parametern $n$ und $p$ verteilt} ist und schreiben
   \\[0.2cm]
   \hspace*{1.3cm}
   $S \sim \mathrm{Bin}(n, p)$.  \qed
